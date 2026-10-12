@@ -169,6 +169,11 @@
     animation: nameAppear 1s ease forwards;
   }
   
+  .hero-names .name,
+  .hero-names .amp {
+    animation-play-state: paused;
+  }
+  
   .hero-names .name-1 { animation-delay: 0.5s; }
   .hero-names .amp { 
     display: block;
@@ -346,7 +351,164 @@
   .music-btn:hover { background: #b8956a; transform: scale(1.05); }
   .music-btn.playing { background: #b8956a; }
   .music-btn svg { width: 20px; height: 20px; fill: currentColor; }
+
+  /* LOCK SCREEN */
+  .lock-screen {
+    position: fixed;
+    inset: 0;
+    background: #fafaf8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 24px 80px;
+    z-index: 10000;
+    transition: transform 0.9s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.9s ease;
+    will-change: transform;
+  }
   
+  .lock-screen.unlocked {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .lock-screen.hidden {
+    display: none;
+  }
+  
+  .lock-top { text-align: center; padding-top: 40px; }
+  
+  .lock-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 88px;
+    font-weight: 300;
+    color: #2a2a2a;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 8px;
+  }
+  
+  .lock-date {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999;
+    font-weight: 400;
+  }
+  
+  .lock-center {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lock-monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 96px;
+    font-weight: 300;
+    font-style: italic;
+    color: #b8956a;
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+    animation: glowMonogram 3s ease-in-out infinite;
+  }
+  
+  @keyframes glowMonogram {
+    0%, 100% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
+    50% { text-shadow: 0 0 40px rgba(212, 175, 55, 0.5), 0 0 60px rgba(212, 175, 55, 0.3); }
+  }
+  
+  .lock-subtitle {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #b8956a;
+    opacity: 0.8;
+  }
+  
+  .lock-bottom {
+    width: 100%;
+    max-width: 340px;
+    margin-bottom: 20px;
+  }
+  
+  .lock-slider {
+    position: relative;
+    width: 100%;
+    height: 68px;
+    background: rgba(184, 149, 106, 0.12);
+    border: 1px solid rgba(184, 149, 106, 0.3);
+    border-radius: 34px;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+  }
+  
+  .lock-slider-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b8956a;
+    opacity: 0.7;
+    white-space: nowrap;
+    pointer-events: none;
+    animation: hintPulse 2.5s ease-in-out infinite;
+    padding-left: 30px;
+  }
+  
+  @keyframes hintPulse {
+    0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) translateX(0); }
+    50% { opacity: 0.9; transform: translate(-50%, -50%) translateX(8px); }
+  }
+  
+  .lock-slider-handle {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4c5a9, #b8956a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    box-shadow: 0 4px 16px rgba(184, 149, 106, 0.4);
+    transition: transform 0.15s ease;
+    z-index: 2;
+  }
+  
+  .lock-slider-handle:active { cursor: grabbing; }
+  
+  .lock-slider-handle svg {
+    width: 22px;
+    height: 22px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  
+  .lock-slider-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(212, 197, 169, 0.4), rgba(184, 149, 106, 0.6));
+    border-radius: 34px;
+    width: 68px;
+    transition: width 0.05s linear;
+    z-index: 1;
+  } 
+ 
   /* MOBILE */
   @media (max-width: 480px) {
     .hero-slider { min-height: 500px; }
@@ -361,7 +523,10 @@
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .gallery-grid img { height: 130px; }
     .map-frame { height: 260px; }
-    .organizer-card { padding: 24px 28px; }
+    .organizer-card { padding: 24px 28px; 
+    .lock-time { font-size: 72px; }
+    .lock-monogram { font-size: 76px; }
+    .lock-screen { padding: 40px 20px 60px; }}
     
     .invite-text::before,
     .invite-text::after {
@@ -386,6 +551,30 @@
 </style>
 </head>
 <body>
+
+!-- LOCK SCREEN -->
+<div class="lock-screen" id="lockScreen">
+  <div class="lock-top">
+    <div class="lock-time" id="lockTime">14:00</div>
+    <div class="lock-date">18 сентября, суббота</div>
+  </div>
+  <div class="lock-center">
+    <div class="lock-monogram">А & В</div>
+    <div class="lock-subtitle">Мы женимся</div>
+  </div>
+  <div class="lock-bottom">
+    <div class="lock-slider" id="lockSlider">
+      <div class="lock-slider-progress" id="lockProgress"></div>
+      <span class="lock-slider-text">свайпните вправо</span>
+      <div class="lock-slider-handle" id="lockHandle">
+        <svg viewBox="0 0 24 24">
+          <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- PROGRESS BAR (пункт 5) -->
 <div class="progress-bar" id="progressBar"></div>
 
@@ -620,6 +809,113 @@
 </audio>
 
 <script>
+
+  // LOCK SCREEN
+  var lockScreen = document.getElementById('lockScreen');
+  var lockSlider = document.getElementById('lockSlider');
+  var lockHandle = document.getElementById('lockHandle');
+  var lockProgress = document.getElementById('lockProgress');
+  
+  var isDragging = false;
+  var startX = 0;
+  var currentX = 0;
+  var maxTranslate = 0;
+  var isUnlocked = false;
+  
+  // Проверяем, разблокировано ли уже (в этой сессии)
+  if (sessionStorage.getItem('weddingUnlocked') === 'true') {
+    lockScreen.classList.add('hidden');
+    isUnlocked = true;
+  }
+  
+  // Реальное время
+  function updateLockTime() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    document.getElementById('lockTime').textContent = 
+      (hours < 10 ? '0' + hours : hours) + ':' + 
+      (minutes < 10 ? '0' + minutes : minutes);
+  }
+  if (!isUnlocked) {
+    updateLockTime();
+    setInterval(updateLockTime, 60000);
+  }
+  
+  function calcMax() {
+    maxTranslate = lockSlider.offsetWidth - lockHandle.offsetWidth - 12;
+  }
+  if (!isUnlocked) {
+    calcMax();
+    window.addEventListener('resize', calcMax);
+  }
+  
+  function startDrag(e) {
+    if (isUnlocked) return;
+    isDragging = true;
+    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    startX = clientX - currentX;
+    lockHandle.style.transition = 'none';
+    lockProgress.style.transition = 'none';
+    e.preventDefault();
+  }
+  
+  function moveDrag(e) {
+    if (!isDragging || isUnlocked) return;
+    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    currentX = clientX - startX;
+    if (currentX < 0) currentX = 0;
+    if (currentX > maxTranslate) currentX = maxTranslate;
+    lockHandle.style.transform = 'translateX(' + currentX + 'px)';
+    lockProgress.style.width = (currentX + lockHandle.offsetWidth + 6) + 'px';
+    e.preventDefault();
+  }
+  
+  function endDrag() {
+    if (!isDragging || isUnlocked) return;
+    isDragging = false;
+    if (currentX >= maxTranslate * 0.85) {
+      unlockScreen();
+    } else {
+      lockHandle.style.transition = 'transform 0.3s ease';
+      lockProgress.style.transition = 'width 0.3s ease';
+      lockHandle.style.transform = 'translateX(0)';
+      lockProgress.style.width = '68px';
+      currentX = 0;
+    }
+  }
+  
+  function unlockScreen() {
+    isUnlocked = true;
+    lockHandle.style.transition = 'transform 0.4s ease';
+    lockProgress.style.transition = 'width 0.4s ease';
+    lockHandle.style.transform = 'translateX(' + maxTranslate + 'px)';
+    lockProgress.style.width = '100%';
+    
+    sessionStorage.setItem('weddingUnlocked', 'true');
+    
+    setTimeout(function() {
+      lockScreen.classList.add('unlocked');
+      // Запускаем появление имён в hero
+      var names = document.querySelectorAll('.hero-names .name, .hero-names .amp');
+      names.forEach(function(el) {
+        el.style.animationPlayState = 'running';
+      });
+    }, 200);
+  }
+  
+  if (!isUnlocked) {
+    lockHandle.addEventListener('mousedown', startDrag);
+    document.addEventListener('mousemove', moveDrag);
+    document.addEventListener('mouseup', endDrag);
+    
+    lockHandle.addEventListener('touchstart', startDrag, { passive: false });
+    document.addEventListener('touchmove', moveDrag, { passive: false });
+    document.addEventListener('touchend', endDrag);
+    
+    lockSlider.addEventListener('dblclick', unlockScreen);
+  }
+
   // COUNTDOWN
   var weddingDate = new Date('2027-09-18T14:00:00+03:00').getTime();
 
