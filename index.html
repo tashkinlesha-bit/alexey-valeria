@@ -6,7 +6,7 @@
 <title>Алексей & Валерия — 18.09.2027</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+   * { margin: 0; padding: 0; box-sizing: border-box; }
   
   html { scroll-behavior: smooth; }
   
@@ -57,6 +57,45 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
   
+  /* PROGRESS BAR (пункт 5) */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, #d4c5a9, #d4af37, #b8956a);
+    z-index: 9998;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+  }
+  
+  /* INITIALS BADGE (пункт 7) */
+  .initials-badge {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #b8956a;
+    background: rgba(250, 250, 248, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    z-index: 9997;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+  }
+  .initials-badge.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
   /* PETALS — КРУПНЫЕ */
   .petals-bg {
     position: fixed;
@@ -84,22 +123,58 @@
       transform: translateY(-15vh) translateX(0) rotate(0deg) scale(1);
       opacity: 0;
     }
-    10% {
-      opacity: 0.7;
-    }
+    10% { opacity: 0.7; }
     50% {
       transform: translateY(50vh) translateX(30px) rotate(180deg) scale(1.05);
     }
-    90% {
-      opacity: 0.7;
-    }
+    90% { opacity: 0.7; }
     100% {
       transform: translateY(115vh) translateX(-20px) rotate(360deg) scale(1);
       opacity: 0;
     }
   }
   
-  /* HERO SLIDER */
+  /* SPARKLES — ЗОЛОТЫЕ БЛЁСТКИ (пункт 1) */
+  .sparkles-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #d4af37;
+    border-radius: 50%;
+    box-shadow: 0 0 6px 1px rgba(212, 175, 55, 0.8);
+    animation: sparkle-up linear infinite;
+    opacity: 0;
+  }
+  
+  @keyframes sparkle-up {
+    0% {
+      transform: translateY(0) scale(0);
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+      transform: translateY(-10vh) scale(1);
+    }
+    85% {
+      opacity: 1;
+      transform: translateY(-80vh) scale(1);
+    }
+    100% {
+      transform: translateY(-100vh) scale(0);
+      opacity: 0;
+    }
+  }
+  
+  /* HERO SLIDER (пункт 8 — рамка) */
   .hero-slider {
     position: relative;
     width: 100%;
@@ -109,6 +184,20 @@
     overflow: hidden;
     background: #2a2a2a;
   }
+  
+  /* Золотая рамка (пункт 8) */
+  .hero-slider::before {
+    content: '';
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    z-index: 3;
+    pointer-events: none;
+  }
+  
   .slide {
     position: absolute;
     top: 0; left: 0;
@@ -117,6 +206,7 @@
     transition: opacity 1.5s ease;
     background-size: cover;
     background-position: center;
+    will-change: transform;
   }
   .slide.active { opacity: 1; }
   
@@ -146,7 +236,10 @@
     text-transform: uppercase;
     color: rgba(255,255,255,0.85);
     margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.3s forwards;
   }
+  
   .hero-names {
     font-family: 'Cormorant Garamond', serif;
     font-size: 64px;
@@ -155,26 +248,74 @@
     letter-spacing: 2px;
     margin-bottom: 28px;
     color: #fff;
-    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    animation: namesGlow 3s ease-in-out infinite;
   }
+  
+  /* Анимация появления имён (пункт 3) */
+  @keyframes namesGlow {
+    0%, 100% {
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3), 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(212, 175, 55, 0.7), 0 0 60px rgba(212, 175, 55, 0.4);
+    }
+  }
+  
+  .hero-names .name {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: nameAppear 1s ease forwards;
+  }
+  
+  .hero-names .name-1 { animation-delay: 0.5s; }
+  .hero-names .amp { 
+    display: block;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: nameAppear 1s ease 0.9s forwards;
+  }
+  .hero-names .name-2 { animation-delay: 1.3s; }
+  
+  @keyframes nameAppear {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
   .hero-amp {
     display: block;
     font-size: 44px;
     color: #e8dcc9;
     margin: 8px 0;
     font-style: italic;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
   }
+  
   .hero-date {
     font-size: 15px;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: rgba(255,255,255,0.95);
     margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeInUp 1s ease 1.6s forwards;
   }
+  
   .hero-time {
     font-size: 13px;
     letter-spacing: 3px;
     color: rgba(255,255,255,0.75);
+    opacity: 0;
+    animation: fadeInUp 1s ease 1.8s forwards;
   }
   
   /* COUNTDOWN */
@@ -186,8 +327,42 @@
   .countdown-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #999; }
   .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: #d4c5a9; padding-top: 6px; }
   
+  /* ORNAMENTS (пункт 6) */
+  .ornament {
+    text-align: center;
+    padding: 8px 0;
+    opacity: 0.7;
+  }
+  
+  .ornament svg {
+    width: 60px;
+    height: 40px;
+    display: inline-block;
+  }
+  
   /* TEXT */
-  .invite-text { text-align: center; padding: 40px 0 60px; border-top: 1px solid #e8e4dd; border-bottom: 1px solid #e8e4dd; }
+  .invite-text { 
+    text-align: center; 
+    padding: 40px 0 60px; 
+    position: relative;
+  }
+  
+  /* Кавычки (пункт 9) */
+  .invite-text::before,
+  .invite-text::after {
+    content: '«';
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    color: #d4c5a9;
+    opacity: 0.5;
+    line-height: 1;
+    left: 0;
+  }
+  
+  .invite-text::before { top: 30px; }
+  .invite-text::after { content: '»'; bottom: 30px; right: 0; left: auto; }
+  
   .invite-text p { font-size: 16px; line-height: 1.8; color: #555; max-width: 420px; margin: 0 auto; }
   .invite-text .lead { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-style: italic; color: #2a2a2a; margin-bottom: 24px; line-height: 1.4; }
   
@@ -201,7 +376,7 @@
   .detail-note { font-size: 13px; color: #999; margin-top: 6px; }
   
   /* TIMELINE */
-  .timeline { padding: 60px 0; border-top: 1px solid #e8e4dd; }
+  .timeline { padding: 60px 0; }
   .timeline-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; text-align: center; margin-bottom: 40px; }
   .timeline-item { display: flex; align-items: flex-start; margin-bottom: 28px; gap: 20px; }
   .timeline-time { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #b8956a; min-width: 70px; padding-top: 2px; }
@@ -209,27 +384,27 @@
   .timeline-desc strong { display: block; color: #2a2a2a; font-weight: 500; margin-bottom: 2px; }
   
   /* DRESS CODE */
-  .dresscode { padding: 60px 0; border-top: 1px solid #e8e4dd; text-align: center; }
+  .dresscode { padding: 60px 0; text-align: center; }
   .dresscode-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
   .dresscode-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 32px; line-height: 1.7; }
   .palette { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
   .palette-color { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
   
   /* MAP */
-  .map-section { padding: 60px 0; border-top: 1px solid #e8e4dd; }
+  .map-section { padding: 60px 0; }
   .map-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; text-align: center; margin-bottom: 24px; }
   .map-frame { border-radius: 4px; overflow: hidden; height: 320px; background: #eee; }
   .map-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
   
   /* GALLERY */
-  .gallery { padding: 60px 0; border-top: 1px solid #e8e4dd; }
+  .gallery { padding: 60px 0; }
   .gallery-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; text-align: center; margin-bottom: 32px; }
   .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
   .gallery-grid img { width: 100%; height: 120px; object-fit: cover; display: block; border-radius: 3px; cursor: pointer; transition: transform 0.4s ease, opacity 0.4s ease; }
   .gallery-grid img:hover { transform: scale(1.03); opacity: 0.9; }
   
   /* ORGANIZER */
-  .organizer { padding: 60px 0; border-top: 1px solid #e8e4dd; text-align: center; }
+  .organizer { padding: 60px 0; text-align: center; }
   .organizer-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
   .organizer-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 28px; line-height: 1.7; }
   .organizer-card { display: inline-block; padding: 28px 40px; background: #fff; border: 1px solid #e8e4dd; border-radius: 4px; text-align: center; }
@@ -239,7 +414,7 @@
   .organizer-note { font-size: 13px; color: #999; margin-top: 16px; }
   
   /* CTA */
-  .cta-section { padding: 60px 0 80px; text-align: center; border-top: 1px solid #e8e4dd; }
+  .cta-section { padding: 60px 0 80px; text-align: center; }
   .cta-text { font-size: 15px; color: #555; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; }
   .btn { display: inline-block; padding: 16px 48px; background: #2a2a2a; color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; transition: background 0.3s ease; }
   .btn:hover { background: #b8956a; }
@@ -288,21 +463,52 @@
     .organizer-card { padding: 24px 28px; }
     
     .petal { width: 22px; height: 22px; }
+    .sparkle { width: 3px; height: 3px; }
+    
+    .invite-text::before,
+    .invite-text::after {
+      font-size: 40px;
+      opacity: 0.35;
+    }
+    
+    .initials-badge {
+      top: 14px;
+      right: 14px;
+      font-size: 15px;
+      padding: 6px 12px;
+    }
+    
+    .hero-slider::before {
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+    }
   }
 </style>
 </head>
 <body>
+<!-- PROGRESS BAR (пункт 5) -->
+<div class="progress-bar" id="progressBar"></div>
 
+<!-- INITIALS BADGE (пункт 7) -->
+<div class="initials-badge" id="initialsBadge">А & В</div>
+
+<!-- CUSTOM CURSOR -->
 <div class="cursor-heart" id="cursorHeart">
   <svg viewBox="0 0 24 24">
     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
   </svg>
 </div>
 
+<!-- PETALS -->
 <div class="petals-bg" id="petalsBg"></div>
 
+<!-- SPARKLES (пункт 1) -->
+<div class="sparkles-bg" id="sparklesBg"></div>
+
 <!-- HERO SLIDER -->
-<section class="hero-slider">
+<section class="hero-slider" id="heroSlider">
   <div class="slide active" style="background-image: url('slide1.jpg');"></div>
   <div class="slide" style="background-image: url('slide2.jpg');"></div>
   <div class="slide" style="background-image: url('slide3.jpg');"></div>
@@ -311,9 +517,9 @@
   <div class="hero-content">
     <div class="hero-subtitle">Мы женимся</div>
     <h1 class="hero-names">
-      Алексей
-      <span class="hero-amp">&</span>
-      Валерия
+      <span class="name name-1">Алексей</span>
+      <span class="amp hero-amp">&</span>
+      <span class="name name-2">Валерия</span>
     </h1>
     <div class="hero-date">18 сентября 2027</div>
     <div class="hero-time">14:00 · Казань</div>
@@ -347,10 +553,30 @@
     </div>
   </section>
 
+  <!-- ORNAMENT: два кольца (пункт 6) -->
+  <div class="ornament">
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+    </svg>
+  </div>
+
   <section class="invite-text reveal">
     <p class="lead">Дорогие друзья и близкие!</p>
     <p>В этот день мы хотим разделить с вами самое важное событие в нашей жизни — день нашей свадьбы. Будем счастливы видеть вас рядом.</p>
   </section>
+
+  <!-- ORNAMENT -->
+  <div class="ornament">
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+    </svg>
+  </div>
 
   <section class="details reveal">
     <div class="details-title">Детали</div>
@@ -370,6 +596,16 @@
       <div class="detail-note">просим не опаздывать</div>
     </div>
   </section>
+
+  <!-- ORNAMENT -->
+  <div class="ornament">
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+    </svg>
+  </div>
 
   <section class="timeline reveal">
     <div class="timeline-title">Программа дня</div>
@@ -403,6 +639,16 @@
     </div>
   </section>
 
+  <!-- ORNAMENT -->
+  <div class="ornament">
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+    </svg>
+  </div>
+
   <section class="dresscode reveal">
     <div class="dresscode-title">Дресс-код</div>
     <p class="dresscode-text">Будем рады, если вы поддержите нашу цветовую гамму в своих нарядах</p>
@@ -415,6 +661,16 @@
     </div>
   </section>
 
+  <!-- ORNAMENT -->
+  <div class="ornament">
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+    </svg>
+  </div>
+
   <section class="map-section reveal">
     <div class="map-title">Как добраться</div>
     <div class="map-frame">
@@ -425,6 +681,16 @@
       </iframe>
     </div>
   </section>
+
+  <!-- ORNAMENT -->
+  <div class="ornament">
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+    </svg>
+  </div>
 
   <section class="gallery reveal">
     <div class="gallery-title">Наши моменты</div>
@@ -440,6 +706,16 @@
     </div>
   </section>
 
+  <!-- ORNAMENT -->
+  <div class="ornament">
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+    </svg>
+  </div>
+
   <section class="organizer reveal">
     <div class="organizer-title">Есть вопросы?</div>
     <p class="organizer-text">По всем вопросам организации, трансфера и размещения — обращайтесь к нашему организатору</p>
@@ -449,6 +725,16 @@
       <div class="organizer-note">звонки и сообщения в WhatsApp/Telegram</div>
     </div>
   </section>
+
+  <!-- ORNAMENT -->
+  <div class="ornament">
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+    </svg>
+  </div>
 
   <section class="cta-section reveal">
     <p class="cta-text">Пожалуйста, подтвердите своё присутствие до 1 августа 2027 года</p>
@@ -461,6 +747,7 @@
 
 </div>
 
+<!-- MUSIC BUTTON -->
 <button class="music-btn" id="musicBtn" aria-label="Включить музыку">
   <svg id="musicIcon" viewBox="0 0 24 24">
     <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
@@ -499,7 +786,7 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // REVEAL
+  // REVEAL ON SCROLL
   var revealElements = document.querySelectorAll('.reveal');
   var revealObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
@@ -541,24 +828,84 @@
     }, 5000);
   }
 
-  // PETALS — КРУПНЫЕ, 26 ШТУК
+  // PARALLAX HERO (пункт 4)
+  var heroSlider = document.getElementById('heroSlider');
+  var parallaxSlides = document.querySelectorAll('.hero-slider .slide');
+
+  function updateHeroParallax() {
+    if (!heroSlider) return;
+    var scrollY = window.pageYOffset;
+    var heroHeight = heroSlider.offsetHeight;
+
+    if (scrollY < heroHeight) {
+      var offset = scrollY * 0.15;
+      parallaxSlides.forEach(function(slide) {
+        slide.style.backgroundPosition = 'center calc(50% + ' + offset + 'px)';
+      });
+    }
+  }
+
+  window.addEventListener('scroll', updateHeroParallax, { passive: true });
+
+  // PETALS
   var petalsBg = document.getElementById('petalsBg');
   var hues = ['#f5e6d3', '#e8dcc9', '#d4c5a9', '#e0d4bc', '#c9b895'];
-  
+
   for (var i = 0; i < 26; i++) {
     var petal = document.createElement('div');
     petal.className = 'petal';
     petal.style.left = Math.random() * 100 + '%';
     petal.style.animationDuration = (10 + Math.random() * 12) + 's';
     petal.style.animationDelay = (Math.random() * 12) + 's';
-    // Разный размер: от 0.7 до 1.4
     var size = 0.7 + Math.random() * 0.7;
     petal.style.transform = 'scale(' + size + ')';
-    // Случайный оттенок
     var randomHue = hues[Math.floor(Math.random() * hues.length)];
     petal.style.background = 'radial-gradient(ellipse at 30% 30%, ' + randomHue + ' 0%, #d4c5a9 100%)';
     petalsBg.appendChild(petal);
   }
+
+  // SPARKLES (пункт 1)
+  var sparklesBg = document.getElementById('sparklesBg');
+
+  for (var j = 0; j < 50; j++) {
+    var sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    sparkle.style.left = Math.random() * 100 + '%';
+    sparkle.style.bottom = '-10px';
+    sparkle.style.animationDuration = (8 + Math.random() * 10) + 's';
+    sparkle.style.animationDelay = (Math.random() * 15) + 's';
+    var sparkleSize = 2 + Math.random() * 3;
+    sparkle.style.width = sparkleSize + 'px';
+    sparkle.style.height = sparkleSize + 'px';
+    sparkle.style.opacity = 0;
+    sparklesBg.appendChild(sparkle);
+  }
+
+  // PROGRESS BAR (пункт 5)
+  var progressBar = document.getElementById('progressBar');
+
+  function updateProgressBar() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = progress + '%';
+  }
+
+  window.addEventListener('scroll', updateProgressBar, { passive: true });
+
+  // INITIALS BADGE (пункт 7)
+  var initialsBadge = document.getElementById('initialsBadge');
+
+  function updateInitialsBadge() {
+    var scrollY = window.pageYOffset;
+    if (scrollY > 300) {
+      initialsBadge.classList.add('visible');
+    } else {
+      initialsBadge.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', updateInitialsBadge, { passive: true });
 
   // CUSTOM CURSOR
   var cursorHeart = document.getElementById('cursorHeart');
