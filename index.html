@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Алексей & Валерия — 18.09.2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #fafaf8;
+    color: #2a2a2a;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 80px 0 60px;
+  }
+  
+  .hero-subtitle {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 32px;
+  }
+  
+  .hero-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+  
+  .hero-amp {
+    display: block;
+    font-size: 40px;
+    color: #b8956a;
+    margin: 8px 0;
+    font-style: italic;
+  }
+  
+  .hero-date {
+    font-size: 15px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  .hero-time {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #999;
+  }
+  
+  /* PHOTO */
+  .photo-section {
+    padding: 20px 0 60px;
+  }
+  
+  .photo-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+  
+  /* TEXT */
+  .invite-text {
+    text-align: center;
+    padding: 40px 0 60px;
+    border-top: 1px solid #e8e4dd;
+    border-bottom: 1px solid #e8e4dd;
+  }
+  
+  .invite-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  
+  .invite-text .lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    color: #2a2a2a;
+    margin-bottom: 24px;
+    line-height: 1.4;
+  }
+  
+  /* DETAILS */
+  .details {
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .details-title {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 40px;
+  }
+  
+  .detail-item {
+    margin-bottom: 36px;
+  }
+  
+  .detail-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .detail-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b8956a;
+    margin-bottom: 10px;
+  }
+  
+  .detail-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: #2a2a2a;
+    line-height: 1.4;
+  }
+  
+  .detail-note {
+    font-size: 13px;
+    color: #999;
+    margin-top: 6px;
+  }
+  
+  /* TIMELINE */
+  .timeline {
+    padding: 60px 0;
+    border-top: 1px solid #e8e4dd;
+  }
+  
+  .timeline-title {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #999;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    gap: 20px;
+  }
+  
+  .timeline-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: #b8956a;
+    min-width: 70px;
+    padding-top: 2px;
+  }
+  
+  .timeline-desc {
+    font-size: 15px;
+    color: #555;
+    padding-top: 4px;
+  }
+  
+  .timeline-desc strong {
+    display: block;
+    color: #2a2a2a;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+  
+  /* BUTTON */
+  .cta-section {
+    padding: 60px 0 80px;
+    text-align: center;
+    border-top: 1px solid #e8e4dd;
+  }
+  
+  .cta-text {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 24px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 16px 48px;
+    background: #2a2a2a;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background 0.3s ease;
+  }
+  
+  .btn:hover {
+    background: #b8956a;
+  }
+  
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 40px 0 60px;
+    font-size: 12px;
+    color: #aaa;
+    letter-spacing: 2px;
+  }
+  
+  .footer-heart {
+    font-size: 14px;
+    color: #b8956a;
+  }
+  
+  /* MOBILE */
+  @media (max-width: 480px) {
+    .hero { padding: 60px 0 40px; }
+    .hero-names { font-size: 42px; }
+    .hero-amp { font-size: 32px; }
+    .invite-text .lead { font-size: 20px; }
+    .detail-value { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-subtitle">Мы женимся</div>
+    <h1 class="hero-names">
+      Алексей
+      <span class="hero-amp">&</span>
+      Валерия
+    </h1>
+    <div class="hero-date">18 сентября 2027</div>
+    <div class="hero-time">14:00 · Казань</div>
+  </section>
+
+  <!-- PHOTO -->
+  <section class="photo-section">
+    <img src="photo.jpg" alt="Алексей и Валерия">
+  </section>
+
+  <!-- INVITE TEXT -->
+  <section class="invite-text">
+    <p class="lead">Дорогие друзья и близкие!</p>
+    <p>В этот день мы хотим разделить с вами самое важное событие в нашей жизни — день нашей свадьбы. Будем счастливы видеть вас рядом.</p>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="details">
+    <div class="details-title">Детали</div>
+    
+    <div class="detail-item">
+      <div class="detail-label">Когда</div>
+      <div class="detail-value">18 сентября 2027</div>
+      <div class="detail-note">суббота, 14:00</div>
+    </div>
+    
+    <div class="detail-item">
+      <div class="detail-label">Где</div>
+      <div class="detail-value">ЗАГС «Чаша»</div>
+      <div class="detail-note">г. Казань, ул. Сибгата Хакима, 4</div>
+    </div>
+    
+    <div class="detail-item">
+      <div class="detail-label">Сбор гостей</div>
+      <div class="detail-value">13:30</div>
+      <div class="detail-note">просим не опаздывать</div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline">
+    <div class="timeline-title">Программа дня</div>
+    
+    <div class="timeline-item">
+      <div class="timeline-time">13:30</div>
+      <div class="timeline-desc">
+        <strong>Сбор гостей</strong>
+        встречаемся у ЗАГСа «Чаша»
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="timeline-time">14:00</div>
+      <div class="timeline-desc">
+        <strong>Церемония</strong>
+        торжественная регистрация брака
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="timeline-time">15:30</div>
+      <div class="timeline-desc">
+        <strong>Фотосессия</strong>
+        прогулка и фото у «Чаши»
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="timeline-time">17:00</div>
+      <div class="timeline-desc">
+        <strong>Банкет</strong>
+        праздничный ужин
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <p class="cta-text">Пожалуйста, подтвердите своё присутствие до 1 августа 2027 года</p>
+    <a href="https://forms.gle/SpyQS3RQFLgTAMjBA" class="btn" target="_blank">Я приду</a>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    С любовью, Алексей и Валерия <span class="footer-heart">♥</span>
+  </div>
+
+</div>
+
+</body>
+</html>
