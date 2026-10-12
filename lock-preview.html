@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Свадьба Алексея и Валерии</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .lock-screen {
+    position: fixed;
+    inset: 0;
+    background: #fafaf8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 24px 80px;
+    z-index: 10000;
+    transition: transform 0.9s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.9s ease;
+    will-change: transform;
+  }
+  
+  .lock-screen.unlocked {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  /* Верхняя часть: время и дата */
+  .lock-top {
+    text-align: center;
+    padding-top: 40px;
+  }
+  
+  .lock-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 88px;
+    font-weight: 300;
+    color: #2a2a2a;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 8px;
+  }
+  
+  .lock-date {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999;
+    font-weight: 400;
+  }
+  
+  /* Центр: монограмма */
+  .lock-center {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lock-monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 96px;
+    font-weight: 300;
+    font-style: italic;
+    color: #b8956a;
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+    animation: glowMonogram 3s ease-in-out infinite;
+  }
+  
+  @keyframes glowMonogram {
+    0%, 100% {
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    }
+    50% {
+      text-shadow: 0 0 40px rgba(212, 175, 55, 0.5), 0 0 60px rgba(212, 175, 55, 0.3);
+    }
+  }
+  
+  .lock-subtitle {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #b8956a;
+    opacity: 0.8;
+  }
+  
+  /* Низ: ползунок */
+  .lock-bottom {
+    width: 100%;
+    max-width: 340px;
+    margin-bottom: 20px;
+  }
+  
+  .lock-slider {
+    position: relative;
+    width: 100%;
+    height: 68px;
+    background: rgba(184, 149, 106, 0.12);
+    border: 1px solid rgba(184, 149, 106, 0.3);
+    border-radius: 34px;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+  }
+  
+  .lock-slider-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b8956a;
+    opacity: 0.7;
+    white-space: nowrap;
+    pointer-events: none;
+    animation: hintPulse 2.5s ease-in-out infinite;
+    padding-left: 30px;
+  }
+  
+  @keyframes hintPulse {
+    0%, 100% {
+      opacity: 0.5;
+      transform: translate(-50%, -50%) translateX(0);
+    }
+    50% {
+      opacity: 0.9;
+      transform: translate(-50%, -50%) translateX(8px);
+    }
+  }
+  
+  .lock-slider-handle {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4c5a9, #b8956a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    box-shadow: 0 4px 16px rgba(184, 149, 106, 0.4);
+    transition: transform 0.15s ease;
+    z-index: 2;
+  }
+  
+  .lock-slider-handle:active {
+    cursor: grabbing;
+  }
+  
+  .lock-slider-handle svg {
+    width: 22px;
+    height: 22px;
+    fill: #fff;
+    margin-left: 3px;
+    transition: transform 0.2s ease;
+  }
+  
+  .lock-slider-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(212, 197, 169, 0.4), rgba(184, 149, 106, 0.6));
+    border-radius: 34px;
+    width: 68px;
+    transition: width 0.05s linear;
+    z-index: 1;
+  }
+  
+  .lock-slider.unlocked .lock-slider-handle {
+    transform: translateX(calc(100% + 10px));
+  }
+  
+  /* Мобильная адаптация */
+  @media (max-width: 480px) {
+    .lock-time { font-size: 72px; }
+    .lock-monogram { font-size: 76px; }
+    .lock-screen { padding: 40px 20px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lock-screen" id="lockScreen">
+  
+  <div class="lock-top">
+    <div class="lock-time" id="lockTime">14:00</div>
+    <div class="lock-date">18 сентября, суббота</div>
+  </div>
+  
+  <div class="lock-center">
+    <div class="lock-monogram">А & В</div>
+    <div class="lock-subtitle">Мы женимся</div>
+  </div>
+  
+  <div class="lock-bottom">
+    <div class="lock-slider" id="lockSlider">
+      <div class="lock-slider-progress" id="lockProgress"></div>
+      <span class="lock-slider-text">свайпните вправо</span>
+      <div class="lock-slider-handle" id="lockHandle">
+        <svg viewBox="0 0 24 24">
+          <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<script>
+  var lockScreen = document.getElementById('lockScreen');
+  var lockSlider = document.getElementById('lockSlider');
+  var lockHandle = document.getElementById('lockHandle');
+  var lockProgress = document.getElementById('lockProgress');
+  
+  var isDragging = false;
+  var startX = 0;
+  var currentX = 0;
+  var maxTranslate = 0;
+  
+  // Реальное время в верхнем углу
+  function updateTime() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    document.getElementById('lockTime').textContent = 
+      (hours < 10 ? '0' + hours : hours) + ':' + 
+      (minutes < 10 ? '0' + minutes : minutes);
+  }
+  updateTime();
+  setInterval(updateTime, 60000);
+  
+  // Вычисляем максимум смещения
+  function calcMax() {
+    maxTranslate = lockSlider.offsetWidth - lockHandle.offsetWidth - 12;
+  }
+  calcMax();
+  window.addEventListener('resize', calcMax);
+  
+  // Начало перетаскивания
+  function startDrag(e) {
+    isDragging = true;
+    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    startX = clientX - currentX;
+    lockHandle.style.transition = 'none';
+    lockProgress.style.transition = 'none';
+    e.preventDefault();
+  }
+  
+  // Процесс
+  function moveDrag(e) {
+    if (!isDragging) return;
+    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    currentX = clientX - startX;
+    
+    if (currentX < 0) currentX = 0;
+    if (currentX > maxTranslate) currentX = maxTranslate;
+    
+    lockHandle.style.transform = 'translateX(' + currentX + 'px)';
+    lockProgress.style.width = (currentX + lockHandle.offsetWidth + 6) + 'px';
+    
+    e.preventDefault();
+  }
+  
+  // Конец
+  function endDrag() {
+    if (!isDragging) return;
+    isDragging = false;
+    
+    // Если дотянул до 85% — разблокируем
+    if (currentX >= maxTranslate * 0.85) {
+      unlock();
+    } else {
+      // Возврат на место
+      lockHandle.style.transition = 'transform 0.3s ease';
+      lockProgress.style.transition = 'width 0.3s ease';
+      lockHandle.style.transform = 'translateX(0)';
+      lockProgress.style.width = '68px';
+      currentX = 0;
+    }
+  }
+  
+  function unlock() {
+    lockSlider.classList.add('unlocked');
+    lockHandle.style.transition = 'transform 0.4s ease';
+    lockProgress.style.transition = 'width 0.4s ease';
+    lockHandle.style.transform = 'translateX(' + maxTranslate + 'px)';
+    lockProgress.style.width = '100%';
+    
+    setTimeout(function() {
+      lockScreen.classList.add('unlocked');
+    }, 200);
+  }
+  
+  // События мыши
+  lockHandle.addEventListener('mousedown', startDrag);
+  document.addEventListener('mousemove', moveDrag);
+  document.addEventListener('mouseup', endDrag);
+  
+  // События тача
+  lockHandle.addEventListener('touchstart', startDrag, { passive: false });
+  document.addEventListener('touchmove', moveDrag, { passive: false });
+  document.addEventListener('touchend', endDrag);
+  
+  // Двойной клик/тап — быстрая разблокировка (для тех, кто не понял свайп)
+  lockSlider.addEventListener('dblclick', unlock);
+  lockSlider.addEventListener('dbltap', unlock);
+</script>
+
+</body>
+</html>
