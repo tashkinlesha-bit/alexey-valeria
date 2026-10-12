@@ -67,6 +67,55 @@
     color: #999;
   }
   
+  /* COUNTDOWN */
+  .countdown-section {
+    padding: 20px 0 60px;
+    text-align: center;
+  }
+  
+  .countdown-title {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 32px;
+  }
+  
+  .countdown {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .countdown-item {
+    min-width: 72px;
+  }
+  
+  .countdown-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 300;
+    color: #2a2a2a;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  
+  .countdown-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+  }
+  
+  .countdown-sep {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: #d4c5a9;
+    padding-top: 6px;
+  }
+  
   /* PHOTO */
   .photo-section {
     padding: 20px 0 60px;
@@ -244,6 +293,10 @@
     .hero-amp { font-size: 32px; }
     .invite-text .lead { font-size: 20px; }
     .detail-value { font-size: 19px; }
+    .countdown-value { font-size: 34px; }
+    .countdown-item { min-width: 58px; }
+    .countdown-sep { font-size: 28px; padding-top: 4px; }
+    .countdown { gap: 6px; }
   }
 </style>
 </head>
@@ -261,6 +314,32 @@
     </h1>
     <div class="hero-date">18 сентября 2027</div>
     <div class="hero-time">14:00 · Казань</div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="countdown-section">
+    <div class="countdown-title">До нашей свадьбы осталось</div>
+    <div class="countdown" id="countdown">
+      <div class="countdown-item">
+        <div class="countdown-value" id="days">—</div>
+        <div class="countdown-label">дней</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="hours">—</div>
+        <div class="countdown-label">часов</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="minutes">—</div>
+        <div class="countdown-label">минут</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="seconds">—</div>
+        <div class="countdown-label">секунд</div>
+      </div>
+    </div>
   </section>
 
   <!-- PHOTO -->
@@ -346,6 +425,35 @@
   </div>
 
 </div>
+
+<script>
+  // Дата свадьбы: 18 сентября 2027, 14:00 по Москве (UTC+3)
+  var weddingDate = new Date('2027-09-18T14:00:00+03:00').getTime();
+
+  function updateCountdown() {
+    var now = new Date().getTime();
+    var distance = weddingDate - now;
+
+    if (distance < 0) {
+      document.getElementById('countdown').innerHTML = 
+        '<div style="font-family: Cormorant Garamond, serif; font-size: 28px; font-style: italic; color: #b8956a; width: 100%; text-align: center;">Этот день настал! ♥</div>';
+      return;
+    }
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+    document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+    document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 
 </body>
 </html>
