@@ -19,10 +19,40 @@
     overflow-x: hidden;
   }
   
+  /* CUSTOM CURSOR (desktop only) */
+  @media (hover: hover) and (pointer: fine) {
+    body { cursor: none; }
+    a, button, img, .palette-color { cursor: none; }
+    
+    .cursor-heart {
+      position: fixed;
+      width: 24px;
+      height: 24px;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease;
+      will-change: transform;
+    }
+    
+    .cursor-heart svg {
+      width: 100%;
+      height: 100%;
+      fill: #b8956a;
+      opacity: 0.85;
+    }
+  }
+  
+  @media (hover: none), (pointer: coarse) {
+    .cursor-heart { display: none; }
+  }
+  
   .container {
     max-width: 600px;
     margin: 0 auto;
     padding: 0 24px;
+    position: relative;
+    z-index: 1;
   }
   
   /* REVEAL ANIMATION */
@@ -37,16 +67,137 @@
     transform: translateY(0);
   }
   
-  /* HERO */
-  .hero { text-align: center; padding: 80px 0 60px; }
-  .hero-subtitle { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
-  .hero-names { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; line-height: 1.1; letter-spacing: 2px; margin-bottom: 24px; }
-  .hero-amp { display: block; font-size: 40px; color: #b8956a; margin: 8px 0; font-style: italic; }
-  .hero-date { font-size: 15px; letter-spacing: 3px; text-transform: uppercase; color: #666; margin-bottom: 8px; }
-  .hero-time { font-size: 13px; letter-spacing: 2px; color: #999; }
+  /* FALLING PETALS */
+  .petals-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .petal {
+    position: absolute;
+    top: -30px;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle at 30% 30%, #f5e6d3, #d4c5a9);
+    border-radius: 50% 0 50% 50%;
+    opacity: 0.55;
+    animation: fall linear infinite;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(-10vh) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.55;
+    }
+    90% {
+      opacity: 0.55;
+    }
+    100% {
+      transform: translateY(110vh) translateX(40px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  /* HERO SLIDER */
+  .hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 900px;
+    overflow: hidden;
+    background: #2a2a2a;
+  }
+  
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .slide.active {
+    opacity: 1;
+  }
+  
+  .hero-slider::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.5) 100%);
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 600px;
+    padding: 0 24px;
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+  }
+  
+  .hero-subtitle {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 32px;
+  }
+  
+  .hero-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  
+  .hero-amp {
+    display: block;
+    font-size: 44px;
+    color: #e8dcc9;
+    margin: 8px 0;
+    font-style: italic;
+  }
+  
+  .hero-date {
+    font-size: 15px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 8px;
+  }
+  
+  .hero-time {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.75);
+  }
   
   /* COUNTDOWN */
-  .countdown-section { padding: 20px 0 60px; text-align: center; }
+  .countdown-section { padding: 80px 0 60px; text-align: center; }
   .countdown-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
   .countdown { display: flex; justify-content: center; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
   .countdown-item { min-width: 72px; }
@@ -54,9 +205,24 @@
   .countdown-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #999; }
   .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: #d4c5a9; padding-top: 6px; }
   
-  /* PHOTO */
-  .photo-section { padding: 20px 0 60px; }
-  .photo-section img { width: 100%; height: auto; display: block; border-radius: 4px; }
+  /* PARALLAX PHOTO */
+  .parallax-photo {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    margin: 20px 0 60px;
+    border-radius: 4px;
+  }
+  
+  .parallax-photo img {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 140%;
+    object-fit: cover;
+    will-change: transform;
+  }
   
   /* TEXT */
   .invite-text { text-align: center; padding: 40px 0 60px; border-top: 1px solid #e8e4dd; border-bottom: 1px solid #e8e4dd; }
@@ -100,6 +266,61 @@
   .gallery-grid img { width: 100%; height: 120px; object-fit: cover; display: block; border-radius: 3px; cursor: pointer; transition: transform 0.4s ease, opacity 0.4s ease; }
   .gallery-grid img:hover { transform: scale(1.03); opacity: 0.9; }
   
+  /* CONTACT ORGANIZER */
+  .organizer {
+    padding: 60px 0;
+    border-top: 1px solid #e8e4dd;
+    text-align: center;
+  }
+  .organizer-title {
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 24px;
+  }
+  .organizer-text {
+    font-size: 15px;
+    color: #555;
+    max-width: 420px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+  }
+  .organizer-card {
+    display: inline-block;
+    padding: 28px 40px;
+    background: #fff;
+    border: 1px solid #e8e4dd;
+    border-radius: 4px;
+    text-align: center;
+  }
+  .organizer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: #2a2a2a;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .organizer-phone {
+    display: inline-block;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #b8956a;
+    text-decoration: none;
+    border-bottom: 1px solid #e8dcc9;
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .organizer-phone:hover {
+    color: #2a2a2a;
+    border-color: #2a2a2a;
+  }
+  .organizer-note {
+    font-size: 13px;
+    color: #999;
+    margin-top: 16px;
+  }
+  
   /* CTA */
   .cta-section { padding: 60px 0 80px; text-align: center; border-top: 1px solid #e8e4dd; }
   .cta-text { font-size: 15px; color: #555; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; }
@@ -135,9 +356,9 @@
   
   /* MOBILE */
   @media (max-width: 480px) {
-    .hero { padding: 60px 0 40px; }
-    .hero-names { font-size: 42px; }
-    .hero-amp { font-size: 32px; }
+    .hero-slider { min-height: 500px; height: 100vh; }
+    .hero-names { font-size: 44px; }
+    .hero-amp { font-size: 34px; }
     .invite-text .lead { font-size: 20px; }
     .detail-value { font-size: 19px; }
     .countdown-value { font-size: 34px; }
@@ -147,15 +368,30 @@
     .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .gallery-grid img { height: 130px; }
     .map-frame { height: 260px; }
+    .parallax-photo { height: 380px; }
+    .organizer-card { padding: 24px 28px; }
   }
 </style>
 </head>
 <body>
 
-<div class="container">
+<!-- CUSTOM CURSOR -->
+<div class="cursor-heart" id="cursorHeart">
+  <svg viewBox="0 0 24 24">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</div>
 
-  <!-- HERO -->
-  <section class="hero">
+<!-- FALLING PETALS -->
+<div class="petals-bg" id="petalsBg"></div>
+
+<!-- HERO SLIDER -->
+<section class="hero-slider">
+  <div class="slide active" style="background-image: url('slide1.jpg');"></div>
+  <div class="slide" style="background-image: url('slide2.jpg');"></div>
+  <div class="slide" style="background-image: url('slide3.jpg');"></div>
+  
+  <div class="hero-content">
     <div class="hero-subtitle">Мы женимся</div>
     <h1 class="hero-names">
       Алексей
@@ -164,7 +400,10 @@
     </h1>
     <div class="hero-date">18 сентября 2027</div>
     <div class="hero-time">14:00 · Казань</div>
-  </section>
+  </div>
+</section>
+
+<div class="container">
 
   <!-- COUNTDOWN -->
   <section class="countdown-section">
@@ -192,9 +431,9 @@
     </div>
   </section>
 
-  <!-- PHOTO -->
-  <section class="photo-section reveal">
-    <img src="photo.jpg" alt="Алексей и Валерия">
+  <!-- PARALLAX PHOTO -->
+  <section class="parallax-photo reveal">
+    <img src="photo.jpg" alt="Алексей и Валерия" id="parallaxImg">
   </section>
 
   <!-- INVITE TEXT -->
@@ -303,6 +542,17 @@
     </div>
   </section>
 
+  <!-- ORGANIZER -->
+  <section class="organizer reveal">
+    <div class="organizer-title">Есть вопросы?</div>
+    <p class="organizer-text">По всем вопросам организации, трансфера и размещения — обращайтесь к нашему организатору</p>
+    <div class="organizer-card">
+      <div class="organizer-name">Айгуль</div>
+      <a href="tel:+79001234567" class="organizer-phone">+7 (900) 123-45-67</a>
+      <div class="organizer-note">звонки и сообщения в WhatsApp/Telegram</div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta-section reveal">
     <p class="cta-text">Пожалуйста, подтвердите своё присутствие до 1 августа 2027 года</p>
@@ -390,6 +640,71 @@
     }
     isPlaying = !isPlaying;
   });
+
+  // HERO SLIDER
+  var slides = document.querySelectorAll('.slide');
+  var currentSlide = 0;
+
+  if (slides.length > 1) {
+    setInterval(function() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 5000);
+  }
+
+  // FALLING PETALS
+  var petalsBg = document.getElementById('petalsBg');
+  var petalCount = 18;
+
+  for (var i = 0; i < petalCount; i++) {
+    var petal = document.createElement('div');
+    petal.className = 'petal';
+    petal.style.left = Math.random() * 100 + '%';
+    petal.style.animationDuration = (8 + Math.random() * 10) + 's';
+    petal.style.animationDelay = (Math.random() * 10) + 's';
+    petal.style.transform = 'scale(' + (0.6 + Math.random() * 0.8) + ')';
+    petalsBg.appendChild(petal);
+  }
+
+  // PARALLAX PHOTO
+  var parallaxImg = document.getElementById('parallaxImg');
+  var parallaxContainer = parallaxImg ? parallaxImg.parentElement : null;
+
+  function updateParallax() {
+    if (!parallaxContainer) return;
+    var rect = parallaxContainer.getBoundingClientRect();
+    var windowH = window.innerHeight;
+    
+    if (rect.bottom > 0 && rect.top < windowH) {
+      var progress = (windowH - rect.top) / (windowH + rect.height);
+      var offset = (progress - 0.5) * 60;
+      parallaxImg.style.transform = 'translateY(' + offset + 'px)';
+    }
+  }
+
+  window.addEventListener('scroll', updateParallax, { passive: true });
+  window.addEventListener('resize', updateParallax);
+  updateParallax();
+
+  // CUSTOM CURSOR
+  var cursorHeart = document.getElementById('cursorHeart');
+  var isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  if (isDesktop && cursorHeart) {
+    document.addEventListener('mousemove', function(e) {
+      cursorHeart.style.left = e.clientX + 'px';
+      cursorHeart.style.top = e.clientY + 'px';
+    });
+
+    document.addEventListener('mouseleave', function() {
+      cursorHeart.style.opacity = '0';
+    });
+
+    document.addEventListener('mouseenter', function() {
+      cursorHeart.style.opacity = '1';
+    });
+  }
 </script>
 
 </body>
