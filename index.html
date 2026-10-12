@@ -8,12 +8,15 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   
+  html { scroll-behavior: smooth; }
+  
   body {
     font-family: 'Inter', sans-serif;
     background: #fafaf8;
     color: #2a2a2a;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
   
   .container {
@@ -22,269 +25,113 @@
     padding: 0 24px;
   }
   
+  /* REVEAL ANIMATION */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
   /* HERO */
-  .hero {
-    text-align: center;
-    padding: 80px 0 60px;
-  }
-  
-  .hero-subtitle {
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #999;
-    margin-bottom: 32px;
-  }
-  
-  .hero-names {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 56px;
-    font-weight: 300;
-    line-height: 1.1;
-    letter-spacing: 2px;
-    margin-bottom: 24px;
-  }
-  
-  .hero-amp {
-    display: block;
-    font-size: 40px;
-    color: #b8956a;
-    margin: 8px 0;
-    font-style: italic;
-  }
-  
-  .hero-date {
-    font-size: 15px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #666;
-    margin-bottom: 8px;
-  }
-  
-  .hero-time {
-    font-size: 13px;
-    letter-spacing: 2px;
-    color: #999;
-  }
+  .hero { text-align: center; padding: 80px 0 60px; }
+  .hero-subtitle { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
+  .hero-names { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; line-height: 1.1; letter-spacing: 2px; margin-bottom: 24px; }
+  .hero-amp { display: block; font-size: 40px; color: #b8956a; margin: 8px 0; font-style: italic; }
+  .hero-date { font-size: 15px; letter-spacing: 3px; text-transform: uppercase; color: #666; margin-bottom: 8px; }
+  .hero-time { font-size: 13px; letter-spacing: 2px; color: #999; }
   
   /* COUNTDOWN */
-  .countdown-section {
-    padding: 20px 0 60px;
-    text-align: center;
-  }
-  
-  .countdown-title {
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #999;
-    margin-bottom: 32px;
-  }
-  
-  .countdown {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  
-  .countdown-item {
-    min-width: 72px;
-  }
-  
-  .countdown-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 44px;
-    font-weight: 300;
-    color: #2a2a2a;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  
-  .countdown-label {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #999;
-  }
-  
-  .countdown-sep {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 36px;
-    color: #d4c5a9;
-    padding-top: 6px;
-  }
+  .countdown-section { padding: 20px 0 60px; text-align: center; }
+  .countdown-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
+  .countdown { display: flex; justify-content: center; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+  .countdown-item { min-width: 72px; }
+  .countdown-value { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: #2a2a2a; line-height: 1; margin-bottom: 8px; }
+  .countdown-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #999; }
+  .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: #d4c5a9; padding-top: 6px; }
   
   /* PHOTO */
-  .photo-section {
-    padding: 20px 0 60px;
-  }
-  
-  .photo-section img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-  }
+  .photo-section { padding: 20px 0 60px; }
+  .photo-section img { width: 100%; height: auto; display: block; border-radius: 4px; }
   
   /* TEXT */
-  .invite-text {
-    text-align: center;
-    padding: 40px 0 60px;
-    border-top: 1px solid #e8e4dd;
-    border-bottom: 1px solid #e8e4dd;
-  }
-  
-  .invite-text p {
-    font-size: 16px;
-    line-height: 1.8;
-    color: #555;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-  
-  .invite-text .lead {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    font-style: italic;
-    color: #2a2a2a;
-    margin-bottom: 24px;
-    line-height: 1.4;
-  }
+  .invite-text { text-align: center; padding: 40px 0 60px; border-top: 1px solid #e8e4dd; border-bottom: 1px solid #e8e4dd; }
+  .invite-text p { font-size: 16px; line-height: 1.8; color: #555; max-width: 420px; margin: 0 auto; }
+  .invite-text .lead { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-style: italic; color: #2a2a2a; margin-bottom: 24px; line-height: 1.4; }
   
   /* DETAILS */
-  .details {
-    padding: 60px 0;
-    text-align: center;
-  }
-  
-  .details-title {
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #999;
-    margin-bottom: 40px;
-  }
-  
-  .detail-item {
-    margin-bottom: 36px;
-  }
-  
-  .detail-item:last-child {
-    margin-bottom: 0;
-  }
-  
-  .detail-label {
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #b8956a;
-    margin-bottom: 10px;
-  }
-  
-  .detail-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    color: #2a2a2a;
-    line-height: 1.4;
-  }
-  
-  .detail-note {
-    font-size: 13px;
-    color: #999;
-    margin-top: 6px;
-  }
+  .details { padding: 60px 0; text-align: center; }
+  .details-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 40px; }
+  .detail-item { margin-bottom: 36px; }
+  .detail-item:last-child { margin-bottom: 0; }
+  .detail-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #b8956a; margin-bottom: 10px; }
+  .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #2a2a2a; line-height: 1.4; }
+  .detail-note { font-size: 13px; color: #999; margin-top: 6px; }
   
   /* TIMELINE */
-  .timeline {
-    padding: 60px 0;
-    border-top: 1px solid #e8e4dd;
-  }
+  .timeline { padding: 60px 0; border-top: 1px solid #e8e4dd; }
+  .timeline-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; text-align: center; margin-bottom: 40px; }
+  .timeline-item { display: flex; align-items: flex-start; margin-bottom: 28px; gap: 20px; }
+  .timeline-time { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #b8956a; min-width: 70px; padding-top: 2px; }
+  .timeline-desc { font-size: 15px; color: #555; padding-top: 4px; }
+  .timeline-desc strong { display: block; color: #2a2a2a; font-weight: 500; margin-bottom: 2px; }
   
-  .timeline-title {
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #999;
-    text-align: center;
-    margin-bottom: 40px;
-  }
+  /* DRESS CODE */
+  .dresscode { padding: 60px 0; border-top: 1px solid #e8e4dd; text-align: center; }
+  .dresscode-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
+  .dresscode-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 32px; line-height: 1.7; }
+  .palette { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .palette-color { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
   
-  .timeline-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 28px;
-    gap: 20px;
-  }
+  /* MAP */
+  .map-section { padding: 60px 0; border-top: 1px solid #e8e4dd; }
+  .map-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; text-align: center; margin-bottom: 24px; }
+  .map-frame { border-radius: 4px; overflow: hidden; height: 320px; background: #eee; }
+  .map-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
   
-  .timeline-time {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    color: #b8956a;
-    min-width: 70px;
-    padding-top: 2px;
-  }
+  /* GALLERY */
+  .gallery { padding: 60px 0; border-top: 1px solid #e8e4dd; }
+  .gallery-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; text-align: center; margin-bottom: 32px; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .gallery-grid img { width: 100%; height: 120px; object-fit: cover; display: block; border-radius: 3px; cursor: pointer; transition: transform 0.4s ease, opacity 0.4s ease; }
+  .gallery-grid img:hover { transform: scale(1.03); opacity: 0.9; }
   
-  .timeline-desc {
-    font-size: 15px;
-    color: #555;
-    padding-top: 4px;
-  }
-  
-  .timeline-desc strong {
-    display: block;
-    color: #2a2a2a;
-    font-weight: 500;
-    margin-bottom: 2px;
-  }
-  
-  /* BUTTON */
-  .cta-section {
-    padding: 60px 0 80px;
-    text-align: center;
-    border-top: 1px solid #e8e4dd;
-  }
-  
-  .cta-text {
-    font-size: 15px;
-    color: #555;
-    margin-bottom: 24px;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 16px 48px;
-    background: #2a2a2a;
-    color: #fff;
-    text-decoration: none;
-    font-size: 13px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    border-radius: 2px;
-    transition: background 0.3s ease;
-  }
-  
-  .btn:hover {
-    background: #b8956a;
-  }
+  /* CTA */
+  .cta-section { padding: 60px 0 80px; text-align: center; border-top: 1px solid #e8e4dd; }
+  .cta-text { font-size: 15px; color: #555; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; }
+  .btn { display: inline-block; padding: 16px 48px; background: #2a2a2a; color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; transition: background 0.3s ease; }
+  .btn:hover { background: #b8956a; }
   
   /* FOOTER */
-  .footer {
-    text-align: center;
-    padding: 40px 0 60px;
-    font-size: 12px;
-    color: #aaa;
-    letter-spacing: 2px;
-  }
+  .footer { text-align: center; padding: 40px 0 60px; font-size: 12px; color: #aaa; letter-spacing: 2px; }
+  .footer-heart { font-size: 14px; color: #b8956a; }
   
-  .footer-heart {
-    font-size: 14px;
-    color: #b8956a;
+  /* MUSIC BUTTON */
+  .music-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #2a2a2a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transition: background 0.3s ease, transform 0.3s ease;
+    z-index: 100;
   }
+  .music-btn:hover { background: #b8956a; transform: scale(1.05); }
+  .music-btn.playing { background: #b8956a; }
+  .music-btn svg { width: 20px; height: 20px; fill: currentColor; }
   
   /* MOBILE */
   @media (max-width: 480px) {
@@ -297,6 +144,9 @@
     .countdown-item { min-width: 58px; }
     .countdown-sep { font-size: 28px; padding-top: 4px; }
     .countdown { gap: 6px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid img { height: 130px; }
+    .map-frame { height: 260px; }
   }
 </style>
 </head>
@@ -343,18 +193,18 @@
   </section>
 
   <!-- PHOTO -->
-  <section class="photo-section">
+  <section class="photo-section reveal">
     <img src="photo.jpg" alt="Алексей и Валерия">
   </section>
 
   <!-- INVITE TEXT -->
-  <section class="invite-text">
+  <section class="invite-text reveal">
     <p class="lead">Дорогие друзья и близкие!</p>
     <p>В этот день мы хотим разделить с вами самое важное событие в нашей жизни — день нашей свадьбы. Будем счастливы видеть вас рядом.</p>
   </section>
 
   <!-- DETAILS -->
-  <section class="details">
+  <section class="details reveal">
     <div class="details-title">Детали</div>
     
     <div class="detail-item">
@@ -377,7 +227,7 @@
   </section>
 
   <!-- TIMELINE -->
-  <section class="timeline">
+  <section class="timeline reveal">
     <div class="timeline-title">Программа дня</div>
     
     <div class="timeline-item">
@@ -413,8 +263,48 @@
     </div>
   </section>
 
+  <!-- DRESS CODE -->
+  <section class="dresscode reveal">
+    <div class="dresscode-title">Дресс-код</div>
+    <p class="dresscode-text">Будем рады, если вы поддержите нашу цветовую гамму в своих нарядах</p>
+    <div class="palette">
+      <div class="palette-color" style="background: #d4c5a9;" title="Золотистый"></div>
+      <div class="palette-color" style="background: #e8dcc9;" title="Кремовый"></div>
+      <div class="palette-color" style="background: #a8a29a;" title="Серо-бежевый"></div>
+      <div class="palette-color" style="background: #4a5568;" title="Тёмно-синий"></div>
+      <div class="palette-color" style="background: #2a2a2a;" title="Графитовый"></div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map-section reveal">
+    <div class="map-title">Как добраться</div>
+    <div class="map-frame">
+      <iframe 
+        src="https://yandex.ru/map-widget/v1/?ll=49.108,55.813&z=16&text=Казань%20Сибгата%20Хакима%204" 
+        allowfullscreen="true"
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery reveal">
+    <div class="gallery-title">Наши моменты</div>
+    <div class="gallery-grid">
+      <img src="photo1.jpg" alt="Фото 1">
+      <img src="photo2.jpg" alt="Фото 2">
+      <img src="photo3.jpg" alt="Фото 3">
+      <img src="photo4.jpg" alt="Фото 4">
+      <img src="photo5.jpg" alt="Фото 5">
+      <img src="photo6.jpg" alt="Фото 6">
+      <img src="photo7.jpg" alt="Фото 7">
+      <img src="photo8.jpg" alt="Фото 8">
+    </div>
+  </section>
+
   <!-- CTA -->
-  <section class="cta-section">
+  <section class="cta-section reveal">
     <p class="cta-text">Пожалуйста, подтвердите своё присутствие до 1 августа 2027 года</p>
     <a href="https://forms.gle/SpyQS3RQFLgTAMjBA" class="btn" target="_blank">Я приду</a>
   </section>
@@ -426,8 +316,19 @@
 
 </div>
 
+<!-- MUSIC BUTTON -->
+<button class="music-btn" id="musicBtn" aria-label="Включить музыку">
+  <svg id="musicIcon" viewBox="0 0 24 24">
+    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+  </svg>
+</button>
+
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-  // Дата свадьбы: 18 сентября 2027, 14:00 по Москве (UTC+3)
+  // COUNTDOWN
   var weddingDate = new Date('2027-09-18T14:00:00+03:00').getTime();
 
   function updateCountdown() {
@@ -453,6 +354,42 @@
 
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  // REVEAL ON SCROLL
+  var revealElements = document.querySelectorAll('.reveal');
+  
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  revealElements.forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  // MUSIC
+  var musicBtn = document.getElementById('musicBtn');
+  var bgMusic = document.getElementById('bgMusic');
+  var isPlaying = false;
+
+  musicBtn.addEventListener('click', function() {
+    if (isPlaying) {
+      bgMusic.pause();
+      musicBtn.classList.remove('playing');
+    } else {
+      bgMusic.volume = 0.4;
+      bgMusic.play();
+      musicBtn.classList.add('playing');
+    }
+    isPlaying = !isPlaying;
+  });
 </script>
 
 </body>
