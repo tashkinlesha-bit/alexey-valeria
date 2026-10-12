@@ -19,28 +19,6 @@
     overflow-x: hidden;
   }
   
-  /* CUSTOM CURSOR */
-  @media (hover: hover) and (pointer: fine) {
-    body { cursor: none; }
-    a, button, img, .palette-color { cursor: none; }
-    
-    .cursor-heart {
-      position: fixed;
-      width: 24px;
-      height: 24px;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: transform 0.15s ease;
-      will-change: transform;
-    }
-    .cursor-heart svg { width: 100%; height: 100%; fill: #b8956a; opacity: 0.85; }
-  }
-  
-  @media (hover: none), (pointer: coarse) {
-    .cursor-heart { display: none; }
-  }
-  
   .container {
     max-width: 600px;
     margin: 0 auto;
@@ -96,84 +74,7 @@
     transform: translateY(0);
   }
   
-  /* PETALS — КРУПНЫЕ */
-  .petals-bg {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-  }
-  
-  .petal {
-    position: absolute;
-    top: -60px;
-    width: 28px;
-    height: 28px;
-    background: radial-gradient(ellipse at 30% 30%, #f5e6d3 0%, #e8dcc9 40%, #d4c5a9 100%);
-    border-radius: 50% 0 50% 50%;
-    opacity: 0.7;
-    animation: fall linear infinite;
-    box-shadow: 0 2px 6px rgba(184, 149, 106, 0.15);
-  }
-  
-  @keyframes fall {
-    0% {
-      transform: translateY(-15vh) translateX(0) rotate(0deg) scale(1);
-      opacity: 0;
-    }
-    10% { opacity: 0.7; }
-    50% {
-      transform: translateY(50vh) translateX(30px) rotate(180deg) scale(1.05);
-    }
-    90% { opacity: 0.7; }
-    100% {
-      transform: translateY(115vh) translateX(-20px) rotate(360deg) scale(1);
-      opacity: 0;
-    }
-  }
-  
-  /* SPARKLES — ЗОЛОТЫЕ БЛЁСТКИ (пункт 1) */
-  .sparkles-bg {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    z-index: 1;
-    overflow: hidden;
-  }
-  
-  .sparkle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: #d4af37;
-    border-radius: 50%;
-    box-shadow: 0 0 6px 1px rgba(212, 175, 55, 0.8);
-    animation: sparkle-up linear infinite;
-    opacity: 0;
-  }
-  
-  @keyframes sparkle-up {
-    0% {
-      transform: translateY(0) scale(0);
-      opacity: 0;
-    }
-    15% {
-      opacity: 1;
-      transform: translateY(-10vh) scale(1);
-    }
-    85% {
-      opacity: 1;
-      transform: translateY(-80vh) scale(1);
-    }
-    100% {
-      transform: translateY(-100vh) scale(0);
-      opacity: 0;
-    }
-  }
-  
+    
   /* HERO SLIDER (пункт 8 — рамка) */
   .hero-slider {
     position: relative;
@@ -462,9 +363,6 @@
     .map-frame { height: 260px; }
     .organizer-card { padding: 24px 28px; }
     
-    .petal { width: 22px; height: 22px; }
-    .sparkle { width: 3px; height: 3px; }
-    
     .invite-text::before,
     .invite-text::after {
       font-size: 40px;
@@ -493,19 +391,6 @@
 
 <!-- INITIALS BADGE (пункт 7) -->
 <div class="initials-badge" id="initialsBadge">А & В</div>
-
-<!-- CUSTOM CURSOR -->
-<div class="cursor-heart" id="cursorHeart">
-  <svg viewBox="0 0 24 24">
-    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-  </svg>
-</div>
-
-<!-- PETALS -->
-<div class="petals-bg" id="petalsBg"></div>
-
-<!-- SPARKLES (пункт 1) -->
-<div class="sparkles-bg" id="sparklesBg"></div>
 
 <!-- HERO SLIDER -->
 <section class="hero-slider" id="heroSlider">
@@ -823,44 +708,6 @@
 
   window.addEventListener('scroll', updateHeroParallax, { passive: true });
 
-    // PETALS
-  var petalsBg = document.getElementById('petalsBg');
-  var hues = ['#f5e6d3', '#e8dcc9', '#d4c5a9', '#e0d4bc', '#c9b895'];
-
-  for (var i = 0; i < 26; i++) {
-    var petal = document.createElement('div');
-    petal.className = 'petal';
-    petal.style.left = Math.random() * 100 + '%';
-    petal.style.animationDuration = (10 + Math.random() * 12) + 's';
-    petal.style.animationDelay = (Math.random() * 12) + 's';
-    // Размер через width/height, а не через transform
-    var baseSize = 28;
-    var multiplier = 0.7 + Math.random() * 0.7;
-    var finalSize = baseSize * multiplier;
-    petal.style.width = finalSize + 'px';
-    petal.style.height = finalSize + 'px';
-    var randomHue = hues[Math.floor(Math.random() * hues.length)];
-    petal.style.background = 'radial-gradient(ellipse at 30% 30%, ' + randomHue + ' 0%, #d4c5a9 100%)';
-    petalsBg.appendChild(petal);
-  }
-
-  // SPARKLES (пункт 1)
-  var sparklesBg = document.getElementById('sparklesBg');
-
-  for (var j = 0; j < 50; j++) {
-    var sparkle = document.createElement('div');
-    sparkle.className = 'sparkle';
-    sparkle.style.left = Math.random() * 100 + '%';
-    sparkle.style.bottom = '-10px';
-    sparkle.style.animationDuration = (8 + Math.random() * 10) + 's';
-    sparkle.style.animationDelay = (Math.random() * 15) + 's';
-    var sparkleSize = 2 + Math.random() * 3;
-    sparkle.style.width = sparkleSize + 'px';
-    sparkle.style.height = sparkleSize + 'px';
-    sparkle.style.opacity = 0;
-    sparklesBg.appendChild(sparkle);
-  }
-
   // PROGRESS BAR (пункт 5)
   var progressBar = document.getElementById('progressBar');
 
@@ -887,18 +734,6 @@
 
   window.addEventListener('scroll', updateInitialsBadge, { passive: true });
 
-  // CUSTOM CURSOR
-  var cursorHeart = document.getElementById('cursorHeart');
-  var isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-  if (isDesktop && cursorHeart) {
-    document.addEventListener('mousemove', function(e) {
-      cursorHeart.style.left = e.clientX + 'px';
-      cursorHeart.style.top = e.clientY + 'px';
-    });
-    document.addEventListener('mouseleave', function() { cursorHeart.style.opacity = '0'; });
-    document.addEventListener('mouseenter', function() { cursorHeart.style.opacity = '1'; });
-  }
 </script>
 
 </body>
