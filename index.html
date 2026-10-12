@@ -847,7 +847,7 @@
 
   window.addEventListener('scroll', updateHeroParallax, { passive: true });
 
-  // PETALS
+    // PETALS
   var petalsBg = document.getElementById('petalsBg');
   var hues = ['#f5e6d3', '#e8dcc9', '#d4c5a9', '#e0d4bc', '#c9b895'];
 
@@ -857,8 +857,12 @@
     petal.style.left = Math.random() * 100 + '%';
     petal.style.animationDuration = (10 + Math.random() * 12) + 's';
     petal.style.animationDelay = (Math.random() * 12) + 's';
-    var size = 0.7 + Math.random() * 0.7;
-    petal.style.transform = 'scale(' + size + ')';
+    // Размер через width/height, а не через transform
+    var baseSize = 28;
+    var multiplier = 0.7 + Math.random() * 0.7;
+    var finalSize = baseSize * multiplier;
+    petal.style.width = finalSize + 'px';
+    petal.style.height = finalSize + 'px';
     var randomHue = hues[Math.floor(Math.random() * hues.length)];
     petal.style.background = 'radial-gradient(ellipse at 30% 30%, ' + randomHue + ' 0%, #d4c5a9 100%)';
     petalsBg.appendChild(petal);
