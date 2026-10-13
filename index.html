@@ -296,21 +296,31 @@
   .invite-text::after { content: '»'; bottom: 30px; right: 0; left: auto; }
   
   .invite-text p { font-size: 16px; line-height: 1.8; color: #555; max-width: 420px; margin: 0 auto; }
-  .invite-text .lead { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-style: italic; color: #2a2a2a; margin-bottom: 24px; line-height: 1.4; }
+  .invite-text .lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    color: #2a2a2a;
+    margin-bottom: 24px;
+    line-height: 1.4;
+    text-align: center;
+  }
+
 
   /* Буквица */
   .invite-text .lead::first-letter {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 64px;
+    font-size: 56px;
     font-weight: 400;
     font-style: normal;
     color: #b8956a;
     float: left;
-    line-height: 0.85;
-    padding-right: 12px;
-    padding-top: 6px;
+    line-height: 1;
+    margin-right: 10px;
+    margin-top: 4px;
   }
-  
+
+
   /* DETAILS */
   .details { padding: 60px 0; text-align: center; }
   .details-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 40px; }
