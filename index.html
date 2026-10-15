@@ -361,17 +361,17 @@
     overflow: hidden;
   }
 
- /* ЛИНИЯ ОТ КАЛЕНДАРЯ К ТАЙМЛАЙНУ */
+/* ЛИНИЯ ОТ КАЛЕНДАРЯ К ТАЙМЛАЙНУ */
   .mini-calendar-wrapper {
     position: relative;
     max-width: 320px;
     margin: 20px auto;
-    padding-bottom: 180px; /* Место для линии, выходящей вниз */
+    padding-bottom: 20px; /* Уменьшил с 180px */
   }
 
   .calendar-to-timeline-line {
     position: absolute;
-    bottom: -20px;
+    bottom: -180px; /* Линия начинается от сердечка и идет вниз */
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
@@ -1225,9 +1225,28 @@
     position: relative;
   }
 
-  .day-simple.wedding-day-simple {
+.day-simple.wedding-day-simple {
     position: relative;
     color: transparent;
+    padding-bottom: 10px; /* Небольшой отступ для линии */
+  }
+
+  .heart-simple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
+    animation: heartPulseSimple 2s ease-in-out infinite;
+  }
+
+  .heart-num-simple {
+    position: relative;
+    z-index: 2;
+    font-size: 16px;
+    color: #b8956a;
+    font-weight: 500;
   }
 
   .heart-simple {
