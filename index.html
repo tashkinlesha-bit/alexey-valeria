@@ -18,6 +18,9 @@
 <!-- PRELOAD -->
 <link rel="preload" as="image" href="slide1.jpg">
 
+<!-- CONFETTI -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -521,13 +524,133 @@
     transform: scale(1.1);
   }
   
-  /* TIMELINE */
+  /* TIMELINE FLOW (ИЗВИВАЮЩАЯСЯ ЛИНИЯ) */
   .timeline { padding: 60px 0; }
-  .timeline-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; text-align: center; margin-bottom: 40px; }
-  .timeline-item { display: flex; align-items: flex-start; margin-bottom: 28px; gap: 20px; }
-  .timeline-time { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #b8956a; min-width: 70px; padding-top: 2px; }
-  .timeline-desc { font-size: 15px; color: #555; padding-top: 4px; }
-  .timeline-desc strong { display: block; color: #2a2a2a; font-weight: 500; margin-bottom: 2px; }
+  .timeline-title { 
+    font-size: 12px; 
+    letter-spacing: 4px; 
+    text-transform: uppercase; 
+    color: #999; 
+    text-align: center; 
+    margin-bottom: 40px; 
+  }
+
+  .timeline-flow {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+    height: 600px;
+  }
+
+  .timeline-svg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 600px;
+    z-index: 1;
+  }
+
+  .timeline-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 2s ease-out forwards;
+  }
+
+  @keyframes drawLine {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .timeline-heart {
+    animation: heartPulse 2s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  @keyframes heartPulse {
+    0%, 100% { transform: translate(150px, 0) scale(1); }
+    50% { transform: translate(150px, 0) scale(1.15); }
+  }
+
+  .timeline-dot {
+    opacity: 0;
+    animation: dotAppear 0.5s ease-out forwards;
+  }
+
+  .timeline-dot:nth-child(3) { animation-delay: 0.5s; }
+  .timeline-dot:nth-child(4) { animation-delay: 1s; }
+  .timeline-dot:nth-child(5) { animation-delay: 1.5s; }
+  .timeline-dot:nth-child(6) { animation-delay: 2s; }
+
+  @keyframes dotAppear {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .timeline-events {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+  }
+
+  .timeline-event {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .event-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: #b8956a;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .event-content {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  .event-content strong {
+    display: block;
+    color: #2a2a2a;
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+
+  .event-right {
+    top: 110px;
+    right: 0;
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+
+  .event-left {
+    top: 230px;
+    left: 0;
+  }
+
+  .event-right-2 {
+    top: 350px;
+    right: 0;
+    flex-direction: row-reverse;
+    text-align: right;
+  }
+
+  .event-center {
+    top: 480px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    flex-direction: column;
+  }
   
   /* DRESS CODE */
   .dresscode { padding: 60px 0; text-align: center; }
@@ -677,7 +800,7 @@
     }
   }
   .cta-text { font-size: 15px; color: #555; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; }
-  .btn { display: inline-block; padding: 16px 48px; background: #2a2a2a; color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; transition: background 0.3s ease; }
+  .btn { display: inline-block; padding: 16px 48px; background: #2a2a2a; color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; transition: background 0.3s ease; cursor: pointer; }
   .btn:hover { background: #b8956a; }
   
   /* FOOTER */
@@ -923,6 +1046,30 @@
     overflow: hidden;
   }
 
+  /* СЕРДЕЧКИ ПО КЛИКУ */
+  .click-heart {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    width: 20px;
+    height: 20px;
+    animation: heartFloat 1.5s ease-out forwards;
+  }
+
+  @keyframes heartFloat {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(0.5) rotate(0deg);
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-80px) scale(1.2) rotate(15deg);
+    }
+  }
+
   /* MOBILE */
   @media (max-width: 480px) {
     .heart-num { font-size: 11px; }
@@ -967,6 +1114,15 @@
     .calendar-month { font-size: 20px; }
     .day { font-size: 12px; }
     .calendar-add-btn { font-size: 12px; padding: 10px 16px; }
+    
+    .timeline-flow { height: 500px; }
+    .timeline-svg { width: 250px; height: 500px; }
+    .event-right { top: 90px; }
+    .event-left { top: 190px; }
+    .event-right-2 { top: 290px; }
+    .event-center { top: 400px; }
+    .event-time { font-size: 18px; }
+    .event-content { font-size: 13px; }
   }
 </style>
 </head>
@@ -1191,34 +1347,63 @@
     </svg>
   </div>
 
+  <!-- НОВЫЙ ТАЙМЛАЙН С ИЗВИВАЮЩЕЙСЯ ЛИНИЕЙ -->
   <section class="timeline reveal">
     <div class="timeline-title">Программа дня</div>
-    <div class="timeline-item">
-      <div class="timeline-time">13:30</div>
-      <div class="timeline-desc">
-        <strong>Сбор гостей</strong>
-        встречаемся у ЗАГСа «Чаша»
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-time">14:00</div>
-      <div class="timeline-desc">
-        <strong>Церемония</strong>
-        торжественная регистрация брака
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-time">15:30</div>
-      <div class="timeline-desc">
-        <strong>Фотосессия</strong>
-        прогулка и фото у «Чаши»
-      </div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-time">17:00</div>
-      <div class="timeline-desc">
-        <strong>Банкет</strong>
-        праздничный ужин
+    
+    <div class="timeline-flow">
+      <svg class="timeline-svg" viewBox="0 0 300 600" preserveAspectRatio="none" aria-hidden="true">
+        <path class="timeline-line" d="M 150 0 
+                                        C 150 50, 250 80, 250 130 
+                                        C 250 180, 50 200, 50 250 
+                                        C 50 300, 250 320, 250 370 
+                                        C 250 420, 150 450, 150 500 
+                                        C 150 550, 150 580, 150 600" 
+              fill="none" stroke="#b8956a" stroke-width="2" stroke-linecap="round"/>
+        
+        <g class="timeline-heart" transform="translate(150, 0)">
+          <path d="M0 8 C -5 3, -12 3, -12 -3 C -12 -8, -7 -12, 0 -6 C 7 -12, 12 -8, 12 -3 C 12 3, 5 3, 0 8 Z" 
+                fill="#b8956a" opacity="0.9"/>
+        </g>
+        
+        <circle class="timeline-dot" cx="250" cy="130" r="6" fill="#b8956a"/>
+        <circle class="timeline-dot" cx="50" cy="250" r="6" fill="#b8956a"/>
+        <circle class="timeline-dot" cx="250" cy="370" r="6" fill="#b8956a"/>
+        <circle class="timeline-dot" cx="150" cy="500" r="6" fill="#b8956a"/>
+      </svg>
+      
+      <div class="timeline-events">
+        <div class="timeline-event event-right">
+          <div class="event-time">13:30</div>
+          <div class="event-content">
+            <strong>Сбор гостей</strong>
+            встречаемся у ЗАГСа «Чаша»
+          </div>
+        </div>
+        
+        <div class="timeline-event event-left">
+          <div class="event-time">14:00</div>
+          <div class="event-content">
+            <strong>Церемония</strong>
+            торжественная регистрация брака
+          </div>
+        </div>
+        
+        <div class="timeline-event event-right-2">
+          <div class="event-time">15:30</div>
+          <div class="event-content">
+            <strong>Фотосессия</strong>
+            прогулка и фото у «Чаши»
+          </div>
+        </div>
+        
+        <div class="timeline-event event-center">
+          <div class="event-time">17:00</div>
+          <div class="event-content">
+            <strong>Банкет</strong>
+            праздничный ужин
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1323,7 +1508,7 @@
           </div>
           
           <div class="wish-slide">
-            <div class="wish-icon">🥂</div>
+            <div class="wish-icon"></div>
             <h3>О настроении</h3>
             <p>Берите с собой хорошие эмоции, удобную обувь для танцев и готовые тосты. Мы обещаем сделать этот день по-настоящему тёплым и незабываемым!</p>
           </div>
@@ -1605,21 +1790,17 @@
   let currentWish = 0;
   let isAnimating = false;
 
-  // Клонируем первый и последний слайды для бесконечного эффекта
   const firstClone = wishSlides[0].cloneNode(true);
   const lastClone = wishSlides[totalWishes - 1].cloneNode(true);
 
   wishesTrack.appendChild(firstClone);
   wishesTrack.insertBefore(lastClone, wishSlides[0]);
 
-  // Смещаем на -100%, чтобы показать slide0 (а не lastClone в начале)
   let trackPosition = 1;
 
-  // Устанавливаем начальную позицию без анимации
   wishesTrack.style.transition = 'none';
   wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`;
 
-  // Создаём точки (только для настоящих слайдов)
   wishSlides.forEach((_, index) => {
     const dot = document.createElement('div');
     dot.classList.add('dot');
@@ -1708,7 +1889,6 @@
   wishPrev.addEventListener('click', prevSlide);
   wishNext.addEventListener('click', nextSlide);
 
-  // Свайпы
   let touchStartX = 0;
   let touchEndX = 0;
 
@@ -1735,6 +1915,73 @@
   }
 
   updateDots();
+
+  // КОНФЕТТИ ПРИ НАЖАТИИ "Я ПРИДУ"
+  document.querySelector('.btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    confetti({
+      particleCount: 150,
+      spread: 90,
+      origin: { y: 0.6 },
+      colors: ['#d4af37', '#e8dcc9', '#b8956a', '#ffffff', '#d4c5a9'],
+      disableForReducedMotion: true
+    });
+    
+    setTimeout(() => {
+      confetti({
+        particleCount: 80,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0, y: 0.6 },
+        colors: ['#d4af37', '#b8956a']
+      });
+      confetti({
+        particleCount: 80,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1, y: 0.6 },
+        colors: ['#e8dcc9', '#d4c5a9']
+      });
+    }, 300);
+    
+    setTimeout(() => {
+      window.open(this.href, '_blank');
+    }, 1500);
+  });
+
+  // СЕРДЕЧКИ ПО КЛИКУ
+  let lastHeartTime = 0;
+  
+  document.addEventListener('click', function(e) {
+    const now = Date.now();
+    if (now - lastHeartTime < 100) return;
+    lastHeartTime = now;
+    
+    if (e.target.closest('button, a, .carousel-btn, .lock-slider')) return;
+    
+    createHeart(e.clientX, e.clientY);
+  });
+
+  function createHeart(x, y) {
+    const heart = document.createElement('div');
+    heart.classList.add('click-heart');
+    heart.innerHTML = '<svg viewBox="0 0 24 24" fill="#b8956a" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
+    
+    const randomX = (Math.random() - 0.5) * 40;
+    heart.style.left = (x + randomX - 10) + 'px';
+    heart.style.top = (y - 10) + 'px';
+    
+    const size = 15 + Math.random() * 10;
+    heart.style.width = size + 'px';
+    heart.style.height = size + 'px';
+    
+    document.body.appendChild(heart);
+    
+    setTimeout(() => {
+      heart.remove();
+    }, 1500);
+  }
 
 </script>
 
