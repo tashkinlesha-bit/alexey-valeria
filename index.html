@@ -574,7 +574,7 @@
   position: relative;
   max-width: 400px;
   margin: 0 auto;
-  height: 700px;
+  height: 900px; /* Увеличил с 700px */
 }
 
 .timeline-svg {
@@ -583,14 +583,56 @@
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  height: 700px;
+  height: 900px; /* Увеличил с 700px */
   z-index: 1;
 }
 
-.timeline-line {
-  stroke-dasharray: 1500;
-  stroke-dashoffset: 1500;
-  animation: drawLine 2.5s ease-out forwards;
+/* Правые события */
+.event-right {
+  top: 110px;
+  right: 10px;
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.event-right .event-content { text-align: right; }
+
+/* Левые события */
+.event-left {
+  top: 290px;
+  left: 10px;
+}
+
+/* Второе правое событие */
+.event-right:nth-of-type(2) {
+  top: 510px;
+  right: 10px;
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.event-right:nth-of-type(2) .event-content { text-align: right; }
+
+/* Второе левое событие */
+.event-left:nth-of-type(2) {
+  top: 710px;
+  left: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .timeline-flow { height: 750px; }
+  .timeline-svg { height: 750px; }
+  
+  .event-right { top: 90px; }
+  .event-left { top: 230px; }
+  .event-right:nth-of-type(2) { top: 420px; }
+  .event-left:nth-of-type(2) { top: 600px; }
+  
+  .event-time { font-size: 20px; }
+  .event-content { font-size: 13px; }
+  .event-content strong { font-size: 15px; }
+  .timeline-event { max-width: 160px; gap: 14px; }
 }
 
 @keyframes drawLine {
@@ -1372,68 +1414,88 @@
     </svg>
   </div>
 
-  <section class="timeline reveal">
-    <div class="timeline-title">Программа дня</div>
-    
-    <div class="timeline-flow">
-      <svg class="timeline-svg" viewBox="0 0 400 700" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-        <defs>
-          <filter id="handDrawnTimeline" x="-10%" y="-10%" width="120%" height="120%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="5" result="noise"/>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
-          </filter>
-        </defs>
-        
-        <g filter="url(#handDrawnTimeline)">
-          <path class="timeline-line" 
-                d="M 200 0 C 260 20, 290 60, 280 100 C 270 140, 220 160, 170 180 C 120 200, 100 210, 120 220 C 140 240, 200 280, 250 320 C 290 350, 300 370, 280 380 C 260 390, 200 420, 150 460 C 110 490, 100 510, 120 520 C 140 540, 140 580, 140 620" 
-                fill="none" stroke="#b8956a" stroke-width="1.5" stroke-linecap="round"/>
-          <path class="timeline-line-secondary" 
-                d="M 200 0 C 260 20, 290 60, 280 100 C 270 140, 220 160, 170 180 C 120 200, 100 210, 120 220 C 140 240, 200 280, 250 320 C 290 350, 300 370, 280 380 C 260 390, 200 420, 150 460 C 110 490, 100 510, 120 520 C 140 540, 140 580, 140 620" 
-                fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
-        </g>
-        
-        <circle class="timeline-dot" cx="280" cy="100" r="4" fill="#b8956a"/>
-        <circle class="timeline-dot" cx="120" cy="220" r="4" fill="#b8956a"/>
-        <circle class="timeline-dot" cx="280" cy="380" r="4" fill="#b8956a"/>
-        <circle class="timeline-dot" cx="120" cy="520" r="4" fill="#b8956a"/>
-      </svg>
+<section class="timeline reveal">
+  <div class="timeline-title">Программа дня</div>
+  
+  <div class="timeline-flow">
+    <svg class="timeline-svg" viewBox="0 0 400 900" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <defs>
+        <filter id="handDrawnTimeline" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="5" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
       
-      <div class="timeline-events">
-        <div class="timeline-event event-right">
-          <div class="event-content">
-            <strong>Сбор гостей</strong>
-            встречаемся у ЗАГСа «Чаша»
-          </div>
-          <div class="event-time">13:30</div>
+      <g filter="url(#handDrawnTimeline)">
+        <path class="timeline-line" 
+              d="M 200 0 
+                 C 260 30, 290 80, 280 130 
+                 C 270 180, 220 210, 170 240 
+                 C 120 270, 100 290, 120 310 
+                 C 140 340, 200 390, 250 440 
+                 C 290 480, 300 510, 280 530 
+                 C 260 550, 200 590, 150 640 
+                 C 110 680, 100 710, 120 730 
+                 C 140 760, 140 810, 140 860" 
+              fill="none" stroke="#b8956a" stroke-width="1.5" stroke-linecap="round"/>
+          <path class="timeline-line-secondary" 
+                d="M 200 0 
+                 C 260 30, 290 80, 280 130 
+                 C 270 180, 220 210, 170 240 
+                 C 120 270, 100 290, 120 310 
+                 C 140 340, 200 390, 250 440 
+                 C 290 480, 300 510, 280 530 
+                 C 260 550, 200 590, 150 640 
+                 C 110 680, 100 710, 120 730 
+                 C 140 760, 140 810, 140 860" 
+                fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+      </g>
+      
+      <circle class="timeline-dot" cx="280" cy="130" r="4" fill="#b8956a"/>
+      <circle class="timeline-dot" cx="120" cy="310" r="4" fill="#b8956a"/>
+      <circle class="timeline-dot" cx="280" cy="530" r="4" fill="#b8956a"/>
+      <circle class="timeline-dot" cx="120" cy="730" r="4" fill="#b8956a"/>
+    </svg>
+    
+    <div class="timeline-events">
+      <!-- 13:30 - Сбор гостей (справа, вверху) -->
+      <div class="timeline-event event-right">
+        <div class="event-content">
+          <strong>Сбор гостей</strong>
+          встречаемся у ЗАГСа «Чаша»
         </div>
-        
-        <div class="timeline-event event-left">
-          <div class="event-time">14:00</div>
-          <div class="event-content">
-            <strong>Церемония</strong>
-            торжественная регистрация брака
-          </div>
+        <div class="event-time">13:30</div>
+      </div>
+      
+      <!-- 14:00 - Церемония (слева) -->
+      <div class="timeline-event event-left">
+        <div class="event-time">14:00</div>
+        <div class="event-content">
+          <strong>Церемония</strong>
+          торжественная регистрация брака
         </div>
-        
-        <div class="timeline-event event-right">
-          <div class="event-content">
-            <strong>Фотосессия</strong>
-            прогулка и фото у «Чаши»
-          </div>
-          <div class="event-time">15:30</div>
+      </div>
+      
+      <!-- 15:30 - Фотосессия (справа) -->
+      <div class="timeline-event event-right">
+        <div class="event-content">
+          <strong>Фотосессия</strong>
+          прогулка и фото у «Чаши»
         </div>
-        
-        <div class="timeline-event event-left">
-          <div class="event-time">17:00</div>
-          <div class="event-content">
-            <strong>Банкет</strong>
-            праздничный ужин
-          </div>
+        <div class="event-time">15:30</div>
+      </div>
+      
+      <!-- 17:00 - Банкет (слева, внизу) -->
+      <div class="timeline-event event-left">
+        <div class="event-time">17:00</div>
+        <div class="event-content">
+          <strong>Банкет</strong>
+          праздничный ужин
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
