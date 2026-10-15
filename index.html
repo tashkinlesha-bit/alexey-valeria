@@ -414,23 +414,60 @@
   }
 
   .day.wedding-day {
-    background: linear-gradient(135deg, #d4c5a9, #b8956a);
-    color: #fff;
-    font-weight: 500;
-    box-shadow: 0 2px 12px rgba(184, 149, 106, 0.4);
-    animation: pulseWedding 2s ease-in-out infinite;
-  }
+  background: transparent;
+  color: #b8956a;
+  font-weight: 500;
+  position: relative;
+  overflow: visible;
+}
 
-  @keyframes pulseWedding {
-    0%, 100% {
-      box-shadow: 0 2px 12px rgba(184, 149, 106, 0.4);
-      transform: scale(1);
-    }
-    50% {
-      box-shadow: 0 4px 20px rgba(184, 149, 106, 0.6);
-      transform: scale(1.05);
-    }
+.day.wedding-day:hover {
+  background: transparent;
+}
+
+.heart-doodle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%) rotate(-4deg);
+  overflow: visible;
+  pointer-events: none;
+  animation: handDrawnPulse 2.6s ease-in-out infinite;
+}
+
+.heart-num {
+  position: relative;
+  z-index: 2;
+  font-size: 12px;
+  line-height: 1;
+  color: #b8956a;
+}
+
+/* Сердцебиение с лёгким «живым» покачиванием */
+@keyframes handDrawnPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(-4deg) scale(1);
+    filter: drop-shadow(0 0 2px rgba(184, 149, 106, 0.25));
   }
+  12% {
+    transform: translate(-50%, -50%) rotate(-2.5deg) scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(184, 149, 106, 0.55));
+  }
+  24% {
+    transform: translate(-50%, -50%) rotate(-4deg) scale(1);
+    filter: drop-shadow(0 0 3px rgba(184, 149, 106, 0.3));
+  }
+  36% {
+    transform: translate(-50%, -50%) rotate(-5.5deg) scale(1.06);
+    filter: drop-shadow(0 0 6px rgba(184, 149, 106, 0.45));
+  }
+  48%, 70% {
+    transform: translate(-50%, -50%) rotate(-4deg) scale(1);
+    filter: drop-shadow(0 0 2px rgba(184, 149, 106, 0.25));
+  }
+}
 
   .calendar-add-btn {
     display: flex;
@@ -869,6 +906,7 @@
 
   /* MOBILE */
   @media (max-width: 480px) {
+    .heart-num { font-size: 11px; }
     .hero-slider { min-height: 500px; }
     .hero-names { font-size: 44px; }
     .hero-amp { font-size: 34px; }
@@ -1062,7 +1100,42 @@
           <div class="day">15</div>
           <div class="day">16</div>
           <div class="day">17</div>
-          <div class="day wedding-day">18</div>
+          <div class="day wedding-day" aria-label="18 сентября — день свадьбы">
+  <svg class="heart-doodle" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+    <defs>
+      <filter id="handDrawn" x="-25%" y="-25%" width="150%" height="150%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="7" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+
+    <g filter="url(#handDrawn)">
+      <!-- Основной контур (незамкнутый, с нахлёстом — как от руки) -->
+      <path d="M20.2 32.9
+               C 19.1 31.4, 15.6 28.9, 12.6 26.1
+               C 9.9 23.6, 8.2 20.9, 8.2 17.9
+               C 8.2 14.9, 10.3 12.5, 13 12.2
+               C 15.2 12, 17.4 12.9, 19 14.6
+               C 19.6 15.2, 20 15.9, 20.3 16.6
+               C 20.6 15.8, 21 15.1, 21.7 14.4
+               C 23.3 12.7, 25.5 11.8, 27.6 12
+               C 30.3 12.3, 32.3 14.7, 32.3 17.7
+               C 32.3 20.8, 30.6 23.5, 27.9 26
+               C 24.9 28.8, 21.3 31.3, 20.2 32.9
+               C 19.9 32.5, 19.7 32.1, 19.5 31.7"
+            stroke="#b8956a" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Второй, полупрозрачный проход — эффект «обвели дважды карандашом» -->
+      <path d="M20.6 31.4
+               C 19.8 30.2, 16.6 28, 14 25.6
+               C 11.6 23.4, 10.2 21, 10.3 18.3
+               C 10.4 15.8, 12.1 13.9, 14.4 13.7
+               C 16.3 13.6, 18.1 14.4, 19.4 15.9"
+            stroke="#b8956a" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
+    </g>
+  </svg>
+  <span class="heart-num">18</span>
+</div>
           <div class="day">19</div>
           
           <div class="day">20</div>
