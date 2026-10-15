@@ -5,17 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Алексей & Валерия — 18.09.2027</title>
 
-<!-- OPEN GRAPH (для красивых превью в Telegram/WhatsApp) -->
+<!-- OPEN GRAPH -->
 <meta property="og:title" content="Алексей & Валерия — 18.09.2027">
 <meta property="og:description" content="Мы женимся! Будем счастливы разделить этот важный день с вами. Загляните в наше приглашение.">
 <meta property="og:image" content="https://vasha-svadba.ru/og-image.jpg">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 
-<!-- FAVICON (замените на свою монограмму) -->
+<!-- FAVICON -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='18' font-style='italic' fill='%23b8956a'%3EA%26V%3C/text%3E%3C/svg%3E">
 
-<!-- PRELOAD главного изображения -->
+<!-- PRELOAD -->
 <link rel="preload" as="image" href="slide1.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -312,32 +312,10 @@
     font-style: italic;
     color: #2a2a2a;
     margin-bottom: 24px;
-    line-height: 1.4;
+    line-height: 1.5;
     text-align: center;
   }
 
- .invite-text .lead::first-letter {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 56px;
-    font-weight: 400;
-    font-style: normal;
-    color: #b8956a;
-    float: left;
-    line-height: 0.85;
-    margin-right: 12px;
-    margin-top: 6px;
-    padding-top: 2px;
-}
-
-.invite-text .lead {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    font-style: italic;
-    color: #2a2a2a;
-    margin-bottom: 24px;
-    line-height: 1.5;
-    text-align: center;
-}
   /* DETAILS */
   .details { padding: 60px 0; text-align: center; }
   .details-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 40px; }
@@ -347,20 +325,145 @@
   .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #2a2a2a; line-height: 1.4; }
   .detail-note { font-size: 13px; color: #999; margin-top: 6px; }
   
-  /* CALENDAR BUTTON */
-  .calendar-btn {
-    display: inline-flex;
-    align-items: center;
-    margin-top: 14px;
+  /* MINI CALENDAR */
+  .mini-calendar {
+    max-width: 320px;
+    margin: 20px auto;
+    background: #fff;
+    border: 1px solid #e8e4dd;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mini-calendar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #d4c5a9, #d4af37, #b8956a);
+  }
+
+  .calendar-header {
+    text-align: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0ebe3;
+  }
+
+  .calendar-month {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #2a2a2a;
+    margin-bottom: 4px;
+  }
+
+  .calendar-year {
     font-size: 13px;
+    letter-spacing: 2px;
+    color: #999;
+  }
+
+  .calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+
+  .calendar-weekdays div {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #b8956a;
+    padding: 4px 0;
+    font-weight: 500;
+  }
+
+  .calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+
+  .day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #555;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .day:not(.empty):hover {
+    background: #f8f6f2;
+    color: #2a2a2a;
+  }
+
+  .day.empty {
+    visibility: hidden;
+  }
+
+  .day.wedding-day {
+    background: linear-gradient(135deg, #d4c5a9, #b8956a);
+    color: #fff;
+    font-weight: 500;
+    box-shadow: 0 2px 12px rgba(184, 149, 106, 0.4);
+    animation: pulseWedding 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseWedding {
+    0%, 100% {
+      box-shadow: 0 2px 12px rgba(184, 149, 106, 0.4);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 4px 20px rgba(184, 149, 106, 0.6);
+      transform: scale(1.05);
+    }
+  }
+
+  .calendar-add-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: transparent;
+    border: 1px solid #d4c5a9;
     color: #b8956a;
     text-decoration: none;
-    border: 1px solid #d4c5a9;
-    padding: 8px 16px;
-    border-radius: 20px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-radius: 24px;
     transition: all 0.3s ease;
   }
-  .calendar-btn:hover { background: #b8956a; color: #fff; border-color: #b8956a; }
+
+  .calendar-add-btn:hover {
+    background: #b8956a;
+    color: #fff;
+    border-color: #b8956a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(184, 149, 106, 0.3);
+  }
+
+  .calendar-add-btn svg {
+    transition: transform 0.3s ease;
+  }
+
+  .calendar-add-btn:hover svg {
+    transform: scale(1.1);
+  }
   
   /* TIMELINE */
   .timeline { padding: 60px 0; }
@@ -800,6 +903,13 @@
     .carousel-btn { width: 36px; height: 36px; }
     .wish-slide { padding: 24px 16px; }
     .wish-slide h3 { font-size: 20px; }
+    .mini-calendar {
+      max-width: 280px;
+      padding: 16px;
+    }
+    .calendar-month { font-size: 20px; }
+    .day { font-size: 12px; }
+    .calendar-add-btn { font-size: 12px; padding: 10px 16px; }
   }
 </style>
 </head>
@@ -912,12 +1022,80 @@
     <div class="details-title">Детали</div>
     <div class="detail-item">
       <div class="detail-label">Когда</div>
-      <div class="detail-value">18 сентября 2027</div>
-      <div class="detail-note">суббота, 14:00</div>
-      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%D0%A1%D0%B2%D0%B0%D0%B4%D1%8C%D0%B1%D0%B0+%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D1%8F+%D0%B8+%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B8&dates=20270918T103000Z/20270918T190000Z&details=%D0%A2%D0%BE%D1%80%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F+%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F+%D0%B2+%D0%97%D0%90%D0%93%D0%A1%D0%B5+%D0%B8+%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D1%87%D0%BD%D1%8B%D0%B9+%D1%83%D0%B6%D0%B8%D0%BD.+%D0%91%D1%83%D0%B4%D0%B5%D0%BC+%D1%80%D0%B0%D0%B4%D1%8B+%D0%B2%D0%B8%D0%B4%D0%B5%D1%82%D1%8C+%D0%B2%D0%B0%D1%81!&location=%D0%97%D0%90%D0%93%D0%A1+%C2%AB%D0%A7%D0%B0%D1%88%D0%B0%C2%BB,+%D0%B3.+%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C,+%D1%83%D0%BB.+%D0%A1%D0%B8%D0%B1%D0%B3%D0%B0%D1%82%D0%B0+%D0%A5%D0%B0%D0%BA%D0%B8%D0%BC%D0%B0,+4" target="_blank" class="calendar-btn">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-        Добавить в календарь
-      </a>
+      
+      <!-- ВИЗУАЛЬНЫЙ КАЛЕНДАРЬ -->
+      <div class="mini-calendar">
+        <div class="calendar-header">
+          <div class="calendar-month">Сентябрь</div>
+          <div class="calendar-year">2027</div>
+        </div>
+        
+        <div class="calendar-weekdays">
+          <div>Пн</div>
+          <div>Вт</div>
+          <div>Ср</div>
+          <div>Чт</div>
+          <div>Пт</div>
+          <div>Сб</div>
+          <div>Вс</div>
+        </div>
+        
+        <div class="calendar-days">
+          <div class="day empty"></div>
+          <div class="day empty"></div>
+          <div class="day">1</div>
+          <div class="day">2</div>
+          <div class="day">3</div>
+          <div class="day">4</div>
+          <div class="day">5</div>
+          
+          <div class="day">6</div>
+          <div class="day">7</div>
+          <div class="day">8</div>
+          <div class="day">9</div>
+          <div class="day">10</div>
+          <div class="day">11</div>
+          <div class="day">12</div>
+          
+          <div class="day">13</div>
+          <div class="day">14</div>
+          <div class="day">15</div>
+          <div class="day">16</div>
+          <div class="day">17</div>
+          <div class="day wedding-day">18</div>
+          <div class="day">19</div>
+          
+          <div class="day">20</div>
+          <div class="day">21</div>
+          <div class="day">22</div>
+          <div class="day">23</div>
+          <div class="day">24</div>
+          <div class="day">25</div>
+          <div class="day">26</div>
+          
+          <div class="day">27</div>
+          <div class="day">28</div>
+          <div class="day">29</div>
+          <div class="day">30</div>
+          <div class="day empty"></div>
+          <div class="day empty"></div>
+          <div class="day empty"></div>
+        </div>
+        
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%D0%A1%D0%B2%D0%B0%D0%B4%D1%8C%D0%B1%D0%B0+%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D1%8F+%D0%B8+%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B8&dates=20270918T103000Z/20270918T190000Z&details=%D0%A2%D0%BE%D1%80%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F+%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F+%D0%B2+%D0%97%D0%90%D0%93%D0%A1%D0%B5+%D0%B8+%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D1%87%D0%BD%D1%8B%D0%B9+%D1%83%D0%B6%D0%B8%D0%BD.+%D0%91%D1%83%D0%B4%D0%B5%D0%BC+%D1%80%D0%B0%D0%B4%D1%8B+%D0%B2%D0%B8%D0%B4%D0%B5%D1%82%D1%8C+%D0%B2%D0%B0%D1%81!&location=%D0%97%D0%90%D0%93%D0%A1+%C2%AB%D0%A7%D0%B0%D1%88%D0%B0%C2%BB,+%D0%B3.+%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C,+%D1%83%D0%BB.+%D0%A1%D0%B8%D0%B1%D0%B3%D0%B0%D1%82%D0%B0+%D0%A5%D0%B0%D0%BA%D0%B8%D0%BC%D0%B0,+4" 
+           target="_blank" 
+           class="calendar-add-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          Добавить в календарь
+        </a>
+      </div>
+      
+      <div class="detail-note" style="margin-top: 16px;">суббота, 14:00</div>
     </div>
     <div class="detail-item">
       <div class="detail-label">Где</div>
@@ -1041,7 +1219,7 @@
     </svg>
   </div>
 
-  <!-- ПОЖЕЛАНИЯ МОЛОДОЖЁНОВ (КАРУСЕЛЬ) -->
+  <!-- ПОЖЕЛАНИЯ МОЛОДОЖЁНОВ -->
   <section class="wishes-section reveal">
     <div class="wishes-title">Несколько слов от нас</div>
     
