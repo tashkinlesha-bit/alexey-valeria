@@ -4,9 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Алексей & Валерия — 18.09.2027</title>
+
+<!-- OPEN GRAPH (для красивых превью в Telegram/WhatsApp) -->
+<meta property="og:title" content="Алексей & Валерия — 18.09.2027">
+<meta property="og:description" content="Мы женимся! Будем счастливы разделить этот важный день с вами. Загляните в наше приглашение.">
+<meta property="og:image" content="https://vasha-svadba.ru/og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+
+<!-- FAVICON (замените на свою монограмму) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='18' font-style='italic' fill='%23b8956a'%3EA%26V%3C/text%3E%3C/svg%3E">
+
+<!-- PRELOAD главного изображения -->
+<link rel="preload" as="image" href="slide1.jpg">
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-   * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
   
   html { scroll-behavior: smooth; }
   
@@ -35,7 +49,7 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
   
-  /* PROGRESS BAR (пункт 5) */
+  /* PROGRESS BAR */
   .progress-bar {
     position: fixed;
     top: 0;
@@ -48,7 +62,7 @@
     box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
   }
   
-  /* INITIALS BADGE (пункт 7) */
+  /* INITIALS BADGE */
   .initials-badge {
     position: fixed;
     top: 20px;
@@ -74,8 +88,7 @@
     transform: translateY(0);
   }
   
-    
-  /* HERO SLIDER (пункт 8 — рамка) */
+  /* HERO SLIDER */
   .hero-slider {
     position: relative;
     width: 100%;
@@ -86,7 +99,6 @@
     background: #2a2a2a;
   }
   
-  /* Золотая рамка (пункт 8) */
   .hero-slider::before {
     content: '';
     position: absolute;
@@ -168,7 +180,6 @@
     to { transform: scaleX(1); }
   }
   
-  /* Анимация появления имён (пункт 3) */
   @keyframes namesGlow {
     0%, 100% {
       text-shadow: 0 2px 20px rgba(0,0,0,0.3), 0 0 20px rgba(212, 175, 55, 0.3);
@@ -230,7 +241,7 @@
     text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
   }
   
- .hero-date {
+  .hero-date {
     font-size: 15px;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -259,7 +270,7 @@
   .countdown-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #999; }
   .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: #d4c5a9; padding-top: 6px; }
   
-  /* ORNAMENTS (пункт 6) */
+  /* ORNAMENTS */
   .ornament {
     text-align: center;
     padding: 8px 0;
@@ -279,7 +290,6 @@
     position: relative;
   }
   
-  /* Кавычки (пункт 9) */
   .invite-text::before,
   .invite-text::after {
     content: '«';
@@ -306,8 +316,6 @@
     text-align: center;
   }
 
-
-  /* Буквица */
   .invite-text .lead::first-letter {
     font-family: 'Cormorant Garamond', serif;
     font-size: 56px;
@@ -320,7 +328,6 @@
     margin-top: 4px;
   }
 
-
   /* DETAILS */
   .details { padding: 60px 0; text-align: center; }
   .details-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 40px; }
@@ -329,6 +336,21 @@
   .detail-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #b8956a; margin-bottom: 10px; }
   .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #2a2a2a; line-height: 1.4; }
   .detail-note { font-size: 13px; color: #999; margin-top: 6px; }
+  
+  /* CALENDAR BUTTON */
+  .calendar-btn {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 14px;
+    font-size: 13px;
+    color: #b8956a;
+    text-decoration: none;
+    border: 1px solid #d4c5a9;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  .calendar-btn:hover { background: #b8956a; color: #fff; border-color: #b8956a; }
   
   /* TIMELINE */
   .timeline { padding: 60px 0; }
@@ -343,12 +365,13 @@
   .dresscode-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
   .dresscode-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 32px; line-height: 1.7; }
   .palette { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
-  .palette-color { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .palette-color { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
+  .palette-color:hover { transform: scale(1.1); }
   
   /* MAP */
   .map-section { padding: 60px 0; }
   .map-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; text-align: center; margin-bottom: 24px; }
-    .map-frame {
+  .map-frame {
     border-radius: 4px;
     overflow: hidden;
     height: 320px;
@@ -357,13 +380,6 @@
     padding: 6px;
   }
   .map-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
-  
-  /* GALLERY */
-  .gallery { padding: 60px 0; }
-  .gallery-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; text-align: center; margin-bottom: 32px; }
-  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .gallery-grid img { width: 100%; height: 120px; object-fit: cover; display: block; border-radius: 3px; cursor: pointer; transition: transform 0.4s ease, opacity 0.4s ease; }
-  .gallery-grid img:hover { transform: scale(1.03); opacity: 0.9; }
   
   /* ORGANIZER */
   .organizer { padding: 60px 0; text-align: center; }
@@ -375,8 +391,92 @@
   .organizer-phone:hover { color: #2a2a2a; border-color: #2a2a2a; }
   .organizer-note { font-size: 13px; color: #999; margin-top: 16px; }
   
+  /* WISHES CAROUSEL */
+  .wishes-section { padding: 60px 0; text-align: center; }
+  .wishes-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
+
+  .wishes-carousel {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .wishes-track-container {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .wishes-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+  }
+
+  .wish-slide {
+    min-width: 100%;
+    padding: 32px 24px;
+    background: #fff;
+    border: 1px solid #e8e4dd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    user-select: none;
+  }
+
+  .wish-icon { font-size: 32px; margin-bottom: 16px; }
+  .wish-slide h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #2a2a2a;
+    margin-bottom: 12px;
+  }
+  .wish-slide p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+  }
+
+  .carousel-btn {
+    background: transparent;
+    border: 1px solid #d4c5a9;
+    color: #b8956a;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+  .carousel-btn:hover { background: #b8956a; color: #fff; border-color: #b8956a; }
+  .carousel-btn:disabled { opacity: 0.3; cursor: default; }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d4c5a9;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .dot.active { opacity: 1; transform: scale(1.2); background: #b8956a; }
+  
   /* CTA */
-    .cta-section {
+  .cta-section {
     padding: 60px 0 100px;
     text-align: center;
     position: relative;
@@ -412,7 +512,7 @@
   .btn:hover { background: #b8956a; }
   
   /* FOOTER */
-    .footer {
+  .footer {
     text-align: center;
     padding: 40px 0 60px;
     font-family: 'Cormorant Garamond', serif;
@@ -447,7 +547,7 @@
   .music-btn svg { width: 20px; height: 20px; fill: currentColor; }
 
   /* LOCK SCREEN */
-    .lock-screen {
+  .lock-screen {
     position: fixed;
     inset: 0;
     background: url('slide1.jpg') center/cover no-repeat;
@@ -537,7 +637,7 @@
     50% { text-shadow: 0 0 40px rgba(212, 175, 55, 0.5), 0 0 60px rgba(212, 175, 55, 0.3); }
   }
   
-@keyframes floatMonogram {
+  @keyframes floatMonogram {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
   }
@@ -556,7 +656,7 @@
     margin-bottom: 20px;
   }
   
-   .lock-slider {
+  .lock-slider {
     position: relative;
     width: 100%;
     height: 68px;
@@ -630,7 +730,7 @@
     z-index: 1;
   } 
 
-/* ФОНОВАЯ МОНОГРАММА */
+  /* ФОНОВАЯ МОНОГРАММА */
   .bg-monogram {
     position: absolute;
     top: 50%;
@@ -654,7 +754,6 @@
     overflow: hidden;
   }
 
- 
   /* MOBILE */
   @media (max-width: 480px) {
     .hero-slider { min-height: 500px; }
@@ -666,34 +765,31 @@
     .countdown-item { min-width: 58px; }
     .countdown-sep { font-size: 28px; padding-top: 4px; }
     .countdown { gap: 6px; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    .gallery-grid img { height: 130px; }
-    .map-frame { height: 260px; }
-    .organizer-card { padding: 24px 28px; 
+    .organizer-card { padding: 24px 28px; }
     .lock-time { font-size: 72px; }
     .lock-monogram { font-size: 76px; }
     .lock-screen { padding: 40px 20px 60px; }
-}
-    
     .invite-text::before,
     .invite-text::after {
       font-size: 40px;
       opacity: 0.35;
     }
-    
     .initials-badge {
       top: 14px;
       right: 14px;
       font-size: 15px;
       padding: 6px 12px;
     }
-    
     .hero-slider::before {
       top: 10px;
       left: 10px;
       right: 10px;
       bottom: 10px;
     }
+    .wishes-carousel { gap: 8px; }
+    .carousel-btn { width: 36px; height: 36px; }
+    .wish-slide { padding: 24px 16px; }
+    .wish-slide h3 { font-size: 20px; }
   }
 </style>
 </head>
@@ -722,10 +818,10 @@
   </div>
 </div>
 
-<!-- PROGRESS BAR (пункт 5) -->
+<!-- PROGRESS BAR -->
 <div class="progress-bar" id="progressBar"></div>
 
-<!-- INITIALS BADGE (пункт 7) -->
+<!-- INITIALS BADGE -->
 <div class="initials-badge" id="initialsBadge">А & В</div>
 
 <!-- HERO SLIDER -->
@@ -746,7 +842,6 @@
     <div class="hero-time">14:00 · Казань</div>
   </div>
 </section>
-
 
 <!-- ФОНОВАЯ МОНОГРАММА -->
 <div class="bg-monogram-wrapper">
@@ -780,7 +875,6 @@
     </div>
   </section>
 
-  <!-- ORNAMENT: два кольца (пункт 6) -->
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
@@ -795,7 +889,6 @@
     <p>В этот день мы хотим разделить с вами самое важное событие в нашей жизни — день нашей свадьбы. Будем счастливы видеть вас рядом.</p>
   </section>
 
-  <!-- ORNAMENT -->
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
@@ -811,6 +904,10 @@
       <div class="detail-label">Когда</div>
       <div class="detail-value">18 сентября 2027</div>
       <div class="detail-note">суббота, 14:00</div>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%D0%A1%D0%B2%D0%B0%D0%B4%D1%8C%D0%B1%D0%B0+%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D1%8F+%D0%B8+%D0%92%D0%B0%D0%BB%D0%B5%D1%80%D0%B8%D0%B8&dates=20270918T103000Z/20270918T190000Z&details=%D0%A2%D0%BE%D1%80%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F+%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F+%D0%B2+%D0%97%D0%90%D0%93%D0%A1%D0%B5+%D0%B8+%D0%BF%D1%80%D0%B0%D0%B7%D0%B4%D0%BD%D0%B8%D1%87%D0%BD%D1%8B%D0%B9+%D1%83%D0%B6%D0%B8%D0%BD.+%D0%91%D1%83%D0%B4%D0%B5%D0%BC+%D1%80%D0%B0%D0%B4%D1%8B+%D0%B2%D0%B8%D0%B4%D0%B5%D1%82%D1%8C+%D0%B2%D0%B0%D1%81!&location=%D0%97%D0%90%D0%93%D0%A1+%C2%AB%D0%A7%D0%B0%D1%88%D0%B0%C2%BB,+%D0%B3.+%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C,+%D1%83%D0%BB.+%D0%A1%D0%B8%D0%B1%D0%B3%D0%B0%D1%82%D0%B0+%D0%A5%D0%B0%D0%BA%D0%B8%D0%BC%D0%B0,+4" target="_blank" class="calendar-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 6px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        Добавить в календарь
+      </a>
     </div>
     <div class="detail-item">
       <div class="detail-label">Где</div>
@@ -824,7 +921,6 @@
     </div>
   </section>
 
-  <!-- ORNAMENT -->
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
@@ -866,7 +962,6 @@
     </div>
   </section>
 
-  <!-- ORNAMENT -->
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
@@ -888,7 +983,6 @@
     </div>
   </section>
 
-  <!-- ORNAMENT -->
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
@@ -909,7 +1003,6 @@
     </div>
   </section>
 
-  <!-- ORNAMENT -->
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
@@ -929,7 +1022,56 @@
     </div>
   </section>
 
-  <!-- ORNAMENT -->
+  <div class="ornament">
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+    </svg>
+  </div>
+
+  <!-- ПОЖЕЛАНИЯ МОЛОДОЖЁНОВ (КАРУСЕЛЬ) -->
+  <section class="wishes-section reveal">
+    <div class="wishes-title">Несколько слов от нас</div>
+    
+    <div class="wishes-carousel">
+      <button class="carousel-btn prev" id="wishPrev" aria-label="Предыдущее пожелание">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      
+      <div class="wishes-track-container">
+        <div class="wishes-track" id="wishesTrack">
+          
+          <div class="wish-slide">
+            <div class="wish-icon">🎁</div>
+            <h3>О подарках</h3>
+            <p>Ваше присутствие и тёплые слова — самый ценный подарок для нас. Но если вы захотите внести вклад в наше свадебное путешествие, мы будем безмерно благодарны.</p>
+          </div>
+          
+          <div class="wish-slide">
+            <div class="wish-icon">👗</div>
+            <h3>О дресс-коде</h3>
+            <p>Мы будем рады, если вы поддержите палитру нашей свадьбы в своих нарядах. И небольшая просьба: воздержитесь от белого цвета, он сегодня зарезервирован для невесты.</p>
+          </div>
+          
+          <div class="wish-slide">
+            <div class="wish-icon">🥂</div>
+            <h3>О настроении</h3>
+            <p>Берите с собой хорошие эмоции, удобную обувь для танцев и готовые тосты. Мы обещаем сделать этот день по-настоящему тёплым и незабываемым!</p>
+          </div>
+
+        </div>
+      </div>
+      
+      <button class="carousel-btn next" id="wishNext" aria-label="Следующее пожелание">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+    
+    <div class="carousel-dots" id="carouselDots"></div>
+  </section>
+
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
@@ -975,13 +1117,11 @@
   var maxTranslate = 0;
   var isUnlocked = false;
   
-  // Проверяем, разблокировано ли уже (в этой сессии)
   if (sessionStorage.getItem('weddingUnlocked') === 'true') {
     lockScreen.classList.add('hidden');
     isUnlocked = true;
   }
   
-  // Реальное время
   function updateLockTime() {
     var now = new Date();
     var hours = now.getHours();
@@ -1046,10 +1186,10 @@
     lockProgress.style.width = '100%';
     
     sessionStorage.setItem('weddingUnlocked', 'true');
+    lockScreen.setAttribute('aria-hidden', 'true');
     
     setTimeout(function() {
       lockScreen.classList.add('unlocked');
-      // Запускаем появление имён в hero
       var names = document.querySelectorAll('.hero-names .name, .hero-names .amp');
       names.forEach(function(el) {
         el.style.animationPlayState = 'running';
@@ -1078,7 +1218,7 @@
 
     if (distance < 0) {
       document.getElementById('countdown').innerHTML = 
-        '<div style="font-family: Cormorant Garamond, serif; font-size: 28px; font-style: italic; color: #b8956a; width: 100%; text-align: center;">Этот день настал! ♥</div>';
+        '<div style="font-family: Cormorant Garamond, serif; font-size: 28px; font-style: italic; color: #b8956a; width: 100%; text-align: center;">Мы уже не можем дождаться встречи с вами! ♥</div>';
       return;
     }
 
@@ -1118,10 +1258,14 @@
     if (isPlaying) {
       bgMusic.pause();
       musicBtn.classList.remove('playing');
+      musicBtn.setAttribute('aria-label', 'Включить музыку');
     } else {
       bgMusic.volume = 0.4;
-      bgMusic.play();
+      bgMusic.play().catch(function(err) {
+        console.warn('Не удалось воспроизвести музыку:', err);
+      });
       musicBtn.classList.add('playing');
+      musicBtn.setAttribute('aria-label', 'Выключить музыку');
     }
     isPlaying = !isPlaying;
   });
@@ -1138,7 +1282,7 @@
     }, 5000);
   }
 
-  // PARALLAX HERO (пункт 4)
+  // PARALLAX HERO
   var heroSlider = document.getElementById('heroSlider');
   var parallaxSlides = document.querySelectorAll('.hero-slider .slide');
 
@@ -1157,7 +1301,7 @@
 
   window.addEventListener('scroll', updateHeroParallax, { passive: true });
 
-  // PROGRESS BAR (пункт 5)
+  // PROGRESS BAR
   var progressBar = document.getElementById('progressBar');
 
   function updateProgressBar() {
@@ -1169,7 +1313,7 @@
 
   window.addEventListener('scroll', updateProgressBar, { passive: true });
 
-  // INITIALS BADGE (пункт 7)
+  // INITIALS BADGE
   var initialsBadge = document.getElementById('initialsBadge');
 
   function updateInitialsBadge() {
@@ -1182,6 +1326,77 @@
   }
 
   window.addEventListener('scroll', updateInitialsBadge, { passive: true });
+
+  // WISHES CAROUSEL
+  const wishesTrack = document.getElementById('wishesTrack');
+  const wishPrev = document.getElementById('wishPrev');
+  const wishNext = document.getElementById('wishNext');
+  const carouselDots = document.getElementById('carouselDots');
+  const wishSlides = document.querySelectorAll('.wish-slide');
+
+  let currentWish = 0;
+  const totalWishes = wishSlides.length;
+
+  wishSlides.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToWish(index));
+    carouselDots.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll('.dot');
+
+  function updateWishCarousel() {
+    wishesTrack.style.transform = `translateX(-${currentWish * 100}%)`;
+    
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentWish);
+    });
+    
+    wishPrev.disabled = currentWish === 0;
+    wishNext.disabled = currentWish === totalWishes - 1;
+  }
+
+  function goToWish(index) {
+    currentWish = index;
+    updateWishCarousel();
+  }
+
+  wishPrev.addEventListener('click', () => {
+    if (currentWish > 0) goToWish(currentWish - 1);
+  });
+
+  wishNext.addEventListener('click', () => {
+    if (currentWish < totalWishes - 1) goToWish(currentWish + 1);
+  });
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  wishesTrack.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  wishesTrack.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleWishSwipe();
+  }, { passive: true });
+
+  function handleWishSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0 && currentWish < totalWishes - 1) {
+        goToWish(currentWish + 1);
+      } else if (diff < 0 && currentWish > 0) {
+        goToWish(currentWish - 1);
+      }
+    }
+  }
+
+  updateWishCarousel();
 
 </script>
 
