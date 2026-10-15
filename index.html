@@ -559,7 +559,7 @@
     transform: scale(1.1);
   }
   
-    /* TIMELINE FLOW (ПЛАВНАЯ S-ЛИНИЯ) */
+  /* TIMELINE FLOW */
   .timeline { padding: 60px 0; }
   .timeline-title { 
     font-size: 12px; 
@@ -653,43 +653,39 @@
     margin-bottom: 3px;
   }
 
-  /* Правые события */
-  .event-right {
+  /* Позиционирование по порядку */
+  .event-1 {
     top: 110px;
     right: 10px;
     flex-direction: row-reverse;
   }
-  .event-right .event-content { text-align: right; }
+  .event-1 .event-content { text-align: right; }
 
-  /* Левые события */
-  .event-left {
+  .event-2 {
     top: 290px;
     left: 10px;
   }
 
-  /* Второе правое событие */
-  .event-right:nth-of-type(2) {
+  .event-3 {
     top: 510px;
     right: 10px;
     flex-direction: row-reverse;
   }
-  .event-right:nth-of-type(2) .event-content { text-align: right; }
+  .event-3 .event-content { text-align: right; }
 
-  /* Второе левое событие */
-  .event-left:nth-of-type(2) {
+  .event-4 {
     top: 710px;
     left: 10px;
   }
 
-  /* MOBILE для таймлайна */
   @media (max-width: 480px) {
     .timeline-flow { height: 750px; }
     .timeline-svg { height: 750px; }
     
-    .event-right { top: 90px; }
-    .event-left { top: 230px; }
-    .event-right:nth-of-type(2) { top: 420px; }
-    .event-left:nth-of-type(2) { top: 600px; }
+    .event-1 { top: 90px; }
+    .event-2 { top: 230px; }
+    .event-3 { top: 420px; }
+    .event-4 { top: 600px; }
     
     .event-time { font-size: 20px; }
     .event-content { font-size: 13px; }
@@ -1517,8 +1513,8 @@
     </svg>
     
     <div class="timeline-events">
-      <!-- 13:30 - Сбор гостей (справа, вверху) -->
-      <div class="timeline-event event-right">
+      <!-- 1. 13:30 - Сбор гостей (справа) -->
+      <div class="timeline-event event-1">
         <div class="event-content">
           <strong>Сбор гостей</strong>
           встречаемся у ЗАГСа «Чаша»
@@ -1526,8 +1522,8 @@
         <div class="event-time">13:30</div>
       </div>
       
-      <!-- 14:00 - Церемония (слева) -->
-      <div class="timeline-event event-left">
+      <!-- 2. 14:00 - Церемония (слева) -->
+      <div class="timeline-event event-2">
         <div class="event-time">14:00</div>
         <div class="event-content">
           <strong>Церемония</strong>
@@ -1535,8 +1531,8 @@
         </div>
       </div>
       
-      <!-- 15:30 - Фотосессия (справа) -->
-      <div class="timeline-event event-right">
+      <!-- 3. 15:30 - Фотосессия (справа) -->
+      <div class="timeline-event event-3">
         <div class="event-content">
           <strong>Фотосессия</strong>
           прогулка и фото у «Чаши»
@@ -1544,8 +1540,8 @@
         <div class="event-time">15:30</div>
       </div>
       
-      <!-- 17:00 - Банкет (слева, внизу) -->
-      <div class="timeline-event event-left">
+      <!-- 4. 17:00 - Банкет (слева) -->
+      <div class="timeline-event event-4">
         <div class="event-time">17:00</div>
         <div class="event-content">
           <strong>Банкет</strong>
