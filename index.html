@@ -85,7 +85,6 @@
     z-index: 1;
   }
   
-  /* REVEAL */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -93,7 +92,6 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
   
-  /* PROGRESS BAR */
   .progress-bar {
     position: fixed;
     top: 0;
@@ -106,7 +104,6 @@
     box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
   }
   
-  /* INITIALS BADGE */
   .initials-badge {
     position: fixed;
     top: 20px;
@@ -127,12 +124,8 @@
     transition: opacity 0.4s ease, transform 0.4s ease;
     pointer-events: none;
   }
-  .initials-badge.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .initials-badge.visible { opacity: 1; transform: translateY(0); }
   
-  /* HERO SLIDER */
   .hero-slider {
     position: relative;
     width: 100%;
@@ -146,10 +139,7 @@
   .hero-slider::before {
     content: '';
     position: absolute;
-    top: 16px;
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
+    top: 16px; left: 16px; right: 16px; bottom: 16px;
     border: 1px solid rgba(212, 175, 55, 0.35);
     z-index: 3;
     pointer-events: none;
@@ -262,7 +252,6 @@
     opacity: 0; filter: blur(8px); animation: blurIn 1.2s ease 1.8s forwards;
   }
   
-  /* COUNTDOWN */
   .countdown-section { padding: 80px 0 60px; text-align: center; }
   .countdown-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
   .countdown { display: flex; justify-content: center; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
@@ -271,11 +260,9 @@
   .countdown-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #999; }
   .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: #d4c5a9; padding-top: 6px; }
   
-  /* ORNAMENTS */
   .ornament { text-align: center; padding: 8px 0; opacity: 0.7; }
   .ornament svg { width: 60px; height: 40px; display: inline-block; }
   
-  /* TEXT */
   .invite-text { text-align: center; padding: 40px 0 60px; position: relative; }
   .invite-text::before, .invite-text::after {
     content: '«'; position: absolute; font-family: 'Cormorant Garamond', serif;
@@ -289,7 +276,6 @@
     color: #2a2a2a; margin-bottom: 24px; line-height: 1.5; text-align: center;
   }
 
-  /* DETAILS */
   .details { padding: 60px 0; text-align: center; }
   .details-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 40px; }
   .detail-item { margin-bottom: 36px; }
@@ -298,16 +284,16 @@
   .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #2a2a2a; line-height: 1.4; position: relative; z-index: 3; }
   .detail-note { font-size: 13px; color: #999; margin-top: 6px; position: relative; z-index: 3; }
   
-  /* МИНИМАЛИСТИЧНЫЙ КАЛЕНДАРЬ */
+  /* МИНИМАЛИСТИЧНЫЙ КАЛЕНДАРЬ (УВЕЛИЧЕННЫЙ) */
   .mini-calendar-wrapper {
     position: relative;
-    max-width: 320px;
+    max-width: 340px;
     margin: 20px auto;
-    padding-bottom: 200px; /* Место для волнистой линии */
+    padding-bottom: 200px;
   }
 
   .mini-calendar-simple {
-    max-width: 320px;
+    max-width: 340px;
     margin: 0 auto;
     padding: 20px;
   }
@@ -315,13 +301,13 @@
   .calendar-weekdays-simple {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 12px;
+    gap: 16px;
     margin-bottom: 16px;
     text-align: center;
   }
 
   .calendar-weekdays-simple div {
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 2px;
     color: #999;
     font-weight: 400;
@@ -330,13 +316,13 @@
   .calendar-days-simple {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 12px;
+    gap: 16px;
     text-align: center;
   }
 
   .day-simple {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
+    font-size: 24px;
     color: #555;
     position: relative;
   }
@@ -351,8 +337,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     animation: heartPulseSimple 2s ease-in-out infinite;
   }
 
@@ -364,7 +350,7 @@
   .heart-num-simple {
     position: relative;
     z-index: 2;
-    font-size: 16px;
+    font-size: 18px;
     color: #b8956a;
     font-weight: 500;
   }
@@ -372,7 +358,7 @@
   /* Волнистая линия от сердечка */
   .calendar-wave-line {
     position: absolute;
-    top: 35px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
@@ -393,9 +379,7 @@
     animation: drawWave 2s ease-out 0.6s forwards;
   }
 
-  @keyframes drawWave {
-    to { stroke-dashoffset: 0; }
-  }
+  @keyframes drawWave { to { stroke-dashoffset: 0; } }
   
   /* TIMELINE FLOW */
   .timeline { padding: 60px 0; }
@@ -492,7 +476,6 @@
   .event-3 .event-content { text-align: right; }
   .event-4 { top: 710px; left: 10px; }
 
-  /* DRESS CODE */
   .dresscode { padding: 60px 0; text-align: center; }
   .dresscode-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
   .dresscode-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 32px; line-height: 1.7; }
@@ -500,7 +483,6 @@
   .palette-color { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
   .palette-color:hover { transform: scale(1.1); }
   
-  /* MAP */
   .map-section { padding: 60px 0; }
   .map-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; text-align: center; margin-bottom: 24px; }
   .map-frame {
@@ -509,7 +491,6 @@
   }
   .map-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
   
-  /* ORGANIZER */
   .organizer { padding: 60px 0; text-align: center; }
   .organizer-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
   .organizer-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 28px; line-height: 1.7; }
@@ -519,7 +500,6 @@
   .organizer-phone:hover { color: #2a2a2a; border-color: #2a2a2a; }
   .organizer-note { font-size: 13px; color: #999; margin-top: 16px; }
 
-  /* WISHES CAROUSEL */
   .wishes-section { padding: 60px 0; text-align: center; }
   .wishes-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
 
@@ -553,7 +533,6 @@
   .dot { width: 8px; height: 8px; border-radius: 50%; background: #d4c5a9; opacity: 0.4; cursor: pointer; transition: all 0.3s ease; }
   .dot.active { opacity: 1; transform: scale(1.2); background: #b8956a; }
   
-  /* CTA */
   .cta-section { padding: 60px 0 100px; text-align: center; position: relative; }
   .cta-section::after {
     content: ''; position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
@@ -568,11 +547,9 @@
   .btn { display: inline-block; padding: 16px 48px; background: #2a2a2a; color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; transition: background 0.3s ease; cursor: pointer; }
   .btn:hover { background: #b8956a; }
   
-  /* FOOTER */
   .footer { text-align: center; padding: 40px 0 60px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: #b8956a; letter-spacing: 1px; }
   .footer-heart { font-size: 14px; color: #b8956a; }
   
-  /* MUSIC BUTTON */
   .music-btn {
     position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px;
     border-radius: 50%; background: #2a2a2a; color: #fff; border: none;
@@ -583,7 +560,6 @@
   .music-btn.playing { background: #b8956a; }
   .music-btn svg { width: 20px; height: 20px; fill: currentColor; }
 
-  /* LOCK SCREEN */
   .lock-screen {
     position: fixed; inset: 0; background: url('slide1.jpg') center/cover no-repeat;
     background-color: #2a2a2a; display: flex; flex-direction: column;
@@ -645,7 +621,6 @@
     border-radius: 34px; width: 68px; transition: width 0.05s linear; z-index: 1;
   } 
 
-  /* ФОНОВАЯ МОНОГРАММА */
   .bg-monogram {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-8deg);
     font-family: 'Cormorant Garamond', serif; font-size: 380px; font-weight: 300;
@@ -654,7 +629,6 @@
   }
   .bg-monogram-wrapper { position: relative; overflow: hidden; }
 
-  /* СЕРДЕЧКИ ПО КЛИКУ */
   .click-heart {
     position: fixed; pointer-events: none; z-index: 99999;
     width: 20px; height: 20px; animation: heartFloat 1.5s ease-out forwards;
@@ -688,9 +662,41 @@
     75% { transform: translate(40px, -120px) scale(1.1); opacity: 0.5; }
   }
 
+  /* ЗОЛОТЫЕ ЦВЕТОЧКИ НА ФОНЕ */
+  .background-flowers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .flower {
+    position: absolute;
+    opacity: 0.08;
+    animation: flowerSway 8s ease-in-out infinite;
+  }
+
+  .f1 { top: 15%; left: 8%; width: 80px; height: 80px; animation-delay: 0s; }
+  .f2 { top: 45%; right: 10%; width: 60px; height: 60px; animation-delay: -2s; }
+  .f3 { top: 75%; left: 15%; width: 70px; height: 70px; animation-delay: -4s; }
+  .f4 { top: 25%; right: 20%; width: 50px; height: 50px; animation-delay: -1s; }
+  .f5 { top: 85%; right: 15%; width: 65px; height: 65px; animation-delay: -3s; }
+  .f6 { top: 55%; left: 5%; width: 55px; height: 55px; animation-delay: -5s; }
+
+  @keyframes flowerSway {
+    0%, 100% { transform: rotate(0deg) translate(0, 0); }
+    25% { transform: rotate(3deg) translate(2px, -3px); }
+    50% { transform: rotate(-2deg) translate(-1px, 2px); }
+    75% { transform: rotate(2deg) translate(1px, -2px); }
+  }
+
   /* MOBILE */
   @media (max-width: 480px) {
-    .heart-num-simple { font-size: 14px; }
+    .heart-num-simple { font-size: 16px; }
     .hero-slider { min-height: 500px; }
     .hero-names { font-size: 44px; }
     .hero-amp { font-size: 34px; }
@@ -712,8 +718,8 @@
     .wish-slide { padding: 24px 16px; }
     .wish-slide h3 { font-size: 20px; }
     .mini-calendar-simple { padding: 16px; }
-    .calendar-weekdays-simple div { font-size: 10px; }
-    .day-simple { font-size: 18px; }
+    .calendar-weekdays-simple div { font-size: 11px; }
+    .day-simple { font-size: 20px; }
     
     .timeline-flow { height: 600px; }
     .timeline-svg { width: 250px; height: 600px; }
@@ -730,6 +736,14 @@
 </head>
 <body>
 
+<!-- Плавающие золотые частицы -->
+<div class="floating-particles" aria-hidden="true">
+  <div class="particle p1"></div>
+  <div class="particle p2"></div>
+  <div class="particle p3"></div>
+  <div class="particle p4"></div>
+  <div class="particle p5"></div>
+</div>
 
 <!-- Золотые цветочки на фоне -->
 <div class="background-flowers" aria-hidden="true">
@@ -743,7 +757,6 @@
       <path d="M30 30 C25 22, 20 20, 18 25 C16 30, 25 30, 30 30" />
     </g>
   </svg>
-  
   <svg class="flower f2" viewBox="0 0 60 60" fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round">
     <g filter="url(#handDrawnHeartSimple)">
       <circle cx="30" cy="30" r="3" fill="#b8956a" opacity="0.3"/>
@@ -753,7 +766,6 @@
       <path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30" />
     </g>
   </svg>
-  
   <svg class="flower f3" viewBox="0 0 60 60" fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round">
     <g filter="url(#handDrawnHeartSimple)">
       <circle cx="30" cy="30" r="3" fill="#b8956a" opacity="0.3"/>
@@ -764,7 +776,6 @@
       <path d="M30 30 C25 22, 20 20, 18 25 C16 30, 25 30, 30 30" />
     </g>
   </svg>
-  
   <svg class="flower f4" viewBox="0 0 60 60" fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round">
     <g filter="url(#handDrawnHeartSimple)">
       <circle cx="30" cy="30" r="3" fill="#b8956a" opacity="0.3"/>
@@ -774,7 +785,6 @@
       <path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30" />
     </g>
   </svg>
-  
   <svg class="flower f5" viewBox="0 0 60 60" fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round">
     <g filter="url(#handDrawnHeartSimple)">
       <circle cx="30" cy="30" r="3" fill="#b8956a" opacity="0.3"/>
@@ -785,7 +795,6 @@
       <path d="M30 30 C25 22, 20 20, 18 25 C16 30, 25 30, 30 30" />
     </g>
   </svg>
-  
   <svg class="flower f6" viewBox="0 0 60 60" fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round">
     <g filter="url(#handDrawnHeartSimple)">
       <circle cx="30" cy="30" r="3" fill="#b8956a" opacity="0.3"/>
@@ -795,15 +804,6 @@
       <path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30" />
     </g>
   </svg>
-</div>
- 
-<!-- Плавающие золотые частицы -->
-<div class="floating-particles" aria-hidden="true">
-  <div class="particle p1"></div>
-  <div class="particle p2"></div>
-  <div class="particle p3"></div>
-  <div class="particle p4"></div>
-  <div class="particle p5"></div>
 </div>
 
 <!-- LOCK SCREEN -->
