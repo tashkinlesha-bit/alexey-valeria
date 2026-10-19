@@ -361,25 +361,25 @@
     overflow: hidden;
   }
 
-/* ЛИНИЯ ОТ КАЛЕНДАРЯ К ТАЙМЛАЙНУ */
   .mini-calendar-wrapper {
     position: relative;
     max-width: 320px;
     margin: 20px auto;
-    padding-bottom: 20px; /* Уменьшил с 180px */
+    padding-bottom: 200px; /* Место для линии */
   }
 
-  .calendar-to-timeline-line {
+   .calendar-to-timeline-line {
     position: absolute;
-    bottom: -180px; /* Линия начинается от сердечка и идет вниз */
+    top: 100%; /* Начинается сразу после календаря */
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
     height: 200px;
     z-index: 0;
     pointer-events: none;
+    margin-top: -10px; /* Небольшой сдвиг вверх, чтобы линия начиналась из сердечка */
   }
-
+ 
   .flow-line {
     stroke-dasharray: 400;
     stroke-dashoffset: 400;
