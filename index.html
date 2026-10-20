@@ -284,30 +284,30 @@
   .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #2a2a2a; line-height: 1.4; position: relative; z-index: 3; }
   .detail-note { font-size: 13px; color: #999; margin-top: 6px; position: relative; z-index: 3; }
   
-  /* МИНИМАЛИСТИЧНЫЙ КАЛЕНДАРЬ (УВЕЛИЧЕННЫЙ) */
+    /* КАЛЕНДАРЬ (МАКСИМАЛЬНО КРУПНЫЙ) */
   .mini-calendar-wrapper {
     position: relative;
-    max-width: 340px;
+    max-width: 420px;
     margin: 20px auto;
-    padding-bottom: 200px;
+    padding-bottom: 240px;
   }
 
   .mini-calendar-simple {
-    max-width: 340px;
+    max-width: 420px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 28px;
   }
 
   .calendar-weekdays-simple {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 16px;
-    margin-bottom: 16px;
+    gap: 24px;
+    margin-bottom: 24px;
     text-align: center;
   }
 
   .calendar-weekdays-simple div {
-    font-size: 13px;
+    font-size: 17px;
     letter-spacing: 2px;
     color: #999;
     font-weight: 400;
@@ -316,13 +316,13 @@
   .calendar-days-simple {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 16px;
+    gap: 24px;
     text-align: center;
   }
 
   .day-simple {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
+    font-size: 32px;
     color: #555;
     position: relative;
   }
@@ -334,11 +334,10 @@
 
   .heart-simple {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
+    width: 56px;
+    height: 56px;
     animation: heartPulseSimple 2s ease-in-out infinite;
   }
 
@@ -350,15 +349,14 @@
   .heart-num-simple {
     position: relative;
     z-index: 2;
-    font-size: 18px;
+    font-size: 26px;
     color: #b8956a;
     font-weight: 500;
   }
-
-  /* Волнистая линия от сердечка */
+   /* Волнистая линия (ещё ниже) */
   .calendar-wave-line {
     position: absolute;
-    top: 40px;
+    top: 65px;
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
@@ -718,8 +716,13 @@
     .wish-slide { padding: 24px 16px; }
     .wish-slide h3 { font-size: 20px; }
     .mini-calendar-simple { padding: 16px; }
-    .calendar-weekdays-simple div { font-size: 11px; }
-    .day-simple { font-size: 20px; }
+    .calendar-weekdays-simple { gap: 18px; }
+    .calendar-days-simple { gap: 18px; }
+    .calendar-weekdays-simple div { font-size: 14px; }
+    .day-simple { font-size: 26px; }
+    .heart-simple { width: 46px; height: 46px; }
+    .heart-num-simple { font-size: 22px; }
+    .calendar-wave-line { top: 55px; }
     
     .timeline-flow { height: 600px; }
     .timeline-svg { width: 250px; height: 600px; }
