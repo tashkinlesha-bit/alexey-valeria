@@ -231,7 +231,7 @@
     background: transparent;
     border: 1.5px solid #8B1A2B;
     border-radius: 4px;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .calendar-month-header {
@@ -299,10 +299,6 @@
 
   /* TIMELINE */
   .timeline { padding: 0 0 60px; }
-  .timeline-title { 
-    font-size: 12px; letter-spacing: 4px; text-transform: uppercase; 
-    color: #999; text-align: center; margin-bottom: 40px; 
-  }
   .timeline-flow { position: relative; max-width: 400px; margin: 0 auto; height: 1000px; }
   .timeline-svg {
     position: absolute; top: 0; left: 50%;
@@ -312,25 +308,23 @@
   .timeline-line { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: drawTimeline 3s ease-out forwards; }
   .timeline-line-secondary { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: drawTimeline 3s ease-out 0.1s forwards; }
   @keyframes drawTimeline { to { stroke-dashoffset: 0; } }
-  .timeline-dot { opacity: 0; animation: dotAppear 0.4s ease-out forwards; }
-  .timeline-dot:nth-of-type(1) { animation-delay: 0.8s; }
-  .timeline-dot:nth-of-type(2) { animation-delay: 1.4s; }
-  .timeline-dot:nth-of-type(3) { animation-delay: 2s; }
-  .timeline-dot:nth-of-type(4) { animation-delay: 2.6s; }
-  @keyframes dotAppear { to { opacity: 1; } }
+  
   .timeline-events { 
-  position: relative; 
-  z-index: 2; 
-  height: 100%;
-  padding-top: 200px; /* Добавили отступ сверху чтобы текст не перекрывался линией */
-}
+    position: relative; 
+    z-index: 2; 
+    height: 100%;
+    padding-top: 200px;
+  }
+
   .timeline-event {
     position: absolute;
     display: flex;
-    align-items: center;
-    gap: 6px;
-    max-width: 220px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    max-width: 200px;
   }
+
   .event-time {
     font-family: 'Cormorant Garamond', serif;
     font-size: 44px;
@@ -340,23 +334,34 @@
     flex-shrink: 0;
     line-height: 1;
   }
+
   .event-content {
-    font-size: 15px; color: #555; line-height: 1.3;
-    background: transparent; padding: 0; z-index: 3;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+    background: transparent;
+    padding: 0;
+    z-index: 3;
   }
+
   .event-content strong {
-    display: block; color: #3D1F24;
-    font-weight: 500; font-size: 18px; margin-bottom: 2px;
+    display: block;
+    color: #3D1F24;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
-  .event-2, .event-4 { left: 10px; flex-direction: row; }
-  .event-2 .event-time, .event-4 .event-time { margin-right: -8px; }
-  .event-1, .event-3 { right: 10px; flex-direction: row-reverse; }
-  .event-1 .event-time, .event-3 .event-time { margin-left: -8px; }
+
+  .event-1, .event-3 { right: 10px; align-items: flex-end; }
   .event-1 .event-content, .event-3 .event-content { text-align: right; }
-  .event-1 { top: 130px; }
-  .event-2 { top: 330px; }
-  .event-3 { top: 580px; }
-  .event-4 { top: 780px; }
+  .event-2, .event-4 { left: 10px; align-items: flex-start; }
+  .event-2 .event-content, .event-4 .event-content { text-align: left; }
+  .event-1 { top: 110px; }
+  .event-2 { top: 310px; }
+  .event-3 { top: 560px; }
+  .event-4 { top: 760px; }
 
   .dresscode { padding: 60px 0; text-align: center; }
   .dresscode-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
@@ -564,17 +569,16 @@
     .heart-frame { width: 56px; height: 56px; }
     
     .timeline-flow { height: 800px; }
-    .timeline-svg { width: 250px; height: 800px; }
-    .event-1 { top: 100px; }
-    .event-2 { top: 260px; }
-    .event-3 { top: 460px; }
-    .event-4 { top: 620px; }
+    .timeline-svg { width: 250px; height: 800px; margin-top: -120px !important; }
+    .event-1 { top: 90px; }
+    .event-2 { top: 240px; }
+    .event-3 { top: 440px; }
+    .event-4 { top: 600px; }
     .event-time { font-size: 32px; }
     .event-content { font-size: 13px; }
-    .event-content strong { font-size: 15px; }
+    .event-content strong { font-size: 14px; }
     .timeline-event { max-width: 160px; gap: 4px; }
-    .event-2 .event-time, .event-4 .event-time,
-    .event-1 .event-time, .event-3 .event-time { margin: 0; }
+    .timeline-events { padding-top: 120px; }
   }
 </style>
 </head>
@@ -693,31 +697,25 @@
 
   <section class="timeline reveal">
     <div class="timeline-flow">
-    <svg class="timeline-svg" viewBox="0 -200 400 1200" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="margin-top: -200px; overflow: visible; z-index: 1;">
-  <!-- Гладкая линия, начинающаяся из сердечка -->
-  <path class="timeline-line" 
-        d="M 200 0 
-           C 260 40, 300 80, 280 130 
-           C 260 200, 180 260, 120 330 
-           C 60 450, 340 500, 280 580 
-           C 220 660, 180 720, 120 780 
-           C 60 840, 180 880, 200 900" 
-        fill="none" stroke="#8B1A2B" stroke-width="3" stroke-linecap="round"/>
-  <path class="timeline-line-secondary" 
-        d="M 200 0 
-           C 260 40, 300 80, 280 130 
-           C 260 200, 180 260, 120 330 
-           C 60 450, 340 500, 280 580 
-           C 220 660, 180 720, 120 780 
-           C 60 840, 180 880, 200 900" 
-        fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
-  
-  <!-- Точки на линии -->
-  <circle class="timeline-dot" cx="280" cy="130" r="4" fill="#8B1A2B"/>
-  <circle class="timeline-dot" cx="120" cy="330" r="4" fill="#8B1A2B"/>
-  <circle class="timeline-dot" cx="280" cy="580" r="4" fill="#8B1A2B"/>
-  <circle class="timeline-dot" cx="120" cy="780" r="4" fill="#8B1A2B"/>
-</svg>
+      <svg class="timeline-svg" viewBox="0 -220 400 1220" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="margin-top: -220px; overflow: visible; z-index: 1;">
+        <path class="timeline-line" 
+              d="M 200 0 
+                 C 260 40, 300 80, 280 130 
+                 C 260 200, 180 260, 120 330 
+                 C 60 450, 340 500, 280 580 
+                 C 220 660, 180 720, 120 780 
+                 C 60 840, 180 880, 200 900" 
+              fill="none" stroke="#8B1A2B" stroke-width="3" stroke-linecap="round"/>
+        <path class="timeline-line-secondary" 
+              d="M 200 0 
+                 C 260 40, 300 80, 280 130 
+                 C 260 200, 180 260, 120 330 
+                 C 60 450, 340 500, 280 580 
+                 C 220 660, 180 720, 120 780 
+                 C 60 840, 180 880, 200 900" 
+              fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+        <circle id="timelineDot" cx="0" cy="0" r="6" fill="#8B1A2B" style="transition: all 0.1s ease;"/>
+      </svg>
       <div class="timeline-events">
         <div class="timeline-event event-1">
           <div class="event-time">13:30</div>
@@ -1099,6 +1097,36 @@
     const size = 15 + Math.random() * 10; heart.style.width = size + 'px'; heart.style.height = size + 'px';
     document.body.appendChild(heart); setTimeout(() => { heart.remove(); }, 1500);
   });
+
+  // Динамическая точка на линии таймлайна
+  (function() {
+    const dot = document.getElementById('timelineDot');
+    const path = document.querySelector('.timeline-line');
+    
+    if (!dot || !path) return;
+    
+    const pathLength = path.getTotalLength();
+    
+    function updateDotPosition() {
+      const timelineSection = document.querySelector('.timeline');
+      if (!timelineSection) return;
+      
+      const rect = timelineSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      let progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+      progress = Math.max(0, Math.min(1, progress));
+      
+      const point = path.getPointAtLength(progress * pathLength);
+      
+      dot.setAttribute('cx', point.x);
+      dot.setAttribute('cy', point.y);
+    }
+    
+    window.addEventListener('scroll', updateDotPosition, { passive: true });
+    window.addEventListener('resize', updateDotPosition);
+    setTimeout(updateDotPosition, 100);
+  })();
 </script>
 </body>
 </html>
