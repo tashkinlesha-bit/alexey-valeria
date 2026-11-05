@@ -38,23 +38,21 @@
   }
 
   /* Анимированный дышащий градиент */
-  body::after {
+ body::after {
     content: '';
     position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
     background: 
-      radial-gradient(at 0% 0%, rgba(212, 197, 169, 0.35) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(232, 220, 201, 0.45) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(212, 197, 169, 0.3) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, rgba(232, 220, 201, 0.4) 0px, transparent 50%),
-      radial-gradient(at 50% 50%, rgba(212, 175, 55, 0.15) 0px, transparent 60%);
+      radial-gradient(at 0% 0%, rgba(139, 26, 43, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(166, 61, 79, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(139, 26, 43, 0.10) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(212, 165, 165, 0.12) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(166, 61, 79, 0.06) 0px, transparent 60%);
     animation: gradientShift 25s ease infinite;
     z-index: -1;
     pointer-events: none;
-  }
+}
 
   @keyframes gradientShift {
     0%, 100% { transform: translate(0, 0) rotate(0deg); }
@@ -98,7 +96,7 @@
     left: 0;
     height: 3px;
     width: 0%;
-    background: linear-gradient(90deg, #d4c5a9, #d4af37, #b8956a);
+    background: linear-gradient(90deg, #d4c5a9, #d4af37, #8B1A2B);
     z-index: 9998;
     transition: width 0.1s linear;
     box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
@@ -111,7 +109,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
     letter-spacing: 2px;
-    color: #b8956a;
+    color: #8B1A2B;
     background: rgba(250, 250, 248, 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -280,7 +278,7 @@
   .details-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 40px; }
   .detail-item { margin-bottom: 36px; }
   .detail-item:last-child { margin-bottom: 0; }
-  .detail-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #b8956a; margin-bottom: 10px; position: relative; z-index: 3; }
+  .detail-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #8B1A2B; margin-bottom: 10px; position: relative; z-index: 3; }
   .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #2a2a2a; line-height: 1.4; position: relative; z-index: 3; }
   .detail-note { font-size: 13px; color: #999; margin-top: 8px; position: relative; z-index: 3; }
   
@@ -350,7 +348,7 @@
     position: relative;
     z-index: 2;
     font-size: 30px;
-    color: #b8956a;
+    color: #8B1A2B;
     font-weight: 500;
   }
  
@@ -442,7 +440,7 @@
   .event-time {
     font-family: 'Cormorant Garamond', serif;
     font-size: 22px;
-    color: #b8956a;
+    color: #8B1A2B;
     font-weight: 400;
     white-space: nowrap;
     flex-shrink: 0;
@@ -495,7 +493,7 @@
   .organizer-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 28px; line-height: 1.7; }
   .organizer-card { display: inline-block; padding: 28px 40px; background: #fff; border: 1px solid #e8e4dd; border-radius: 4px; text-align: center; }
   .organizer-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #2a2a2a; margin-bottom: 12px; font-style: italic; }
-  .organizer-phone { display: inline-block; font-size: 15px; letter-spacing: 1px; color: #b8956a; text-decoration: none; border-bottom: 1px solid #e8dcc9; padding-bottom: 2px; transition: color 0.3s ease, border-color 0.3s ease; }
+  .organizer-phone { display: inline-block; font-size: 15px; letter-spacing: 1px; color: #8B1A2B; text-decoration: none; border-bottom: 1px solid #e8dcc9; padding-bottom: 2px; transition: color 0.3s ease, border-color 0.3s ease; }
   .organizer-phone:hover { color: #2a2a2a; border-color: #2a2a2a; }
   .organizer-note { font-size: 13px; color: #999; margin-top: 16px; }
 
@@ -520,22 +518,22 @@
   .wish-slide p { font-size: 15px; line-height: 1.7; color: #555; margin: 0; }
 
   .carousel-btn {
-    background: transparent; border: 1px solid #d4c5a9; color: #b8956a;
+    background: transparent; border: 1px solid #d4c5a9; color: #8B1A2B;
     width: 44px; height: 44px; border-radius: 50%; display: flex;
     align-items: center; justify-content: center; cursor: pointer;
     transition: all 0.3s ease; flex-shrink: 0;
   }
-  .carousel-btn:hover { background: #b8956a; color: #fff; border-color: #b8956a; }
+  .carousel-btn:hover { background: #8B1A2B; color: #fff; border-color: #8B1A2B; }
   .carousel-btn:disabled { opacity: 0.3; cursor: default; }
 
   .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
   .dot { width: 8px; height: 8px; border-radius: 50%; background: #d4c5a9; opacity: 0.4; cursor: pointer; transition: all 0.3s ease; }
-  .dot.active { opacity: 1; transform: scale(1.2); background: #b8956a; }
+  .dot.active { opacity: 1; transform: scale(1.2); background: #8B1A2B; }
   
   .cta-section { padding: 60px 0 100px; text-align: center; position: relative; }
   .cta-section::after {
     content: ''; position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
-    width: 6px; height: 6px; border-radius: 50%; background: #b8956a;
+    width: 6px; height: 6px; border-radius: 50%; background: #8B1A2B;
     animation: pulseDot 2s ease-in-out infinite;
   }
   @keyframes pulseDot {
@@ -544,10 +542,10 @@
   }
   .cta-text { font-size: 15px; color: #555; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; }
   .btn { display: inline-block; padding: 16px 48px; background: #2a2a2a; color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; transition: background 0.3s ease; cursor: pointer; }
-  .btn:hover { background: #b8956a; }
+  .btn:hover { background: #8B1A2B; }
   
-  .footer { text-align: center; padding: 40px 0 60px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: #b8956a; letter-spacing: 1px; }
-  .footer-heart { font-size: 14px; color: #b8956a; }
+  .footer { text-align: center; padding: 40px 0 60px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: #8B1A2B; letter-spacing: 1px; }
+  .footer-heart { font-size: 14px; color: #8B1A2B; }
   
   .music-btn {
     position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px;
@@ -555,8 +553,8 @@
     cursor: pointer; display: flex; align-items: center; justify-content: center;
     box-shadow: 0 4px 16px rgba(0,0,0,0.15); transition: background 0.3s ease, transform 0.3s ease; z-index: 100;
   }
-  .music-btn:hover { background: #b8956a; transform: scale(1.05); }
-  .music-btn.playing { background: #b8956a; }
+  .music-btn:hover { background: #8B1A2B; transform: scale(1.05); }
+  .music-btn.playing { background: #8B1A2B; }
   .music-btn svg { width: 20px; height: 20px; fill: currentColor; }
 
   .lock-screen {
@@ -580,7 +578,7 @@
   .lock-center { text-align: center; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
   .lock-monogram {
     font-family: 'Cormorant Garamond', serif; font-size: 96px; font-weight: 300;
-    font-style: italic; color: #b8956a; line-height: 1; margin-bottom: 20px; letter-spacing: 4px;
+    font-style: italic; color: #8B1A2B; line-height: 1; margin-bottom: 20px; letter-spacing: 4px;
     animation: glowMonogram 3s ease-in-out infinite, floatMonogram 6s ease-in-out infinite;
   }
   @keyframes glowMonogram {
@@ -608,7 +606,7 @@
   }
   .lock-slider-handle {
     position: absolute; top: 6px; left: 6px; width: 56px; height: 56px;
-    border-radius: 50%; background: linear-gradient(135deg, #d4c5a9, #b8956a);
+    border-radius: 50%; background: linear-gradient(135deg, #d4c5a9, #8B1A2B);
     display: flex; align-items: center; justify-content: center; cursor: grab;
     box-shadow: 0 4px 16px rgba(184, 149, 106, 0.4); transition: transform 0.15s ease; z-index: 2;
   }
@@ -623,7 +621,7 @@
   .bg-monogram {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-8deg);
     font-family: 'Cormorant Garamond', serif; font-size: 380px; font-weight: 300;
-    font-style: italic; color: #b8956a; opacity: 0.04; pointer-events: none;
+    font-style: italic; color: #8B1A2B; opacity: 0.04; pointer-events: none;
     user-select: none; white-space: nowrap; z-index: 0; line-height: 1;
   }
   .bg-monogram-wrapper { position: relative; overflow: hidden; }
@@ -643,11 +641,11 @@
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none; z-index: 0; overflow: hidden;
   }
-  .particle {
+.particle {
     position: absolute; width: 4px; height: 4px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.6) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(139, 26, 43, 0.5) 0%, transparent 70%);
     border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
-  }
+}
   .p1 { top: 20%; left: 10%; animation-delay: 0s; animation-duration: 18s; }
   .p2 { top: 60%; left: 85%; animation-delay: -3s; animation-duration: 22s; }
   .p3 { top: 40%; left: 70%; animation-delay: -7s; animation-duration: 20s; }
@@ -751,9 +749,9 @@
 
 <!-- Золотые цветочки на фоне -->
 <div class="background-flowers" aria-hidden="true">
-  <svg class="flower f1" viewBox="0 0 60 60" fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round">
+  <svg class="flower f1" viewBox="0 0 60 60" fill="none" stroke="##8B1A2B" stroke-width="1" stroke-linecap="round">
     <g filter="url(#handDrawnHeartSimple)">
-      <circle cx="30" cy="30" r="3" fill="#b8956a" opacity="0.3"/>
+      <circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/>
       <path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30" />
       <path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30" />
       <path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30" />
@@ -761,37 +759,18 @@
       <path d="M30 30 C25 22, 20 20, 18 25 C16 30, 25 30, 30 30" />
     </g>
   </svg>
-  <svg class="flower f2" viewBox="0 0 60 60" fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round">
+  <svg class="flower f2" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round">
     <g filter="url(#handDrawnHeartSimple)">
-      <circle cx="30" cy="30" r="3" fill="#b8956a" opacity="0.3"/>
+      <circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/>
       <path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30" />
       <path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30" />
       <path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30" />
       <path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30" />
     </g>
   </svg>
-  <svg class="flower f3" viewBox="0 0 60 60" fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round">
+  <svg class="flower f3" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round">
     <g filter="url(#handDrawnHeartSimple)">
-      <circle cx="30" cy="30" r="3" fill="#b8956a" opacity="0.3"/>
-      <path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30" />
-      <path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30" />
-      <path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30" />
-      <path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30" />
-      <path d="M30 30 C25 22, 20 20, 18 25 C16 30, 25 30, 30 30" />
-    </g>
-  </svg>
-  <svg class="flower f4" viewBox="0 0 60 60" fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round">
-    <g filter="url(#handDrawnHeartSimple)">
-      <circle cx="30" cy="30" r="3" fill="#b8956a" opacity="0.3"/>
-      <path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30" />
-      <path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30" />
-      <path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30" />
-      <path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30" />
-    </g>
-  </svg>
-  <svg class="flower f5" viewBox="0 0 60 60" fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round">
-    <g filter="url(#handDrawnHeartSimple)">
-      <circle cx="30" cy="30" r="3" fill="#b8956a" opacity="0.3"/>
+      <circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/>
       <path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30" />
       <path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30" />
       <path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30" />
@@ -799,9 +778,28 @@
       <path d="M30 30 C25 22, 20 20, 18 25 C16 30, 25 30, 30 30" />
     </g>
   </svg>
-  <svg class="flower f6" viewBox="0 0 60 60" fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round">
+  <svg class="flower f4" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round">
     <g filter="url(#handDrawnHeartSimple)">
-      <circle cx="30" cy="30" r="3" fill="#b8956a" opacity="0.3"/>
+      <circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/>
+      <path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30" />
+      <path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30" />
+      <path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30" />
+      <path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30" />
+    </g>
+  </svg>
+  <svg class="flower f5" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round">
+    <g filter="url(#handDrawnHeartSimple)">
+      <circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/>
+      <path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30" />
+      <path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30" />
+      <path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30" />
+      <path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30" />
+      <path d="M30 30 C25 22, 20 20, 18 25 C16 30, 25 30, 30 30" />
+    </g>
+  </svg>
+  <svg class="flower f6" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round">
+    <g filter="url(#handDrawnHeartSimple)">
+      <circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/>
       <path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30" />
       <path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30" />
       <path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30" />
@@ -875,8 +873,8 @@
 
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
       <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
     </svg>
@@ -889,8 +887,8 @@
 
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
       <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
     </svg>
@@ -919,8 +917,8 @@
                   </filter>
                 </defs>
                 <g filter="url(#handDrawnHeartSimple)">
-                  <path d="M20 32 C 19 30, 14 26, 12 22 C 10 18, 10 14, 13 12 C 15 10, 18 12, 20 15 C 22 12, 25 10, 27 12 C 30 14, 30 18, 28 22 C 26 26, 21 30, 20 32 Z" stroke="#b8956a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="#b8956a" opacity="0.15"/>
-                  <path d="M20 32 C 19 30, 14 26, 12 22 C 10 18, 10 14, 13 12 C 15 10, 18 12, 20 15 C 22 12, 25 10, 27 12 C 30 14, 30 18, 28 22 C 26 26, 21 30, 20 32 Z" stroke="#b8956a" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M20 32 C 19 30, 14 26, 12 22 C 10 18, 10 14, 13 12 C 15 10, 18 12, 20 15 C 22 12, 25 10, 27 12 C 30 14, 30 18, 28 22 C 26 26, 21 30, 20 32 Z" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="#8B1A2B" opacity="0.15"/>
+                  <path d="M20 32 C 19 30, 14 26, 12 22 C 10 18, 10 14, 13 12 C 15 10, 18 12, 20 15 C 22 12, 25 10, 27 12 C 30 14, 30 18, 28 22 C 26 26, 21 30, 20 32 Z" stroke="#8B1A2B" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
                 </g>
               </svg>
               <span class="heart-num-simple">18</span>
@@ -942,10 +940,10 @@
           <g filter="url(#handDrawnWave)">
             <path class="wave-line" 
                   d="M 50 0 C 50 20, 70 40, 70 70 C 70 100, 30 120, 30 150 C 30 170, 50 185, 50 200" 
-                  fill="none" stroke="#b8956a" stroke-width="1.5" stroke-linecap="round"/>
+                  fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round"/>
             <path class="wave-line-secondary" 
                   d="M 50 0 C 50 20, 70 40, 70 70 C 70 100, 30 120, 30 150 C 30 170, 50 185, 50 200" 
-                  fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+                  fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
           </g>
         </svg>
       </div>
@@ -966,8 +964,8 @@
 
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
       <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
     </svg>
@@ -984,13 +982,13 @@
           </filter>
         </defs>
         <g filter="url(#handDrawnTimeline)">
-          <path class="timeline-line" d="M 200 0 C 260 30, 290 80, 280 130 C 270 180, 220 210, 170 240 C 120 270, 100 290, 120 310 C 140 340, 200 390, 250 440 C 290 480, 300 510, 280 530 C 260 550, 200 590, 150 640 C 110 680, 100 710, 120 730 C 140 760, 140 810, 140 860" fill="none" stroke="#b8956a" stroke-width="1.5" stroke-linecap="round"/>
-          <path class="timeline-line-secondary" d="M 200 0 C 260 30, 290 80, 280 130 C 270 180, 220 210, 170 240 C 120 270, 100 290, 120 310 C 140 340, 200 390, 250 440 C 290 480, 300 510, 280 530 C 260 550, 200 590, 150 640 C 110 680, 100 710, 120 730 C 140 760, 140 810, 140 860" fill="none" stroke="#b8956a" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+          <path class="timeline-line" d="M 200 0 C 260 30, 290 80, 280 130 C 270 180, 220 210, 170 240 C 120 270, 100 290, 120 310 C 140 340, 200 390, 250 440 C 290 480, 300 510, 280 530 C 260 550, 200 590, 150 640 C 110 680, 100 710, 120 730 C 140 760, 140 810, 140 860" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round"/>
+          <path class="timeline-line-secondary" d="M 200 0 C 260 30, 290 80, 280 130 C 270 180, 220 210, 170 240 C 120 270, 100 290, 120 310 C 140 340, 200 390, 250 440 C 290 480, 300 510, 280 530 C 260 550, 200 590, 150 640 C 110 680, 100 710, 120 730 C 140 760, 140 810, 140 860" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
         </g>
-        <circle class="timeline-dot" cx="280" cy="130" r="4" fill="#b8956a"/>
-        <circle class="timeline-dot" cx="120" cy="310" r="4" fill="#b8956a"/>
-        <circle class="timeline-dot" cx="280" cy="530" r="4" fill="#b8956a"/>
-        <circle class="timeline-dot" cx="120" cy="730" r="4" fill="#b8956a"/>
+        <circle class="timeline-dot" cx="280" cy="130" r="4" fill="#8B1A2B"/>
+        <circle class="timeline-dot" cx="120" cy="310" r="4" fill="#8B1A2B"/>
+        <circle class="timeline-dot" cx="280" cy="530" r="4" fill="#8B1A2B"/>
+        <circle class="timeline-dot" cx="120" cy="730" r="4" fill="#8B1A2B"/>
       </svg>
       <div class="timeline-events">
         <div class="timeline-event event-1">
@@ -1015,8 +1013,8 @@
 
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
       <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
     </svg>
@@ -1035,8 +1033,8 @@
 
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
       <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
     </svg>
@@ -1051,8 +1049,8 @@
 
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
       <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
     </svg>
@@ -1070,8 +1068,8 @@
 
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
       <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
     </svg>
@@ -1087,7 +1085,7 @@
         <div class="wishes-track" id="wishesTrack">
           <div class="wish-slide">
             <div class="wish-icon-svg">
-              <svg viewBox="0 0 48 48" fill="none" stroke="#b8956a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <g filter="url(#handDrawnHeartSimple)">
                   <path d="M12 22 L12 38 L36 38 L36 22 Z" />
                   <path d="M10 22 L38 22" />
@@ -1106,17 +1104,17 @@
           </div>
           <div class="wish-slide">
             <div class="wish-icon-svg">
-              <svg viewBox="0 0 48 48" fill="none" stroke="#b8956a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <g filter="url(#handDrawnHeartSimple)">
                   <circle cx="16" cy="14" r="5" />
                   <circle cx="32" cy="14" r="5" />
-                  <circle cx="16" cy="14" r="2.5" fill="#b8956a" stroke="none" opacity="0.3"/>
-                  <circle cx="32" cy="14" r="2.5" fill="#b8956a" stroke="none" opacity="0.3"/>
+                  <circle cx="16" cy="14" r="2.5" fill="#8B1A2B" stroke="none" opacity="0.3"/>
+                  <circle cx="32" cy="14" r="2.5" fill="#8B1A2B" stroke="none" opacity="0.3"/>
                   <circle cx="24" cy="24" r="12" />
                   <ellipse cx="24" cy="28" rx="5" ry="4" />
-                  <circle cx="20" cy="22" r="1.5" fill="#b8956a" stroke="none"/>
-                  <circle cx="28" cy="22" r="1.5" fill="#b8956a" stroke="none"/>
-                  <circle cx="24" cy="26" r="1.5" fill="#b8956a" stroke="none"/>
+                  <circle cx="20" cy="22" r="1.5" fill="#8B1A2B" stroke="none"/>
+                  <circle cx="28" cy="22" r="1.5" fill="#8B1A2B" stroke="none"/>
+                  <circle cx="24" cy="26" r="1.5" fill="#8B1A2B" stroke="none"/>
                   <path d="M22 29 C23 30, 25 30, 26 29" />
                   <ellipse cx="18" cy="36" rx="3" ry="4" />
                   <ellipse cx="30" cy="36" rx="3" ry="4" />
@@ -1128,18 +1126,18 @@
           </div>
           <div class="wish-slide">
             <div class="wish-icon-svg">
-              <svg viewBox="0 0 48 48" fill="none" stroke="#b8956a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <g filter="url(#handDrawnHeartSimple)">
                   <path d="M16 8 L16 24 C16 28, 20 30, 24 30 C28 30, 32 28, 32 24 L32 8" />
                   <path d="M24 30 L24 38" />
                   <path d="M18 38 L30 38" />
                   <path d="M28 12 L28 26 C28 29, 31 30, 33 30 C35 30, 38 29, 38 26 L38 12" transform="rotate(-15 33 26)" />
-                  <circle cx="20" cy="14" r="1" fill="#b8956a" stroke="none"/>
-                  <circle cx="24" cy="16" r="1.2" fill="#b8956a" stroke="none"/>
-                  <circle cx="28" cy="13" r="0.8" fill="#b8956a" stroke="none"/>
-                  <circle cx="22" cy="18" r="0.9" fill="#b8956a" stroke="none"/>
-                  <circle cx="32" cy="18" r="1" fill="#b8956a" stroke="none"/>
-                  <circle cx="35" cy="16" r="0.8" fill="#b8956a" stroke="none"/>
+                  <circle cx="20" cy="14" r="1" fill="#8B1A2B" stroke="none"/>
+                  <circle cx="24" cy="16" r="1.2" fill="#8B1A2B" stroke="none"/>
+                  <circle cx="28" cy="13" r="0.8" fill="#8B1A2B" stroke="none"/>
+                  <circle cx="22" cy="18" r="0.9" fill="#8B1A2B" stroke="none"/>
+                  <circle cx="32" cy="18" r="1" fill="#8B1A2B" stroke="none"/>
+                  <circle cx="35" cy="16" r="0.8" fill="#8B1A2B" stroke="none"/>
                   <path d="M26 10 L24 8" />
                   <path d="M28 9 L29 7" />
                   <path d="M30 11 L32 9" />
@@ -1151,7 +1149,7 @@
           </div>
           <div class="wish-slide">
             <div class="wish-icon-svg">
-              <svg viewBox="0 0 48 48" fill="none" stroke="#b8956a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <g filter="url(#handDrawnHeartSimple)">
                   <path d="M24 6 L24 10" />
                   <path d="M14 10 C14 10, 18 10, 24 14 C30 10, 34 10, 34 10" />
@@ -1181,8 +1179,8 @@
 
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#b8956a" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
       <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
     </svg>
@@ -1292,7 +1290,7 @@
   function updateCountdown() {
     var distance = weddingDate - new Date().getTime();
     if (distance < 0) {
-      document.getElementById('countdown').innerHTML = '<div style="font-family: Cormorant Garamond, serif; font-size: 28px; font-style: italic; color: #b8956a; width: 100%; text-align: center;">Мы уже не можем дождаться встречи с вами! ♥</div>';
+      document.getElementById('countdown').innerHTML = '<div style="font-family: Cormorant Garamond, serif; font-size: 28px; font-style: italic; color: #8B1A2B; width: 100%; text-align: center;">Мы уже не можем дождаться встречи с вами! ♥</div>';
       return;
     }
     document.getElementById('days').textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -1467,13 +1465,15 @@
   // КОНФЕТТИ
   document.querySelector('.btn').addEventListener('click', function(e) {
     e.preventDefault();
-    confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 }, colors: ['#d4af37', '#e8dcc9', '#b8956a', '#ffffff', '#d4c5a9'], disableForReducedMotion: true });
-    setTimeout(() => {
-      confetti({ particleCount: 80, angle: 60, spread: 55, origin: { x: 0, y: 0.6 }, colors: ['#d4af37', '#b8956a'] });
-      confetti({ particleCount: 80, angle: 120, spread: 55, origin: { x: 1, y: 0.6 }, colors: ['#e8dcc9', '#d4c5a9'] });
-    }, 300);
-    setTimeout(() => { window.open(this.href, '_blank'); }, 1500);
-  });
+confetti({ 
+    particleCount: 150, spread: 90, origin: { y: 0.6 }, 
+    colors: ['#8B1A2B', '#F5E6E0', '#A63D4F', '#FFFFFF', '#D4A5A5'], 
+    disableForReducedMotion: true 
+});
+setTimeout(() => {
+    confetti({ particleCount: 80, angle: 60, spread: 55, origin: { x: 0, y: 0.6 }, colors: ['#8B1A2B', '#A63D4F'] });
+    confetti({ particleCount: 80, angle: 120, spread: 55, origin: { x: 1, y: 0.6 }, colors: ['#F5E6E0', '#D4A5A5'] });
+}, 300);
 
   // СЕРДЕЧКИ ПО КЛИКУ
   let lastHeartTime = 0;
@@ -1485,7 +1485,7 @@
     
     const heart = document.createElement('div');
     heart.classList.add('click-heart');
-    heart.innerHTML = '<svg viewBox="0 0 24 24" fill="#b8956a" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
+    heart.innerHTML = '<svg viewBox="0 0 24 24" fill="#8B1A2B" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
     heart.style.left = (e.clientX + (Math.random() - 0.5) * 40 - 10) + 'px';
     heart.style.top = (e.clientY - 10) + 'px';
     const size = 15 + Math.random() * 10;
