@@ -9,11 +9,13 @@
 <meta property="og:title" content="Алексей & Валерия — 18.09.2027">
 <meta property="og:description" content="Мы женимся! Будем счастливы разделить этот важный день с вами. Загляните в наше приглашение.">
 <meta property="og:image" content="https://i.postimg.cc/y88Prj81/1792075306.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 
 <!-- FAVICON -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='18' font-style='italic' fill='%23b8956a'%3EA%26V%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='18' font-style='italic' fill='%238B1A2B'%3EA%26V%3C/text%3E%3C/svg%3E">
 
 <!-- PRELOAD -->
 <link rel="preload" as="image" href="slide1.jpg">
@@ -29,8 +31,8 @@
   
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #fafaf8;
-    color: #2a2a2a;
+    background-color: #FAF8F5;
+    color: #3D1F24;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -38,7 +40,7 @@
   }
 
   /* Анимированный дышащий градиент */
- body::after {
+  body::after {
     content: '';
     position: fixed;
     top: -50%; left: -50%;
@@ -52,7 +54,7 @@
     animation: gradientShift 25s ease infinite;
     z-index: -1;
     pointer-events: none;
-}
+  }
 
   @keyframes gradientShift {
     0%, 100% { transform: translate(0, 0) rotate(0deg); }
@@ -96,10 +98,10 @@
     left: 0;
     height: 3px;
     width: 0%;
-    background: linear-gradient(90deg, #d4c5a9, #d4af37, #8B1A2B);
+    background: linear-gradient(90deg, #A63D4F, #8B1A2B, #8B1A2B);
     z-index: 9998;
     transition: width 0.1s linear;
-    box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 8px rgba(139, 26, 43, 0.5);
   }
   
   .initials-badge {
@@ -110,12 +112,12 @@
     font-size: 18px;
     letter-spacing: 2px;
     color: #8B1A2B;
-    background: rgba(250, 250, 248, 0.85);
+    background: rgba(250, 248, 245, 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     padding: 8px 16px;
     border-radius: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid rgba(139, 26, 43, 0.3);
     z-index: 9997;
     opacity: 0;
     transform: translateY(-10px);
@@ -131,14 +133,14 @@
     min-height: 600px;
     max-height: 900px;
     overflow: hidden;
-    background: #2a2a2a;
+    background: #3D1F24;
   }
   
   .hero-slider::before {
     content: '';
     position: absolute;
     top: 16px; left: 16px; right: 16px; bottom: 16px;
-    border: 1px solid rgba(212, 175, 55, 0.35);
+    border: 1px solid rgba(139, 26, 43, 0.35);
     z-index: 3;
     pointer-events: none;
   }
@@ -201,7 +203,7 @@
     display: block;
     width: 60px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #e8dcc9, transparent);
+    background: linear-gradient(90deg, transparent, #F5E6E0, transparent);
     margin: 32px auto 0;
     animation: lineGrow 1.5s ease 2s forwards;
     transform: scaleX(0);
@@ -211,8 +213,8 @@
   @keyframes lineGrow { to { transform: scaleX(1); } }
   
   @keyframes namesGlow {
-    0%, 100% { text-shadow: 0 2px 20px rgba(0,0,0,0.3), 0 0 20px rgba(212, 175, 55, 0.3); }
-    50% { text-shadow: 0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(212, 175, 55, 0.7), 0 0 60px rgba(212, 175, 55, 0.4); }
+    0%, 100% { text-shadow: 0 2px 20px rgba(0,0,0,0.3), 0 0 20px rgba(139, 26, 43, 0.3); }
+    50% { text-shadow: 0 2px 20px rgba(0,0,0,0.3), 0 0 40px rgba(139, 26, 43, 0.7), 0 0 60px rgba(139, 26, 43, 0.4); }
   }
   
   .hero-names .name {
@@ -235,8 +237,8 @@
   @keyframes blurIn { to { opacity: 1; filter: blur(0); transform: translateY(0); } }
   
   .hero-amp {
-    display: block; font-size: 44px; color: #e8dcc9; margin: 8px 0;
-    font-style: italic; text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    display: block; font-size: 44px; color: #F5E6E0; margin: 8px 0;
+    font-style: italic; text-shadow: 0 0 20px rgba(139, 26, 43, 0.5);
   }
   
   .hero-date {
@@ -254,9 +256,9 @@
   .countdown-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
   .countdown { display: flex; justify-content: center; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
   .countdown-item { min-width: 72px; }
-  .countdown-value { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: #2a2a2a; line-height: 1; margin-bottom: 8px; }
+  .countdown-value { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: #3D1F24; line-height: 1; margin-bottom: 8px; }
   .countdown-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #999; }
-  .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: #d4c5a9; padding-top: 6px; }
+  .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: #A63D4F; padding-top: 6px; }
   
   .ornament { text-align: center; padding: 8px 0; opacity: 0.7; }
   .ornament svg { width: 60px; height: 40px; display: inline-block; }
@@ -264,14 +266,14 @@
   .invite-text { text-align: center; padding: 40px 0 60px; position: relative; }
   .invite-text::before, .invite-text::after {
     content: '«'; position: absolute; font-family: 'Cormorant Garamond', serif;
-    font-size: 60px; color: #d4c5a9; opacity: 0.5; line-height: 1; left: 0;
+    font-size: 60px; color: #A63D4F; opacity: 0.5; line-height: 1; left: 0;
   }
   .invite-text::before { top: 30px; }
   .invite-text::after { content: '»'; bottom: 30px; right: 0; left: auto; }
   .invite-text p { font-size: 16px; line-height: 1.8; color: #555; max-width: 420px; margin: 0 auto; }
   .invite-text .lead {
     font-family: 'Cormorant Garamond', serif; font-size: 24px; font-style: italic;
-    color: #2a2a2a; margin-bottom: 24px; line-height: 1.5; text-align: center;
+    color: #3D1F24; margin-bottom: 24px; line-height: 1.5; text-align: center;
   }
 
   .details { padding: 60px 0; text-align: center; }
@@ -279,16 +281,16 @@
   .detail-item { margin-bottom: 36px; }
   .detail-item:last-child { margin-bottom: 0; }
   .detail-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #8B1A2B; margin-bottom: 10px; position: relative; z-index: 3; }
-  .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #2a2a2a; line-height: 1.4; position: relative; z-index: 3; }
+  .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #3D1F24; line-height: 1.4; position: relative; z-index: 3; }
   .detail-note { font-size: 13px; color: #999; margin-top: 8px; position: relative; z-index: 3; }
   
-  /* КАЛЕНДАРЬ (МАКСИМАЛЬНО КРУПНЫЙ) */
-.mini-calendar-wrapper {
+  /* КАЛЕНДАРЬ */
+  .mini-calendar-wrapper {
     position: relative;
     max-width: 460px;
     margin: 20px auto;
-    padding-bottom: 180px; /* Было 260px, стало 180px */
-}
+    padding-bottom: 180px;
+  }
 
   .mini-calendar-simple {
     max-width: 460px;
@@ -352,7 +354,6 @@
     font-weight: 500;
   }
  
-  /* Волнистая линия (ещё ниже) */
   .calendar-wave-line {
     position: absolute;
     top: 137px;
@@ -460,7 +461,7 @@
 
   .event-content strong {
     display: block;
-    color: #2a2a2a;
+    color: #3D1F24;
     font-weight: 500;
     font-size: 16px;
     margin-bottom: 3px;
@@ -484,7 +485,7 @@
   .map-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; text-align: center; margin-bottom: 24px; }
   .map-frame {
     border-radius: 4px; overflow: hidden; height: 320px;
-    background: #eee; border: 1px solid rgba(212, 175, 55, 0.35); padding: 6px;
+    background: #eee; border: 1px solid rgba(139, 26, 43, 0.35); padding: 6px;
   }
   .map-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
   
@@ -492,9 +493,9 @@
   .organizer-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
   .organizer-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 28px; line-height: 1.7; }
   .organizer-card { display: inline-block; padding: 28px 40px; background: #fff; border: 1px solid #e8e4dd; border-radius: 4px; text-align: center; }
-  .organizer-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #2a2a2a; margin-bottom: 12px; font-style: italic; }
-  .organizer-phone { display: inline-block; font-size: 15px; letter-spacing: 1px; color: #8B1A2B; text-decoration: none; border-bottom: 1px solid #e8dcc9; padding-bottom: 2px; transition: color 0.3s ease, border-color 0.3s ease; }
-  .organizer-phone:hover { color: #2a2a2a; border-color: #2a2a2a; }
+  .organizer-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #3D1F24; margin-bottom: 12px; font-style: italic; }
+  .organizer-phone { display: inline-block; font-size: 15px; letter-spacing: 1px; color: #8B1A2B; text-decoration: none; border-bottom: 1px solid #F5E6E0; padding-bottom: 2px; transition: color 0.3s ease, border-color 0.3s ease; }
+  .organizer-phone:hover { color: #3D1F24; border-color: #3D1F24; }
   .organizer-note { font-size: 13px; color: #999; margin-top: 16px; }
 
   .wishes-section { padding: 60px 0; text-align: center; }
@@ -514,11 +515,11 @@
 
   .wish-icon-svg { width: 48px; height: 48px; margin: 0 auto 16px auto; display: block; }
   .wish-icon-svg svg { width: 100%; height: 100%; overflow: visible; }
-  .wish-slide h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: #2a2a2a; margin-bottom: 12px; }
+  .wish-slide h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: #3D1F24; margin-bottom: 12px; }
   .wish-slide p { font-size: 15px; line-height: 1.7; color: #555; margin: 0; }
 
   .carousel-btn {
-    background: transparent; border: 1px solid #d4c5a9; color: #8B1A2B;
+    background: transparent; border: 1px solid #A63D4F; color: #8B1A2B;
     width: 44px; height: 44px; border-radius: 50%; display: flex;
     align-items: center; justify-content: center; cursor: pointer;
     transition: all 0.3s ease; flex-shrink: 0;
@@ -527,7 +528,7 @@
   .carousel-btn:disabled { opacity: 0.3; cursor: default; }
 
   .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
-  .dot { width: 8px; height: 8px; border-radius: 50%; background: #d4c5a9; opacity: 0.4; cursor: pointer; transition: all 0.3s ease; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #A63D4F; opacity: 0.4; cursor: pointer; transition: all 0.3s ease; }
   .dot.active { opacity: 1; transform: scale(1.2); background: #8B1A2B; }
   
   .cta-section { padding: 60px 0 100px; text-align: center; position: relative; }
@@ -537,11 +538,11 @@
     animation: pulseDot 2s ease-in-out infinite;
   }
   @keyframes pulseDot {
-    0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); box-shadow: 0 0 0 0 rgba(184, 149, 106, 0.5); }
-    50% { opacity: 1; transform: translateX(-50%) scale(1.2); box-shadow: 0 0 0 10px rgba(184, 149, 106, 0); }
+    0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); box-shadow: 0 0 0 0 rgba(139, 26, 43, 0.5); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.2); box-shadow: 0 0 0 10px rgba(139, 26, 43, 0); }
   }
   .cta-text { font-size: 15px; color: #555; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; }
-  .btn { display: inline-block; padding: 16px 48px; background: #2a2a2a; color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; transition: background 0.3s ease; cursor: pointer; }
+  .btn { display: inline-block; padding: 16px 48px; background: #3D1F24; color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; transition: background 0.3s ease; cursor: pointer; }
   .btn:hover { background: #8B1A2B; }
   
   .footer { text-align: center; padding: 40px 0 60px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: #8B1A2B; letter-spacing: 1px; }
@@ -549,7 +550,7 @@
   
   .music-btn {
     position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px;
-    border-radius: 50%; background: #2a2a2a; color: #fff; border: none;
+    border-radius: 50%; background: #3D1F24; color: #fff; border: none;
     cursor: pointer; display: flex; align-items: center; justify-content: center;
     box-shadow: 0 4px 16px rgba(0,0,0,0.15); transition: background 0.3s ease, transform 0.3s ease; z-index: 100;
   }
@@ -559,7 +560,7 @@
 
   .lock-screen {
     position: fixed; inset: 0; background: url('slide1.jpg') center/cover no-repeat;
-    background-color: #2a2a2a; display: flex; flex-direction: column;
+    background-color: #3D1F24; display: flex; flex-direction: column;
     justify-content: space-between; align-items: center; padding: 60px 24px 80px;
     z-index: 10000; transition: transform 0.9s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.9s ease; will-change: transform;
   }
@@ -582,11 +583,11 @@
     animation: glowMonogram 3s ease-in-out infinite, floatMonogram 6s ease-in-out infinite;
   }
   @keyframes glowMonogram {
-    0%, 100% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
-    50% { text-shadow: 0 0 40px rgba(212, 175, 55, 0.5), 0 0 60px rgba(212, 175, 55, 0.3); }
+    0%, 100% { text-shadow: 0 0 20px rgba(139, 26, 43, 0.2); }
+    50% { text-shadow: 0 0 40px rgba(139, 26, 43, 0.5), 0 0 60px rgba(139, 26, 43, 0.3); }
   }
   @keyframes floatMonogram { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-  .lock-subtitle { font-size: 12px; letter-spacing: 5px; text-transform: uppercase; color: #e8dcc9; opacity: 0.8; }
+  .lock-subtitle { font-size: 12px; letter-spacing: 5px; text-transform: uppercase; color: #F5E6E0; opacity: 0.8; }
   .lock-bottom { width: 100%; max-width: 340px; margin-bottom: 20px; }
   .lock-slider {
     position: relative; width: 100%; height: 68px; background: rgba(255, 255, 255, 0.12);
@@ -606,9 +607,9 @@
   }
   .lock-slider-handle {
     position: absolute; top: 6px; left: 6px; width: 56px; height: 56px;
-    border-radius: 50%; background: linear-gradient(135deg, #d4c5a9, #8B1A2B);
+    border-radius: 50%; background: linear-gradient(135deg, #A63D4F, #8B1A2B);
     display: flex; align-items: center; justify-content: center; cursor: grab;
-    box-shadow: 0 4px 16px rgba(184, 149, 106, 0.4); transition: transform 0.15s ease; z-index: 2;
+    box-shadow: 0 4px 16px rgba(139, 26, 43, 0.4); transition: transform 0.15s ease; z-index: 2;
   }
   .lock-slider-handle:active { cursor: grabbing; }
   .lock-slider-handle svg { width: 22px; height: 22px; fill: #fff; margin-left: 3px; }
@@ -636,16 +637,15 @@
     100% { opacity: 0; transform: translateY(-80px) scale(1.2) rotate(15deg); }
   }
 
-  /* ПЛАВАЮЩИЕ ЗОЛОТЫЕ ЧАСТИЦЫ */
   .floating-particles {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none; z-index: 0; overflow: hidden;
   }
-.particle {
+  .particle {
     position: absolute; width: 4px; height: 4px;
     background: radial-gradient(circle, rgba(139, 26, 43, 0.5) 0%, transparent 70%);
     border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
-}
+  }
   .p1 { top: 20%; left: 10%; animation-delay: 0s; animation-duration: 18s; }
   .p2 { top: 60%; left: 85%; animation-delay: -3s; animation-duration: 22s; }
   .p3 { top: 40%; left: 70%; animation-delay: -7s; animation-duration: 20s; }
@@ -659,7 +659,6 @@
     75% { transform: translate(40px, -120px) scale(1.1); opacity: 0.5; }
   }
 
-  /* ЗОЛОТЫЕ ЦВЕТОЧКИ НА ФОНЕ */
   .background-flowers {
     position: fixed;
     top: 0;
@@ -693,7 +692,7 @@
 
   /* MOBILE */
   @media (max-width: 480px) {
-    .heart-num-simple { font-size: 16px; }
+    .heart-num-simple { font-size: 24px; }
     .hero-slider { min-height: 500px; }
     .hero-names { font-size: 44px; }
     .hero-amp { font-size: 34px; }
@@ -715,12 +714,11 @@
     .wish-slide { padding: 24px 16px; }
     .wish-slide h3 { font-size: 20px; }
     .mini-calendar-simple { padding: 16px; }
-        .calendar-weekdays-simple { gap: 20px; }
+    .calendar-weekdays-simple { gap: 20px; }
     .calendar-days-simple { gap: 20px; }
     .calendar-weekdays-simple div { font-size: 16px; }
     .day-simple { font-size: 30px; }
     .heart-simple { width: 52px; height: 52px; }
-    .heart-num-simple { font-size: 24px; }
     .calendar-wave-line { top: 105px; }
     
     .timeline-flow { height: 600px; }
@@ -738,7 +736,7 @@
 </head>
 <body>
 
-<!-- Плавающие золотые частицы -->
+<!-- Плавающие частицы -->
 <div class="floating-particles" aria-hidden="true">
   <div class="particle p1"></div>
   <div class="particle p2"></div>
@@ -747,9 +745,9 @@
   <div class="particle p5"></div>
 </div>
 
-<!-- Золотые цветочки на фоне -->
+<!-- Цветочки на фоне -->
 <div class="background-flowers" aria-hidden="true">
-  <svg class="flower f1" viewBox="0 0 60 60" fill="none" stroke="##8B1A2B" stroke-width="1" stroke-linecap="round">
+  <svg class="flower f1" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round">
     <g filter="url(#handDrawnHeartSimple)">
       <circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/>
       <path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30" />
@@ -829,12 +827,9 @@
   </div>
 </div>
 
-<!-- PROGRESS BAR -->
 <div class="progress-bar" id="progressBar"></div>
-<!-- INITIALS BADGE -->
 <div class="initials-badge" id="initialsBadge">А & В</div>
 
-<!-- HERO SLIDER -->
 <section class="hero-slider" id="heroSlider">
   <div class="slide active" style="background-image: url('slide1.jpg');"></div>
   <div class="slide" style="background-image: url('slide2.jpg');"></div>
@@ -852,7 +847,6 @@
   </div>
 </section>
 
-<!-- ФОНОВАЯ МОНОГРАММА -->
 <div class="bg-monogram-wrapper">
   <div class="bg-monogram">А & В</div>
 </div>
@@ -875,8 +869,8 @@
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
-      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
@@ -889,8 +883,8 @@
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
-      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
@@ -929,7 +923,6 @@
           </div>
         </div>
         
-        <!-- Волнистая линия, выходящая из сердечка -->
         <svg class="calendar-wave-line" viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <filter id="handDrawnWave" x="-10%" y="-10%" width="120%" height="120%">
@@ -948,7 +941,7 @@
         </svg>
       </div>
       
-      <div class="detail-note" style="margin-top: 16px;">суббота, 14:00</div>
+      <div class="detail-note" style="margin-top: 8px;">суббота, 14:00</div>
     </div>
     <div class="detail-item">
       <div class="detail-label">Где</div>
@@ -966,8 +959,8 @@
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
-      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
@@ -1015,28 +1008,29 @@
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
-      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
   <section class="dresscode reveal">
     <div class="dresscode-title">Дресс-код</div>
     <p class="dresscode-text">Будем рады, если вы поддержите нашу цветовую гамму в своих нарядах</p>
-<div class="palette">
-  <div class="palette-color" style="background: #FFFFFF; border: 1px solid #e8e4dd;" title="Белый"></div>
-  <div class="palette-color" style="background: #8B1A2B;" title="Бургунди"></div>
-  <div class="palette-color" style="background: #D4A5A5;" title="Пыльная роза"></div>
-  <div class="palette-color" style="background: #F5E6E0;" title="Шампань"></div>
-  <div class="palette-color" style="background: #2D5A4A;" title="Изумрудный"></div>
-</div>
+    <div class="palette">
+      <div class="palette-color" style="background: #FFFFFF; border: 1px solid #e8e4dd;" title="Белый"></div>
+      <div class="palette-color" style="background: #8B1A2B;" title="Бургунди"></div>
+      <div class="palette-color" style="background: #D4A5A5;" title="Пыльная роза"></div>
+      <div class="palette-color" style="background: #F5E6E0;" title="Шампань"></div>
+      <div class="palette-color" style="background: #2D5A4A;" title="Изумрудный"></div>
+    </div>
+  </section>
 
   <div class="ornament">
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
-      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
@@ -1051,8 +1045,8 @@
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
-      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
@@ -1070,8 +1064,8 @@
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
-      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
@@ -1181,8 +1175,8 @@
     <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
       <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#d4af37"/>
-      <circle cx="36" cy="20" r="1.5" fill="#d4af37"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
@@ -1196,7 +1190,6 @@
   </div>
 </div>
 
-<!-- MUSIC BUTTON -->
 <button class="music-btn" id="musicBtn" aria-label="Включить музыку">
   <svg id="musicIcon" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
 </button>
@@ -1206,23 +1199,17 @@
 </audio>
 
 <script>
-  // LOCK SCREEN
   var lockScreen = document.getElementById('lockScreen');
   var lockSlider = document.getElementById('lockSlider');
   var lockHandle = document.getElementById('lockHandle');
   var lockProgress = document.getElementById('lockProgress');
   var isDragging = false, startX = 0, currentX = 0, maxTranslate = 0, isUnlocked = false;
   
-  if (sessionStorage.getItem('weddingUnlocked') === 'true') {
-    lockScreen.classList.add('hidden');
-    isUnlocked = true;
-  }
+  if (sessionStorage.getItem('weddingUnlocked') === 'true') { lockScreen.classList.add('hidden'); isUnlocked = true; }
   
   function updateLockTime() {
     var now = new Date();
-    document.getElementById('lockTime').textContent = 
-      (now.getHours() < 10 ? '0' + now.getHours() : now.getHours()) + ':' + 
-      (now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes());
+    document.getElementById('lockTime').textContent = (now.getHours() < 10 ? '0' + now.getHours() : now.getHours()) + ':' + (now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes());
   }
   if (!isUnlocked) { updateLockTime(); setInterval(updateLockTime, 60000); }
   
@@ -1230,62 +1217,43 @@
   if (!isUnlocked) { calcMax(); window.addEventListener('resize', calcMax); }
   
   function startDrag(e) {
-    if (isUnlocked) return;
-    isDragging = true;
+    if (isUnlocked) return; isDragging = true;
     var clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    startX = clientX - currentX;
-    lockHandle.style.transition = 'none';
-    lockProgress.style.transition = 'none';
-    e.preventDefault();
+    startX = clientX - currentX; lockHandle.style.transition = 'none'; lockProgress.style.transition = 'none'; e.preventDefault();
   }
   function moveDrag(e) {
     if (!isDragging || isUnlocked) return;
     var clientX = e.touches ? e.touches[0].clientX : e.clientX;
     currentX = clientX - startX;
-    if (currentX < 0) currentX = 0;
-    if (currentX > maxTranslate) currentX = maxTranslate;
+    if (currentX < 0) currentX = 0; if (currentX > maxTranslate) currentX = maxTranslate;
     lockHandle.style.transform = 'translateX(' + currentX + 'px)';
     lockProgress.style.width = (currentX + lockHandle.offsetWidth + 6) + 'px';
     e.preventDefault();
   }
   function endDrag() {
-    if (!isDragging || isUnlocked) return;
-    isDragging = false;
+    if (!isDragging || isUnlocked) return; isDragging = false;
     if (currentX >= maxTranslate * 0.85) unlockScreen();
     else {
-      lockHandle.style.transition = 'transform 0.3s ease';
-      lockProgress.style.transition = 'width 0.3s ease';
-      lockHandle.style.transform = 'translateX(0)';
-      lockProgress.style.width = '68px';
-      currentX = 0;
+      lockHandle.style.transition = 'transform 0.3s ease'; lockProgress.style.transition = 'width 0.3s ease';
+      lockHandle.style.transform = 'translateX(0)'; lockProgress.style.width = '68px'; currentX = 0;
     }
   }
   function unlockScreen() {
     isUnlocked = true;
-    lockHandle.style.transition = 'transform 0.4s ease';
-    lockProgress.style.transition = 'width 0.4s ease';
-    lockHandle.style.transform = 'translateX(' + maxTranslate + 'px)';
-    lockProgress.style.width = '100%';
-    sessionStorage.setItem('weddingUnlocked', 'true');
-    lockScreen.setAttribute('aria-hidden', 'true');
+    lockHandle.style.transition = 'transform 0.4s ease'; lockProgress.style.transition = 'width 0.4s ease';
+    lockHandle.style.transform = 'translateX(' + maxTranslate + 'px)'; lockProgress.style.width = '100%';
+    sessionStorage.setItem('weddingUnlocked', 'true'); lockScreen.setAttribute('aria-hidden', 'true');
     setTimeout(function() {
       lockScreen.classList.add('unlocked');
-      document.querySelectorAll('.hero-names .name, .hero-names .amp').forEach(function(el) {
-        el.style.animationPlayState = 'running';
-      });
+      document.querySelectorAll('.hero-names .name, .hero-names .amp').forEach(function(el) { el.style.animationPlayState = 'running'; });
     }, 200);
   }
   if (!isUnlocked) {
-    lockHandle.addEventListener('mousedown', startDrag);
-    document.addEventListener('mousemove', moveDrag);
-    document.addEventListener('mouseup', endDrag);
-    lockHandle.addEventListener('touchstart', startDrag, { passive: false });
-    document.addEventListener('touchmove', moveDrag, { passive: false });
-    document.addEventListener('touchend', endDrag);
+    lockHandle.addEventListener('mousedown', startDrag); document.addEventListener('mousemove', moveDrag); document.addEventListener('mouseup', endDrag);
+    lockHandle.addEventListener('touchstart', startDrag, { passive: false }); document.addEventListener('touchmove', moveDrag, { passive: false }); document.addEventListener('touchend', endDrag);
     lockSlider.addEventListener('dblclick', unlockScreen);
   }
 
-  // COUNTDOWN
   var weddingDate = new Date('2027-09-18T14:00:00+03:00').getTime();
   function updateCountdown() {
     var distance = weddingDate - new Date().getTime();
@@ -1298,50 +1266,26 @@
     document.getElementById('minutes').textContent = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
     document.getElementById('seconds').textContent = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
   }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
+  updateCountdown(); setInterval(updateCountdown, 1000);
 
-  // REVEAL ON SCROLL
   var revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
+    entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
   }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
   document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
 
-  // MUSIC
   var musicBtn = document.getElementById('musicBtn');
   var bgMusic = document.getElementById('bgMusic');
   var isPlaying = false;
   musicBtn.addEventListener('click', function() {
-    if (isPlaying) {
-      bgMusic.pause();
-      musicBtn.classList.remove('playing');
-      musicBtn.setAttribute('aria-label', 'Включить музыку');
-    } else {
-      bgMusic.volume = 0.4;
-      bgMusic.play().catch(function(err) { console.warn('Не удалось воспроизвести музыку:', err); });
-      musicBtn.classList.add('playing');
-      musicBtn.setAttribute('aria-label', 'Выключить музыку');
-    }
+    if (isPlaying) { bgMusic.pause(); musicBtn.classList.remove('playing'); musicBtn.setAttribute('aria-label', 'Включить музыку'); }
+    else { bgMusic.volume = 0.4; bgMusic.play().catch(function(err) { console.warn('Не удалось воспроизвести музыку:', err); }); musicBtn.classList.add('playing'); musicBtn.setAttribute('aria-label', 'Выключить музыку'); }
     isPlaying = !isPlaying;
   });
 
-  // HERO SLIDER
   var slides = document.querySelectorAll('.hero-slider .slide');
   var currentSlide = 0;
-  if (slides.length > 1) {
-    setInterval(function() {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }, 5000);
-  }
+  if (slides.length > 1) { setInterval(function() { slides[currentSlide].classList.remove('active'); currentSlide = (currentSlide + 1) % slides.length; slides[currentSlide].classList.add('active'); }, 5000); }
 
-  // PARALLAX HERO
   var heroSlider = document.getElementById('heroSlider');
   var parallaxSlides = document.querySelectorAll('.hero-slider .slide');
   function updateHeroParallax() {
@@ -1349,14 +1293,11 @@
     var scrollY = window.pageYOffset;
     if (scrollY < heroSlider.offsetHeight) {
       var offset = scrollY * 0.15;
-      parallaxSlides.forEach(function(slide) {
-        slide.style.backgroundPosition = 'center calc(50% + ' + offset + 'px)';
-      });
+      parallaxSlides.forEach(function(slide) { slide.style.backgroundPosition = 'center calc(50% + ' + offset + 'px)'; });
     }
   }
   window.addEventListener('scroll', updateHeroParallax, { passive: true });
 
-  // PROGRESS BAR
   var progressBar = document.getElementById('progressBar');
   function updateProgressBar() {
     var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -1365,15 +1306,12 @@
   }
   window.addEventListener('scroll', updateProgressBar, { passive: true });
 
-  // INITIALS BADGE
   var initialsBadge = document.getElementById('initialsBadge');
   function updateInitialsBadge() {
-    if (window.pageYOffset > 300) initialsBadge.classList.add('visible');
-    else initialsBadge.classList.remove('visible');
+    if (window.pageYOffset > 300) initialsBadge.classList.add('visible'); else initialsBadge.classList.remove('visible');
   }
   window.addEventListener('scroll', updateInitialsBadge, { passive: true });
 
-  // WISHES CAROUSEL
   const wishesTrack = document.getElementById('wishesTrack');
   const wishPrev = document.getElementById('wishPrev');
   const wishNext = document.getElementById('wishNext');
@@ -1388,111 +1326,67 @@
   wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`;
 
   wishSlides.forEach((_, index) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
+    const dot = document.createElement('div'); dot.classList.add('dot');
     if (index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToWish(index));
-    carouselDots.appendChild(dot);
+    dot.addEventListener('click', () => goToWish(index)); carouselDots.appendChild(dot);
   });
   const dots = document.querySelectorAll('.dot');
 
-  function updateDots() {
-    dots.forEach((dot, index) => { dot.classList.toggle('active', index === currentWish); });
-  }
-
+  function updateDots() { dots.forEach((dot, index) => { dot.classList.toggle('active', index === currentWish); }); }
   function goToWish(index) {
-    if (isAnimating) return;
-    isAnimating = true;
-    currentWish = index;
-    trackPosition = index + 1;
+    if (isAnimating) return; isAnimating = true; currentWish = index; trackPosition = index + 1;
     wishesTrack.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-    wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`;
-    updateDots();
+    wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`; updateDots();
     setTimeout(() => { isAnimating = false; }, 500);
   }
-
   function nextSlide() {
-    if (isAnimating) return;
-    isAnimating = true;
-    currentWish = (currentWish + 1) % totalWishes;
-    trackPosition++;
+    if (isAnimating) return; isAnimating = true; currentWish = (currentWish + 1) % totalWishes; trackPosition++;
     wishesTrack.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-    wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`;
-    updateDots();
+    wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`; updateDots();
     if (trackPosition === totalWishes + 1) {
-      setTimeout(() => {
-        wishesTrack.style.transition = 'none';
-        trackPosition = 1;
-        wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`;
-        isAnimating = false;
-      }, 500);
+      setTimeout(() => { wishesTrack.style.transition = 'none'; trackPosition = 1; wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`; isAnimating = false; }, 500);
     } else { setTimeout(() => { isAnimating = false; }, 500); }
   }
-
   function prevSlide() {
-    if (isAnimating) return;
-    isAnimating = true;
-    currentWish = (currentWish - 1 + totalWishes) % totalWishes;
-    trackPosition--;
+    if (isAnimating) return; isAnimating = true; currentWish = (currentWish - 1 + totalWishes) % totalWishes; trackPosition--;
     wishesTrack.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-    wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`;
-    updateDots();
+    wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`; updateDots();
     if (trackPosition === 0) {
-      setTimeout(() => {
-        wishesTrack.style.transition = 'none';
-        trackPosition = totalWishes;
-        wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`;
-        isAnimating = false;
-      }, 500);
+      setTimeout(() => { wishesTrack.style.transition = 'none'; trackPosition = totalWishes; wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`; isAnimating = false; }, 500);
     } else { setTimeout(() => { isAnimating = false; }, 500); }
   }
-
-  wishPrev.addEventListener('click', prevSlide);
-  wishNext.addEventListener('click', nextSlide);
+  wishPrev.addEventListener('click', prevSlide); wishNext.addEventListener('click', nextSlide);
 
   let touchStartX = 0, touchEndX = 0;
   wishesTrack.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
   wishesTrack.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleWishSwipe(); }, { passive: true });
-
   function handleWishSwipe() {
     const diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) nextSlide(); else prevSlide();
-    }
+    if (Math.abs(diff) > 50) { if (diff > 0) nextSlide(); else prevSlide(); }
   }
   updateDots();
 
-  // КОНФЕТТИ
   document.querySelector('.btn').addEventListener('click', function(e) {
     e.preventDefault();
-confetti({ 
-    particleCount: 150, spread: 90, origin: { y: 0.6 }, 
-    colors: ['#8B1A2B', '#F5E6E0', '#A63D4F', '#FFFFFF', '#D4A5A5'], 
-    disableForReducedMotion: true 
-});
-setTimeout(() => {
-    confetti({ particleCount: 80, angle: 60, spread: 55, origin: { x: 0, y: 0.6 }, colors: ['#8B1A2B', '#A63D4F'] });
-    confetti({ particleCount: 80, angle: 120, spread: 55, origin: { x: 1, y: 0.6 }, colors: ['#F5E6E0', '#D4A5A5'] });
-}, 300);
+    confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 }, colors: ['#8B1A2B', '#F5E6E0', '#A63D4F', '#FFFFFF', '#D4A5A5'], disableForReducedMotion: true });
+    setTimeout(() => {
+      confetti({ particleCount: 80, angle: 60, spread: 55, origin: { x: 0, y: 0.6 }, colors: ['#8B1A2B', '#A63D4F'] });
+      confetti({ particleCount: 80, angle: 120, spread: 55, origin: { x: 1, y: 0.6 }, colors: ['#F5E6E0', '#D4A5A5'] });
+    }, 300);
+    setTimeout(() => { window.open(this.href, '_blank'); }, 1500);
+  });
 
-  // СЕРДЕЧКИ ПО КЛИКУ
   let lastHeartTime = 0;
   document.addEventListener('click', function(e) {
     const now = Date.now();
-    if (now - lastHeartTime < 100) return;
-    lastHeartTime = now;
+    if (now - lastHeartTime < 100) return; lastHeartTime = now;
     if (e.target.closest('button, a, .carousel-btn, .lock-slider')) return;
-    
-    const heart = document.createElement('div');
-    heart.classList.add('click-heart');
+    const heart = document.createElement('div'); heart.classList.add('click-heart');
     heart.innerHTML = '<svg viewBox="0 0 24 24" fill="#8B1A2B" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
     heart.style.left = (e.clientX + (Math.random() - 0.5) * 40 - 10) + 'px';
     heart.style.top = (e.clientY - 10) + 'px';
-    const size = 15 + Math.random() * 10;
-    heart.style.width = size + 'px';
-    heart.style.height = size + 'px';
-    document.body.appendChild(heart);
-    setTimeout(() => { heart.remove(); }, 1500);
+    const size = 15 + Math.random() * 10; heart.style.width = size + 'px'; heart.style.height = size + 'px';
+    document.body.appendChild(heart); setTimeout(() => { heart.remove(); }, 1500);
   });
 </script>
 </body>
