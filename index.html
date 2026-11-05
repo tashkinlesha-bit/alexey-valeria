@@ -218,12 +218,7 @@
     color: var(--white);
   }
   
-  .section-dark .detail-label,
   .section-dark .countdown-title,
-  .section-dark .venue-title,
-  .section-dark .dresscode-title,
-  .section-dark .wishes-title,
-  .section-dark .organizer-title,
   .section-dark .countdown-label,
   .section-dark .detail-note {
     color: rgba(255, 255, 255, 0.7);
@@ -330,10 +325,32 @@
     color: rgba(255, 255, 255, 0.85);
   }
   
-  .section-dark .ornament svg circle,
-  .section-dark .ornament svg path {
-    stroke: var(--white);
-    fill: var(--white);
+  .section-dark .cta-text {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  
+  .section-dark .organizer-card {
+    background: var(--white);
+  }
+  
+  .section-dark .organizer-name {
+    color: var(--burgundy);
+  }
+  
+  .section-dark .organizer-phone {
+    color: var(--burgundy-accent);
+  }
+  
+  .section-dark .organizer-note {
+    color: #999;
+  }
+  
+  .section-dark .footer {
+    color: var(--white);
+  }
+  
+  .section-dark .footer-heart {
+    color: var(--white);
   }
 
   /* НОВЫЕ ЗАГОЛОВКИ */
@@ -377,19 +394,19 @@
     position: absolute;
     left: 0;
     width: 100%;
-    height: 40px;
+    height: 60px;
     z-index: 3;
     pointer-events: none;
   }
   
   .torn-edge-top {
     top: 0;
-    transform: translateY(-99%);
+    transform: translateY(-95%);
   }
   
   .torn-edge-bottom {
     bottom: 0;
-    transform: translateY(99%) rotate(180deg);
+    transform: translateY(95%);
   }
   
   .torn-svg {
@@ -407,9 +424,6 @@
   .countdown-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #999; }
   .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: #A63D4F; padding-top: 6px; }
   
-  .ornament { text-align: center; padding: 8px 0; opacity: 0.7; }
-  .ornament svg { width: 60px; height: 40px; display: inline-block; }
-  
   .invite-text { text-align: center; padding: 40px 0 60px; position: relative; }
   .invite-text::before, .invite-text::after {
     content: '«'; position: absolute; font-family: 'Cormorant Garamond', serif;
@@ -418,13 +432,14 @@
   .invite-text::before { top: 30px; }
   .invite-text::after { content: '»'; bottom: 30px; right: 0; left: auto; }
   .invite-text p { font-size: 16px; line-height: 1.8; color: #555; max-width: 420px; margin: 0 auto; }
+  .section-dark .invite-text p { color: rgba(255,255,255,0.85); }
   .invite-text .lead {
     font-family: 'Cormorant Garamond', serif; font-size: 24px; font-style: italic;
     color: #3D1F24; margin-bottom: 24px; line-height: 1.5; text-align: center;
   }
+  .section-dark .invite-text .lead { color: var(--white); }
 
   .details { padding: 60px 0 0; text-align: center; }
-  .details-title { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 40px; }
   
   .mini-calendar-wrapper {
     position: relative;
@@ -510,7 +525,7 @@
     position: absolute; top: 0; left: 50%;
     transform: translateX(-50%);
     width: 100%; height: 1400px; z-index: 1;
-    margin-top: -200px;
+    margin-top: -220px;
   }
   .timeline-line { stroke-dasharray: 3500; stroke-dashoffset: 3500; animation: drawTimeline 2s ease-out forwards; }
   .timeline-line-secondary { stroke-dasharray: 3500; stroke-dashoffset: 3500; animation: drawTimeline 2s ease-out 0.1s forwards; }
@@ -572,13 +587,6 @@
 
   /* МЕСТО ВСТРЕЧИ */
   .venue-section { padding: 60px 0; text-align: center; }
-  .venue-title { 
-    font-size: 18px; 
-    letter-spacing: 2px; 
-    text-transform: uppercase; 
-    color: #999; 
-    margin-bottom: 24px; 
-  }
   .venue-card {
     max-width: 420px;
     margin: 0 auto;
@@ -623,14 +631,12 @@
   }
 
   .dresscode { padding: 60px 0; text-align: center; }
-  .dresscode-title { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
   .dresscode-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 32px; line-height: 1.7; }
   .palette { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
   .palette-color { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
   .palette-color:hover { transform: scale(1.1); }
   
   .organizer { padding: 60px 0; text-align: center; }
-  .organizer-title { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
   .organizer-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 28px; line-height: 1.7; }
   .organizer-card { display: inline-block; padding: 28px 40px; background: #fff; border: 1px solid #e8e4dd; border-radius: 4px; text-align: center; }
   .organizer-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #3D1F24; margin-bottom: 12px; font-style: italic; }
@@ -639,7 +645,6 @@
   .organizer-note { font-size: 13px; color: #999; margin-top: 16px; }
 
   .wishes-section { padding: 60px 0; text-align: center; }
-  .wishes-title { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
   .wishes-carousel { position: relative; max-width: 500px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
   .wishes-track-container { flex: 1; overflow: hidden; border-radius: 8px; }
   .wishes-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform; }
@@ -656,18 +661,9 @@
   .dot.active { opacity: 1; transform: scale(1.2); background: #8B1A2B; }
   
   .cta-section { padding: 60px 0 100px; text-align: center; position: relative; }
-  .cta-section::after {
-    content: ''; position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
-    width: 6px; height: 6px; border-radius: 50%; background: #8B1A2B;
-    animation: pulseDot 2s ease-in-out infinite;
-  }
-  @keyframes pulseDot {
-    0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); box-shadow: 0 0 0 0 rgba(139, 26, 43, 0.5); }
-    50% { opacity: 1; transform: translateX(-50%) scale(1.2); box-shadow: 0 0 0 10px rgba(139, 26, 43, 0); }
-  }
   .cta-text { font-size: 15px; color: #555; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; }
-  .btn { display: inline-block; padding: 16px 48px; background: #3D1F24; color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; transition: background 0.3s ease; cursor: pointer; }
-  .btn:hover { background: #8B1A2B; }
+  .btn { display: inline-block; padding: 16px 48px; background: var(--burgundy); color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; transition: background 0.3s ease; cursor: pointer; }
+  .btn:hover { background: var(--burgundy-light); }
   
   .footer { text-align: center; padding: 40px 0 60px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: #8B1A2B; letter-spacing: 1px; }
   .footer-heart { font-size: 14px; color: #8B1A2B; }
@@ -900,7 +896,7 @@
 
 <div class="bg-monogram-wrapper"><div class="bg-monogram">А & В</div></div>
 
-<!-- СЕКЦИЯ 1: СВЕТЛАЯ (Countdown + Invite) -->
+<!-- СЕКЦИЯ 1: СВЕТЛАЯ -->
 <section class="section-wrapper section-light">
   <div class="container">
     <section class="countdown-section">
@@ -925,17 +921,15 @@
     </section>
   </div>
   
-  <!-- Рваный край снизу -->
-  <svg class="torn-edge torn-edge-bottom" viewBox="0 0 1200 40" preserveAspectRatio="none">
-    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--cream)"/>
+  <svg class="torn-edge torn-edge-bottom" viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path d="M0,30 L20,25 L40,35 L60,20 L80,40 L100,25 L120,35 L140,20 L160,40 L180,25 L200,35 L220,20 L240,40 L260,25 L280,35 L300,20 L320,40 L340,25 L360,35 L380,20 L400,40 L420,25 L440,35 L460,20 L480,40 L500,25 L520,35 L540,20 L560,40 L580,25 L600,35 L620,20 L640,40 L660,25 L680,35 L700,20 L720,40 L740,25 L760,35 L780,20 L800,40 L820,25 L840,35 L860,20 L880,40 L900,25 L920,35 L940,20 L960,40 L980,25 L1000,35 L1020,20 L1040,40 L1060,25 L1080,35 L1100,20 L1120,40 L1140,25 L1160,35 L1180,20 L1200,30 L1200,60 L0,60 Z" fill="var(--cream)"/>
   </svg>
 </section>
 
-<!-- СЕКЦИЯ 2: ТЁМНАЯ (Details + Calendar + Timeline) -->
+<!-- СЕКЦИЯ 2: ТЁМНАЯ -->
 <section class="section-wrapper section-dark">
-  <!-- Рваный край сверху -->
-  <svg class="torn-edge torn-edge-top" viewBox="0 0 1200 40" preserveAspectRatio="none">
-    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--burgundy)"/>
+  <svg class="torn-edge torn-edge-top" viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path d="M0,30 L20,25 L40,35 L60,20 L80,40 L100,25 L120,35 L140,20 L160,40 L180,25 L200,35 L220,20 L240,40 L260,25 L280,35 L300,20 L320,40 L340,25 L360,35 L380,20 L400,40 L420,25 L440,35 L460,20 L480,40 L500,25 L520,35 L540,20 L560,40 L580,25 L600,35 L620,20 L640,40 L660,25 L680,35 L700,20 L720,40 L740,25 L760,35 L780,20 L800,40 L820,25 L840,35 L860,20 L880,40 L900,25 L920,35 L940,20 L960,40 L980,25 L1000,35 L1020,20 L1040,40 L1060,25 L1080,35 L1100,20 L1120,40 L1140,25 L1160,35 L1180,20 L1200,30 L1200,60 L0,60 Z" fill="var(--burgundy)"/>
   </svg>
   
   <div class="container">
@@ -962,10 +956,6 @@
     </section>
 
     <section class="timeline reveal">
-      <div class="section-heading">
-        <span class="section-title-script">Как пройдёт</span>
-        <span class="section-title-caps">Наш день</span>
-      </div>
       <div class="timeline-flow">
         <svg class="timeline-svg" viewBox="0 -200 400 1700" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="overflow: visible; z-index: 1;">
           <path class="timeline-line" 
@@ -994,7 +984,7 @@
                    C 220 1260, 180 1300, 200 1340
                    C 220 1380, 180 1410, 200 1440" 
                 fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
-          <circle id="timelineDot" cx="0" cy="0" r="6" style="transition: all 0.1s ease;"/>
+          <circle id="timelineDot" cx="0" cy="0" r="10" fill="#FFFFFF" style="transition: all 0.1s ease; filter: drop-shadow(0 0 4px rgba(255,255,255,0.4));"/>
         </svg>
         <div class="timeline-events">
           <div class="timeline-event event-1">
@@ -1018,16 +1008,15 @@
     </section>
   </div>
   
-  <!-- Рваный край снизу -->
-  <svg class="torn-edge torn-edge-bottom" viewBox="0 0 1200 40" preserveAspectRatio="none">
-    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--burgundy)"/>
+  <svg class="torn-edge torn-edge-bottom" viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path d="M0,30 L20,25 L40,35 L60,20 L80,40 L100,25 L120,35 L140,20 L160,40 L180,25 L200,35 L220,20 L240,40 L260,25 L280,35 L300,20 L320,40 L340,25 L360,35 L380,20 L400,40 L420,25 L440,35 L460,20 L480,40 L500,25 L520,35 L540,20 L560,40 L580,25 L600,35 L620,20 L640,40 L660,25 L680,35 L700,20 L720,40 L740,25 L760,35 L780,20 L800,40 L820,25 L840,35 L860,20 L880,40 L900,25 L920,35 L940,20 L960,40 L980,25 L1000,35 L1020,20 L1040,40 L1060,25 L1080,35 L1100,20 L1120,40 L1140,25 L1160,35 L1180,20 L1200,30 L1200,60 L0,60 Z" fill="var(--burgundy)"/>
   </svg>
 </section>
 
-<!-- СЕКЦИЯ 3: СВЕТЛАЯ (Venue + Dresscode) -->
+<!-- СЕКЦИЯ 3: СВЕТЛАЯ -->
 <section class="section-wrapper section-light">
-  <svg class="torn-edge torn-edge-top" viewBox="0 0 1200 40" preserveAspectRatio="none">
-    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--cream)"/>
+  <svg class="torn-edge torn-edge-top" viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path d="M0,30 L20,25 L40,35 L60,20 L80,40 L100,25 L120,35 L140,20 L160,40 L180,25 L200,35 L220,20 L240,40 L260,25 L280,35 L300,20 L320,40 L340,25 L360,35 L380,20 L400,40 L420,25 L440,35 L460,20 L480,40 L500,25 L520,35 L540,20 L560,40 L580,25 L600,35 L620,20 L640,40 L660,25 L680,35 L700,20 L720,40 L740,25 L760,35 L780,20 L800,40 L820,25 L840,35 L860,20 L880,40 L900,25 L920,35 L940,20 L960,40 L980,25 L1000,35 L1020,20 L1040,40 L1060,25 L1080,35 L1100,20 L1120,40 L1140,25 L1160,35 L1180,20 L1200,30 L1200,60 L0,60 Z" fill="var(--cream)"/>
   </svg>
   
   <div class="container">
@@ -1064,15 +1053,15 @@
     </section>
   </div>
   
-  <svg class="torn-edge torn-edge-bottom" viewBox="0 0 1200 40" preserveAspectRatio="none">
-    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--cream)"/>
+  <svg class="torn-edge torn-edge-bottom" viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path d="M0,30 L20,25 L40,35 L60,20 L80,40 L100,25 L120,35 L140,20 L160,40 L180,25 L200,35 L220,20 L240,40 L260,25 L280,35 L300,20 L320,40 L340,25 L360,35 L380,20 L400,40 L420,25 L440,35 L460,20 L480,40 L500,25 L520,35 L540,20 L560,40 L580,25 L600,35 L620,20 L640,40 L660,25 L680,35 L700,20 L720,40 L740,25 L760,35 L780,20 L800,40 L820,25 L840,35 L860,20 L880,40 L900,25 L920,35 L940,20 L960,40 L980,25 L1000,35 L1020,20 L1040,40 L1060,25 L1080,35 L1100,20 L1120,40 L1140,25 L1160,35 L1180,20 L1200,30 L1200,60 L0,60 Z" fill="var(--cream)"/>
   </svg>
 </section>
 
-<!-- СЕКЦИЯ 4: ТЁМНАЯ (Wishes) -->
+<!-- СЕКЦИЯ 4: ТЁМНАЯ -->
 <section class="section-wrapper section-dark">
-  <svg class="torn-edge torn-edge-top" viewBox="0 0 1200 40" preserveAspectRatio="none">
-    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--burgundy)"/>
+  <svg class="torn-edge torn-edge-top" viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path d="M0,30 L20,25 L40,35 L60,20 L80,40 L100,25 L120,35 L140,20 L160,40 L180,25 L200,35 L220,20 L240,40 L260,25 L280,35 L300,20 L320,40 L340,25 L360,35 L380,20 L400,40 L420,25 L440,35 L460,20 L480,40 L500,25 L520,35 L540,20 L560,40 L580,25 L600,35 L620,20 L640,40 L660,25 L680,35 L700,20 L720,40 L740,25 L760,35 L780,20 L800,40 L820,25 L840,35 L860,20 L880,40 L900,25 L920,35 L940,20 L960,40 L980,25 L1000,35 L1020,20 L1040,40 L1060,25 L1080,35 L1100,20 L1120,40 L1140,25 L1160,35 L1180,20 L1200,30 L1200,60 L0,60 Z" fill="var(--burgundy)"/>
   </svg>
   
   <div class="container">
@@ -1170,15 +1159,15 @@
     </section>
   </div>
   
-  <svg class="torn-edge torn-edge-bottom" viewBox="0 0 1200 40" preserveAspectRatio="none">
-    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--burgundy)"/>
+  <svg class="torn-edge torn-edge-bottom" viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path d="M0,30 L20,25 L40,35 L60,20 L80,40 L100,25 L120,35 L140,20 L160,40 L180,25 L200,35 L220,20 L240,40 L260,25 L280,35 L300,20 L320,40 L340,25 L360,35 L380,20 L400,40 L420,25 L440,35 L460,20 L480,40 L500,25 L520,35 L540,20 L560,40 L580,25 L600,35 L620,20 L640,40 L660,25 L680,35 L700,20 L720,40 L740,25 L760,35 L780,20 L800,40 L820,25 L840,35 L860,20 L880,40 L900,25 L920,35 L940,20 L960,40 L980,25 L1000,35 L1020,20 L1040,40 L1060,25 L1080,35 L1100,20 L1120,40 L1140,25 L1160,35 L1180,20 L1200,30 L1200,60 L0,60 Z" fill="var(--burgundy)"/>
   </svg>
 </section>
 
-<!-- СЕКЦИЯ 5: СВЕТЛАЯ (CTA + Organizer) -->
+<!-- СЕКЦИЯ 5: СВЕТЛАЯ -->
 <section class="section-wrapper section-light">
-  <svg class="torn-edge torn-edge-top" viewBox="0 0 1200 40" preserveAspectRatio="none">
-    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--cream)"/>
+  <svg class="torn-edge torn-edge-top" viewBox="0 0 1200 60" preserveAspectRatio="none">
+    <path d="M0,30 L20,25 L40,35 L60,20 L80,40 L100,25 L120,35 L140,20 L160,40 L180,25 L200,35 L220,20 L240,40 L260,25 L280,35 L300,20 L320,40 L340,25 L360,35 L380,20 L400,40 L420,25 L440,35 L460,20 L480,40 L500,25 L520,35 L540,20 L560,40 L580,25 L600,35 L620,20 L640,40 L660,25 L680,35 L700,20 L720,40 L740,25 L760,35 L780,20 L800,40 L820,25 L840,35 L860,20 L880,40 L900,25 L920,35 L940,20 L960,40 L980,25 L1000,35 L1020,20 L1040,40 L1060,25 L1080,35 L1100,20 L1120,40 L1140,25 L1160,35 L1180,20 L1200,30 L1200,60 L0,60 Z" fill="var(--cream)"/>
   </svg>
   
   <div class="container">
