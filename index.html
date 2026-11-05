@@ -216,20 +216,15 @@
     color: #3D1F24; margin-bottom: 24px; line-height: 1.5; text-align: center;
   }
 
-  .details { padding: 60px 0; text-align: center; }
+  .details { padding: 60px 0 0; text-align: center; }
   .details-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 40px; }
-  .detail-item { margin-bottom: 36px; }
-  .detail-item:last-child { margin-bottom: 0; }
-  .detail-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #8B1A2B; margin-bottom: 10px; position: relative; z-index: 3; }
-  .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #3D1F24; line-height: 1.4; position: relative; z-index: 3; }
-  .detail-note { font-size: 13px; color: #999; margin-top: 8px; position: relative; z-index: 3; }
   
   /* КАЛЕНДАРЬ-РАМКА */
   .mini-calendar-wrapper {
     position: relative;
     max-width: 460px;
-    margin: 20px auto;
-    padding-bottom: 180px;
+    margin: 0 auto;
+    padding-bottom: 0;
   }
 
   .mini-calendar-frame {
@@ -302,62 +297,26 @@
     font-weight: 400;
   }
 
-  .calendar-footer-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 14px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #8B1A2B;
-    text-align: center;
-    padding: 12px 20px 16px;
-    border-top: 1px solid rgba(139, 26, 43, 0.3);
-  }
-
-  /* ВОЛНИСТАЯ ЛИНИЯ — строго по центру wrapper */
-  .calendar-wave-line {
-    position: absolute;
-    top: 150px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 200px;
-    z-index: 1;
-    pointer-events: none;
-    overflow: visible;
-  }
-
-  .wave-line {
-    stroke-dasharray: 400;
-    stroke-dashoffset: 400;
-    animation: drawWave 2s ease-out 0.5s forwards;
-  }
-  .wave-line-secondary {
-    stroke-dasharray: 400;
-    stroke-dashoffset: 400;
-    animation: drawWave 2s ease-out 0.6s forwards;
-  }
-  @keyframes drawWave { to { stroke-dashoffset: 0; } }
-  
   /* TIMELINE */
-  .timeline { padding: 60px 0; }
+  .timeline { padding: 0 0 60px; }
   .timeline-title { 
     font-size: 12px; letter-spacing: 4px; text-transform: uppercase; 
     color: #999; text-align: center; margin-bottom: 40px; 
   }
-  .timeline-flow { position: relative; max-width: 400px; margin: 0 auto; height: 900px; }
+  .timeline-flow { position: relative; max-width: 400px; margin: 0 auto; height: 1000px; }
   .timeline-svg {
     position: absolute; top: 0; left: 50%;
     transform: translateX(-50%);
-    width: 100%; height: 900px; z-index: 1;
+    width: 100%; height: 1000px; z-index: 1;
   }
-  .timeline-line { stroke-dasharray: 1500; stroke-dashoffset: 1500; animation: drawTimeline 2.5s ease-out forwards; }
-  .timeline-line-secondary { stroke-dasharray: 1500; stroke-dashoffset: 1500; animation: drawTimeline 2.5s ease-out 0.1s forwards; }
+  .timeline-line { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: drawTimeline 3s ease-out forwards; }
+  .timeline-line-secondary { stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: drawTimeline 3s ease-out 0.1s forwards; }
   @keyframes drawTimeline { to { stroke-dashoffset: 0; } }
   .timeline-dot { opacity: 0; animation: dotAppear 0.4s ease-out forwards; }
-  .timeline-dot:nth-of-type(1) { animation-delay: 0.6s; }
-  .timeline-dot:nth-of-type(2) { animation-delay: 1.2s; }
-  .timeline-dot:nth-of-type(3) { animation-delay: 1.8s; }
-  .timeline-dot:nth-of-type(4) { animation-delay: 2.4s; }
+  .timeline-dot:nth-of-type(1) { animation-delay: 0.8s; }
+  .timeline-dot:nth-of-type(2) { animation-delay: 1.4s; }
+  .timeline-dot:nth-of-type(3) { animation-delay: 2s; }
+  .timeline-dot:nth-of-type(4) { animation-delay: 2.6s; }
   @keyframes dotAppear { to { opacity: 1; } }
   .timeline-events { position: relative; z-index: 2; height: 100%; }
   .timeline-event {
@@ -389,10 +348,10 @@
   .event-1, .event-3 { right: 10px; flex-direction: row-reverse; }
   .event-1 .event-time, .event-3 .event-time { margin-left: -8px; }
   .event-1 .event-content, .event-3 .event-content { text-align: right; }
-  .event-1 { top: 110px; }
-  .event-2 { top: 290px; }
-  .event-3 { top: 510px; }
-  .event-4 { top: 710px; }
+  .event-1 { top: 130px; }
+  .event-2 { top: 330px; }
+  .event-3 { top: 580px; }
+  .event-4 { top: 780px; }
 
   .dresscode { padding: 60px 0; text-align: center; }
   .dresscode-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
@@ -576,7 +535,6 @@
     .hero-names { font-size: 44px; }
     .hero-amp { font-size: 34px; }
     .invite-text .lead { font-size: 20px; }
-    .detail-value { font-size: 19px; }
     .countdown-value { font-size: 34px; }
     .countdown-item { min-width: 58px; }
     .countdown-sep { font-size: 28px; padding-top: 4px; }
@@ -593,21 +551,19 @@
     .wish-slide { padding: 24px 16px; }
     .wish-slide h3 { font-size: 20px; }
     
-    .mini-calendar-wrapper { max-width: 320px; padding-bottom: 150px; }
+    .mini-calendar-wrapper { max-width: 320px; }
     .mini-calendar-frame { width: 100%; max-width: none; }
     .calendar-month-header { font-size: 15px; letter-spacing: 3px; padding: 12px 16px 10px; }
     .day-frame { font-size: 34px; }
     .day-frame-num { font-size: 30px; }
     .heart-frame { width: 56px; height: 56px; }
-    .calendar-footer-text { font-size: 12px; letter-spacing: 2px; padding: 10px 16px 12px; }
-    .calendar-wave-line { top: 120px; }
     
-    .timeline-flow { height: 600px; }
-    .timeline-svg { width: 250px; height: 600px; }
-    .event-1 { top: 80px; }
-    .event-2 { top: 180px; }
-    .event-3 { top: 280px; }
-    .event-4 { top: 380px; }
+    .timeline-flow { height: 800px; }
+    .timeline-svg { width: 250px; height: 800px; }
+    .event-1 { top: 100px; }
+    .event-2 { top: 260px; }
+    .event-3 { top: 460px; }
+    .event-4 { top: 620px; }
     .event-time { font-size: 32px; }
     .event-content { font-size: 13px; }
     .event-content strong { font-size: 15px; }
@@ -713,84 +669,40 @@
 
   <section class="details reveal">
     <div class="details-title">Детали</div>
-    <div class="detail-item">
-      <div class="detail-label">Когда</div>
-      
-      <div class="mini-calendar-wrapper">
-        <div class="mini-calendar-frame">
-          <div class="calendar-month-header">СЕНТЯБРЬ 2027</div>
-          <div class="calendar-days-frame">
-            <div class="day-frame">17</div>
-            <div class="day-frame wedding-day-frame">
-              <svg class="heart-frame" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M30 52 C 28 48, 18 42, 14 34 C 10 26, 12 18, 18 14 C 22 11, 27 13, 30 18 C 33 13, 38 11, 42 14 C 48 18, 50 26, 46 34 C 42 42, 32 48, 30 52 Z"/>
-              </svg>
-              <span class="day-frame-num">18</span>
-            </div>
-            <div class="day-frame">19</div>
+    <div class="mini-calendar-wrapper">
+      <div class="mini-calendar-frame">
+        <div class="calendar-month-header">СЕНТЯБРЬ 2027</div>
+        <div class="calendar-days-frame">
+          <div class="day-frame">17</div>
+          <div class="day-frame wedding-day-frame">
+            <svg class="heart-frame" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M30 52 C 28 48, 18 42, 14 34 C 10 26, 12 18, 18 14 C 22 11, 27 13, 30 18 C 33 13, 38 11, 42 14 C 48 18, 50 26, 46 34 C 42 42, 32 48, 30 52 Z"/>
+            </svg>
+            <span class="day-frame-num">18</span>
           </div>
-          <div class="calendar-footer-text">МЕСТО ВСТРЕЧИ</div>
+          <div class="day-frame">19</div>
         </div>
-        
-        <svg class="calendar-wave-line" viewBox="0 0 100 200" aria-hidden="true">
-          <defs>
-            <filter id="handDrawnWave" x="-10%" y="-10%" width="120%" height="120%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="3" result="noise"/>
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
-            </filter>
-          </defs>
-          <g filter="url(#handDrawnWave)">
-            <path class="wave-line" 
-                  d="M 50 0 C 50 20, 70 40, 70 70 C 70 100, 30 120, 30 150 C 30 170, 50 185, 50 200" 
-                  fill="none" stroke="#8B1A2B" stroke-width="3.5" stroke-linecap="round"/>
-            <path class="wave-line-secondary" 
-                  d="M 50 0 C 50 20, 70 40, 70 70 C 70 100, 30 120, 30 150 C 30 170, 50 185, 50 200" 
-                  fill="none" stroke="#8B1A2B" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
-          </g>
-        </svg>
       </div>
-      
-      <div class="detail-note" style="margin-top: 8px;">суббота, 14:00</div>
-    </div>
-    <div class="detail-item">
-      <div class="detail-label">Где</div>
-      <div class="detail-value">ЗАГС «Чаша»</div>
-      <div class="detail-note">г. Казань, ул. Сибгата Хакима, 4</div>
-    </div>
-    <div class="detail-item">
-      <div class="detail-label">Сбор гостей</div>
-      <div class="detail-value">13:30</div>
-      <div class="detail-note">просим не опаздывать</div>
     </div>
   </section>
 
-  <div class="ornament">
-    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
-      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
-    </svg>
-  </div>
-
   <section class="timeline reveal">
-    <div class="timeline-title">Программа дня</div>
     <div class="timeline-flow">
-      <svg class="timeline-svg" viewBox="0 0 400 900" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <svg class="timeline-svg" viewBox="0 0 400 1000" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <defs>
-          <filter id="handDrawnTimeline" x="-15%" y="-15%" width="130%" height="130%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" seed="5" result="noise"/>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+          <filter id="handDrawnTimeline" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.12" numOctaves="4" seed="5" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
           </filter>
         </defs>
         <g filter="url(#handDrawnTimeline)">
-          <path class="timeline-line" d="M 200 0 C 260 30, 290 80, 280 130 C 270 180, 220 210, 170 240 C 120 270, 100 290, 120 310 C 140 340, 200 390, 250 440 C 290 480, 300 510, 280 530 C 260 550, 200 590, 150 640 C 110 680, 100 710, 120 730 C 140 760, 140 810, 140 860" fill="none" stroke="#8B1A2B" stroke-width="3.5" stroke-linecap="round"/>
-          <path class="timeline-line-secondary" d="M 200 0 C 260 30, 290 80, 280 130 C 270 180, 220 210, 170 240 C 120 270, 100 290, 120 310 C 140 340, 200 390, 250 440 C 290 480, 300 510, 280 530 C 260 550, 200 590, 150 640 C 110 680, 100 710, 120 730 C 140 760, 140 810, 140 860" fill="none" stroke="#8B1A2B" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
+          <path class="timeline-line" d="M 200 0 C 220 30, 240 50, 250 80 C 260 110, 280 130, 280 130 C 280 130, 260 180, 220 220 C 180 260, 140 290, 120 330 C 100 370, 130 400, 150 430 C 170 460, 220 490, 250 520 C 280 550, 300 570, 280 580 C 260 590, 220 620, 180 670 C 140 720, 110 750, 120 780 C 130 810, 140 840, 140 900" fill="none" stroke="#8B1A2B" stroke-width="2" stroke-linecap="round"/>
+          <path class="timeline-line-secondary" d="M 200 0 C 220 30, 240 50, 250 80 C 260 110, 280 130, 280 130 C 280 130, 260 180, 220 220 C 180 260, 140 290, 120 330 C 100 370, 130 400, 150 430 C 170 460, 220 490, 250 520 C 280 550, 300 570, 280 580 C 260 590, 220 620, 180 670 C 140 720, 110 750, 120 780 C 130 810, 140 840, 140 900" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
         </g>
         <circle class="timeline-dot" cx="280" cy="130" r="4" fill="#8B1A2B"/>
-        <circle class="timeline-dot" cx="120" cy="310" r="4" fill="#8B1A2B"/>
-        <circle class="timeline-dot" cx="280" cy="530" r="4" fill="#8B1A2B"/>
-        <circle class="timeline-dot" cx="120" cy="730" r="4" fill="#8B1A2B"/>
+        <circle class="timeline-dot" cx="120" cy="330" r="4" fill="#8B1A2B"/>
+        <circle class="timeline-dot" cx="280" cy="580" r="4" fill="#8B1A2B"/>
+        <circle class="timeline-dot" cx="120" cy="780" r="4" fill="#8B1A2B"/>
       </svg>
       <div class="timeline-events">
         <div class="timeline-event event-1">
