@@ -318,7 +318,12 @@
   .timeline-dot:nth-of-type(3) { animation-delay: 2s; }
   .timeline-dot:nth-of-type(4) { animation-delay: 2.6s; }
   @keyframes dotAppear { to { opacity: 1; } }
-  .timeline-events { position: relative; z-index: 2; height: 100%; }
+  .timeline-events { 
+  position: relative; 
+  z-index: 2; 
+  height: 100%;
+  padding-top: 200px; /* Добавили отступ сверху чтобы текст не перекрывался линией */
+}
   .timeline-event {
     position: absolute;
     display: flex;
