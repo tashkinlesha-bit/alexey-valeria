@@ -354,9 +354,9 @@
     50% { transform: translate(-50%, -50%) scale(1.1); }
   }
  
-  .calendar-wave-line {
+    .calendar-wave-line {
     position: absolute;
-    top: 137px;
+    top: 165px; /* Было 137px, опустили линию ниже */
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
@@ -738,7 +738,7 @@
     .calendar-weekdays-simple div { font-size: 16px; }
     .day-simple { font-size: 30px; }
     .heart-simple { width: 90px; height: 90px; }
-    .calendar-wave-line { top: 105px; }
+    .calendar-wave-line { top: 135px; } /* Было 105px */
     
     .timeline-flow { height: 600px; }
     .timeline-svg { width: 250px; height: 600px; }
@@ -942,7 +942,7 @@
           </div>
         </div>
         
-        <svg class="calendar-wave-line" viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true">
+                <svg class="calendar-wave-line" viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <filter id="handDrawnWave" x="-10%" y="-10%" width="120%" height="120%">
               <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="3" result="noise"/>
@@ -952,10 +952,10 @@
           <g filter="url(#handDrawnWave)">
             <path class="wave-line" 
                   d="M 50 0 C 50 20, 70 40, 70 70 C 70 100, 30 120, 30 150 C 30 170, 50 185, 50 200" 
-                  fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round"/>
+                  fill="none" stroke="#8B1A2B" stroke-width="3.5" stroke-linecap="round"/>
             <path class="wave-line-secondary" 
                   d="M 50 0 C 50 20, 70 40, 70 70 C 70 100, 30 120, 30 150 C 30 170, 50 185, 50 200" 
-                  fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+                  fill="none" stroke="#8B1A2B" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
           </g>
         </svg>
       </div>
