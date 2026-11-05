@@ -16,14 +16,22 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='18' font-style='italic' fill='%238B1A2B'%3EA%26V%3C/text%3E%3C/svg%3E">
 <link rel="preload" as="image" href="slide1.jpg">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   
+  :root {
+    --burgundy: #4A0E1A;
+    --burgundy-light: #6B1E2E;
+    --burgundy-accent: #8B1A2B;
+    --cream: #FAF8F5;
+    --white: #FFFFFF;
+  }
+
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #FAF8F5;
+    background-color: var(--cream);
     color: #3D1F24;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -96,6 +104,7 @@
   }
   .initials-badge.visible { opacity: 1; transform: translateY(0); }
   
+  /* HERO */
   .hero-slider {
     position: relative;
     width: 100%; height: 100vh;
@@ -191,8 +200,206 @@
     font-size: 13px; letter-spacing: 3px; color: rgba(255,255,255,0.75);
     opacity: 0; filter: blur(8px); animation: blurIn 1.2s ease 1.8s forwards;
   }
+
+  /* СЕКЦИИ С ЧЕРЕДОВАНИЕМ */
+  .section-wrapper {
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+  }
   
-  .countdown-section { padding: 80px 0 60px; text-align: center; }
+  .section-light {
+    background: var(--cream);
+    color: var(--burgundy);
+  }
+  
+  .section-dark {
+    background: var(--burgundy);
+    color: var(--white);
+  }
+  
+  .section-dark .detail-label,
+  .section-dark .countdown-title,
+  .section-dark .venue-title,
+  .section-dark .dresscode-title,
+  .section-dark .wishes-title,
+  .section-dark .organizer-title,
+  .section-dark .countdown-label,
+  .section-dark .detail-note {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .section-dark .countdown-value {
+    color: var(--white);
+  }
+  
+  .section-dark .countdown-sep {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .section-dark .detail-value,
+  .section-dark .venue-name {
+    color: var(--white);
+  }
+  
+  .section-dark .venue-card {
+    background: var(--white);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .section-dark .venue-city {
+    color: var(--burgundy-accent);
+  }
+  
+  .section-dark .venue-address {
+    color: #555;
+  }
+  
+  .section-dark .dresscode-text,
+  .section-dark .organizer-text,
+  .section-dark .wish-slide p {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  
+  .section-dark .wish-slide {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .section-dark .wish-slide h3 {
+    color: var(--white);
+  }
+  
+  .section-dark .carousel-btn {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--white);
+  }
+  
+  .section-dark .carousel-btn:hover {
+    background: var(--white);
+    color: var(--burgundy);
+  }
+  
+  .section-dark .dot {
+    background: rgba(255, 255, 255, 0.4);
+  }
+  
+  .section-dark .dot.active {
+    background: var(--white);
+  }
+  
+  .section-dark .mini-calendar-frame {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .section-dark .calendar-month-header {
+    color: var(--white);
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .section-dark .day-frame {
+    color: var(--white);
+  }
+  
+  .section-dark .day-frame:not(:last-child) {
+    border-right-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .section-dark .heart-frame {
+    stroke: var(--white);
+  }
+  
+  .section-dark .day-frame-num {
+    color: var(--white);
+  }
+  
+  .section-dark .timeline-line,
+  .section-dark .timeline-line-secondary {
+    stroke: var(--white);
+  }
+  
+  .section-dark .event-time {
+    color: var(--white);
+  }
+  
+  .section-dark .event-content strong {
+    color: var(--white);
+  }
+  
+  .section-dark .event-content {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  
+  .section-dark .ornament svg circle,
+  .section-dark .ornament svg path {
+    stroke: var(--white);
+    fill: var(--white);
+  }
+
+  /* НОВЫЕ ЗАГОЛОВКИ */
+  .section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+
+  .section-title-script {
+    font-family: 'Great Vibes', cursive;
+    font-size: 72px;
+    font-weight: 400;
+    color: var(--burgundy);
+    line-height: 1;
+    margin-bottom: -10px;
+    display: block;
+  }
+
+  .section-dark .section-title-script {
+    color: var(--white);
+  }
+
+  .section-title-caps {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    line-height: 1.2;
+    display: block;
+  }
+
+  .section-dark .section-title-caps {
+    color: var(--white);
+  }
+
+  /* РВАНЫЙ КРАЙ */
+  .torn-edge {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 3;
+    pointer-events: none;
+  }
+  
+  .torn-edge-top {
+    top: 0;
+    transform: translateY(-99%);
+  }
+  
+  .torn-edge-bottom {
+    bottom: 0;
+    transform: translateY(99%) rotate(180deg);
+  }
+  
+  .torn-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* COUNTDOWN */
+  .countdown-section { padding: 40px 0; text-align: center; }
   .countdown-title { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
   .countdown { display: flex; justify-content: center; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
   .countdown-item { min-width: 72px; }
@@ -298,15 +505,15 @@
 
   /* TIMELINE */
   .timeline { padding: 0 0 60px; }
-  .timeline-flow { position: relative; max-width: 400px; margin: 0 auto; height: 1200px; }
+  .timeline-flow { position: relative; max-width: 400px; margin: 0 auto; height: 1400px; }
   .timeline-svg {
     position: absolute; top: 0; left: 50%;
     transform: translateX(-50%);
-    width: 100%; height: 1200px; z-index: 1;
-    margin-top: -220px;
+    width: 100%; height: 1400px; z-index: 1;
+    margin-top: -200px;
   }
-  .timeline-line { stroke-dasharray: 3000; stroke-dashoffset: 3000; animation: drawTimeline 2s ease-out forwards; }
-  .timeline-line-secondary { stroke-dasharray: 3000; stroke-dashoffset: 3000; animation: drawTimeline 2s ease-out 0.1s forwards; }
+  .timeline-line { stroke-dasharray: 3500; stroke-dashoffset: 3500; animation: drawTimeline 2s ease-out forwards; }
+  .timeline-line-secondary { stroke-dasharray: 3500; stroke-dashoffset: 3500; animation: drawTimeline 2s ease-out 0.1s forwards; }
   @keyframes drawTimeline { to { stroke-dashoffset: 0; } }
   
   .timeline-events { 
@@ -358,10 +565,10 @@
   .event-1 .event-content, .event-3 .event-content { text-align: right; }
   .event-2, .event-4 { left: 10px; align-items: flex-start; }
   .event-2 .event-content, .event-4 .event-content { text-align: left; }
-  .event-1 { top: 150px; }
-  .event-2 { top: 420px; }
-  .event-3 { top: 750px; }
-  .event-4 { top: 1050px; }
+  .event-1 { top: 180px; }
+  .event-2 { top: 450px; }
+  .event-3 { top: 780px; }
+  .event-4 { top: 1080px; }
 
   /* МЕСТО ВСТРЕЧИ */
   .venue-section { padding: 60px 0; text-align: center; }
@@ -615,12 +822,12 @@
     .day-frame-num { font-size: 30px; }
     .heart-frame { width: 56px; height: 56px; }
     
-    .timeline-flow { height: 900px; }
-    .timeline-svg { width: 250px; height: 900px; margin-top: -190px !important; }
-    .event-1 { top: 120px; }
-    .event-2 { top: 320px; }
-    .event-3 { top: 550px; }
-    .event-4 { top: 750px; }
+    .timeline-flow { height: 1100px; }
+    .timeline-svg { width: 250px; height: 1100px; margin-top: -160px !important; }
+    .event-1 { top: 150px; }
+    .event-2 { top: 350px; }
+    .event-3 { top: 580px; }
+    .event-4 { top: 780px; }
     .event-time { font-size: 32px; }
     .event-content { font-size: 13px; }
     .event-content strong { font-size: 14px; }
@@ -629,6 +836,10 @@
     
     .venue-photo { height: 200px; }
     .venue-name { font-size: 22px; }
+    
+    .section-title-script { font-size: 56px; }
+    .section-title-caps { font-size: 24px; letter-spacing: 3px; }
+    .section-wrapper { padding: 60px 0; }
   }
 </style>
 </head>
@@ -689,288 +900,313 @@
 
 <div class="bg-monogram-wrapper"><div class="bg-monogram">А & В</div></div>
 
-<div class="container">
-  <section class="countdown-section">
-    <div class="countdown-title">До нашей свадьбы осталось</div>
-    <div class="countdown" id="countdown">
-      <div class="countdown-item"><div class="countdown-value" id="days">—</div><div class="countdown-label">дней</div></div>
-      <div class="countdown-sep">:</div>
-      <div class="countdown-item"><div class="countdown-value" id="hours">—</div><div class="countdown-label">часов</div></div>
-      <div class="countdown-sep">:</div>
-      <div class="countdown-item"><div class="countdown-value" id="minutes">—</div><div class="countdown-label">минут</div></div>
-      <div class="countdown-sep">:</div>
-      <div class="countdown-item"><div class="countdown-value" id="seconds">—</div><div class="countdown-label">секунд</div></div>
-    </div>
-  </section>
-
-  <div class="ornament">
-    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
-      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
-    </svg>
-  </div>
-
-  <section class="invite-text reveal">
-    <p class="lead">Дорогие друзья и близкие!</p>
-    <p>В этот день мы хотим разделить с вами самое важное событие в нашей жизни — день нашей свадьбы. Будем счастливы видеть вас рядом.</p>
-  </section>
-
-  <div class="ornament">
-    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
-      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
-    </svg>
-  </div>
-
-  <section class="details reveal">
-    <div class="details-title">Детали</div>
-    <div class="mini-calendar-wrapper">
-      <div class="mini-calendar-frame">
-        <div class="calendar-month-header">СЕНТЯБРЬ 2027</div>
-        <div class="calendar-days-frame">
-          <div class="day-frame">17</div>
-          <div class="day-frame wedding-day-frame">
-            <svg class="heart-frame" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M30 52 C 28 48, 18 42, 14 34 C 10 26, 12 18, 18 14 C 22 11, 27 13, 30 18 C 33 13, 38 11, 42 14 C 48 18, 50 26, 46 34 C 42 42, 32 48, 30 52 Z"/>
-            </svg>
-            <span class="day-frame-num">18</span>
-          </div>
-          <div class="day-frame">19</div>
-        </div>
+<!-- СЕКЦИЯ 1: СВЕТЛАЯ (Countdown + Invite) -->
+<section class="section-wrapper section-light">
+  <div class="container">
+    <section class="countdown-section">
+      <div class="section-heading">
+        <span class="section-title-script">До дня</span>
+        <span class="section-title-caps">Нашей свадьбы</span>
       </div>
-    </div>
-  </section>
-
-  <section class="timeline reveal">
-    <div class="timeline-flow">
-      <svg class="timeline-svg" viewBox="0 -220 400 1480" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="overflow: visible; z-index: 1;">
-        <path class="timeline-line" 
-              d="M 200 0 
-                 C 260 40, 300 80, 280 130 
-                 C 260 200, 180 260, 120 330 
-                 C 60 450, 340 500, 280 580 
-                 C 220 660, 180 720, 120 780 
-                 C 60 840, 180 880, 200 900
-                 C 220 940, 180 980, 200 1020
-                 C 220 1060, 180 1090, 200 1120
-                 C 220 1150, 180 1180, 200 1200" 
-              fill="none" stroke="#8B1A2B" stroke-width="3" stroke-linecap="round"/>
-        <path class="timeline-line-secondary" 
-              d="M 200 0 
-                 C 260 40, 300 80, 280 130 
-                 C 260 200, 180 260, 120 330 
-                 C 60 450, 340 500, 280 580 
-                 C 220 660, 180 720, 120 780 
-                 C 60 840, 180 880, 200 900
-                 C 220 940, 180 980, 200 1020
-                 C 220 1060, 180 1090, 200 1120
-                 C 220 1150, 180 1180, 200 1200" 
-              fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
-        <circle id="timelineDot" cx="0" cy="0" r="6" fill="#8B1A2B" style="transition: all 0.1s ease;"/>
-      </svg>
-      <div class="timeline-events">
-        <div class="timeline-event event-1">
-          <div class="event-time">13:30</div>
-          <div class="event-content"><strong>Сбор гостей</strong>встречаемся у ЗАГСа «Чаша»</div>
-        </div>
-        <div class="timeline-event event-2">
-          <div class="event-time">14:00</div>
-          <div class="event-content"><strong>Церемония</strong>торжественная регистрация брака</div>
-        </div>
-        <div class="timeline-event event-3">
-          <div class="event-time">17:00</div>
-          <div class="event-content"><strong>Банкет</strong>праздничный ужин</div>
-        </div>
-        <div class="timeline-event event-4">
-          <div class="event-time">24:00</div>
-          <div class="event-content"><strong>Завершение вечера</strong>до новых встреч и тёплых воспоминаний</div>
-        </div>
+      <div class="countdown" id="countdown">
+        <div class="countdown-item"><div class="countdown-value" id="days">—</div><div class="countdown-label">дней</div></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-item"><div class="countdown-value" id="hours">—</div><div class="countdown-label">часов</div></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-item"><div class="countdown-value" id="minutes">—</div><div class="countdown-label">минут</div></div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-item"><div class="countdown-value" id="seconds">—</div><div class="countdown-label">секунд</div></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="ornament">
-    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
-      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
-    </svg>
+    <section class="invite-text reveal">
+      <p class="lead">Дорогие друзья и близкие!</p>
+      <p>В этот день мы хотим разделить с вами самое важное событие в нашей жизни — день нашей свадьбы. Будем счастливы видеть вас рядом.</p>
+    </section>
   </div>
+  
+  <!-- Рваный край снизу -->
+  <svg class="torn-edge torn-edge-bottom" viewBox="0 0 1200 40" preserveAspectRatio="none">
+    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--cream)"/>
+  </svg>
+</section>
 
-  <section class="venue-section reveal">
-    <div class="venue-title">Место встречи</div>
-    <div class="venue-card">
-      <div class="venue-photo">
-        <img src="chasha.jpg" alt="ЗАГС Чаша" />
+<!-- СЕКЦИЯ 2: ТЁМНАЯ (Details + Calendar + Timeline) -->
+<section class="section-wrapper section-dark">
+  <!-- Рваный край сверху -->
+  <svg class="torn-edge torn-edge-top" viewBox="0 0 1200 40" preserveAspectRatio="none">
+    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--burgundy)"/>
+  </svg>
+  
+  <div class="container">
+    <section class="details reveal">
+      <div class="section-heading">
+        <span class="section-title-script">Дата</span>
+        <span class="section-title-caps">Проведения свадьбы</span>
       </div>
-      <div class="venue-info">
-        <h3 class="venue-name">ЗАГС «Чаша»</h3>
-        <p class="venue-city">г. Казань</p>
-        <p class="venue-address">ул. Сибгата Хакима, 4</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="ornament">
-    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
-      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
-    </svg>
-  </div>
-
-  <section class="dresscode reveal">
-    <div class="dresscode-title">Дресс-код</div>
-    <p class="dresscode-text">Будем рады, если вы поддержите нашу цветовую гамму в своих нарядах</p>
-    <div class="palette">
-      <div class="palette-color" style="background: #FFFFFF; border: 1px solid #e8e4dd;" title="Белый"></div>
-      <div class="palette-color" style="background: #8B1A2B;" title="Бургунди"></div>
-      <div class="palette-color" style="background: #D4A5A5;" title="Пыльная роза"></div>
-      <div class="palette-color" style="background: #F5E6E0;" title="Шампань"></div>
-      <div class="palette-color" style="background: #2D5A4A;" title="Изумрудный"></div>
-    </div>
-  </section>
-
-  <div class="ornament">
-    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
-      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
-    </svg>
-  </div>
-
-  <section class="wishes-section reveal">
-    <div class="wishes-title">Несколько слов от нас</div>
-    <div class="wishes-carousel">
-      <button class="carousel-btn prev" id="wishPrev" aria-label="Предыдущее пожелание">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-      </button>
-      <div class="wishes-track-container">
-        <div class="wishes-track" id="wishesTrack">
-          <div class="wish-slide">
-            <div class="wish-icon-svg">
-              <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <g filter="url(#handDrawnHeartSimple)">
-                  <path d="M12 22 L12 38 L36 38 L36 22 Z" /><path d="M10 22 L38 22" /><path d="M10 22 L10 20 L38 20 L38 22" />
-                  <path d="M24 20 L24 38" /><path d="M12 29 L36 29" />
-                  <path d="M24 20 C24 14, 18 12, 18 16 C18 20, 24 20, 24 20" />
-                  <path d="M24 20 C24 14, 30 12, 30 16 C30 20, 24 20, 24 20" />
-                  <path d="M24 20 C22 22, 20 24, 18 26" /><path d="M24 20 C26 22, 28 24, 30 26" />
-                </g>
+      <div class="mini-calendar-wrapper">
+        <div class="mini-calendar-frame">
+          <div class="calendar-month-header">СЕНТЯБРЬ 2027</div>
+          <div class="calendar-days-frame">
+            <div class="day-frame">17</div>
+            <div class="day-frame wedding-day-frame">
+              <svg class="heart-frame" viewBox="0 0 60 60" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M30 52 C 28 48, 18 42, 14 34 C 10 26, 12 18, 18 14 C 22 11, 27 13, 30 18 C 33 13, 38 11, 42 14 C 48 18, 50 26, 46 34 C 42 42, 32 48, 30 52 Z"/>
               </svg>
+              <span class="day-frame-num">18</span>
             </div>
-            <h3>О подарках</h3>
-            <p>Ваше присутствие и тёплые слова — самый ценный подарок для нас. Но если вы захотите внести вклад в наше свадебное путешествие, мы будем безмерно благодарны.</p>
-          </div>
-          <div class="wish-slide">
-            <div class="wish-icon-svg">
-              <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <g filter="url(#handDrawnHeartSimple)">
-                  <circle cx="16" cy="14" r="5" /><circle cx="32" cy="14" r="5" />
-                  <circle cx="16" cy="14" r="2.5" fill="#8B1A2B" stroke="none" opacity="0.3"/>
-                  <circle cx="32" cy="14" r="2.5" fill="#8B1A2B" stroke="none" opacity="0.3"/>
-                  <circle cx="24" cy="24" r="12" /><ellipse cx="24" cy="28" rx="5" ry="4" />
-                  <circle cx="20" cy="22" r="1.5" fill="#8B1A2B" stroke="none"/>
-                  <circle cx="28" cy="22" r="1.5" fill="#8B1A2B" stroke="none"/>
-                  <circle cx="24" cy="26" r="1.5" fill="#8B1A2B" stroke="none"/>
-                  <path d="M22 29 C23 30, 25 30, 26 29" />
-                  <ellipse cx="18" cy="36" rx="3" ry="4" /><ellipse cx="30" cy="36" rx="3" ry="4" />
-                </g>
-              </svg>
-            </div>
-            <h3>О маленьких гостях</h3>
-            <p>Мы безумно любим детей, но формат нашего праздника — это вечер для взрослых. Мы хотим, чтобы все родители смогли расслабиться, потанцевать и отдохнуть от души.</p>
-          </div>
-          <div class="wish-slide">
-            <div class="wish-icon-svg">
-              <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <g filter="url(#handDrawnHeartSimple)">
-                  <path d="M16 8 L16 24 C16 28, 20 30, 24 30 C28 30, 32 28, 32 24 L32 8" />
-                  <path d="M24 30 L24 38" /><path d="M18 38 L30 38" />
-                  <path d="M28 12 L28 26 C28 29, 31 30, 33 30 C35 30, 38 29, 38 26 L38 12" transform="rotate(-15 33 26)" />
-                  <circle cx="20" cy="14" r="1" fill="#8B1A2B" stroke="none"/>
-                  <circle cx="24" cy="16" r="1.2" fill="#8B1A2B" stroke="none"/>
-                  <circle cx="28" cy="13" r="0.8" fill="#8B1A2B" stroke="none"/>
-                  <circle cx="22" cy="18" r="0.9" fill="#8B1A2B" stroke="none"/>
-                  <circle cx="32" cy="18" r="1" fill="#8B1A2B" stroke="none"/>
-                  <circle cx="35" cy="16" r="0.8" fill="#8B1A2B" stroke="none"/>
-                  <path d="M26 10 L24 8" /><path d="M28 9 L29 7" /><path d="M30 11 L32 9" />
-                </g>
-              </svg>
-            </div>
-            <h3>О настроении</h3>
-            <p>Берите с собой хорошие эмоции, удобную обувь для танцев и готовые тосты. Мы обещаем сделать этот день по-настоящему тёплым и незабываемым!</p>
-          </div>
-          <div class="wish-slide">
-            <div class="wish-icon-svg">
-              <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <g filter="url(#handDrawnHeartSimple)">
-                  <path d="M24 6 L24 10" />
-                  <path d="M14 10 C14 10, 18 10, 24 14 C30 10, 34 10, 34 10" />
-                  <path d="M18 14 L18 20 L30 20 L30 14" />
-                  <path d="M18 20 C20 22, 28 22, 30 20" />
-                  <path d="M18 20 L14 38 L34 38 L30 20" />
-                  <path d="M20 22 L18 36" /><path d="M24 22 L24 36" /><path d="M28 22 L30 36" />
-                  <path d="M17 24 L31 24" />
-                  <path d="M24 24 C22 22, 20 22, 20 24 C20 26, 22 26, 24 24" />
-                  <path d="M24 24 C26 22, 28 22, 28 24 C28 26, 26 26, 24 24" />
-                </g>
-              </svg>
-            </div>
-            <h3>О дресс-коде</h3>
-            <p>Мы будем рады, если вы поддержите палитру нашей свадьбы в своих нарядах. И небольшая просьба: воздержитесь от белого цвета, он сегодня зарезервирован для невесты.</p>
+            <div class="day-frame">19</div>
           </div>
         </div>
       </div>
-      <button class="carousel-btn next" id="wishNext" aria-label="Следующее пожелание">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-      </button>
-    </div>
-    <div class="carousel-dots" id="carouselDots"></div>
-  </section>
+    </section>
 
-  <div class="ornament">
-    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
-      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
-    </svg>
+    <section class="timeline reveal">
+      <div class="section-heading">
+        <span class="section-title-script">Как пройдёт</span>
+        <span class="section-title-caps">Наш день</span>
+      </div>
+      <div class="timeline-flow">
+        <svg class="timeline-svg" viewBox="0 -200 400 1700" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="overflow: visible; z-index: 1;">
+          <path class="timeline-line" 
+                d="M 200 30 
+                   C 260 60, 300 100, 280 150 
+                   C 260 220, 180 280, 120 350 
+                   C 60 470, 340 520, 280 600 
+                   C 220 680, 180 740, 120 800 
+                   C 60 860, 180 900, 200 920
+                   C 220 960, 180 1000, 200 1040
+                   C 220 1080, 180 1110, 200 1140
+                   C 220 1170, 180 1200, 200 1220
+                   C 220 1260, 180 1300, 200 1340
+                   C 220 1380, 180 1410, 200 1440" 
+                fill="none" stroke-width="3" stroke-linecap="round"/>
+          <path class="timeline-line-secondary" 
+                d="M 200 30 
+                   C 260 60, 300 100, 280 150 
+                   C 260 220, 180 280, 120 350 
+                   C 60 470, 340 520, 280 600 
+                   C 220 680, 180 740, 120 800 
+                   C 60 860, 180 900, 200 920
+                   C 220 960, 180 1000, 200 1040
+                   C 220 1080, 180 1110, 200 1140
+                   C 220 1170, 180 1200, 200 1220
+                   C 220 1260, 180 1300, 200 1340
+                   C 220 1380, 180 1410, 200 1440" 
+                fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+          <circle id="timelineDot" cx="0" cy="0" r="6" style="transition: all 0.1s ease;"/>
+        </svg>
+        <div class="timeline-events">
+          <div class="timeline-event event-1">
+            <div class="event-time">13:30</div>
+            <div class="event-content"><strong>Сбор гостей</strong>встречаемся у ЗАГСа «Чаша»</div>
+          </div>
+          <div class="timeline-event event-2">
+            <div class="event-time">14:00</div>
+            <div class="event-content"><strong>Церемония</strong>торжественная регистрация брака</div>
+          </div>
+          <div class="timeline-event event-3">
+            <div class="event-time">17:00</div>
+            <div class="event-content"><strong>Банкет</strong>праздничный ужин</div>
+          </div>
+          <div class="timeline-event event-4">
+            <div class="event-time">24:00</div>
+            <div class="event-content"><strong>Завершение вечера</strong>до новых встреч и тёплых воспоминаний</div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
+  
+  <!-- Рваный край снизу -->
+  <svg class="torn-edge torn-edge-bottom" viewBox="0 0 1200 40" preserveAspectRatio="none">
+    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--burgundy)"/>
+  </svg>
+</section>
 
-  <section class="cta-section reveal">
-    <p class="cta-text">Пожалуйста, подтвердите своё присутствие до 1 августа 2027 года</p>
-    <a href="https://forms.gle/SpyQS3RQFLgTAMjBA" class="btn" target="_blank">Я приду</a>
-  </section>
+<!-- СЕКЦИЯ 3: СВЕТЛАЯ (Venue + Dresscode) -->
+<section class="section-wrapper section-light">
+  <svg class="torn-edge torn-edge-top" viewBox="0 0 1200 40" preserveAspectRatio="none">
+    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--cream)"/>
+  </svg>
+  
+  <div class="container">
+    <section class="venue-section reveal">
+      <div class="section-heading">
+        <span class="section-title-script">Место</span>
+        <span class="section-title-caps">Проведения</span>
+      </div>
+      <div class="venue-card">
+        <div class="venue-photo">
+          <img src="chasha.jpg" alt="ЗАГС Чаша" />
+        </div>
+        <div class="venue-info">
+          <h3 class="venue-name">ЗАГС «Чаша»</h3>
+          <p class="venue-city">г. Казань</p>
+          <p class="venue-address">ул. Сибгата Хакима, 4</p>
+        </div>
+      </div>
+    </section>
 
-  <div class="ornament">
-    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
-      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
-      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
-    </svg>
+    <section class="dresscode reveal">
+      <div class="section-heading">
+        <span class="section-title-script">Дресс</span>
+        <span class="section-title-caps">Код</span>
+      </div>
+      <p class="dresscode-text">Будем рады, если вы поддержите нашу цветовую гамму в своих нарядах</p>
+      <div class="palette">
+        <div class="palette-color" style="background: #FFFFFF; border: 1px solid #e8e4dd;" title="Белый"></div>
+        <div class="palette-color" style="background: #8B1A2B;" title="Бургунди"></div>
+        <div class="palette-color" style="background: #D4A5A5;" title="Пыльная роза"></div>
+        <div class="palette-color" style="background: #F5E6E0;" title="Шампань"></div>
+        <div class="palette-color" style="background: #2D5A4A;" title="Изумрудный"></div>
+      </div>
+    </section>
   </div>
+  
+  <svg class="torn-edge torn-edge-bottom" viewBox="0 0 1200 40" preserveAspectRatio="none">
+    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--cream)"/>
+  </svg>
+</section>
 
-  <section class="organizer reveal">
-    <div class="organizer-title">Есть вопросы?</div>
-    <p class="organizer-text">По всем вопросам организации, трансфера и размещения — обращайтесь к нашему организатору</p>
-    <div class="organizer-card">
-      <div class="organizer-name">Айгуль</div>
-      <a href="tel:+79001234567" class="organizer-phone">+7 (900) 123-45-67</a>
-      <div class="organizer-note">звонки и сообщения в WhatsApp/Telegram</div>
-    </div>
-  </section>
+<!-- СЕКЦИЯ 4: ТЁМНАЯ (Wishes) -->
+<section class="section-wrapper section-dark">
+  <svg class="torn-edge torn-edge-top" viewBox="0 0 1200 40" preserveAspectRatio="none">
+    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--burgundy)"/>
+  </svg>
+  
+  <div class="container">
+    <section class="wishes-section reveal">
+      <div class="section-heading">
+        <span class="section-title-script">Наши</span>
+        <span class="section-title-caps">Тёплые пожелания</span>
+      </div>
+      <div class="wishes-carousel">
+        <button class="carousel-btn prev" id="wishPrev" aria-label="Предыдущее пожелание">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="wishes-track-container">
+          <div class="wishes-track" id="wishesTrack">
+            <div class="wish-slide">
+              <div class="wish-icon-svg">
+                <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <g filter="url(#handDrawnHeartSimple)">
+                    <path d="M12 22 L12 38 L36 38 L36 22 Z" /><path d="M10 22 L38 22" /><path d="M10 22 L10 20 L38 20 L38 22" />
+                    <path d="M24 20 L24 38" /><path d="M12 29 L36 29" />
+                    <path d="M24 20 C24 14, 18 12, 18 16 C18 20, 24 20, 24 20" />
+                    <path d="M24 20 C24 14, 30 12, 30 16 C30 20, 24 20, 24 20" />
+                    <path d="M24 20 C22 22, 20 24, 18 26" /><path d="M24 20 C26 22, 28 24, 30 26" />
+                  </g>
+                </svg>
+              </div>
+              <h3>О подарках</h3>
+              <p>Ваше присутствие и тёплые слова — самый ценный подарок для нас. Но если вы захотите внести вклад в наше свадебное путешествие, мы будем безмерно благодарны.</p>
+            </div>
+            <div class="wish-slide">
+              <div class="wish-icon-svg">
+                <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <g filter="url(#handDrawnHeartSimple)">
+                    <circle cx="16" cy="14" r="5" /><circle cx="32" cy="14" r="5" />
+                    <circle cx="16" cy="14" r="2.5" stroke="none" opacity="0.3"/>
+                    <circle cx="32" cy="14" r="2.5" stroke="none" opacity="0.3"/>
+                    <circle cx="24" cy="24" r="12" /><ellipse cx="24" cy="28" rx="5" ry="4" />
+                    <circle cx="20" cy="22" r="1.5" stroke="none"/>
+                    <circle cx="28" cy="22" r="1.5" stroke="none"/>
+                    <circle cx="24" cy="26" r="1.5" stroke="none"/>
+                    <path d="M22 29 C23 30, 25 30, 26 29" />
+                    <ellipse cx="18" cy="36" rx="3" ry="4" /><ellipse cx="30" cy="36" rx="3" ry="4" />
+                  </g>
+                </svg>
+              </div>
+              <h3>О маленьких гостях</h3>
+              <p>Мы безумно любим детей, но формат нашего праздника — это вечер для взрослых. Мы хотим, чтобы все родители смогли расслабиться, потанцевать и отдохнуть от души.</p>
+            </div>
+            <div class="wish-slide">
+              <div class="wish-icon-svg">
+                <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <g filter="url(#handDrawnHeartSimple)">
+                    <path d="M16 8 L16 24 C16 28, 20 30, 24 30 C28 30, 32 28, 32 24 L32 8" />
+                    <path d="M24 30 L24 38" /><path d="M18 38 L30 38" />
+                    <path d="M28 12 L28 26 C28 29, 31 30, 33 30 C35 30, 38 29, 38 26 L38 12" transform="rotate(-15 33 26)" />
+                    <circle cx="20" cy="14" r="1" stroke="none"/>
+                    <circle cx="24" cy="16" r="1.2" stroke="none"/>
+                    <circle cx="28" cy="13" r="0.8" stroke="none"/>
+                    <circle cx="22" cy="18" r="0.9" stroke="none"/>
+                    <circle cx="32" cy="18" r="1" stroke="none"/>
+                    <circle cx="35" cy="16" r="0.8" stroke="none"/>
+                    <path d="M26 10 L24 8" /><path d="M28 9 L29 7" /><path d="M30 11 L32 9" />
+                  </g>
+                </svg>
+              </div>
+              <h3>О настроении</h3>
+              <p>Берите с собой хорошие эмоции, удобную обувь для танцев и готовые тосты. Мы обещаем сделать этот день по-настоящему тёплым и незабываемым!</p>
+            </div>
+            <div class="wish-slide">
+              <div class="wish-icon-svg">
+                <svg viewBox="0 0 48 48" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <g filter="url(#handDrawnHeartSimple)">
+                    <path d="M24 6 L24 10" />
+                    <path d="M14 10 C14 10, 18 10, 24 14 C30 10, 34 10, 34 10" />
+                    <path d="M18 14 L18 20 L30 20 L30 14" />
+                    <path d="M18 20 C20 22, 28 22, 30 20" />
+                    <path d="M18 20 L14 38 L34 38 L30 20" />
+                    <path d="M20 22 L18 36" /><path d="M24 22 L24 36" /><path d="M28 22 L30 36" />
+                    <path d="M17 24 L31 24" />
+                    <path d="M24 24 C22 22, 20 22, 20 24 C20 26, 22 26, 24 24" />
+                    <path d="M24 24 C26 22, 28 22, 28 24 C28 26, 26 26, 24 24" />
+                  </g>
+                </svg>
+              </div>
+              <h3>О дресс-коде</h3>
+              <p>Мы будем рады, если вы поддержите палитру нашей свадьбы в своих нарядах. И небольшая просьба: воздержитесь от белого цвета, он сегодня зарезервирован для невесты.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn next" id="wishNext" aria-label="Следующее пожелание">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+  </div>
+  
+  <svg class="torn-edge torn-edge-bottom" viewBox="0 0 1200 40" preserveAspectRatio="none">
+    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--burgundy)"/>
+  </svg>
+</section>
 
-  <div class="footer">С любовью, Алексей и Валерия <span class="footer-heart">♥</span></div>
-</div>
+<!-- СЕКЦИЯ 5: СВЕТЛАЯ (CTA + Organizer) -->
+<section class="section-wrapper section-light">
+  <svg class="torn-edge torn-edge-top" viewBox="0 0 1200 40" preserveAspectRatio="none">
+    <path d="M0,20 Q30,10 60,20 T120,20 T180,20 T240,20 T300,20 T360,20 T420,20 T480,20 T540,20 T600,20 T660,20 T720,20 T780,20 T840,20 T900,20 T960,20 T1020,20 T1080,20 T1140,20 T1200,20 L1200,40 L0,40 Z" fill="var(--cream)"/>
+  </svg>
+  
+  <div class="container">
+    <section class="cta-section reveal">
+      <div class="section-heading">
+        <span class="section-title-script">Подтвердите</span>
+        <span class="section-title-caps">Ваше присутствие</span>
+      </div>
+      <p class="cta-text">Пожалуйста, подтвердите своё присутствие до 1 августа 2027 года</p>
+      <a href="https://forms.gle/SpyQS3RQFLgTAMjBA" class="btn" target="_blank">Я приду</a>
+    </section>
+
+    <section class="organizer reveal">
+      <div class="section-heading">
+        <span class="section-title-script">Есть</span>
+        <span class="section-title-caps">Вопросы?</span>
+      </div>
+      <p class="organizer-text">По всем вопросам организации, трансфера и размещения — обращайтесь к нашему организатору</p>
+      <div class="organizer-card">
+        <div class="organizer-name">Айгуль</div>
+        <a href="tel:+79001234567" class="organizer-phone">+7 (900) 123-45-67</a>
+        <div class="organizer-note">звонки и сообщения в WhatsApp/Telegram</div>
+      </div>
+    </section>
+
+    <div class="footer">С любовью, Алексей и Валерия <span class="footer-heart">♥</span></div>
+  </div>
+</section>
 
 <button class="music-btn" id="musicBtn" aria-label="Включить музыку">
   <svg id="musicIcon" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
