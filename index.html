@@ -332,26 +332,26 @@
     color: transparent;
   }
 
-  .heart-simple {
+   .heart-simple {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 64px;
-    height: 64px;
+    width: 115px; /* Было 64px */
+    height: 115px; /* Было 64px */
     animation: heartPulseSimple 2s ease-in-out infinite;
-  }
-
-  @keyframes heartPulseSimple {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.1); }
   }
 
   .heart-num-simple {
     position: relative;
     z-index: 2;
-    font-size: 30px;
+    font-size: 54px; /* Было 30px */
     color: #8B1A2B;
     font-weight: 500;
+  }
+
+  @keyframes heartPulseSimple {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
   }
  
   .calendar-wave-line {
@@ -434,26 +434,24 @@
     position: absolute;
     display: flex;
     align-items: center;
-    gap: 20px;
-    max-width: 180px;
+    gap: 6px; /* Минимальный отступ между временем и текстом */
+    max-width: 220px;
   }
 
   .event-time {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
+    font-size: 44px; /* В 2 раза больше (было 22px) */
     color: #8B1A2B;
     font-weight: 400;
     white-space: nowrap;
     flex-shrink: 0;
-    background: transparent;
-    padding: 0;
-    z-index: 3;
+    line-height: 1;
   }
 
   .event-content {
-    font-size: 14px;
+    font-size: 15px;
     color: #555;
-    line-height: 1.4;
+    line-height: 1.3;
     background: transparent;
     padding: 0;
     z-index: 3;
@@ -463,8 +461,29 @@
     display: block;
     color: #3D1F24;
     font-weight: 500;
-    font-size: 16px;
-    margin-bottom: 3px;
+    font-size: 18px;
+    margin-bottom: 2px;
+  }
+
+  /* ЛЕВЫЕ события: Время слева (ближе к центральной линии с точками) */
+  .event-2, .event-4 {
+    left: 10px;
+    flex-direction: row; 
+  }
+  .event-2 .event-time, .event-4 .event-time {
+    margin-right: -8px; /* Притягиваем время прямо к точке */
+  }
+
+  /* ПРАВЫЕ события: Время справа (ближе к центральной линии с точками) */
+  .event-1, .event-3 {
+    right: 10px;
+    flex-direction: row-reverse; /* Разворачиваем, чтобы время было у точки */
+  }
+  .event-1 .event-time, .event-3 .event-time {
+    margin-left: -8px; /* Притягиваем время прямо к точке */
+  }
+  .event-1 .event-content, .event-3 .event-content {
+    text-align: right;
   }
 
   .event-1 { top: 110px; right: 10px; flex-direction: row-reverse; }
@@ -692,7 +711,7 @@
 
   /* MOBILE */
   @media (max-width: 480px) {
-    .heart-num-simple { font-size: 24px; }
+    .heart-num-simple { font-size: 42px; }
     .hero-slider { min-height: 500px; }
     .hero-names { font-size: 44px; }
     .hero-amp { font-size: 34px; }
@@ -718,7 +737,7 @@
     .calendar-days-simple { gap: 20px; }
     .calendar-weekdays-simple div { font-size: 16px; }
     .day-simple { font-size: 30px; }
-    .heart-simple { width: 52px; height: 52px; }
+    .heart-simple { width: 90px; height: 90px; }
     .calendar-wave-line { top: 105px; }
     
     .timeline-flow { height: 600px; }
@@ -969,10 +988,10 @@
     <div class="timeline-flow">
       <svg class="timeline-svg" viewBox="0 0 400 900" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <defs>
-          <filter id="handDrawnTimeline" x="-10%" y="-10%" width="120%" height="120%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="5" result="noise"/>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
-          </filter>
+          <filter id="handDrawnTimeline" x="-15%" y="-15%" width="130%" height="130%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" seed="5" result="noise"/>
+  <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+</filter>
         </defs>
         <g filter="url(#handDrawnTimeline)">
           <path class="timeline-line" d="M 200 0 C 260 30, 290 80, 280 130 C 270 180, 220 210, 170 240 C 120 270, 100 290, 120 310 C 140 340, 200 390, 250 440 C 290 480, 300 510, 280 530 C 260 550, 200 590, 150 640 C 110 680, 100 710, 120 730 C 140 760, 140 810, 140 860" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round"/>
@@ -984,18 +1003,25 @@
         <circle class="timeline-dot" cx="120" cy="730" r="4" fill="#8B1A2B"/>
       </svg>
       <div class="timeline-events">
+        <!-- 1. Сбор гостей (Справа) -->
         <div class="timeline-event event-1">
-          <div class="event-content"><strong>Сбор гостей</strong>встречаемся у ЗАГСа «Чаша»</div>
           <div class="event-time">13:30</div>
+          <div class="event-content"><strong>Сбор гостей</strong>встречаемся у ЗАГСа «Чаша»</div>
         </div>
+        
+        <!-- 2. Церемония (Слева) -->
         <div class="timeline-event event-2">
           <div class="event-time">14:00</div>
           <div class="event-content"><strong>Церемония</strong>торжественная регистрация брака</div>
         </div>
+        
+        <!-- 3. Фотосессия (Справа) -->
         <div class="timeline-event event-3">
-          <div class="event-content"><strong>Фотосессия</strong>прогулка и фото у «Чаши»</div>
           <div class="event-time">15:30</div>
+          <div class="event-content"><strong>Фотосессия</strong>прогулка и фото у «Чаши»</div>
         </div>
+        
+        <!-- 4. Банкет (Слева) -->
         <div class="timeline-event event-4">
           <div class="event-time">17:00</div>
           <div class="event-content"><strong>Банкет</strong>праздничный ужин</div>
