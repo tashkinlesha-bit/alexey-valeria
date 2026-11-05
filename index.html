@@ -284,79 +284,98 @@
   .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #3D1F24; line-height: 1.4; position: relative; z-index: 3; }
   .detail-note { font-size: 13px; color: #999; margin-top: 8px; position: relative; z-index: 3; }
   
-  /* КАЛЕНДАРЬ */
+  /* КАЛЕНДАРЬ-РАМКА */
   .mini-calendar-wrapper {
     position: relative;
-    max-width: 460px;
+    max-width: 380px;
     margin: 20px auto;
     padding-bottom: 180px;
   }
 
-  .mini-calendar-simple {
-    max-width: 460px;
-    margin: 0 auto;
-    padding: 32px;
+  .mini-calendar-frame {
+    background: transparent;
+    border: 1.5px solid #8B1A2B;
+    border-radius: 4px;
+    overflow: hidden;
   }
 
-  .calendar-weekdays-simple {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 28px;
-    margin-bottom: 28px;
+  .calendar-month-header {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #8B1A2B;
     text-align: center;
+    padding: 16px 20px 12px;
+    border-bottom: 1px solid rgba(139, 26, 43, 0.3);
   }
 
-  .calendar-weekdays-simple div {
-    font-size: 19px;
-    letter-spacing: 2px;
-    color: #999;
+  .calendar-days-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .day-frame {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: #8B1A2B;
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 10px 0;
+  }
+
+  .day-frame:not(:last-child) {
+    border-right: 1px solid rgba(139, 26, 43, 0.3);
+  }
+
+  .day-frame.wedding-day-frame {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .heart-frame {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: heartFramePulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes heartFramePulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.05); }
+  }
+
+  .day-frame-num {
+    position: relative;
+    z-index: 2;
+    font-size: 38px;
+    color: #8B1A2B;
     font-weight: 400;
   }
 
-  .calendar-days-simple {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 28px;
-    text-align: center;
-  }
-
-  .day-simple {
+  .calendar-footer-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 36px;
-    color: #555;
-    position: relative;
-  }
-
-  .day-simple.wedding-day-simple {
-    position: relative;
-    color: transparent;
-  }
-
-   .heart-simple {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 115px; /* Было 64px */
-    height: 115px; /* Было 64px */
-    animation: heartPulseSimple 2s ease-in-out infinite;
-  }
-
-  .heart-num-simple {
-    position: relative;
-    z-index: 2;
-    font-size: 54px; /* Было 30px */
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     color: #8B1A2B;
-    font-weight: 500;
+    text-align: center;
+    padding: 12px 20px 16px;
+    border-top: 1px solid rgba(139, 26, 43, 0.3);
   }
 
-  @keyframes heartPulseSimple {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.1); }
-  }
- 
-    .calendar-wave-line {
+  .calendar-wave-line {
     position: absolute;
-    top: 165px; /* Было 137px, опустили линию ниже */
+    top: 150px;
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
@@ -434,13 +453,13 @@
     position: absolute;
     display: flex;
     align-items: center;
-    gap: 6px; /* Минимальный отступ между временем и текстом */
+    gap: 6px;
     max-width: 220px;
   }
 
   .event-time {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 44px; /* В 2 раза больше (было 22px) */
+    font-size: 44px;
     color: #8B1A2B;
     font-weight: 400;
     white-space: nowrap;
@@ -465,33 +484,31 @@
     margin-bottom: 2px;
   }
 
-  /* ЛЕВЫЕ события: Время слева (ближе к центральной линии с точками) */
+  /* ЛЕВЫЕ события */
   .event-2, .event-4 {
     left: 10px;
     flex-direction: row; 
   }
   .event-2 .event-time, .event-4 .event-time {
-    margin-right: -8px; /* Притягиваем время прямо к точке */
+    margin-right: -8px;
   }
 
-  /* ПРАВЫЕ события: Время справа (ближе к центральной линии с точками) */
+  /* ПРАВЫЕ события */
   .event-1, .event-3 {
     right: 10px;
-    flex-direction: row-reverse; /* Разворачиваем, чтобы время было у точки */
+    flex-direction: row-reverse;
   }
   .event-1 .event-time, .event-3 .event-time {
-    margin-left: -8px; /* Притягиваем время прямо к точке */
+    margin-left: -8px;
   }
   .event-1 .event-content, .event-3 .event-content {
     text-align: right;
   }
 
-  .event-1 { top: 110px; right: 10px; flex-direction: row-reverse; }
-  .event-1 .event-content { text-align: right; }
-  .event-2 { top: 290px; left: 10px; }
-  .event-3 { top: 510px; right: 10px; flex-direction: row-reverse; }
-  .event-3 .event-content { text-align: right; }
-  .event-4 { top: 710px; left: 10px; }
+  .event-1 { top: 110px; }
+  .event-2 { top: 290px; }
+  .event-3 { top: 510px; }
+  .event-4 { top: 710px; }
 
   .dresscode { padding: 60px 0; text-align: center; }
   .dresscode-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
@@ -711,7 +728,6 @@
 
   /* MOBILE */
   @media (max-width: 480px) {
-    .heart-num-simple { font-size: 42px; }
     .hero-slider { min-height: 500px; }
     .hero-names { font-size: 44px; }
     .hero-amp { font-size: 34px; }
@@ -732,24 +748,31 @@
     .carousel-btn { width: 36px; height: 36px; }
     .wish-slide { padding: 24px 16px; }
     .wish-slide h3 { font-size: 20px; }
-    .mini-calendar-simple { padding: 16px; }
-    .calendar-weekdays-simple { gap: 20px; }
-    .calendar-days-simple { gap: 20px; }
-    .calendar-weekdays-simple div { font-size: 16px; }
-    .day-simple { font-size: 30px; }
-    .heart-simple { width: 90px; height: 90px; }
-    .calendar-wave-line { top: 135px; } /* Было 105px */
     
+    /* Календарь мобильный */
+    .mini-calendar-frame { max-width: 320px; }
+    .calendar-month-header { font-size: 15px; letter-spacing: 3px; padding: 12px 16px 10px; }
+    .day-frame { font-size: 34px; }
+    .day-frame-num { font-size: 30px; }
+    .heart-frame { width: 56px; height: 56px; }
+    .calendar-footer-text { font-size: 12px; letter-spacing: 2px; padding: 10px 16px 12px; }
+    .calendar-wave-line { top: 120px; }
+    
+    /* Таймлайн мобильный */
     .timeline-flow { height: 600px; }
     .timeline-svg { width: 250px; height: 600px; }
     .event-1 { top: 80px; }
     .event-2 { top: 180px; }
     .event-3 { top: 280px; }
     .event-4 { top: 380px; }
-    .event-time { font-size: 18px; }
+    .event-time { font-size: 32px; }
     .event-content { font-size: 13px; }
     .event-content strong { font-size: 15px; }
-    .timeline-event { max-width: 150px; gap: 12px; }
+    .timeline-event { max-width: 160px; gap: 4px; }
+    .event-2 .event-time, .event-4 .event-time,
+    .event-1 .event-time, .event-3 .event-time {
+      margin: 0;
+    }
   }
 </style>
 </head>
@@ -913,36 +936,22 @@
       <div class="detail-label">Когда</div>
       
       <div class="mini-calendar-wrapper">
-        <div class="mini-calendar-simple">
-          <div class="calendar-weekdays-simple">
-            <div>ПН</div><div>ВТ</div><div>СР</div><div>ЧТ</div><div>ПТ</div><div>СБ</div><div>ВС</div>
-          </div>
-          <div class="calendar-days-simple">
-            <div class="day-simple">15</div>
-            <div class="day-simple">16</div>
-            <div class="day-simple">17</div>
-            <div class="day-simple wedding-day-simple">
-              <svg class="heart-simple" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                <defs>
-                  <filter id="handDrawnHeartSimple" x="-25%" y="-25%" width="150%" height="150%">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="3" seed="7" result="noise"/>
-                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
-                  </filter>
-                </defs>
-                <g filter="url(#handDrawnHeartSimple)">
-                  <path d="M20 32 C 19 30, 14 26, 12 22 C 10 18, 10 14, 13 12 C 15 10, 18 12, 20 15 C 22 12, 25 10, 27 12 C 30 14, 30 18, 28 22 C 26 26, 21 30, 20 32 Z" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="#8B1A2B" opacity="0.15"/>
-                  <path d="M20 32 C 19 30, 14 26, 12 22 C 10 18, 10 14, 13 12 C 15 10, 18 12, 20 15 C 22 12, 25 10, 27 12 C 30 14, 30 18, 28 22 C 26 26, 21 30, 20 32 Z" stroke="#8B1A2B" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-                </g>
+        <div class="mini-calendar-frame">
+          <div class="calendar-month-header">СЕНТЯБРЬ 2027</div>
+          <div class="calendar-days-frame">
+            <div class="day-frame">17</div>
+            <div class="day-frame wedding-day-frame">
+              <svg class="heart-frame" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M30 52 C 28 48, 18 42, 14 34 C 10 26, 12 18, 18 14 C 22 11, 27 13, 30 18 C 33 13, 38 11, 42 14 C 48 18, 50 26, 46 34 C 42 42, 32 48, 30 52 Z"/>
               </svg>
-              <span class="heart-num-simple">18</span>
+              <span class="day-frame-num">18</span>
             </div>
-            <div class="day-simple">19</div>
-            <div class="day-simple">20</div>
-            <div class="day-simple">21</div>
+            <div class="day-frame">19</div>
           </div>
+          <div class="calendar-footer-text">МЕСТО ВСТРЕЧИ</div>
         </div>
         
-                <svg class="calendar-wave-line" viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true">
+        <svg class="calendar-wave-line" viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <filter id="handDrawnWave" x="-10%" y="-10%" width="120%" height="120%">
               <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="3" result="noise"/>
@@ -989,13 +998,13 @@
       <svg class="timeline-svg" viewBox="0 0 400 900" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <defs>
           <filter id="handDrawnTimeline" x="-15%" y="-15%" width="130%" height="130%">
-  <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" seed="5" result="noise"/>
-  <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
-</filter>
+            <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" seed="5" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
         </defs>
         <g filter="url(#handDrawnTimeline)">
-          <path class="timeline-line" d="M 200 0 C 260 30, 290 80, 280 130 C 270 180, 220 210, 170 240 C 120 270, 100 290, 120 310 C 140 340, 200 390, 250 440 C 290 480, 300 510, 280 530 C 260 550, 200 590, 150 640 C 110 680, 100 710, 120 730 C 140 760, 140 810, 140 860" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round"/>
-          <path class="timeline-line-secondary" d="M 200 0 C 260 30, 290 80, 280 130 C 270 180, 220 210, 170 240 C 120 270, 100 290, 120 310 C 140 340, 200 390, 250 440 C 290 480, 300 510, 280 530 C 260 550, 200 590, 150 640 C 110 680, 100 710, 120 730 C 140 760, 140 810, 140 860" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.35"/>
+          <path class="timeline-line" d="M 200 0 C 260 30, 290 80, 280 130 C 270 180, 220 210, 170 240 C 120 270, 100 290, 120 310 C 140 340, 200 390, 250 440 C 290 480, 300 510, 280 530 C 260 550, 200 590, 150 640 C 110 680, 100 710, 120 730 C 140 760, 140 810, 140 860" fill="none" stroke="#8B1A2B" stroke-width="3.5" stroke-linecap="round"/>
+          <path class="timeline-line-secondary" d="M 200 0 C 260 30, 290 80, 280 130 C 270 180, 220 210, 170 240 C 120 270, 100 290, 120 310 C 140 340, 200 390, 250 440 C 290 480, 300 510, 280 530 C 260 550, 200 590, 150 640 C 110 680, 100 710, 120 730 C 140 760, 140 810, 140 860" fill="none" stroke="#8B1A2B" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
         </g>
         <circle class="timeline-dot" cx="280" cy="130" r="4" fill="#8B1A2B"/>
         <circle class="timeline-dot" cx="120" cy="310" r="4" fill="#8B1A2B"/>
@@ -1003,25 +1012,18 @@
         <circle class="timeline-dot" cx="120" cy="730" r="4" fill="#8B1A2B"/>
       </svg>
       <div class="timeline-events">
-        <!-- 1. Сбор гостей (Справа) -->
         <div class="timeline-event event-1">
           <div class="event-time">13:30</div>
           <div class="event-content"><strong>Сбор гостей</strong>встречаемся у ЗАГСа «Чаша»</div>
         </div>
-        
-        <!-- 2. Церемония (Слева) -->
         <div class="timeline-event event-2">
           <div class="event-time">14:00</div>
           <div class="event-content"><strong>Церемония</strong>торжественная регистрация брака</div>
         </div>
-        
-        <!-- 3. Фотосессия (Справа) -->
         <div class="timeline-event event-3">
           <div class="event-time">15:30</div>
           <div class="event-content"><strong>Фотосессия</strong>прогулка и фото у «Чаши»</div>
         </div>
-        
-        <!-- 4. Банкет (Слева) -->
         <div class="timeline-event event-4">
           <div class="event-time">17:00</div>
           <div class="event-content"><strong>Банкет</strong>праздничный ужин</div>
