@@ -31,7 +31,6 @@
     position: relative;
   }
 
-  /* Градиент + паттерн сердечек */
   body::after {
     content: '';
     position: fixed;
@@ -42,9 +41,7 @@
       radial-gradient(at 100% 0%, rgba(166, 61, 79, 0.15) 0px, transparent 50%),
       radial-gradient(at 100% 100%, rgba(139, 26, 43, 0.10) 0px, transparent 50%),
       radial-gradient(at 0% 100%, rgba(212, 165, 165, 0.12) 0px, transparent 50%),
-      radial-gradient(at 50% 50%, rgba(166, 61, 79, 0.06) 0px, transparent 60%),
-      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 42 C 28 38, 22 34, 20 30 C 18 26, 19 22, 22 20 C 24 18, 27 19, 30 23 C 33 19, 36 18, 38 20 C 41 22, 42 26, 40 30 C 38 34, 32 38, 30 42 Z' fill='%238B1A2B' fill-opacity='0.3'/%3E%3C/svg%3E");
-    background-size: auto, auto, auto, auto, auto, 60px 60px;
+      radial-gradient(at 50% 50%, rgba(166, 61, 79, 0.06) 0px, transparent 60%);
     animation: gradientShift 25s ease infinite;
     z-index: -1;
     pointer-events: none;
@@ -203,13 +200,8 @@
   .countdown-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #999; }
   .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: #A63D4F; padding-top: 6px; }
   
-  .ornament { 
-    text-align: center; 
-    padding: 24px 0; 
-    opacity: 0.6;
-    position: relative;
-  }
-  .ornament svg { width: 80px; height: 50px; display: inline-block; }
+  .ornament { text-align: center; padding: 8px 0; opacity: 0.7; }
+  .ornament svg { width: 60px; height: 40px; display: inline-block; }
   
   .invite-text { text-align: center; padding: 40px 0 60px; position: relative; }
   .invite-text::before, .invite-text::after {
@@ -224,37 +216,9 @@
     color: #3D1F24; margin-bottom: 24px; line-height: 1.5; text-align: center;
   }
 
-  .details { padding: 60px 0 0; text-align: center; position: relative; }
-  .details-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 40px; position: relative; display: inline-block; padding: 0 20px; }
-  .details-title::before, .details-title::after {
-    content: '♥'; position: absolute; top: 50%; transform: translateY(-50%);
-    font-size: 14px; color: #8B1A2B; opacity: 0.4;
-  }
-  .details-title::before { left: -10px; }
-  .details-title::after { right: -10px; }
+  .details { padding: 60px 0 0; text-align: center; }
+  .details-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 40px; }
   
-  /* Угловые виньетки */
-  .details::before, .details::after,
-  .venue-section::before, .venue-section::after,
-  .dresscode::before, .dresscode::after,
-  .wishes-section::before, .wishes-section::after,
-  .organizer::before, .organizer::after {
-    content: '';
-    position: absolute;
-    width: 40px; height: 40px;
-    opacity: 0.15;
-    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 C 25 5, 30 10, 30 20 C 30 30, 25 35, 20 40 C 15 35, 10 30, 10 20 C 10 10, 15 5, 20 0 Z' fill='none' stroke='%238B1A2B' stroke-width='1'/%3E%3C/svg%3E");
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  .details::before, .venue-section::before, .dresscode::before, .wishes-section::before, .organizer::before {
-    top: 20px; left: 20px;
-  }
-  .details::after, .venue-section::after, .dresscode::after, .wishes-section::after, .organizer::after {
-    top: 20px; right: 20px;
-    transform: scaleX(-1);
-  }
-
   .mini-calendar-wrapper {
     position: relative;
     max-width: 460px;
@@ -336,22 +300,14 @@
   .timeline { padding: 0 0 60px; }
   .timeline-title { 
     font-size: 12px; letter-spacing: 4px; text-transform: uppercase; 
-    color: #999; text-align: center; margin-bottom: 40px;
-    position: relative; display: inline-block; padding: 0 20px;
+    color: #999; text-align: center; margin-bottom: 40px; 
   }
-  .timeline-title::before, .timeline-title::after {
-    content: '♥'; position: absolute; top: 50%; transform: translateY(-50%);
-    font-size: 14px; color: #8B1A2B; opacity: 0.4;
-  }
-  .timeline-title::before { left: -10px; }
-  .timeline-title::after { right: -10px; }
-  
   .timeline-flow { position: relative; max-width: 400px; margin: 0 auto; height: 1200px; }
   .timeline-svg {
     position: absolute; top: 0; left: 50%;
     transform: translateX(-50%);
     width: 100%; height: 1200px; z-index: 1;
-    margin-top: -180px;
+    margin-top: -220px;
   }
   .timeline-line { stroke-dasharray: 3000; stroke-dashoffset: 3000; animation: drawTimeline 2s ease-out forwards; }
   .timeline-line-secondary { stroke-dasharray: 3000; stroke-dashoffset: 3000; animation: drawTimeline 2s ease-out 0.1s forwards; }
@@ -371,12 +327,6 @@
     align-items: flex-start;
     gap: 4px;
     max-width: 200px;
-  }
-
-  .event-icon {
-    font-size: 24px;
-    margin-bottom: 4px;
-    opacity: 0.7;
   }
 
   .event-time {
@@ -418,39 +368,22 @@
   .event-4 { top: 1050px; }
 
   /* МЕСТО ВСТРЕЧИ */
-  .venue-section { padding: 60px 0; text-align: center; position: relative; }
+  .venue-section { padding: 60px 0; text-align: center; }
   .venue-title { 
     font-size: 12px; 
     letter-spacing: 4px; 
     text-transform: uppercase; 
     color: #999; 
-    margin-bottom: 24px;
-    position: relative; display: inline-block; padding: 0 20px;
+    margin-bottom: 24px; 
   }
-  .venue-title::before, .venue-title::after {
-    content: '♥'; position: absolute; top: 50%; transform: translateY(-50%);
-    font-size: 14px; color: #8B1A2B; opacity: 0.4;
-  }
-  .venue-title::before { left: -10px; }
-  .venue-title::after { right: -10px; }
   .venue-card {
     max-width: 420px;
     margin: 0 auto;
     background: #fff;
-    border: 2px solid rgba(139, 26, 43, 0.2);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(139, 26, 43, 0.1);
-    position: relative;
-  }
-  .venue-card::before {
-    content: '';
-    position: absolute;
-    top: 8px; left: 8px; right: 8px; bottom: 8px;
-    border: 1px solid rgba(139, 26, 43, 0.15);
+    border: 1px solid #e8e4dd;
     border-radius: 8px;
-    pointer-events: none;
-    z-index: 2;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(139, 26, 43, 0.08);
   }
   .venue-photo {
     width: 100%;
@@ -466,8 +399,6 @@
   }
   .venue-info {
     padding: 24px 20px;
-    position: relative;
-    z-index: 3;
   }
   .venue-name {
     font-family: 'Cormorant Garamond', serif;
@@ -488,33 +419,15 @@
     margin: 0;
   }
 
-  .dresscode { padding: 60px 0; text-align: center; position: relative; }
-  .dresscode-title { 
-    font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px;
-    position: relative; display: inline-block; padding: 0 20px;
-  }
-  .dresscode-title::before, .dresscode-title::after {
-    content: '♥'; position: absolute; top: 50%; transform: translateY(-50%);
-    font-size: 14px; color: #8B1A2B; opacity: 0.4;
-  }
-  .dresscode-title::before { left: -10px; }
-  .dresscode-title::after { right: -10px; }
+  .dresscode { padding: 60px 0; text-align: center; }
+  .dresscode-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
   .dresscode-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 32px; line-height: 1.7; }
   .palette { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
   .palette-color { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
   .palette-color:hover { transform: scale(1.1); }
   
-  .organizer { padding: 60px 0; text-align: center; position: relative; }
-  .organizer-title { 
-    font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px;
-    position: relative; display: inline-block; padding: 0 20px;
-  }
-  .organizer-title::before, .organizer-title::after {
-    content: '♥'; position: absolute; top: 50%; transform: translateY(-50%);
-    font-size: 14px; color: #8B1A2B; opacity: 0.4;
-  }
-  .organizer-title::before { left: -10px; }
-  .organizer-title::after { right: -10px; }
+  .organizer { padding: 60px 0; text-align: center; }
+  .organizer-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 24px; }
   .organizer-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 28px; line-height: 1.7; }
   .organizer-card { display: inline-block; padding: 28px 40px; background: #fff; border: 1px solid #e8e4dd; border-radius: 4px; text-align: center; }
   .organizer-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #3D1F24; margin-bottom: 12px; font-style: italic; }
@@ -522,17 +435,8 @@
   .organizer-phone:hover { color: #3D1F24; border-color: #3D1F24; }
   .organizer-note { font-size: 13px; color: #999; margin-top: 16px; }
 
-  .wishes-section { padding: 60px 0; text-align: center; position: relative; }
-  .wishes-title { 
-    font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 32px;
-    position: relative; display: inline-block; padding: 0 20px;
-  }
-  .wishes-title::before, .wishes-title::after {
-    content: '♥'; position: absolute; top: 50%; transform: translateY(-50%);
-    font-size: 14px; color: #8B1A2B; opacity: 0.4;
-  }
-  .wishes-title::before { left: -10px; }
-  .wishes-title::after { right: -10px; }
+  .wishes-section { padding: 60px 0; text-align: center; }
+  .wishes-title { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
   .wishes-carousel { position: relative; max-width: 500px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
   .wishes-track-container { flex: 1; overflow: hidden; border-radius: 8px; }
   .wishes-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform; }
@@ -686,18 +590,6 @@
     75% { transform: rotate(2deg) translate(1px, -2px); }
   }
 
-  .poetic-line {
-    text-align: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-style: italic;
-    color: #8B1A2B;
-    opacity: 0.5;
-    margin: 20px auto;
-    max-width: 400px;
-    line-height: 1.6;
-  }
-
   /* MOBILE */
   @media (max-width: 480px) {
     .hero-slider { min-height: 500px; }
@@ -728,7 +620,7 @@
     .heart-frame { width: 56px; height: 56px; }
     
     .timeline-flow { height: 900px; }
-    .timeline-svg { width: 250px; height: 900px; margin-top: -140px !important; }
+    .timeline-svg { width: 250px; height: 900px; margin-top: -190px !important; }
     .event-1 { top: 120px; }
     .event-2 { top: 320px; }
     .event-3 { top: 550px; }
@@ -741,8 +633,6 @@
     
     .venue-photo { height: 200px; }
     .venue-name { font-size: 22px; }
-    
-    .poetic-line { font-size: 16px; }
   }
 </style>
 </head>
@@ -818,13 +708,11 @@
   </section>
 
   <div class="ornament">
-    <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10 25 Q 25 10, 40 25 Q 50 35, 60 25 Q 75 10, 90 25" fill="none" stroke="#8B1A2B" stroke-width="1.2" stroke-linecap="round"/>
-      <circle cx="50" cy="25" r="3" fill="#8B1A2B" opacity="0.5"/>
-      <circle cx="25" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <circle cx="75" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <path d="M20 25 L25 20 M20 25 L25 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-      <path d="M80 25 L75 20 M80 25 L75 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
@@ -834,13 +722,11 @@
   </section>
 
   <div class="ornament">
-    <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10 25 Q 25 10, 40 25 Q 50 35, 60 25 Q 75 10, 90 25" fill="none" stroke="#8B1A2B" stroke-width="1.2" stroke-linecap="round"/>
-      <circle cx="50" cy="25" r="3" fill="#8B1A2B" opacity="0.5"/>
-      <circle cx="25" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <circle cx="75" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <path d="M20 25 L25 20 M20 25 L25 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-      <path d="M80 25 L75 20 M80 25 L75 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
@@ -863,12 +749,10 @@
     </div>
   </section>
 
-  <p class="poetic-line">Два сердца, одна судьба, бесконечная любовь</p>
-
   <section class="timeline reveal">
     <div class="timeline-title">Программа дня</div>
     <div class="timeline-flow">
-      <svg class="timeline-svg" viewBox="0 -180 400 1480" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="overflow: visible; z-index: 1;">
+      <svg class="timeline-svg" viewBox="0 -220 400 1480" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="overflow: visible; z-index: 1;">
         <path class="timeline-line" 
               d="M 200 0 
                  C 260 40, 300 80, 280 130 
@@ -895,22 +779,18 @@
       </svg>
       <div class="timeline-events">
         <div class="timeline-event event-1">
-          <div class="event-icon">🥂</div>
           <div class="event-time">13:30</div>
           <div class="event-content"><strong>Сбор гостей</strong>встречаемся у ЗАГСа «Чаша»</div>
         </div>
         <div class="timeline-event event-2">
-          <div class="event-icon">💍</div>
           <div class="event-time">14:00</div>
           <div class="event-content"><strong>Церемония</strong>торжественная регистрация брака</div>
         </div>
         <div class="timeline-event event-3">
-          <div class="event-icon">🍽️</div>
           <div class="event-time">17:00</div>
           <div class="event-content"><strong>Банкет</strong>праздничный ужин</div>
         </div>
         <div class="timeline-event event-4">
-          <div class="event-icon">🌙</div>
           <div class="event-time">24:00</div>
           <div class="event-content"><strong>Завершение вечера</strong>до новых встреч и тёплых воспоминаний</div>
         </div>
@@ -918,16 +798,12 @@
     </div>
   </section>
 
-  <p class="poetic-line">Каждый момент этого дня — наша общая история</p>
-
   <div class="ornament">
-    <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10 25 Q 25 10, 40 25 Q 50 35, 60 25 Q 75 10, 90 25" fill="none" stroke="#8B1A2B" stroke-width="1.2" stroke-linecap="round"/>
-      <circle cx="50" cy="25" r="3" fill="#8B1A2B" opacity="0.5"/>
-      <circle cx="25" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <circle cx="75" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <path d="M20 25 L25 20 M20 25 L25 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-      <path d="M80 25 L75 20 M80 25 L75 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
@@ -946,13 +822,11 @@
   </section>
 
   <div class="ornament">
-    <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10 25 Q 25 10, 40 25 Q 50 35, 60 25 Q 75 10, 90 25" fill="none" stroke="#8B1A2B" stroke-width="1.2" stroke-linecap="round"/>
-      <circle cx="50" cy="25" r="3" fill="#8B1A2B" opacity="0.5"/>
-      <circle cx="25" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <circle cx="75" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <path d="M20 25 L25 20 M20 25 L25 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-      <path d="M80 25 L75 20 M80 25 L75 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
@@ -968,16 +842,12 @@
     </div>
   </section>
 
-  <p class="poetic-line">Ваш стиль — часть нашей праздничной атмосферы</p>
-
   <div class="ornament">
-    <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10 25 Q 25 10, 40 25 Q 50 35, 60 25 Q 75 10, 90 25" fill="none" stroke="#8B1A2B" stroke-width="1.2" stroke-linecap="round"/>
-      <circle cx="50" cy="25" r="3" fill="#8B1A2B" opacity="0.5"/>
-      <circle cx="25" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <circle cx="75" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <path d="M20 25 L25 20 M20 25 L25 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-      <path d="M80 25 L75 20 M80 25 L75 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
@@ -1072,13 +942,11 @@
   </section>
 
   <div class="ornament">
-    <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10 25 Q 25 10, 40 25 Q 50 35, 60 25 Q 75 10, 90 25" fill="none" stroke="#8B1A2B" stroke-width="1.2" stroke-linecap="round"/>
-      <circle cx="50" cy="25" r="3" fill="#8B1A2B" opacity="0.5"/>
-      <circle cx="25" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <circle cx="75" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <path d="M20 25 L25 20 M20 25 L25 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-      <path d="M80 25 L75 20 M80 25 L75 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
@@ -1088,13 +956,11 @@
   </section>
 
   <div class="ornament">
-    <svg viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10 25 Q 25 10, 40 25 Q 50 35, 60 25 Q 75 10, 90 25" fill="none" stroke="#8B1A2B" stroke-width="1.2" stroke-linecap="round"/>
-      <circle cx="50" cy="25" r="3" fill="#8B1A2B" opacity="0.5"/>
-      <circle cx="25" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <circle cx="75" cy="25" r="2" fill="#8B1A2B" opacity="0.3"/>
-      <path d="M20 25 L25 20 M20 25 L25 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-      <path d="M80 25 L75 20 M80 25 L75 30" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+    <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="36" cy="20" r="12" fill="none" stroke="#8B1A2B" stroke-width="1.2"/>
+      <circle cx="24" cy="20" r="1.5" fill="#8B1A2B"/>
+      <circle cx="36" cy="20" r="1.5" fill="#8B1A2B"/>
     </svg>
   </div>
 
