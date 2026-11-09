@@ -448,7 +448,6 @@ width: 100%; height: 1700px; z-index: 1;
 margin-top: -300px;
 }
 .timeline-line { stroke-dasharray: 4000; stroke-dashoffset: 4000; animation: drawTimeline 2s ease-out forwards; }
-.timeline-line-secondary { stroke-dasharray: 4000; stroke-dashoffset: 4000; animation: drawTimeline 2s ease-out 0.1s forwards; }
 @keyframes drawTimeline { to { stroke-dashoffset: 0; } }
 .timeline-events {
 position: relative;
@@ -855,10 +854,6 @@ C 60 470, 340 520, 280 600
 C 220 680, 180 740, 120 800
 C 60 860, 180 900, 200 920"
 fill="none" stroke-width="3" stroke-linecap="round"/>
-<path class="timeline-line-secondary"
-d="M 200 30
-C 260 60, 300 100, 280 150"
-fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <g id="timelineHeart" style="transition: all 0.1s ease; filter: drop-shadow(0 0 4px rgba(255,255,255,0.6));">
 <path d="M 0,-8 C -6,-14 -14,-14 -14,-8 C -14,0 -7,8 0,14 C 7,8 14,0 14,-8 C 14,-14 6,-14 0,-8 Z" fill="#FFFFFF" transform="scale(1.2)"/>
 </g>
