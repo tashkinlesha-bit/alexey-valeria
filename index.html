@@ -1250,6 +1250,63 @@ window.addEventListener('scroll', updateHeartPosition, { passive: true });
 window.addEventListener('resize', updateHeartPosition);
 setTimeout(updateHeartPosition, 100);
 })();
+// Поднимаем старт линии таймлайна точно к сердечку даты «18»
+(function() {
+    const svg = document.querySelector('.timeline-svg');
+    const path = document.querySelector('.timeline-line');
+    const calHeart = document.querySelector('.heart-frame');
+    const details = document.querySelector('.details');
+    const timeline = document.querySelector('.timeline');
+    if (!svg || !path || !calHeart) return;
+
+    let done = false;
+
+    function align() {
+        if (done) return;
+        // Пропускаем момент, когда секции в разных стадиях reveal-анимации,
+        // иначе можем ошибиться на 30px из-за translateY
+        if (details && timeline &&
+            details.classList.contains('visible') !== timeline.classList.contains('visible')) return;
+
+        const ctm = path.getScreenCTM();
+        if (!ctm) return;
+
+        // Где сейчас на экране находится верхний кончик линии
+        const s = path.getPointAtLength(0);
+        const startY = ctm.b * s.x + ctm.d * s.y + ctm.f;
+
+        // Где центр сердечка вокруг «18»
+        const hr = calHeart.getBoundingClientRect();
+        const heartY = hr.top + hr.height / 2;
+
+        const delta = heartY - startY;
+        if (Math.abs(delta) < 1) { done = true; return; }
+
+        // Доподнимаем SVG ровно на разницу (форма и длина линии не меняются)
+        const current = parseFloat(getComputedStyle(svg).marginTop) || 0;
+        svg.style.setProperty('margin-top', (current + delta) + 'px', 'important');
+    }
+
+    let ticking = false;
+    function onScroll() {
+        if (ticking || done) return;
+        ticking = true;
+        requestAnimationFrame(function() { ticking = false; align(); });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', function() {
+        svg.style.removeProperty('margin-top'); // сбрасываем, чтобы медиа-запрос телефона применился заново
+        done = false;
+        align();
+    });
+    window.addEventListener('load', align);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(align);
+    align();
+    setTimeout(align, 500);
+    setTimeout(align, 1500);
+})();
+         
 </script>
 </body>
 </html>
