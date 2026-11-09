@@ -1082,7 +1082,14 @@ var lockSlider = document.getElementById('lockSlider');
 var lockHandle = document.getElementById('lockHandle');
 var lockProgress = document.getElementById('lockProgress');
 var isDragging = false, startX = 0, currentX = 0, maxTranslate = 0, isUnlocked = false;
-if (sessionStorage.getItem('weddingUnlocked') === 'true') { lockScreen.classList.add('hidden'); isUnlocked = true; }
+if (sessionStorage.getItem('weddingUnlocked') === 'true') {
+    lockScreen.classList.add('hidden');
+    isUnlocked = true;
+    // Экран уже разблокировали ранее — сразу запускаем анимацию имён
+    document.querySelectorAll('.hero-names .name, .hero-names .amp').forEach(function(el) {
+        el.style.animationPlayState = 'running';
+    });
+}
 function updateLockTime() {
 var now = new Date();
 document.getElementById('lockTime').textContent = (now.getHours() < 10 ? '0' + now.getHours() : now.getHours()) + ':' + (now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes());
