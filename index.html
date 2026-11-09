@@ -189,7 +189,7 @@ opacity: 0; filter: blur(8px); animation: blurIn 1.2s ease 1.8s forwards;
 }
 .section-wrapper {
 position: relative;
-padding: 80px 0;
+padding: 40px 0;
 }
 .section-light {
 background: var(--cream);
@@ -313,7 +313,7 @@ opacity: 0.4;
 }
 .section-heading {
 text-align: center;
-margin-bottom: 40px;
+margin-bottom: 30px;
 padding: 0 20px;
 }
 .section-title-script {
@@ -348,20 +348,22 @@ height: 80px;
 position: relative;
 z-index: 2;
 }
-.countdown-section { padding: 40px 0; text-align: center; }
+.countdown-section { padding: 20px 0; text-align: center; }
 .countdown-title { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
 .countdown { display: flex; justify-content: center; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
 .countdown-item { min-width: 72px; }
 .countdown-value { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: #3D1F24; line-height: 1; margin-bottom: 8px; }
 .countdown-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #999; }
 .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: #A63D4F; padding-top: 6px; }
-.invite-text { text-align: center; padding: 40px 0 60px; position: relative; }
-.invite-text::before, .invite-text::after {
-content: '»'; position: absolute; font-family: 'Cormorant Garamond', serif;
-font-size: 60px; color: #A63D4F; opacity: 0.5; line-height: 1;
+.invite-text { text-align: center; padding: 20px 0 40px; position: relative; }
+.invite-text::before {
+content: '«'; position: absolute; font-family: 'Cormorant Garamond', serif;
+font-size: 60px; color: #A63D4F; opacity: 0.5; line-height: 1; left: 0; top: 30px;
 }
-.invite-text::before { top: 30px; left: 0; }
-.invite-text::after { bottom: 30px; right: 0; }
+.invite-text::after {
+content: '»'; position: absolute; font-family: 'Cormorant Garamond', serif;
+font-size: 60px; color: #A63D4F; opacity: 0.5; line-height: 1; right: 0; bottom: 30px;
+}
 .invite-text p { font-size: 16px; line-height: 1.8; color: #555; max-width: 420px; margin: 0 auto; }
 .section-dark .invite-text p { color: rgba(255,255,255,0.85); }
 .invite-text .lead {
@@ -369,7 +371,7 @@ font-family: 'Cormorant Garamond', serif; font-size: 24px; font-style: italic;
 color: #3D1F24; margin-bottom: 24px; line-height: 1.5; text-align: center;
 }
 .section-dark .invite-text .lead { color: var(--white); }
-.details { padding: 60px 0 0; text-align: center; }
+.details { padding: 20px 0 0; text-align: center; }
 .mini-calendar-wrapper {
 position: relative;
 max-width: 460px;
@@ -437,13 +439,13 @@ font-size: 38px;
 color: #8B1A2B;
 font-weight: 400;
 }
-.timeline { padding: 0 0 60px; }
+.timeline { padding: 0 0 20px; }
 .timeline-flow { position: relative; max-width: 400px; margin: 0 auto; height: 1700px; }
 .timeline-svg {
 position: absolute; top: 0; left: 50%;
 transform: translateX(-50%);
 width: 100%; height: 1700px; z-index: 1;
-margin-top: -240px;
+margin-top: -290px;
 }
 .timeline-line { stroke-dasharray: 4000; stroke-dashoffset: 4000; animation: drawTimeline 2s ease-out forwards; }
 .timeline-line-secondary { stroke-dasharray: 4000; stroke-dashoffset: 4000; animation: drawTimeline 2s ease-out 0.1s forwards; }
@@ -496,7 +498,7 @@ letter-spacing: 1px;
 .event-2 { top: 490px; }
 .event-3 { top: 820px; }
 .event-4 { top: 1120px; }
-.venue-section { padding: 60px 0; text-align: center; }
+.venue-section { padding: 40px 0; text-align: center; }
 .venue-card {
 max-width: 420px;
 margin: 0 auto;
@@ -539,19 +541,19 @@ font-size: 14px;
 color: #555;
 margin: 0;
 }
-.dresscode { padding: 60px 0; text-align: center; }
+.dresscode { padding: 40px 0; text-align: center; }
 .dresscode-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 32px; line-height: 1.7; }
 .palette { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
 .palette-color { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
 .palette-color:hover { transform: scale(1.1); }
-.organizer { padding: 60px 0; text-align: center; }
+.organizer { padding: 40px 0; text-align: center; }
 .organizer-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 28px; line-height: 1.7; }
 .organizer-card { display: inline-block; padding: 28px 40px; background: #fff; border: 1px solid #e8e4dd; border-radius: 4px; text-align: center; }
 .organizer-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #3D1F24; margin-bottom: 12px; font-style: italic; }
 .organizer-phone { display: inline-block; font-size: 15px; letter-spacing: 1px; color: #8B1A2B; text-decoration: none; border-bottom: 1px solid #F5E6E0; padding-bottom: 2px; transition: color 0.3s ease, border-color 0.3s ease; }
 .organizer-phone:hover { color: #3D1F24; border-color: #3D1F24; }
 .organizer-note { font-size: 13px; color: #999; margin-top: 16px; }
-.wishes-section { padding: 60px 0; text-align: center; }
+.wishes-section { padding: 40px 0; text-align: center; }
 .wishes-carousel { position: relative; max-width: 500px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
 .wishes-track-container { flex: 1; overflow: hidden; border-radius: 8px; }
 .wishes-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform; }
@@ -566,11 +568,11 @@ margin: 0;
 .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: #A63D4F; opacity: 0.4; cursor: pointer; transition: all 0.3s ease; }
 .dot.active { opacity: 1; transform: scale(1.2); background: #8B1A2B; }
-.cta-section { padding: 60px 0 100px; text-align: center; position: relative; }
+.cta-section { padding: 40px 0 60px; text-align: center; position: relative; }
 .cta-text { font-size: 15px; color: #555; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; }
 .btn { display: inline-block; padding: 16px 48px; background: var(--burgundy); color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; transition: background 0.3s ease; cursor: pointer; }
 .btn:hover { background: var(--burgundy-light); }
-.footer { text-align: center; padding: 40px 0 60px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: #8B1A2B; letter-spacing: 1px; }
+.footer { text-align: center; padding: 20px 0 40px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: #8B1A2B; letter-spacing: 1px; }
 .footer-heart { font-size: 14px; color: #8B1A2B; }
 .music-btn {
 position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px;
@@ -721,14 +723,14 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 .event-4 { top: 820px; }
 .event-time { font-size: 32px; }
 .event-content { font-size: 13px; }
-.event-content strong { font-size: 15px; }
+.event-content strong { font-size: 14px; }
 .timeline-event { max-width: 160px; gap: 4px; }
 .timeline-events { padding-top: 120px; }
 .venue-photo { height: 200px; }
 .venue-name { font-size: 22px; }
 .section-title-script { font-size: 56px; }
 .section-title-caps { font-size: 24px; letter-spacing: 3px; }
-.section-wrapper { padding: 60px 0; }
+.section-wrapper { padding: 30px 0; }
 }
 </style>
 </head>
@@ -834,7 +836,7 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 </section>
 <section class="timeline reveal">
 <div class="timeline-flow">
-<svg class="timeline-svg" viewBox="0 -240 400 2000" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="overflow: visible; z-index: 1;">
+<svg class="timeline-svg" viewBox="0 -290 400 2000" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="overflow: visible; z-index: 1;">
 <path class="timeline-line"
 d="M 200 30
 C 260 60, 300 100, 280 150
@@ -868,7 +870,7 @@ C 140 1600, 260 1640, 200 1680
 C 140 1720, 260 1760, 200 1800"
 fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <g id="timelineHeart" style="transition: all 0.1s ease; filter: drop-shadow(0 0 4px rgba(255,255,255,0.6));">
-<path d="M0,0 C-5,-6 -14,-6 -14,-14 C-14,-20 -6,-24 0,-18 C6,-24 14,-20 14,-14 C14,-6 5,-6 0,0 Z" fill="#FFFFFF" transform="scale(1.2)"/>
+<path d="M 0,-8 C -6,-14 -14,-14 -14,-8 C -14,0 -7,8 0,14 C 7,8 14,0 14,-8 C 14,-14 6,-14 0,-8 Z" fill="#FFFFFF" transform="scale(1.2)"/>
 </g>
 </svg>
 <div class="timeline-events">
@@ -1187,15 +1189,13 @@ function updateDots() { dots.forEach((dot, index) => { dot.classList.toggle('act
 function goToWish(index) {
 if (isAnimating) return; isAnimating = true; currentWish = index; trackPosition = index + 1;
 wishesTrack.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`;
-updateDots();
+wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`; updateDots();
 setTimeout(() => { isAnimating = false; }, 500);
 }
 function nextSlide() {
 if (isAnimating) return; isAnimating = true; currentWish = (currentWish + 1) % totalWishes; trackPosition++;
 wishesTrack.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`;
-updateDots();
+wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`; updateDots();
 if (trackPosition === totalWishes + 1) {
 setTimeout(() => { wishesTrack.style.transition = 'none'; trackPosition = 1; wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`; isAnimating = false; }, 500);
 } else { setTimeout(() => { isAnimating = false; }, 500); }
@@ -1203,8 +1203,7 @@ setTimeout(() => { wishesTrack.style.transition = 'none'; trackPosition = 1; wis
 function prevSlide() {
 if (isAnimating) return; isAnimating = true; currentWish = (currentWish - 1 + totalWishes) % totalWishes; trackPosition--;
 wishesTrack.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`;
-updateDots();
+wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`; updateDots();
 if (trackPosition === 0) {
 setTimeout(() => { wishesTrack.style.transition = 'none'; trackPosition = totalWishes; wishesTrack.style.transform = `translateX(-${trackPosition * 100}%)`; isAnimating = false; }, 500);
 } else { setTimeout(() => { isAnimating = false; }, 500); }
@@ -1239,7 +1238,7 @@ heart.style.top = (e.clientY - 10) + 'px';
 const size = 15 + Math.random() * 10; heart.style.width = size + 'px'; heart.style.height = size + 'px';
 document.body.appendChild(heart); setTimeout(() => { heart.remove(); }, 1500);
 });
-// Динамическое СЕРДЕЧКО на линии таймлайна
+// Динамическое сердечко на линии таймлайна (центр сердечка на линии)
 (function() {
 const heart = document.getElementById('timelineHeart');
 const path = document.querySelector('.timeline-line');
