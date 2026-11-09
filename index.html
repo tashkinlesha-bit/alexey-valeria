@@ -1250,7 +1250,7 @@ window.addEventListener('scroll', updateHeartPosition, { passive: true });
 window.addEventListener('resize', updateHeartPosition);
 setTimeout(updateHeartPosition, 100);
 })();
-// Поднимаем старт линии таймлайна точно к сердечку даты «18»
+// Поднимаем старт линии таймлайна к нижнему краешку сердечка даты «18»
 (function() {
     const svg = document.querySelector('.timeline-svg');
     const path = document.querySelector('.timeline-line');
@@ -1259,12 +1259,15 @@ setTimeout(updateHeartPosition, 100);
     const timeline = document.querySelector('.timeline');
     if (!svg || !path || !calHeart) return;
 
+    // Точка на контуре сердечка, из которой выходит линия:
+    // 52/60 — нижний кончик сердечка в его viewBox (0 0 60 60)
+    const HEART_ANCHOR_Y = 52 / 60;
+
     let done = false;
 
     function align() {
         if (done) return;
-        // Пропускаем момент, когда секции в разных стадиях reveal-анимации,
-        // иначе можем ошибиться на 30px из-за translateY
+        // Пропускаем момент, когда секции в разных стадиях reveal-анимации
         if (details && timeline &&
             details.classList.contains('visible') !== timeline.classList.contains('visible')) return;
 
@@ -1275,9 +1278,9 @@ setTimeout(updateHeartPosition, 100);
         const s = path.getPointAtLength(0);
         const startY = ctm.b * s.x + ctm.d * s.y + ctm.f;
 
-        // Где центр сердечка вокруг «18»
+        // Где нижний краешек сердечка вокруг «18»
         const hr = calHeart.getBoundingClientRect();
-        const heartY = hr.top + hr.height / 2;
+        const heartY = hr.top + hr.height * HEART_ANCHOR_Y;
 
         const delta = heartY - startY;
         if (Math.abs(delta) < 1) { done = true; return; }
@@ -1296,7 +1299,7 @@ setTimeout(updateHeartPosition, 100);
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', function() {
-        svg.style.removeProperty('margin-top'); // сбрасываем, чтобы медиа-запрос телефона применился заново
+        svg.style.removeProperty('margin-top');
         done = false;
         align();
     });
