@@ -92,6 +92,7 @@ transition: opacity 0.4s ease, transform 0.4s ease;
 pointer-events: none;
 }
 .initials-badge.visible { opacity: 1; transform: translateY(0); }
+/* HERO */
 .hero-slider {
 position: relative;
 width: 100%; height: 100vh;
@@ -187,6 +188,7 @@ filter: blur(8px); animation: blurIn 1.2s ease 1.6s forwards;
 font-size: 13px; letter-spacing: 3px; color: rgba(255,255,255,0.75);
 opacity: 0; filter: blur(8px); animation: blurIn 1.2s ease 1.8s forwards;
 }
+/* СЕКЦИИ С ЧЕРЕДОВАНИЕМ */
 .section-wrapper {
 position: relative;
 padding: 80px 0;
@@ -204,26 +206,39 @@ color: var(--white);
 .section-dark .detail-note {
 color: rgba(255, 255, 255, 0.7);
 }
-.section-dark .countdown-value { color: var(--white); }
-.section-dark .countdown-sep { color: rgba(255, 255, 255, 0.5); }
+.section-dark .countdown-value {
+color: var(--white);
+}
+.section-dark .countdown-sep {
+color: rgba(255, 255, 255, 0.5);
+}
 .section-dark .detail-value,
-.section-dark .venue-name { color: var(--white); }
+.section-dark .venue-name {
+color: var(--white);
+}
 .section-dark .venue-card {
 background: var(--white);
 border-color: rgba(255, 255, 255, 0.2);
 }
-.section-dark .venue-city { color: var(--burgundy-accent); }
-.section-dark .venue-address { color: #555; }
+.section-dark .venue-city {
+color: var(--burgundy-accent);
+}
+.section-dark .venue-address {
+color: #555;
+}
 .section-dark .dresscode-text,
 .section-dark .organizer-text,
-.section-dark .wish-slide p {
+.section-dark .wish-slide p,
+.section-dark .cta-text {
 color: rgba(255, 255, 255, 0.85);
 }
 .section-dark .wish-slide {
 background: rgba(255, 255, 255, 0.05);
 border-color: rgba(255, 255, 255, 0.2);
 }
-.section-dark .wish-slide h3 { color: var(--white); }
+.section-dark .wish-slide h3 {
+color: var(--white);
+}
 .section-dark .carousel-btn {
 border-color: rgba(255, 255, 255, 0.3);
 color: var(--white);
@@ -232,35 +247,71 @@ color: var(--white);
 background: var(--white);
 color: var(--burgundy);
 }
-.section-dark .dot { background: rgba(255, 255, 255, 0.4); }
-.section-dark .dot.active { background: var(--white); }
-.section-dark .mini-calendar-frame { border-color: rgba(255, 255, 255, 0.5); }
+.section-dark .dot {
+background: rgba(255, 255, 255, 0.4);
+}
+.section-dark .dot.active {
+background: var(--white);
+}
+.section-dark .mini-calendar-frame {
+border-color: rgba(255, 255, 255, 0.5);
+}
 .section-dark .calendar-month-header {
 color: var(--white);
 border-bottom-color: rgba(255, 255, 255, 0.3);
 }
-.section-dark .day-frame { color: var(--white); }
-.section-dark .day-frame:not(:last-child) { border-right-color: rgba(255, 255, 255, 0.3); }
-.section-dark .heart-frame { stroke: var(--white); }
-.section-dark .day-frame-num { color: var(--white); }
+.section-dark .day-frame {
+color: var(--white);
+}
+.section-dark .day-frame:not(:last-child) {
+border-right-color: rgba(255, 255, 255, 0.3);
+}
+.section-dark .heart-frame {
+stroke: var(--white);
+}
+.section-dark .day-frame-num {
+color: var(--white);
+}
 .section-dark .timeline-line,
-.section-dark .timeline-line-secondary { stroke: var(--white); }
-.section-dark .event-time { color: var(--white); }
-.section-dark .event-content strong { color: var(--white); }
-.section-dark .event-content { color: rgba(255, 255, 255, 0.85); }
-.section-dark .cta-text { color: rgba(255, 255, 255, 0.85); }
-.section-dark .organizer-card { background: var(--white); }
-.section-dark .organizer-name { color: var(--burgundy); }
-.section-dark .organizer-phone { color: var(--burgundy-accent); }
-.section-dark .organizer-note { color: #999; }
-.section-dark .footer { color: var(--white); }
-.section-dark .footer-heart { color: var(--white); }
-.section-dark .wish-icon-svg svg { stroke: #FFFFFF; }
+.section-dark .timeline-line-secondary {
+stroke: var(--white);
+}
+.section-dark .event-time {
+color: var(--white);
+}
+.section-dark .event-content strong {
+color: var(--white);
+}
+.section-dark .event-content {
+color: rgba(255, 255, 255, 0.85);
+}
+.section-dark .organizer-card {
+background: var(--white);
+}
+.section-dark .organizer-name {
+color: var(--burgundy);
+}
+.section-dark .organizer-phone {
+color: var(--burgundy-accent);
+}
+.section-dark .organizer-note {
+color: #999;
+}
+.section-dark .footer {
+color: var(--white);
+}
+.section-dark .footer-heart {
+color: var(--white);
+}
+.section-dark .wish-icon-svg svg {
+stroke: #FFFFFF;
+}
 .section-dark .wish-icon-svg svg circle[stroke="none"],
 .section-dark .wish-icon-svg svg path[stroke="none"] {
 fill: #FFFFFF;
 opacity: 0.4;
 }
+/* НОВЫЕ ЗАГОЛОВКИ */
 .section-heading {
 text-align: center;
 margin-bottom: 40px;
@@ -275,7 +326,9 @@ line-height: 1;
 margin-bottom: -10px;
 display: block;
 }
-.section-dark .section-title-script { color: var(--white); }
+.section-dark .section-title-script {
+color: var(--white);
+}
 .section-title-caps {
 font-family: 'Playfair Display', serif;
 font-size: 32px;
@@ -286,7 +339,10 @@ color: var(--burgundy);
 line-height: 1.2;
 display: block;
 }
-.section-dark .section-title-caps { color: var(--white); }
+.section-dark .section-title-caps {
+color: var(--white);
+}
+/* РАЗДЕЛИТЕЛИ СЕКЦИЙ */
 .section-divider {
 display: block;
 width: 100%;
@@ -294,6 +350,7 @@ height: 80px;
 position: relative;
 z-index: 2;
 }
+/* COUNTDOWN */
 .countdown-section { padding: 40px 0; text-align: center; }
 .countdown-title { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
 .countdown { display: flex; justify-content: center; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
@@ -383,6 +440,7 @@ font-size: 38px;
 color: #8B1A2B;
 font-weight: 400;
 }
+/* TIMELINE */
 .timeline { padding: 0 0 60px; }
 .timeline-flow { position: relative; max-width: 400px; margin: 0 auto; height: 1700px; }
 .timeline-svg {
@@ -451,6 +509,7 @@ transform-origin: center;
 0%, 100% { transform: scale(1); }
 50% { transform: scale(1.15); }
 }
+/* МЕСТО ВСТРЕЧИ */
 .venue-section { padding: 60px 0; text-align: center; }
 .venue-card {
 max-width: 420px;
@@ -473,7 +532,9 @@ height: 100%;
 object-fit: cover;
 display: block;
 }
-.venue-info { padding: 24px 20px; }
+.venue-info {
+padding: 24px 20px;
+}
 .venue-name {
 font-family: 'Cormorant Garamond', serif;
 font-size: 26px;
@@ -640,6 +701,7 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 50% { transform: rotate(-2deg) translate(-1px, 2px); }
 75% { transform: rotate(2deg) translate(1px, -2px); }
 }
+/* MOBILE */
 @media (max-width: 480px) {
 .hero-slider { min-height: 500px; }
 .hero-names { font-size: 44px; }
@@ -682,7 +744,6 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 .section-title-script { font-size: 56px; }
 .section-title-caps { font-size: 24px; letter-spacing: 3px; }
 .section-wrapper { padding: 60px 0; }
-.section-divider { height: 60px; }
 }
 </style>
 </head>
@@ -792,6 +853,13 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 <section class="timeline reveal">
 <div class="timeline-flow">
 <svg class="timeline-svg" viewBox="0 -240 400 2000" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="overflow: visible; z-index: 1;">
+<defs>
+<filter id="handDrawnTimeline" x="-10%" y="-10%" width="120%" height="120%">
+<feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="5" result="noise"/>
+<feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+</filter>
+</defs>
+<g filter="url(#handDrawnTimeline)">
 <path class="timeline-line"
 d="M 200 30
 C 260 60, 300 100, 280 150
@@ -824,9 +892,10 @@ C 140 1480, 260 1520, 200 1560
 C 140 1600, 260 1640, 200 1680
 C 140 1720, 260 1760, 200 1800"
 fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
-<!-- ДИНАМИЧЕСКОЕ СЕРДЕЧКО -->
+</g>
+<!-- Динамическое сердечко вместо точки -->
 <g id="timelineDot" style="transition: transform 0.15s ease;">
-<path d="M0 8 C -2 5, -8 3, -8 -2 C -8 -6, -5 -8, -2 -8 C 0 -8, 0 -6, 0 -5 C 0 -6, 0 -8, 2 -8 C 5 -8, 8 -6, 8 -2 C 8 3, 2 5, 0 8 Z"
+<path d="M0 8 C -5 3, -12 3, -12 -3 C -12 -8, -7 -12, 0 -6 C 7 -12, 12 -8, 12 -3 C 12 3, 5 3, 0 8 Z"
 fill="#FFFFFF"
 filter="url(#heartGlow)"/>
 </g>
