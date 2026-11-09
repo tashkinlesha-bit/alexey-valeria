@@ -14,7 +14,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='18' font-style='italic' fill='%238B1A2B'%3EA%26V%3C/text%3E%3C/svg%3E">
 <link rel="preload" as="image" href="slide1.jpg">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -198,12 +198,6 @@ color: var(--burgundy);
 .section-dark {
 background: var(--burgundy);
 color: var(--white);
-position: relative; /* Добавлено для абсолютного позиционирования линии */
-overflow: hidden;   /* Добавлено, чтобы линия не вылезала за края */
-}
-.section-dark .container {
-    position: relative;
-    z-index: 2; /* Текст поверх линии */
 }
 .section-dark .countdown-title,
 .section-dark .countdown-label,
@@ -447,18 +441,12 @@ font-weight: 400;
 }
 .timeline { padding: 0 0 20px; }
 .timeline-flow { position: relative; max-width: 400px; margin: 0 auto; height: 1700px; }
-
-/* ОБНОВЛЕННЫЕ СТИЛИ ДЛЯ ТАЙМЛАЙНА */
 .timeline-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
+position: absolute; top: 0; left: 50%;
+transform: translateX(-50%);
+width: 100%; height: 1700px; z-index: 1;
+margin-top: -280px;
 }
-
 .timeline-line { stroke-dasharray: 4000; stroke-dashoffset: 4000; animation: drawTimeline 2s ease-out forwards; }
 @keyframes drawTimeline { to { stroke-dashoffset: 0; } }
 .timeline-events {
@@ -732,6 +720,7 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 .day-frame-num { font-size: 30px; }
 .heart-frame { width: 56px; height: 56px; }
 .timeline-flow { height: 900px; }
+.timeline-svg { width: 250px; height: 1400px; margin-top: -302px !important; }
 .event-1 { top: 140px; }
 .event-2 { top: 280px; }
 .event-3 { top: 420px; }
@@ -831,79 +820,73 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 <path d="M0,0 L1200,0 L1200,40 C1180,35 1160,45 1140,38 C1120,32 1100,42 1080,36 C1060,30 1040,44 1020,37 C1000,31 980,43 960,38 C940,33 920,45 900,39 C880,34 860,42 840,37 C820,32 800,44 780,38 C760,33 740,41 720,36 C700,31 680,43 660,37 C640,32 620,44 600,38 C580,33 560,42 540,37 C520,32 500,44 480,38 C460,33 440,41 420,36 C400,31 380,43 360,37 C340,32 320,44 300,38 C280,33 260,42 240,37 C220,32 200,44 180,38 C160,33 140,41 120,36 C100,31 80,43 60,37 C40,32 20,42 0,38 L0,80 Z" fill="var(--cream)"/>
 <path d="M0,38 C20,42 40,32 60,37 C80,43 100,31 120,36 C140,41 160,33 180,38 C200,44 220,32 240,37 C260,42 280,33 300,38 C320,44 340,32 360,37 C380,43 400,31 420,36 C440,41 460,33 480,38 C500,44 520,32 540,37 C560,42 580,33 600,38 C620,44 640,32 660,37 C680,43 700,31 720,36 C740,41 760,33 780,38 C800,44 820,32 840,37 C860,42 880,34 900,39 C920,45 940,33 960,38 C980,43 1000,31 1020,37 C1040,44 1060,30 1080,36 C1100,42 1120,32 1140,38 C1160,45 1180,35 1200,40 L1200,80 L0,80 Z" fill="var(--burgundy)"/>
 </svg>
-
-<!-- ОБНОВЛЕННАЯ СЕКЦИЯ ТАЙМЛАЙНА -->
-<section class="section-wrapper section-dark" id="darkSection">
-    <svg class="timeline-svg" id="mainTimelineSvg" viewBox="0 0 600 2000" preserveAspectRatio="none" aria-hidden="true" style="overflow: visible;">
-        <path class="timeline-line" id="dynamicPath"
-            d="M 300 150 
-               C 380 300, 420 450, 380 600 
-               C 340 750, 220 850, 180 1000 
-               C 140 1150, 420 1300, 380 1450 
-               C 340 1600, 280 1700, 300 1800"
-            fill="none" stroke-width="3" stroke-linecap="round"/>
-            
-        <path class="timeline-line-secondary"
-            d="M 300 150 
-               C 380 300, 420 450, 380 600 
-               C 340 750, 220 850, 180 1000 
-               C 140 1150, 420 1300, 380 1450 
-               C 340 1600, 280 1700, 300 1800"
-            fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
-
-        <g id="timelineHeart" style="transition: all 0.1s ease; filter: drop-shadow(0 0 4px rgba(255,255,255,0.6));">
-            <path d="M 0,-8 C -6,-14 -14,-14 -14,-8 C -14,0 -7,8 0,14 C 7,8 14,0 14,-8 C 14,-14 6,-14 0,-8 Z" fill="#FFFFFF" transform="scale(1.2)"/>
-        </g>
-    </svg>
-
-    <div class="container">
-        <section class="details reveal">
-            <div class="section-heading">
-                <span class="section-title-script">Дата</span>
-                <span class="section-title-caps">Проведения свадьбы</span>
-            </div>
-            <div class="mini-calendar-wrapper">
-                <div class="mini-calendar-frame">
-                    <div class="calendar-month-header">СЕНТЯБРЬ 2027</div>
-                    <div class="calendar-days-frame">
-                        <div class="day-frame">17</div>
-                        <div class="day-frame wedding-day-frame">
-                            <svg class="heart-frame" viewBox="0 0 60 60" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M30 52 C 28 48, 18 42, 14 34 C 10 26, 12 18, 18 14 C 22 11, 27 13, 30 18 C 33 13, 38 11, 42 14 C 48 18, 50 26, 46 34 C 42 42, 32 48, 30 52 Z"/>
-                            </svg>
-                            <span class="day-frame-num">18</span>
-                        </div>
-                        <div class="day-frame">19</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="timeline reveal">
-            <div class="timeline-flow">
-                <div class="timeline-events">
-                    <div class="timeline-event event-1">
-                        <div class="event-time">13:30</div>
-                        <div class="event-content"><strong>Сбор гостей</strong>встречаемся у ЗАГСа «Чаша»</div>
-                    </div>
-                    <div class="timeline-event event-2">
-                        <div class="event-time">14:00</div>
-                        <div class="event-content"><strong>Церемония</strong>торжественная регистрация брака</div>
-                    </div>
-                    <div class="timeline-event event-3">
-                        <div class="event-time">17:00</div>
-                        <div class="event-content"><strong>Банкет</strong>праздничный ужин</div>
-                    </div>
-                    <div class="timeline-event event-4">
-                        <div class="event-time">24:00</div>
-                        <div class="event-content"><strong>Завершение вечера</strong>до новых встреч и тёплых воспоминаний</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+<section class="section-wrapper section-dark">
+<div class="container">
+<section class="details reveal">
+<div class="section-heading">
+<span class="section-title-script">Дата</span>
+<span class="section-title-caps">Проведения свадьбы</span>
+</div>
+<div class="mini-calendar-wrapper">
+<div class="mini-calendar-frame">
+<div class="calendar-month-header">СЕНТЯБРЬ 2027</div>
+<div class="calendar-days-frame">
+<div class="day-frame">17</div>
+<div class="day-frame wedding-day-frame">
+<svg class="heart-frame" viewBox="0 0 60 60" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M30 52 C 28 48, 18 42, 14 34 C 10 26, 12 18, 18 14 C 22 11, 27 13, 30 18 C 33 13, 38 11, 42 14 C 48 18, 50 26, 46 34 C 42 42, 32 48, 30 52 Z"/>
+</svg>
+<span class="day-frame-num">18</span>
+</div>
+<div class="day-frame">19</div>
+</div>
+</div>
 </section>
-<!-- КОНЕЦ ОБНОВЛЕННОЙ СЕКЦИИ -->
-
+<section class="timeline reveal">
+<div class="timeline-flow">
+<svg class="timeline-svg" viewBox="0 -280 400 1500" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="overflow: visible; z-index: 1;">
+<path class="timeline-line"
+d="M 200 0
+C 260 30, 300 70, 280 120
+C 260 190, 180 250, 120 320
+C 60 440, 340 490, 280 570
+C 220 650, 180 710, 120 770
+C 60 830, 180 870, 200 890"
+fill="none" stroke-width="3" stroke-linecap="round"/>
+<path class="timeline-line-secondary"
+d="M 200 0
+C 260 30, 300 70, 280 120
+C 260 190, 180 250, 120 320
+C 60 440, 340 490, 280 570
+C 220 650, 180 710, 120 770
+C 60 830, 180 870, 200 890"
+fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+<g id="timelineHeart" style="transition: all 0.1s ease; filter: drop-shadow(0 0 4px rgba(255,255,255,0.6));">
+<path d="M 0,-8 C -6,-14 -14,-14 -14,-8 C -14,0 -7,8 0,14 C 7,8 14,0 14,-8 C 14,-14 6,-14 0,-8 Z" fill="#FFFFFF" transform="scale(1.2)"/>
+</g>
+</svg>
+<div class="timeline-events">
+<div class="timeline-event event-1">
+<div class="event-time">13:30</div>
+<div class="event-content"><strong>Сбор гостей</strong>встречаемся у ЗАГСа «Чаша»</div>
+</div>
+<div class="timeline-event event-2">
+<div class="event-time">14:00</div>
+<div class="event-content"><strong>Церемония</strong>торжественная регистрация брака</div>
+</div>
+<div class="timeline-event event-3">
+<div class="event-time">17:00</div>
+<div class="event-content"><strong>Банкет</strong>праздничный ужин</div>
+</div>
+<div class="timeline-event event-4">
+<div class="event-time">24:00</div>
+<div class="event-content"><strong>Завершение вечера</strong>до новых встреч и тёплых воспоминаний</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
 <svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none">
 <path d="M0,0 L1200,0 L1200,40 C1180,35 1160,45 1140,38 C1120,32 1100,42 1080,36 C1060,30 1040,44 1020,37 C1000,31 980,43 960,38 C940,33 920,45 900,39 C880,34 860,42 840,37 C820,32 800,44 780,38 C760,33 740,41 720,36 C700,31 680,43 660,37 C640,32 620,44 600,38 C580,33 560,42 540,37 C520,32 500,44 480,38 C460,33 440,41 420,36 C400,31 380,43 360,37 C340,32 320,44 300,38 C280,33 260,42 240,37 C220,32 200,44 180,38 C160,33 140,41 120,36 C100,31 80,43 60,37 C40,32 20,42 0,38 L0,80 Z" fill="var(--burgundy)"/>
 <path d="M0,38 C20,42 40,32 60,37 C80,43 100,31 120,36 C140,41 160,33 180,38 C200,44 220,32 240,37 C260,42 280,33 300,38 C320,44 340,32 360,37 C380,43 400,31 420,36 C440,41 460,33 480,38 C500,44 520,32 540,37 C560,42 580,33 600,38 C620,44 640,32 660,37 C680,43 700,31 720,36 C740,41 760,33 780,38 C800,44 820,32 840,37 C860,42 880,34 900,39 C920,45 940,33 960,38 C980,43 1000,31 1020,37 C1040,44 1060,30 1080,36 C1100,42 1120,32 1140,38 C1160,45 1180,35 1200,40 L1200,80 L0,80 Z" fill="var(--cream)"/>
@@ -1247,61 +1230,25 @@ heart.style.top = (e.clientY - 10) + 'px';
 const size = 15 + Math.random() * 10; heart.style.width = size + 'px'; heart.style.height = size + 'px';
 document.body.appendChild(heart); setTimeout(() => { heart.remove(); }, 1500);
 });
-
-// ОБНОВЛЕННАЯ ЛОГИКА ТАЙМЛАЙНА
+// Динамическое сердечко на линии таймлайна (центр сердечка на линии)
 (function() {
-    const heart = document.getElementById('timelineHeart');
-    const path = document.getElementById('dynamicPath');
-    const darkSection = document.getElementById('darkSection');
-    const calendarHeart = document.querySelector('.heart-frame'); 
-    
-    if (!heart || !path || !darkSection || !calendarHeart) return;
-
-    const pathLength = path.getTotalLength();
-
-    function updateHeartPosition() {
-        const sectionRect = darkSection.getBoundingClientRect();
-        const calendarRect = calendarHeart.getBoundingClientRect();
-        const calendarCenterY = (calendarRect.top + calendarRect.height / 2) - sectionRect.top;
-        
-        const windowHeight = window.innerHeight;
-        
-        let startTrigger = windowHeight * 0.6; 
-        let totalScrollDistance = sectionRect.height; 
-        
-        let progress = (startTrigger - calendarRect.top) / totalScrollDistance;
-        progress = Math.max(0, Math.min(1, progress));
-
-        if (progress === 0) {
-            const svgWidth = darkSection.offsetWidth;
-            const svgHeight = darkSection.offsetHeight;
-            
-            const startX = (calendarRect.left + calendarRect.width / 2 - sectionRect.left) / svgWidth * 600;
-            const startY = calendarCenterY / svgHeight * 2000;
-            
-            heart.setAttribute('transform', `translate(${startX}, ${startY}) scale(1.2)`);
-            path.style.strokeDashoffset = pathLength;
-        } else {
-            const point = path.getPointAtLength(progress * pathLength);
-            heart.setAttribute('transform', `translate(${point.x}, ${point.y}) scale(1.2)`);
-            path.style.strokeDasharray = pathLength;
-            path.style.strokeDashoffset = pathLength - (progress * pathLength);
-        }
-    }
-
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                updateHeartPosition();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }, { passive: true });
-    
-    window.addEventListener('resize', updateHeartPosition);
-    setTimeout(updateHeartPosition, 100);
+const heart = document.getElementById('timelineHeart');
+const path = document.querySelector('.timeline-line');
+if (!heart || !path) return;
+const pathLength = path.getTotalLength();
+function updateHeartPosition() {
+const timelineSection = document.querySelector('.timeline');
+if (!timelineSection) return;
+const rect = timelineSection.getBoundingClientRect();
+const windowHeight = window.innerHeight;
+let progress = ((windowHeight - rect.top) / (windowHeight + rect.height)) * 1.4;
+progress = Math.max(0, Math.min(1, progress));
+const point = path.getPointAtLength(progress * pathLength);
+heart.setAttribute('transform', `translate(${point.x}, ${point.y}) scale(1.2)`);
+}
+window.addEventListener('scroll', updateHeartPosition, { passive: true });
+window.addEventListener('resize', updateHeartPosition);
+setTimeout(updateHeartPosition, 100);
 })();
 </script>
 </body>
