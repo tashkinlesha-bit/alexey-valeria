@@ -14,7 +14,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='18' font-style='italic' fill='%238B1A2B'%3EA%26V%3C/text%3E%3C/svg%3E">
 <link rel="preload" as="image" href="slide1.jpg">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -92,7 +92,6 @@ transition: opacity 0.4s ease, transform 0.4s ease;
 pointer-events: none;
 }
 .initials-badge.visible { opacity: 1; transform: translateY(0); }
-/* HERO */
 .hero-slider {
 position: relative;
 width: 100%; height: 100vh;
@@ -188,10 +187,9 @@ filter: blur(8px); animation: blurIn 1.2s ease 1.6s forwards;
 font-size: 13px; letter-spacing: 3px; color: rgba(255,255,255,0.75);
 opacity: 0; filter: blur(8px); animation: blurIn 1.2s ease 1.8s forwards;
 }
-/* СЕКЦИИ С ЧЕРЕДОВАНИЕМ */
 .section-wrapper {
 position: relative;
-padding: 80px 0;
+padding: 40px 0;
 }
 .section-light {
 background: var(--cream);
@@ -313,10 +311,9 @@ stroke: #FFFFFF;
 fill: #FFFFFF;
 opacity: 0.4;
 }
-/* НОВЫЕ ЗАГОЛОВКИ */
 .section-heading {
 text-align: center;
-margin-bottom: 40px;
+margin-bottom: 30px;
 padding: 0 20px;
 }
 .section-title-script {
@@ -344,7 +341,6 @@ display: block;
 .section-dark .section-title-caps {
 color: var(--white);
 }
-/* РАЗДЕЛИТЕЛИ СЕКЦИЙ */
 .section-divider {
 display: block;
 width: 100%;
@@ -352,21 +348,22 @@ height: 80px;
 position: relative;
 z-index: 2;
 }
-/* COUNTDOWN */
-.countdown-section { padding: 40px 0; text-align: center; }
+.countdown-section { padding: 20px 0; text-align: center; }
 .countdown-title { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
 .countdown { display: flex; justify-content: center; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
 .countdown-item { min-width: 72px; }
 .countdown-value { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: #3D1F24; line-height: 1; margin-bottom: 8px; }
 .countdown-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #999; }
 .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 36px; color: #A63D4F; padding-top: 6px; }
-.invite-text { text-align: center; padding: 40px 0 60px; position: relative; }
-.invite-text::before, .invite-text::after {
-content: '»'; position: absolute; font-family: 'Cormorant Garamond', serif;
-font-size: 60px; color: #A63D4F; opacity: 0.5; line-height: 1;
+.invite-text { text-align: center; padding: 20px 0 40px; position: relative; }
+.invite-text::before {
+content: '«'; position: absolute; font-family: 'Cormorant Garamond', serif;
+font-size: 60px; color: #A63D4F; opacity: 0.5; line-height: 1; left: 0; top: 30px;
 }
-.invite-text::before { top: 30px; left: 0; }
-.invite-text::after { bottom: 30px; right: 0; }
+.invite-text::after {
+content: '»'; position: absolute; font-family: 'Cormorant Garamond', serif;
+font-size: 60px; color: #A63D4F; opacity: 0.5; line-height: 1; right: 0; bottom: 30px;
+}
 .invite-text p { font-size: 16px; line-height: 1.8; color: #555; max-width: 420px; margin: 0 auto; }
 .section-dark .invite-text p { color: rgba(255,255,255,0.85); }
 .invite-text .lead {
@@ -374,7 +371,7 @@ font-family: 'Cormorant Garamond', serif; font-size: 24px; font-style: italic;
 color: #3D1F24; margin-bottom: 24px; line-height: 1.5; text-align: center;
 }
 .section-dark .invite-text .lead { color: var(--white); }
-.details { padding: 60px 0 0; text-align: center; }
+.details { padding: 20px 0 0; text-align: center; }
 .mini-calendar-wrapper {
 position: relative;
 max-width: 460px;
@@ -442,14 +439,13 @@ font-size: 38px;
 color: #8B1A2B;
 font-weight: 400;
 }
-/* TIMELINE */
-.timeline { padding: 0 0 60px; }
+.timeline { padding: 0 0 20px; }
 .timeline-flow { position: relative; max-width: 400px; margin: 0 auto; height: 1700px; }
 .timeline-svg {
 position: absolute; top: 0; left: 50%;
 transform: translateX(-50%);
 width: 100%; height: 1700px; z-index: 1;
-margin-top: -240px;
+margin-top: -270px;
 }
 .timeline-line { stroke-dasharray: 4000; stroke-dashoffset: 4000; animation: drawTimeline 2s ease-out forwards; }
 .timeline-line-secondary { stroke-dasharray: 4000; stroke-dashoffset: 4000; animation: drawTimeline 2s ease-out 0.1s forwards; }
@@ -494,12 +490,15 @@ margin-bottom: 2px;
 text-transform: uppercase;
 letter-spacing: 1px;
 }
+.event-1, .event-3 { right: 10px; align-items: flex-end; }
+.event-1 .event-content, .event-3 .event-content { text-align: right; }
+.event-2, .event-4 { left: 10px; align-items: flex-start; }
+.event-2 .event-content, .event-4 .event-content { text-align: left; }
 .event-1 { top: 220px; }
 .event-2 { top: 490px; }
 .event-3 { top: 820px; }
 .event-4 { top: 1120px; }
-/* МЕСТО ВСТРЕЧИ */
-.venue-section { padding: 60px 0; text-align: center; }
+.venue-section { padding: 40px 0; text-align: center; }
 .venue-card {
 max-width: 420px;
 margin: 0 auto;
@@ -542,19 +541,19 @@ font-size: 14px;
 color: #555;
 margin: 0;
 }
-.dresscode { padding: 60px 0; text-align: center; }
+.dresscode { padding: 40px 0; text-align: center; }
 .dresscode-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 32px; line-height: 1.7; }
 .palette { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
 .palette-color { width: 44px; height: 44px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
 .palette-color:hover { transform: scale(1.1); }
-.organizer { padding: 60px 0; text-align: center; }
+.organizer { padding: 40px 0; text-align: center; }
 .organizer-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 28px; line-height: 1.7; }
 .organizer-card { display: inline-block; padding: 28px 40px; background: #fff; border: 1px solid #e8e4dd; border-radius: 4px; text-align: center; }
 .organizer-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: #3D1F24; margin-bottom: 12px; font-style: italic; }
 .organizer-phone { display: inline-block; font-size: 15px; letter-spacing: 1px; color: #8B1A2B; text-decoration: none; border-bottom: 1px solid #F5E6E0; padding-bottom: 2px; transition: color 0.3s ease, border-color 0.3s ease; }
 .organizer-phone:hover { color: #3D1F24; border-color: #3D1F24; }
 .organizer-note { font-size: 13px; color: #999; margin-top: 16px; }
-.wishes-section { padding: 60px 0; text-align: center; }
+.wishes-section { padding: 40px 0; text-align: center; }
 .wishes-carousel { position: relative; max-width: 500px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
 .wishes-track-container { flex: 1; overflow: hidden; border-radius: 8px; }
 .wishes-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform; }
@@ -569,11 +568,11 @@ margin: 0;
 .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: #A63D4F; opacity: 0.4; cursor: pointer; transition: all 0.3s ease; }
 .dot.active { opacity: 1; transform: scale(1.2); background: #8B1A2B; }
-.cta-section { padding: 60px 0 100px; text-align: center; position: relative; }
+.cta-section { padding: 40px 0 60px; text-align: center; position: relative; }
 .cta-text { font-size: 15px; color: #555; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; }
 .btn { display: inline-block; padding: 16px 48px; background: var(--burgundy); color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; transition: background 0.3s ease; cursor: pointer; }
 .btn:hover { background: var(--burgundy-light); }
-.footer { text-align: center; padding: 40px 0 60px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: #8B1A2B; letter-spacing: 1px; }
+.footer { text-align: center; padding: 20px 0 40px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: #8B1A2B; letter-spacing: 1px; }
 .footer-heart { font-size: 14px; color: #8B1A2B; }
 .music-btn {
 position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px;
@@ -690,7 +689,6 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 50% { transform: rotate(-2deg) translate(-1px, 2px); }
 75% { transform: rotate(2deg) translate(1px, -2px); }
 }
-/* MOBILE */
 @media (max-width: 480px) {
 .hero-slider { min-height: 500px; }
 .hero-names { font-size: 44px; }
@@ -718,7 +716,7 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 .day-frame-num { font-size: 30px; }
 .heart-frame { width: 56px; height: 56px; }
 .timeline-flow { height: 1400px; }
-.timeline-svg { width: 250px; height: 1400px; margin-top: -180px !important; }
+.timeline-svg { width: 250px; height: 1400px; margin-top: -282px !important; }
 .event-1 { top: 190px; }
 .event-2 { top: 390px; }
 .event-3 { top: 620px; }
@@ -732,7 +730,7 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 .venue-name { font-size: 22px; }
 .section-title-script { font-size: 56px; }
 .section-title-caps { font-size: 24px; letter-spacing: 3px; }
-.section-wrapper { padding: 60px 0; }
+.section-wrapper { padding: 30px 0; }
 }
 </style>
 </head>
@@ -786,7 +784,6 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 </div>
 </section>
 <div class="bg-monogram-wrapper"><div class="bg-monogram">А & В</div></div>
-<!-- СЕКЦИЯ 1: СВЕТЛАЯ -->
 <section class="section-wrapper section-light">
 <div class="container">
 <section class="countdown-section">
@@ -810,12 +807,10 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 </section>
 </div>
 </section>
-<!-- РАЗДЕЛИТЕЛЬ: СВЕТЛЫЙ → ТЁМНЫЙ -->
 <svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none">
 <path d="M0,0 L1200,0 L1200,40 C1180,35 1160,45 1140,38 C1120,32 1100,42 1080,36 C1060,30 1040,44 1020,37 C1000,31 980,43 960,38 C940,33 920,45 900,39 C880,34 860,42 840,37 C820,32 800,44 780,38 C760,33 740,41 720,36 C700,31 680,43 660,37 C640,32 620,44 600,38 C580,33 560,42 540,37 C520,32 500,44 480,38 C460,33 440,41 420,36 C400,31 380,43 360,37 C340,32 320,44 300,38 C280,33 260,42 240,37 C220,32 200,44 180,38 C160,33 140,41 120,36 C100,31 80,43 60,37 C40,32 20,42 0,38 L0,80 Z" fill="var(--cream)"/>
 <path d="M0,38 C20,42 40,32 60,37 C80,43 100,31 120,36 C140,41 160,33 180,38 C200,44 220,32 240,37 C260,42 280,33 300,38 C320,44 340,32 360,37 C380,43 400,31 420,36 C440,41 460,33 480,38 C500,44 520,32 540,37 C560,42 580,33 600,38 C620,44 640,32 660,37 C680,43 700,31 720,36 C740,41 760,33 780,38 C800,44 820,32 840,37 C860,42 880,34 900,39 C920,45 940,33 960,38 C980,43 1000,31 1020,37 C1040,44 1060,30 1080,36 C1100,42 1120,32 1140,38 C1160,45 1180,35 1200,40 L1200,80 L0,80 Z" fill="var(--burgundy)"/>
 </svg>
-<!-- СЕКЦИЯ 2: ТЁМНАЯ -->
 <section class="section-wrapper section-dark">
 <div class="container">
 <section class="details reveal">
@@ -874,7 +869,9 @@ C 140 1480, 260 1520, 200 1560
 C 140 1600, 260 1640, 200 1680
 C 140 1720, 260 1760, 200 1800"
 fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
-<circle id="timelineDot" cx="0" cy="0" r="30" fill="#FFFFFF" style="transition: all 0.1s ease; filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));"/>
+<g id="timelineHeart" style="transition: all 0.1s ease; filter: drop-shadow(0 0 4px rgba(255,255,255,0.6));">
+<path d="M0,0 C-5,-6 -14,-6 -14,-14 C-14,-20 -6,-24 0,-18 C6,-24 14,-20 14,-14 C14,-6 5,-6 0,0 Z" fill="#FFFFFF" transform="scale(2.5)"/>
+</g>
 </svg>
 <div class="timeline-events">
 <div class="timeline-event event-1">
@@ -898,12 +895,10 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 </section>
 </div>
 </section>
-<!-- РАЗДЕЛИТЕЛЬ: ТЁМНЫЙ → СВЕТЛЫЙ -->
 <svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none">
 <path d="M0,0 L1200,0 L1200,40 C1180,35 1160,45 1140,38 C1120,32 1100,42 1080,36 C1060,30 1040,44 1020,37 C1000,31 980,43 960,38 C940,33 920,45 900,39 C880,34 860,42 840,37 C820,32 800,44 780,38 C760,33 740,41 720,36 C700,31 680,43 660,37 C640,32 620,44 600,38 C580,33 560,42 540,37 C520,32 500,44 480,38 C460,33 440,41 420,36 C400,31 380,43 360,37 C340,32 320,44 300,38 C280,33 260,42 240,37 C220,32 200,44 180,38 C160,33 140,41 120,36 C100,31 80,43 60,37 C40,32 20,42 0,38 L0,80 Z" fill="var(--burgundy)"/>
 <path d="M0,38 C20,42 40,32 60,37 C80,43 100,31 120,36 C140,41 160,33 180,38 C200,44 220,32 240,37 C260,42 280,33 300,38 C320,44 340,32 360,37 C380,43 400,31 420,36 C440,41 460,33 480,38 C500,44 520,32 540,37 C560,42 580,33 600,38 C620,44 640,32 660,37 C680,43 700,31 720,36 C740,41 760,33 780,38 C800,44 820,32 840,37 C860,42 880,34 900,39 C920,45 940,33 960,38 C980,43 1000,31 1020,37 C1040,44 1060,30 1080,36 C1100,42 1120,32 1140,38 C1160,45 1180,35 1200,40 L1200,80 L0,80 Z" fill="var(--cream)"/>
 </svg>
-<!-- СЕКЦИЯ 3: СВЕТЛАЯ -->
 <section class="section-wrapper section-light">
 <div class="container">
 <section class="venue-section reveal">
@@ -938,12 +933,10 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 </section>
 </div>
 </section>
-<!-- РАЗДЕЛИТЕЛЬ: СВЕТЛЫЙ → ТЁМНЫЙ -->
 <svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none">
 <path d="M0,0 L1200,0 L1200,40 C1180,35 1160,45 1140,38 C1120,32 1100,42 1080,36 C1060,30 1040,44 1020,37 C1000,31 980,43 960,38 C940,33 920,45 900,39 C880,34 860,42 840,37 C820,32 800,44 780,38 C760,33 740,41 720,36 C700,31 680,43 660,37 C640,32 620,44 600,38 C580,33 560,42 540,37 C520,32 500,44 480,38 C460,33 440,41 420,36 C400,31 380,43 360,37 C340,32 320,44 300,38 C280,33 260,42 240,37 C220,32 200,44 180,38 C160,33 140,41 120,36 C100,31 80,43 60,37 C40,32 20,42 0,38 L0,80 Z" fill="var(--cream)"/>
 <path d="M0,38 C20,42 40,32 60,37 C80,43 100,31 120,36 C140,41 160,33 180,38 C200,44 220,32 240,37 C260,42 280,33 300,38 C320,44 340,32 360,37 C380,43 400,31 420,36 C440,41 460,33 480,38 C500,44 520,32 540,37 C560,42 580,33 600,38 C620,44 640,32 660,37 C680,43 700,31 720,36 C740,41 760,33 780,38 C800,44 820,32 840,37 C860,42 880,34 900,39 C920,45 940,33 960,38 C980,43 1000,31 1020,37 C1040,44 1060,30 1080,36 C1100,42 1120,32 1140,38 C1160,45 1180,35 1200,40 L1200,80 L0,80 Z" fill="var(--burgundy)"/>
 </svg>
-<!-- СЕКЦИЯ 4: ТЁМНАЯ -->
 <section class="section-wrapper section-dark">
 <div class="container">
 <section class="wishes-section reveal">
@@ -1040,12 +1033,10 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 </section>
 </div>
 </section>
-<!-- РАЗДЕЛИТЕЛЬ: ТЁМНЫЙ → СВЕТЛЫЙ -->
 <svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none">
 <path d="M0,0 L1200,0 L1200,40 C1180,35 1160,45 1140,38 C1120,32 1100,42 1080,36 C1060,30 1040,44 1020,37 C1000,31 980,43 960,38 C940,33 920,45 900,39 C880,34 860,42 840,37 C820,32 800,44 780,38 C760,33 740,41 720,36 C700,31 680,43 660,37 C640,32 620,44 600,38 C580,33 560,42 540,37 C520,32 500,44 480,38 C460,33 440,41 420,36 C400,31 380,43 360,37 C340,32 320,44 300,38 C280,33 260,42 240,37 C220,32 200,44 180,38 C160,33 140,41 120,36 C100,31 80,43 60,37 C40,32 20,42 0,38 L0,80 Z" fill="var(--burgundy)"/>
 <path d="M0,38 C20,42 40,32 60,37 C80,43 100,31 120,36 C140,41 160,33 180,38 C200,44 220,32 240,37 C260,42 280,33 300,38 C320,44 340,32 360,37 C380,43 400,31 420,36 C440,41 460,33 480,38 C500,44 520,32 540,37 C560,42 580,33 600,38 C620,44 640,32 660,37 C680,43 700,31 720,36 C740,41 760,33 780,38 C800,44 820,32 840,37 C860,42 880,34 900,39 C920,45 940,33 960,38 C980,43 1000,31 1020,37 C1040,44 1060,30 1080,36 C1100,42 1120,32 1140,38 C1160,45 1180,35 1200,40 L1200,80 L0,80 Z" fill="var(--cream)"/>
 </svg>
-<!-- СЕКЦИЯ 5: СВЕТЛАЯ -->
 <section class="section-wrapper section-light">
 <div class="container">
 <section class="cta-section reveal">
@@ -1247,13 +1238,13 @@ heart.style.top = (e.clientY - 10) + 'px';
 const size = 15 + Math.random() * 10; heart.style.width = size + 'px'; heart.style.height = size + 'px';
 document.body.appendChild(heart); setTimeout(() => { heart.remove(); }, 1500);
 });
-// Динамическое сердечко на линии таймлайна
+// Динамическое СЕРДЕЧКО на линии таймлайна
 (function() {
-const dot = document.getElementById('timelineDot');
+const heart = document.getElementById('timelineHeart');
 const path = document.querySelector('.timeline-line');
-if (!dot || !path) return;
+if (!heart || !path) return;
 const pathLength = path.getTotalLength();
-function updateDotPosition() {
+function updateHeartPosition() {
 const timelineSection = document.querySelector('.timeline');
 if (!timelineSection) return;
 const rect = timelineSection.getBoundingClientRect();
@@ -1261,12 +1252,11 @@ const windowHeight = window.innerHeight;
 let progress = ((windowHeight - rect.top) / (windowHeight + rect.height)) * 1.4;
 progress = Math.max(0, Math.min(1, progress));
 const point = path.getPointAtLength(progress * pathLength);
-dot.setAttribute('cx', point.x);
-dot.setAttribute('cy', point.y);
+heart.setAttribute('transform', `translate(${point.x}, ${point.y}) scale(2.5)`);
 }
-window.addEventListener('scroll', updateDotPosition, { passive: true });
-window.addEventListener('resize', updateDotPosition);
-setTimeout(updateDotPosition, 100);
+window.addEventListener('scroll', updateHeartPosition, { passive: true });
+window.addEventListener('resize', updateHeartPosition);
+setTimeout(updateHeartPosition, 100);
 })();
 </script>
 </body>
