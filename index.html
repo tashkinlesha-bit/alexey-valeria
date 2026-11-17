@@ -14,7 +14,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='18' font-style='italic' fill='%238B1A2B'%3EA%26V%3C/text%3E%3C/svg%3E">
 <link rel="preload" as="image" href="slide1.jpg">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -187,167 +187,66 @@ filter: blur(8px); animation: blurIn 1.2s ease 1.6s forwards;
 font-size: 13px; letter-spacing: 3px; color: rgba(255,255,255,0.75);
 opacity: 0; filter: blur(8px); animation: blurIn 1.2s ease 1.8s forwards;
 }
-.section-wrapper {
-position: relative;
-padding: 40px 0;
-}
-.section-light {
-background: var(--cream);
-color: var(--burgundy);
-}
-.section-dark {
-background: var(--burgundy);
-color: var(--white);
-}
+.section-wrapper { position: relative; padding: 40px 0; }
+.section-light { background: var(--cream); color: var(--burgundy); }
+.section-dark { background: var(--burgundy); color: var(--white); }
 .section-dark .countdown-title,
 .section-dark .countdown-label,
-.section-dark .detail-note {
-color: rgba(255, 255, 255, 0.7);
-}
-.section-dark .countdown-value {
-color: var(--white);
-}
-.section-dark .countdown-sep {
-color: rgba(255, 255, 255, 0.5);
-}
+.section-dark .detail-note { color: rgba(255, 255, 255, 0.7); }
+.section-dark .countdown-value { color: var(--white); }
+.section-dark .countdown-sep { color: rgba(255, 255, 255, 0.5); }
 .section-dark .detail-value,
-.section-dark .venue-name {
-color: var(--white);
-}
-.section-dark .venue-card {
-background: var(--white);
-border-color: rgba(255, 255, 255, 0.2);
-}
-.section-dark .venue-city {
-color: var(--burgundy-accent);
-}
-.section-dark .venue-address {
-color: #555;
-}
+.section-dark .venue-name { color: var(--white); }
+.section-dark .venue-card { background: var(--white); border-color: rgba(255, 255, 255, 0.2); }
+.section-dark .venue-city { color: var(--burgundy-accent); }
+.section-dark .venue-address { color: #555; }
 .section-dark .dresscode-text,
 .section-dark .organizer-text,
-.section-dark .wish-slide p {
-color: rgba(255, 255, 255, 0.85);
-}
-.section-dark .wish-slide {
-background: rgba(255, 255, 255, 0.05);
-border-color: rgba(255, 255, 255, 0.2);
-}
-.section-dark .wish-slide h3 {
-color: var(--white);
-}
-.section-dark .carousel-btn {
-border-color: rgba(255, 255, 255, 0.3);
-color: var(--white);
-}
-.section-dark .carousel-btn:hover {
-background: var(--white);
-color: var(--burgundy);
-}
-.section-dark .dot {
-background: rgba(255, 255, 255, 0.4);
-}
-.section-dark .dot.active {
-background: var(--white);
-}
-.section-dark .mini-calendar-frame {
-border-color: rgba(255, 255, 255, 0.5);
-}
-.section-dark .calendar-month-header {
-color: var(--white);
-border-bottom-color: rgba(255, 255, 255, 0.3);
-}
-.section-dark .day-frame {
-color: var(--white);
-}
-.section-dark .day-frame:not(:last-child) {
-border-right-color: rgba(255, 255, 255, 0.3);
-}
-.section-dark .heart-frame {
-stroke: var(--white);
-}
-.section-dark .day-frame-num {
-color: var(--white);
-}
+.section-dark .wish-slide p { color: rgba(255, 255, 255, 0.85); }
+.section-dark .wish-slide { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.2); }
+.section-dark .wish-slide h3 { color: var(--white); }
+.section-dark .carousel-btn { border-color: rgba(255, 255, 255, 0.3); color: var(--white); }
+.section-dark .carousel-btn:hover { background: var(--white); color: var(--burgundy); }
+.section-dark .dot { background: rgba(255, 255, 255, 0.4); }
+.section-dark .dot.active { background: var(--white); }
+.section-dark .mini-calendar-frame { border-color: rgba(255, 255, 255, 0.5); }
+.section-dark .calendar-month-header { color: var(--white); border-bottom-color: rgba(255, 255, 255, 0.3); }
+.section-dark .day-frame { color: var(--white); }
+.section-dark .day-frame:not(:last-child) { border-right-color: rgba(255, 255, 255, 0.3); }
+.section-dark .heart-frame { stroke: var(--white); }
+.section-dark .day-frame-num { color: var(--white); }
 .section-dark .timeline-line,
-.section-dark .timeline-line-secondary {
-stroke: var(--white);
-}
-.section-dark .event-time {
-color: var(--white);
-}
-.section-dark .event-content strong {
-color: var(--white);
-}
-.section-dark .event-content {
-color: rgba(255, 255, 255, 0.85);
-}
-.section-dark .cta-text {
-color: rgba(255, 255, 255, 0.85);
-}
-.section-dark .organizer-card {
-background: var(--white);
-}
-.section-dark .organizer-name {
-color: var(--burgundy);
-}
-.section-dark .organizer-phone {
-color: var(--burgundy-accent);
-}
-.section-dark .organizer-note {
-color: #999;
-}
-.section-dark .footer {
-color: var(--white);
-}
-.section-dark .footer-heart {
-color: var(--white);
-}
-.section-dark .wish-icon-svg svg {
-stroke: #FFFFFF;
-}
+.section-dark .timeline-line-secondary { stroke: var(--white); }
+.section-dark .event-time { color: var(--white); }
+.section-dark .event-content strong { color: var(--white); }
+.section-dark .event-content { color: rgba(255, 255, 255, 0.85); }
+.section-dark .cta-text { color: rgba(255, 255, 255, 0.85); }
+.section-dark .organizer-card { background: var(--white); }
+.section-dark .organizer-name { color: var(--burgundy); }
+.section-dark .organizer-phone { color: var(--burgundy-accent); }
+.section-dark .organizer-note { color: #999; }
+.section-dark .footer { color: var(--white); }
+.section-dark .footer-heart { color: var(--white); }
+.section-dark .wish-icon-svg svg { stroke: #FFFFFF; }
 .section-dark .wish-icon-svg svg circle[stroke="none"],
-.section-dark .wish-icon-svg svg path[stroke="none"] {
-fill: #FFFFFF;
-opacity: 0.4;
-}
-.section-heading {
-text-align: center;
-margin-bottom: 30px;
-padding: 0 20px;
-}
+.section-dark .wish-icon-svg svg path[stroke="none"] { fill: #FFFFFF; opacity: 0.4; }
+.section-heading { text-align: center; margin-bottom: 30px; padding: 0 20px; }
 .section-title-script {
 font-family: 'Great Vibes', cursive;
-font-size: 72px;
-font-weight: 400;
+font-size: 72px; font-weight: 400;
 color: var(--burgundy);
-line-height: 1;
-margin-bottom: -10px;
-display: block;
+line-height: 1; margin-bottom: -10px; display: block;
 }
-.section-dark .section-title-script {
-color: var(--white);
-}
+.section-dark .section-title-script { color: var(--white); }
 .section-title-caps {
 font-family: 'Playfair Display', serif;
-font-size: 32px;
-font-weight: 700;
-letter-spacing: 4px;
-text-transform: uppercase;
+font-size: 32px; font-weight: 700;
+letter-spacing: 4px; text-transform: uppercase;
 color: var(--burgundy);
-line-height: 1.2;
-display: block;
+line-height: 1.2; display: block;
 }
-.section-dark .section-title-caps {
-color: var(--white);
-}
-.section-divider {
-display: block;
-width: 100%;
-height: 80px;
-position: relative;
-z-index: 2;
-}
+.section-dark .section-title-caps { color: var(--white); }
+.section-divider { display: block; width: 100%; height: 80px; position: relative; z-index: 2; }
 .countdown-section { padding: 20px 0; text-align: center; }
 .countdown-title { font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 32px; }
 .countdown { display: flex; justify-content: center; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
@@ -372,73 +271,33 @@ color: #3D1F24; margin-bottom: 24px; line-height: 1.5; text-align: center;
 }
 .section-dark .invite-text .lead { color: var(--white); }
 .details { padding: 20px 0 0; text-align: center; }
-.mini-calendar-wrapper {
-position: relative;
-max-width: 460px;
-margin: 0 auto;
-padding-bottom: 0;
-}
-.mini-calendar-frame {
-background: transparent;
-border: 1.5px solid #8B1A2B;
-border-radius: 4px;
-overflow: visible;
-}
+.mini-calendar-wrapper { position: relative; max-width: 460px; margin: 0 auto; padding-bottom: 0; }
+.mini-calendar-frame { background: transparent; border: 1.5px solid #8B1A2B; border-radius: 4px; overflow: visible; }
 .calendar-month-header {
 font-family: 'Cormorant Garamond', serif;
-font-size: 18px;
-letter-spacing: 4px;
-text-transform: uppercase;
-color: #8B1A2B;
-text-align: center;
+font-size: 18px; letter-spacing: 4px; text-transform: uppercase;
+color: #8B1A2B; text-align: center;
 padding: 16px 20px 12px;
 border-bottom: 1px solid rgba(139, 26, 43, 0.3);
 }
-.calendar-days-frame {
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 20px 0;
-}
+.calendar-days-frame { display: flex; justify-content: center; align-items: center; padding: 20px 0; }
 .day-frame {
 font-family: 'Cormorant Garamond', serif;
-font-size: 42px;
-font-weight: 400;
-color: #8B1A2B;
-flex: 1;
-text-align: center;
-position: relative;
-padding: 10px 0;
+font-size: 42px; font-weight: 400; color: #8B1A2B;
+flex: 1; text-align: center; position: relative; padding: 10px 0;
 }
-.day-frame:not(:last-child) {
-border-right: 1px solid rgba(139, 26, 43, 0.3);
-}
-.day-frame.wedding-day-frame {
-position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-}
+.day-frame:not(:last-child) { border-right: 1px solid rgba(139, 26, 43, 0.3); }
+.day-frame.wedding-day-frame { position: relative; display: flex; align-items: center; justify-content: center; }
 .heart-frame {
-position: absolute;
-width: 70px;
-height: 70px;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
+position: absolute; width: 70px; height: 70px;
+top: 50%; left: 50%; transform: translate(-50%, -50%);
 animation: heartFramePulse 2.5s ease-in-out infinite;
 }
 @keyframes heartFramePulse {
 0%, 100% { transform: translate(-50%, -50%) scale(1); }
 50% { transform: translate(-50%, -50%) scale(1.05); }
 }
-.day-frame-num {
-position: relative;
-z-index: 2;
-font-size: 38px;
-color: #8B1A2B;
-font-weight: 400;
-}
+.day-frame-num { position: relative; z-index: 2; font-size: 38px; color: #8B1A2B; font-weight: 400; }
 .timeline { padding: 0 0 20px; }
 .timeline-flow { position: relative; max-width: 400px; margin: 0 auto; height: 1700px; }
 .timeline-svg {
@@ -449,45 +308,26 @@ margin-top: -280px;
 }
 .timeline-line { stroke-dasharray: 4000; stroke-dashoffset: 4000; animation: drawTimeline 2s ease-out forwards; }
 @keyframes drawTimeline { to { stroke-dashoffset: 0; } }
-.timeline-events {
-position: relative;
-z-index: 2;
-height: 100%;
-padding-top: 200px;
+#timelineEndDot .end-ring {
+transform-box: fill-box;
+transform-origin: center;
+animation: endDotPulse 2.5s ease-in-out infinite;
 }
-.timeline-event {
-position: absolute;
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 4px;
-max-width: 200px;
+@keyframes endDotPulse {
+0%, 100% { transform: scale(1); opacity: 0.45; }
+50% { transform: scale(1.3); opacity: 0.15; }
 }
+.timeline-events { position: relative; z-index: 2; height: 100%; padding-top: 200px; }
+.timeline-event { position: absolute; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; max-width: 200px; }
 .event-time {
 font-family: 'Cormorant Garamond', serif;
-font-size: 44px;
-color: #8B1A2B;
-font-weight: 400;
-white-space: nowrap;
-flex-shrink: 0;
-line-height: 1;
+font-size: 44px; color: #8B1A2B; font-weight: 400;
+white-space: nowrap; flex-shrink: 0; line-height: 1;
 }
-.event-content {
-font-size: 14px;
-color: #555;
-line-height: 1.4;
-background: transparent;
-padding: 0;
-z-index: 3;
-}
+.event-content { font-size: 14px; color: #555; line-height: 1.4; background: transparent; padding: 0; z-index: 3; }
 .event-content strong {
-display: block;
-color: #3D1F24;
-font-weight: 500;
-font-size: 16px;
-margin-bottom: 2px;
-text-transform: uppercase;
-letter-spacing: 1px;
+display: block; color: #3D1F24; font-weight: 500; font-size: 16px;
+margin-bottom: 2px; text-transform: uppercase; letter-spacing: 1px;
 }
 .event-1, .event-3 { right: 10px; align-items: flex-end; }
 .event-1 .event-content, .event-3 .event-content { text-align: right; }
@@ -496,55 +336,21 @@ letter-spacing: 1px;
 .event-1 { top: 200px; }
 .event-2 { top: 400px; }
 .event-3 { top: 600px; }
-.event-4 { top: 820px; 
-         left: 50%; 
-  right: auto; 
-  transform: translateX(-50%);
-  align-items: center;
-  text-align: center;}
+.event-4 { top: 820px;
+left: 50%; right: auto; transform: translateX(-50%);
+align-items: center; text-align: center; }
 .venue-section { padding: 40px 0; text-align: center; }
 .venue-card {
-max-width: 420px;
-margin: 0 auto;
-background: #fff;
-border: 1px solid #e8e4dd;
-border-radius: 8px;
-overflow: hidden;
+max-width: 420px; margin: 0 auto; background: #fff;
+border: 1px solid #e8e4dd; border-radius: 8px; overflow: hidden;
 box-shadow: 0 2px 12px rgba(139, 26, 43, 0.08);
 }
-.venue-photo {
-width: 100%;
-height: 240px;
-background: #f5f0eb;
-overflow: hidden;
-}
-.venue-photo img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-display: block;
-}
-.venue-info {
-padding: 24px 20px;
-}
-.venue-name {
-font-family: 'Cormorant Garamond', serif;
-font-size: 26px;
-font-weight: 400;
-color: #3D1F24;
-margin-bottom: 8px;
-}
-.venue-city {
-font-size: 14px;
-color: #8B1A2B;
-margin-bottom: 4px;
-letter-spacing: 1px;
-}
-.venue-address {
-font-size: 14px;
-color: #555;
-margin: 0;
-}
+.venue-photo { width: 100%; height: 240px; background: #f5f0eb; overflow: hidden; }
+.venue-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.venue-info { padding: 24px 20px; }
+.venue-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: #3D1F24; margin-bottom: 8px; }
+.venue-city { font-size: 14px; color: #8B1A2B; margin-bottom: 4px; letter-spacing: 1px; }
+.venue-address { font-size: 14px; color: #555; margin: 0; }
 .dresscode { padding: 40px 0; text-align: center; }
 .dresscode-text { font-size: 15px; color: #555; max-width: 420px; margin: 0 auto 32px; line-height: 1.7; }
 .palette { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
@@ -576,6 +382,34 @@ margin: 0;
 .cta-text { font-size: 15px; color: #555; margin-bottom: 24px; max-width: 400px; margin-left: auto; margin-right: auto; }
 .btn { display: inline-block; padding: 16px 48px; background: var(--burgundy); color: #fff; text-decoration: none; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border-radius: 2px; transition: background 0.3s ease; cursor: pointer; }
 .btn:hover { background: var(--burgundy-light); }
+/* ===== RSVP-ФОРМА ===== */
+.rsvp-form { max-width: 420px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; text-align: left; }
+.rsvp-input {
+width: 100%; padding: 14px 16px; font-family: 'Inter', sans-serif; font-size: 15px;
+color: #3D1F24; background: #fff; border: 1px solid #e8e4dd; border-radius: 4px;
+transition: border-color 0.3s ease, box-shadow 0.3s ease; appearance: none; -webkit-appearance: none;
+}
+.rsvp-input:focus { outline: none; border-color: #8B1A2B; box-shadow: 0 0 0 3px rgba(139,26,43,0.08); }
+textarea.rsvp-input { resize: vertical; min-height: 80px; }
+.rsvp-choice { display: flex; flex-direction: column; gap: 10px; }
+.rsvp-radio, .rsvp-drinks label {
+display: flex; align-items: center; gap: 10px; cursor: pointer;
+font-size: 15px; color: #3D1F24; padding: 12px 16px;
+background: #fff; border: 1px solid #e8e4dd; border-radius: 4px; transition: all 0.25s ease;
+}
+.rsvp-radio input, .rsvp-drinks input { accent-color: #8B1A2B; width: 18px; height: 18px; flex-shrink: 0; }
+.rsvp-radio:has(input:checked), .rsvp-drinks label:has(input:checked) { border-color: #8B1A2B; background: rgba(139,26,43,0.04); }
+.rsvp-label { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #8B1A2B; margin: 4px 0 8px; }
+.rsvp-drinks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.rsvp-hp { position: absolute; left: -9999px; opacity: 0; height: 0; }
+.rsvp-submit { border: none; width: 100%; margin-top: 8px; }
+.rsvp-submit:disabled { opacity: 0.6; cursor: wait; }
+.rsvp-status { font-size: 14px; text-align: center; min-height: 20px; color: #8B1A2B; }
+.rsvp-note { font-size: 12px; color: #999; text-align: center; margin-top: 4px; }
+.rsvp-done { text-align: center; padding: 32px 0; animation: fadeInUp 0.8s ease forwards; }
+.rsvp-done-heart { font-size: 48px; color: #8B1A2B; animation: heartFramePulse 2.5s ease-in-out infinite; display: inline-block; }
+.rsvp-done h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: #3D1F24; margin: 12px 0 8px; }
+.rsvp-done p { font-size: 15px; color: #555; }
 .footer { text-align: center; padding: 20px 0 40px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: #8B1A2B; letter-spacing: 1px; }
 .footer-heart { font-size: 14px; color: #8B1A2B; }
 .music-btn {
@@ -609,6 +443,7 @@ z-index: 0; pointer-events: none;
 font-family: 'Cormorant Garamond', serif; font-size: 96px; font-weight: 300;
 font-style: italic; color: #8B1A2B; line-height: 1; margin-bottom: 20px; letter-spacing: 4px;
 animation: glowMonogram 3s ease-in-out infinite, floatMonogram 6s ease-in-out infinite;
+cursor: pointer;
 }
 @keyframes glowMonogram {
 0%, 100% { text-shadow: 0 0 20px rgba(139, 26, 43, 0.2); }
@@ -653,10 +488,7 @@ font-style: italic; color: #8B1A2B; opacity: 0.04; pointer-events: none;
 user-select: none; white-space: nowrap; z-index: 0; line-height: 1;
 }
 .bg-monogram-wrapper { position: relative; overflow: hidden; }
-.click-heart {
-position: fixed; pointer-events: none; z-index: 99999;
-width: 20px; height: 20px; animation: heartFloat 1.5s ease-out forwards;
-}
+.click-heart { position: fixed; pointer-events: none; z-index: 99999; width: 20px; height: 20px; animation: heartFloat 1.5s ease-out forwards; }
 @keyframes heartFloat {
 0% { opacity: 1; transform: translateY(0) scale(0.5) rotate(0deg); }
 50% { opacity: 0.8; }
@@ -724,12 +556,9 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 .event-1 { top: 140px; }
 .event-2 { top: 280px; }
 .event-3 { top: 420px; }
-.event-4 { top: 580px; 
-  left: 50%; 
-  right: auto; 
-  transform: translateX(-50%);
-  align-items: center;
-  text-align: center;}
+.event-4 { top: 580px;
+left: 50%; right: auto; transform: translateX(-50%);
+align-items: center; text-align: center; }
 .event-time { font-size: 32px; }
 .event-content { font-size: 13px; }
 .event-content strong { font-size: 14px; }
@@ -740,22 +569,12 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 .section-title-script { font-size: 56px; }
 .section-title-caps { font-size: 24px; letter-spacing: 3px; }
 .section-wrapper { padding: 30px 0; }
+.rsvp-drinks { grid-template-columns: 1fr; }
 }
-
 @media (min-width: 481px) {
-  .event-4 { top: 940px; }
-  .timeline-flow { height: 1140px; }
+.event-4 { top: 940px; }
+.timeline-flow { height: 1140px; }
 }
-#timelineEndDot .end-ring {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: endDotPulse 2.5s ease-in-out infinite;
-}
-@keyframes endDotPulse {
-  0%, 100% { transform: scale(1); opacity: 0.45; }
-  50% { transform: scale(1.3); opacity: 0.15; }
-}
-         
 </style>
 </head>
 <body>
@@ -763,12 +582,12 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 <div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div><div class="particle p4"></div><div class="particle p5"></div>
 </div>
 <div class="background-flowers" aria-hidden="true">
-<svg class="flower f1" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round"><g filter="url(#handDrawnHeartSimple)"><circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/><path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30"/><path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30"/><path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30"/><path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30"/><path d="M30 30 C25 22, 20 20, 18 25 C16 30, 25 30, 30 30"/></g></svg>
-<svg class="flower f2" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round"><g filter="url(#handDrawnHeartSimple)"><circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/><path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30"/><path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30"/><path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30"/><path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30"/></g></svg>
-<svg class="flower f3" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round"><g filter="url(#handDrawnHeartSimple)"><circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/><path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30"/><path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30"/><path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30"/><path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30"/><path d="M30 30 C25 22, 20 20, 18 25 C16 30, 25 30, 30 30"/></g></svg>
-<svg class="flower f4" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round"><g filter="url(#handDrawnHeartSimple)"><circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/><path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30"/><path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30"/><path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30"/><path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30"/></g></svg>
-<svg class="flower f5" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round"><g filter="url(#handDrawnHeartSimple)"><circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/><path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30"/><path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30"/><path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30"/><path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30"/><path d="M30 30 C25 22, 20 20, 18 25 C16 30, 25 30, 30 30"/></g></svg>
-<svg class="flower f6" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round"><g filter="url(#handDrawnHeartSimple)"><circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/><path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30"/><path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30"/><path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30"/><path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30"/></g></svg>
+<svg class="flower f1" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round"><g><circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/><path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30"/><path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30"/><path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30"/><path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30"/><path d="M30 30 C25 22, 20 20, 18 25 C16 30, 25 30, 30 30"/></g></svg>
+<svg class="flower f2" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round"><g><circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/><path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30"/><path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30"/><path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30"/><path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30"/></g></svg>
+<svg class="flower f3" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round"><g><circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/><path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30"/><path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30"/><path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30"/><path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30"/><path d="M30 30 C25 22, 20 20, 18 25 C16 30, 25 30, 30 30"/></g></svg>
+<svg class="flower f4" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round"><g><circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/><path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30"/><path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30"/><path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30"/><path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30"/></g></svg>
+<svg class="flower f5" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round"><g><circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/><path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30"/><path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30"/><path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30"/><path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30"/><path d="M30 30 C25 22, 20 20, 18 25 C16 30, 25 30, 30 30"/></g></svg>
+<svg class="flower f6" viewBox="0 0 60 60" fill="none" stroke="#8B1A2B" stroke-width="1" stroke-linecap="round"><g><circle cx="30" cy="30" r="3" fill="#8B1A2B" opacity="0.3"/><path d="M30 30 C30 20, 25 15, 20 15 C15 15, 15 25, 30 30"/><path d="M30 30 C40 30, 45 25, 45 20 C45 15, 35 15, 30 30"/><path d="M30 30 C30 40, 35 45, 40 45 C45 45, 45 35, 30 30"/><path d="M30 30 C20 30, 15 35, 15 40 C15 45, 25 45, 30 30"/></g></svg>
 </div>
 <div class="lock-screen" id="lockScreen">
 <div class="lock-top">
@@ -776,7 +595,7 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 <div class="lock-date">18 сентября, суббота</div>
 </div>
 <div class="lock-center">
-<div class="lock-monogram">А & В</div>
+<div class="lock-monogram" id="lockMonogram">А & В</div>
 <div class="lock-subtitle">Мы женимся</div>
 </div>
 <div class="lock-bottom">
@@ -856,6 +675,7 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 <div class="day-frame">19</div>
 </div>
 </div>
+</div>
 </section>
 <section class="timeline reveal">
 <div class="timeline-flow">
@@ -877,9 +697,9 @@ C 220 650, 180 710, 120 770
 C 60 830, 180 870, 200 890"
 fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <g id="timelineEndDot" style="filter: drop-shadow(0 0 4px rgba(255,255,255,0.5));">
-  <circle class="end-ring" r="10" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.45"/>
-  <circle r="3.5" fill="#FFFFFF"/>
-</g>         
+<circle class="end-ring" r="10" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.45"/>
+<circle r="3.5" fill="#FFFFFF"/>
+</g>
 <g id="timelineHeart" style="transition: all 0.1s ease; filter: drop-shadow(0 0 4px rgba(255,255,255,0.6));">
 <path d="M 0,-8 C -6,-14 -14,-14 -14,-8 C -14,0 -7,8 0,14 C 7,8 14,0 14,-8 C 14,-14 6,-14 0,-8 Z" fill="#FFFFFF" transform="scale(1.2)"/>
 </g>
@@ -964,7 +784,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <div class="wish-slide">
 <div class="wish-icon-svg">
 <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<g filter="url(#handDrawnHeartSimple)">
+<g>
 <path d="M12 22 L12 38 L36 38 L36 22 Z" /><path d="M10 22 L38 22" /><path d="M10 22 L10 20 L38 20 L38 22" />
 <path d="M24 20 L24 38" /><path d="M12 29 L36 29" />
 <path d="M24 20 C24 14, 18 12, 18 16 C18 20, 24 20, 24 20" />
@@ -979,7 +799,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <div class="wish-slide">
 <div class="wish-icon-svg">
 <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<g filter="url(#handDrawnHeartSimple)">
+<g>
 <circle cx="16" cy="14" r="5" /><circle cx="32" cy="14" r="5" />
 <circle cx="16" cy="14" r="2.5" stroke="none" opacity="0.3"/>
 <circle cx="32" cy="14" r="2.5" stroke="none" opacity="0.3"/>
@@ -998,7 +818,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <div class="wish-slide">
 <div class="wish-icon-svg">
 <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<g filter="url(#handDrawnHeartSimple)">
+<g>
 <path d="M16 8 L16 24 C16 28, 20 30, 24 30 C28 30, 32 28, 32 24 L32 8" />
 <path d="M24 30 L24 38" /><path d="M18 38 L30 38" />
 <path d="M28 12 L28 26 C28 29, 31 30, 33 30 C35 30, 38 29, 38 26 L38 12" transform="rotate(-15 33 26)" />
@@ -1018,7 +838,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <div class="wish-slide">
 <div class="wish-icon-svg">
 <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<g filter="url(#handDrawnHeartSimple)">
+<g>
 <path d="M24 6 L24 10" />
 <path d="M14 10 C14 10, 18 10, 24 14 C30 10, 34 10, 34 10" />
 <path d="M18 14 L18 20 L30 20 L30 14" />
@@ -1055,8 +875,49 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <span class="section-title-script">Подтвердите</span>
 <span class="section-title-caps">Ваше присутствие</span>
 </div>
-<p class="cta-text">Пожалуйста, подтвердите своё присутствие до 1 августа 2027 года</p>
-<a href="https://forms.gle/SpyQS3RQFLgTAMjBA" class="btn" target="_blank">Я приду</a>
+<p class="cta-text">Пожалуйста, ответьте до 1 августа 2027 года</p>
+
+<form id="rsvpForm" class="rsvp-form" novalidate>
+<input type="text" name="guestName" class="rsvp-input" placeholder="Имя и фамилия" required autocomplete="name">
+
+<div class="rsvp-choice">
+<label class="rsvp-radio">
+<input type="radio" name="attendance" value="Буду с радостью" required>
+<span>Да, с радостью буду ♥</span>
+</label>
+<label class="rsvp-radio">
+<input type="radio" name="attendance" value="К сожалению, не смогу">
+<span>К сожалению, не смогу</span>
+</label>
+</div>
+
+<div id="rsvpGuestFields" hidden>
+<p class="rsvp-label">Какие напитки вам ближе?</p>
+<div class="rsvp-drinks">
+<label><input type="checkbox" name="drinks" value="Игристое"><span>Игристое</span></label>
+<label><input type="checkbox" name="drinks" value="Красное вино"><span>Красное вино</span></label>
+<label><input type="checkbox" name="drinks" value="Белое вино"><span>Белое вино</span></label>
+<label><input type="checkbox" name="drinks" value="Крепкое"><span>Крепкое</span></label>
+<label><input type="checkbox" name="drinks" value="Безалкогольное"><span>Безалкогольное</span></label>
+</div>
+<p class="rsvp-label" style="margin-top:16px;">Аллергии или ограничения по питанию</p>
+<input type="text" name="food" class="rsvp-input" placeholder="Например: не ем рыбу. Если нет — оставьте пустым">
+</div>
+
+<textarea name="wish" class="rsvp-input" rows="3" placeholder="Комментарий или пожелание (необязательно)"></textarea>
+
+<input type="text" name="company" class="rsvp-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+<button type="submit" class="btn rsvp-submit">Отправить ответ</button>
+<p class="rsvp-status" id="rsvpStatus" role="status"></p>
+<p class="rsvp-note">Если нужно будет изменить ответ — напишите нашему организатору</p>
+</form>
+
+<div class="rsvp-done" id="rsvpDone" hidden>
+<div class="rsvp-done-heart">♥</div>
+<h3>Спасибо!</h3>
+<p id="rsvpDoneText">Ваш ответ отправлен. До встречи 18 сентября!</p>
+</div>
 </section>
 <section class="organizer reveal">
 <div class="section-heading">
@@ -1076,7 +937,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <button class="music-btn" id="musicBtn" aria-label="Включить музыку">
 <svg id="musicIcon" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
 </button>
-<audio id="bgMusic" loop><source src="music.mp3" type="audio/mpeg"></audio>
+<audio id="bgMusic" loop preload="none"><source src="music.mp3" type="audio/mpeg"></audio>
 <script>
 var lockScreen = document.getElementById('lockScreen');
 var lockSlider = document.getElementById('lockSlider');
@@ -1084,12 +945,12 @@ var lockHandle = document.getElementById('lockHandle');
 var lockProgress = document.getElementById('lockProgress');
 var isDragging = false, startX = 0, currentX = 0, maxTranslate = 0, isUnlocked = false;
 if (sessionStorage.getItem('weddingUnlocked') === 'true') {
-    lockScreen.classList.add('hidden');
-    isUnlocked = true;
-    // Экран уже разблокировали ранее — сразу запускаем анимацию имён
-    document.querySelectorAll('.hero-names .name, .hero-names .amp').forEach(function(el) {
-        el.style.animationPlayState = 'running';
-    });
+lockScreen.classList.add('hidden');
+isUnlocked = true;
+// Экран уже разблокировали ранее — сразу запускаем анимацию имён
+document.querySelectorAll('.hero-names .name, .hero-names .amp').forEach(function(el) {
+el.style.animationPlayState = 'running';
+});
 }
 function updateLockTime() {
 var now = new Date();
@@ -1121,6 +982,7 @@ lockHandle.style.transform = 'translateX(0)'; lockProgress.style.width = '68px';
 }
 }
 function unlockScreen() {
+if (isUnlocked) return;
 isUnlocked = true;
 lockHandle.style.transition = 'transform 0.4s ease'; lockProgress.style.transition = 'width 0.4s ease';
 lockHandle.style.transform = 'translateX(' + maxTranslate + 'px)'; lockProgress.style.width = '100%';
@@ -1134,6 +996,8 @@ if (!isUnlocked) {
 lockHandle.addEventListener('mousedown', startDrag); document.addEventListener('mousemove', moveDrag); document.addEventListener('mouseup', endDrag);
 lockHandle.addEventListener('touchstart', startDrag, { passive: false }); document.addEventListener('touchmove', moveDrag, { passive: false }); document.addEventListener('touchend', endDrag);
 lockSlider.addEventListener('dblclick', unlockScreen);
+// Запасной вход: тап по монограмме (для тех, у кого свайп не получился)
+document.getElementById('lockMonogram').addEventListener('click', unlockScreen);
 }
 var weddingDate = new Date('2027-09-18T14:00:00+03:00').getTime();
 function updateCountdown() {
@@ -1173,19 +1037,28 @@ var offset = scrollY * 0.15;
 parallaxSlides.forEach(function(slide) { slide.style.backgroundPosition = 'center calc(50% + ' + offset + 'px)'; });
 }
 }
-window.addEventListener('scroll', updateHeroParallax, { passive: true });
 var progressBar = document.getElementById('progressBar');
 function updateProgressBar() {
 var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 var docHeight = document.documentElement.scrollHeight - window.innerHeight;
 progressBar.style.width = docHeight > 0 ? (scrollTop / docHeight) * 100 + '%' : '0%';
 }
-window.addEventListener('scroll', updateProgressBar, { passive: true });
 var initialsBadge = document.getElementById('initialsBadge');
 function updateInitialsBadge() {
 if (window.pageYOffset > 300) initialsBadge.classList.add('visible'); else initialsBadge.classList.remove('visible');
 }
-window.addEventListener('scroll', updateInitialsBadge, { passive: true });
+// Единый обработчик скролла через requestAnimationFrame
+var scrollTicking = false;
+window.addEventListener('scroll', function() {
+if (scrollTicking) return;
+scrollTicking = true;
+requestAnimationFrame(function() {
+updateHeroParallax();
+updateProgressBar();
+updateInitialsBadge();
+scrollTicking = false;
+});
+}, { passive: true });
 const wishesTrack = document.getElementById('wishesTrack');
 const wishPrev = document.getElementById('wishPrev');
 const wishNext = document.getElementById('wishNext');
@@ -1235,20 +1108,12 @@ const diff = touchStartX - touchEndX;
 if (Math.abs(diff) > 50) { if (diff > 0) nextSlide(); else prevSlide(); }
 }
 updateDots();
-document.querySelector('.btn').addEventListener('click', function(e) {
-e.preventDefault();
-confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 }, colors: ['#8B1A2B', '#F5E6E0', '#A63D4F', '#FFFFFF', '#D4A5A5'], disableForReducedMotion: true });
-setTimeout(() => {
-confetti({ particleCount: 80, angle: 60, spread: 55, origin: { x: 0, y: 0.6 }, colors: ['#8B1A2B', '#A63D4F'] });
-confetti({ particleCount: 80, angle: 120, spread: 55, origin: { x: 1, y: 0.6 }, colors: ['#F5E6E0', '#D4A5A5'] });
-}, 300);
-setTimeout(() => { window.open(this.href, '_blank'); }, 1500);
-});
+// Сердечки по клику на фон (формы и кнопки не трогаем)
 let lastHeartTime = 0;
 document.addEventListener('click', function(e) {
 const now = Date.now();
 if (now - lastHeartTime < 100) return; lastHeartTime = now;
-if (e.target.closest('button, a, .carousel-btn, .lock-slider')) return;
+if (e.target.closest('button, a, input, label, select, textarea, form, .carousel-btn, .lock-slider')) return;
 const heart = document.createElement('div'); heart.classList.add('click-heart');
 heart.innerHTML = '<svg viewBox="0 0 24 24" fill="#8B1A2B" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
 heart.style.left = (e.clientX + (Math.random() - 0.5) * 40 - 10) + 'px';
@@ -1256,15 +1121,15 @@ heart.style.top = (e.clientY - 10) + 'px';
 const size = 15 + Math.random() * 10; heart.style.width = size + 'px'; heart.style.height = size + 'px';
 document.body.appendChild(heart); setTimeout(() => { heart.remove(); }, 1500);
 });
-// Динамическое сердечко на линии таймлайна (центр сердечка на линии)
+// Динамическое сердечко на линии таймлайна
 (function() {
 const heart = document.getElementById('timelineHeart');
 const path = document.querySelector('.timeline-line');
 if (!heart || !path) return;
-const pathLength = path.getTotalLength();
 function updateHeartPosition() {
 const timelineSection = document.querySelector('.timeline');
 if (!timelineSection) return;
+const pathLength = path.getTotalLength();
 const rect = timelineSection.getBoundingClientRect();
 const windowHeight = window.innerHeight;
 let progress = ((windowHeight - rect.top) / (windowHeight + rect.height)) * 1.4;
@@ -1276,88 +1141,186 @@ window.addEventListener('scroll', updateHeartPosition, { passive: true });
 window.addEventListener('resize', updateHeartPosition);
 setTimeout(updateHeartPosition, 100);
 })();
-// Поднимаем старт линии таймлайна к нижнему краешку сердечка даты «18»
+// Калибровка таймлайна: старт из краешка сердечка + хвост не заезжает на «24:00»
 (function() {
-    const svg = document.querySelector('.timeline-svg');
-    const path = document.querySelector('.timeline-line');
-    const calHeart = document.querySelector('.heart-frame');
-    const details = document.querySelector('.details');
-    const timeline = document.querySelector('.timeline');
-    if (!svg || !path || !calHeart) return;
-
-    // Точка на контуре сердечка, из которой выходит линия:
-    // 52/60 — нижний кончик сердечка в его viewBox (0 0 60 60)
-    const HEART_ANCHOR_Y = 52 / 60;
-
-    let done = false;
-
-    function align() {
-        if (done) return;
-        // Пропускаем момент, когда секции в разных стадиях reveal-анимации
-        if (details && timeline &&
-            details.classList.contains('visible') !== timeline.classList.contains('visible')) return;
-
-        const ctm = path.getScreenCTM();
-        if (!ctm) return;
-
-        // Где сейчас на экране находится верхний кончик линии
-        const s = path.getPointAtLength(0);
-        const startY = ctm.b * s.x + ctm.d * s.y + ctm.f;
-
-        // Где нижний краешек сердечка вокруг «18»
-        const hr = calHeart.getBoundingClientRect();
-        const heartY = hr.top + hr.height * HEART_ANCHOR_Y;
-
-        const delta = heartY - startY;
-        if (Math.abs(delta) < 1) { done = true; return; }
-
-        // Доподнимаем SVG ровно на разницу (форма и длина линии не меняются)
-        const current = parseFloat(getComputedStyle(svg).marginTop) || 0;
-        svg.style.setProperty('margin-top', (current + delta) + 'px', 'important');
-    }
-
-    let ticking = false;
-    function onScroll() {
-        if (ticking || done) return;
-        ticking = true;
-        requestAnimationFrame(function() { ticking = false; align(); });
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', function() {
-        svg.style.removeProperty('margin-top');
-        done = false;
-        align();
-    });
-    window.addEventListener('load', align);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(align);
-    align();
-    setTimeout(align, 500);
-    setTimeout(align, 1500);
+const svg = document.querySelector('.timeline-svg');
+const path = document.querySelector('.timeline-line');
+const path2 = document.querySelector('.timeline-line-secondary');
+const calHeart = document.querySelector('.heart-frame');
+const details = document.querySelector('.details');
+const timeline = document.querySelector('.timeline');
+const event4 = document.querySelector('.event-4');
+if (!svg || !path || !calHeart) return;
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const HEART_ANCHOR_Y = 52 / 60;
+const GAP_ABOVE_FINAL = 28;
+if (!path.dataset.origD) {
+path.dataset.origD = path.getAttribute('d');
+if (path2) path2.dataset.origD = path.getAttribute('d');
+}
+let done = false;
+function align() {
+if (done) return;
+if (details && timeline &&
+details.classList.contains('visible') !== timeline.classList.contains('visible')) return;
+const ctm = path.getScreenCTM();
+if (!ctm) return;
+const s = path.getPointAtLength(0);
+const startY = ctm.b * s.x + ctm.d * s.y + ctm.f;
+const hr = calHeart.getBoundingClientRect();
+const heartY = hr.top + hr.height * HEART_ANCHOR_Y;
+const delta = heartY - startY;
+if (Math.abs(delta) < 1) { done = true; return; }
+const current = parseFloat(getComputedStyle(svg).marginTop) || 0;
+svg.style.setProperty('margin-top', (current + delta) + 'px', 'important');
+}
+function trim() {
+if (!event4) return;
+const tmp = document.createElementNS(SVG_NS, 'path');
+tmp.setAttribute('d', path.dataset.origD);
+svg.appendChild(tmp);
+const ctm = tmp.getScreenCTM();
+const total = tmp.getTotalLength();
+const limitY = event4.getBoundingClientRect().top - GAP_ABOVE_FINAL;
+const endPt = tmp.getPointAtLength(total);
+const endY = ctm.b * endPt.x + ctm.d * endPt.y + ctm.f;
+if (endY < limitY) {
+path.setAttribute('d', path.dataset.origD);
+if (path2) path2.setAttribute('d', path.dataset.origD);
+tmp.remove();
+return;
+}
+let cut = total;
+const steps = 240;
+for (let i = 1; i <= steps; i++) {
+const l = (total * i) / steps;
+const p = tmp.getPointAtLength(l);
+const y = ctm.b * p.x + ctm.d * p.y + ctm.f;
+if (y >= limitY) { cut = l; break; }
+}
+const pts = [];
+const n = 90;
+for (let i = 0; i <= n; i++) {
+const p = tmp.getPointAtLength((cut * i) / n);
+pts.push(p.x.toFixed(2) + ' ' + p.y.toFixed(2));
+}
+const newD = 'M ' + pts.join(' L ');
+path.setAttribute('d', newD);
+if (path2) path2.setAttribute('d', newD);
+tmp.remove();
+}
+function calibrate() { align(); trim(); }
+let ticking = false;
+function onScroll() {
+if (ticking || done) return;
+ticking = true;
+requestAnimationFrame(function() { ticking = false; calibrate(); });
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', function() {
+svg.style.removeProperty('margin-top');
+done = false;
+calibrate();
+});
+window.addEventListener('load', calibrate);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(calibrate);
+calibrate();
+setTimeout(calibrate, 500);
+setTimeout(calibrate, 1500);
 })();
- // Точка на финише линии таймлайна
+// Точка на финише линии таймлайна
 (function() {
-    const path = document.querySelector('.timeline-line');
-    const dot = document.getElementById('timelineEndDot');
-    if (!path || !dot) return;
+const path = document.querySelector('.timeline-line');
+const dot = document.getElementById('timelineEndDot');
+if (!path || !dot) return;
+function place() {
+const total = path.getTotalLength();
+if (!total) return;
+const p = path.getPointAtLength(total);
+dot.setAttribute('transform', 'translate(' + p.x + ', ' + p.y + ')');
+}
+new MutationObserver(place).observe(path, { attributes: true, attributeFilter: ['d'] });
+window.addEventListener('load', place);
+window.addEventListener('resize', place);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+place();
+setTimeout(place, 500);
+setTimeout(place, 1500);
+})();
+// ===== RSVP: форма на странице + отправка в Google-таблицу =====
+(function() {
+const SCRIPT_URL = 'ВСТАВЬ_СЮДА_URL_ВЕБ_ПРИЛОЖЕНИЯ_/exec'; // <-- единственное, что нужно заполнить
+const form = document.getElementById('rsvpForm');
+const done = document.getElementById('rsvpDone');
+const doneText = document.getElementById('rsvpDoneText');
+const status = document.getElementById('rsvpStatus');
+const guestFields = document.getElementById('rsvpGuestFields');
+if (!form) return;
 
-    function place() {
-        const total = path.getTotalLength();
-        if (!total) return;
-        const p = path.getPointAtLength(total);
-        dot.setAttribute('transform', 'translate(' + p.x + ', ' + p.y + ')');
-    }
+// Тот самый салют из трёх залпов — теперь на выбор «Да, с радостью буду»
+function celebrate() {
+if (typeof confetti !== 'function') return;
+confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 }, colors: ['#8B1A2B', '#F5E6E0', '#A63D4F', '#FFFFFF', '#D4A5A5'], disableForReducedMotion: true });
+setTimeout(function() {
+confetti({ particleCount: 80, angle: 60, spread: 55, origin: { x: 0, y: 0.6 }, colors: ['#8B1A2B', '#A63D4F'] });
+confetti({ particleCount: 80, angle: 120, spread: 55, origin: { x: 1, y: 0.6 }, colors: ['#F5E6E0', '#D4A5A5'] });
+}, 300);
+}
 
-    // Если калибровка обрезает или меняет линию — сразу переставляем точку
-    new MutationObserver(place).observe(path, { attributes: true, attributeFilter: ['d'] });
+function showDone(attendance) {
+form.hidden = true;
+done.hidden = false;
+doneText.textContent = attendance === 'Буду с радостью'
+? 'Ваш ответ отправлен. До встречи 18 сентября!'
+: 'Спасибо, что сообщили. Нам будет вас не хватать ♥';
+}
 
-    window.addEventListener('load', place);
-    window.addEventListener('resize', place);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
-    place();
-    setTimeout(place, 500);
-    setTimeout(place, 1500);
-})();        
+// Уже отвечал в этой вкладке — показываем благодарность вместо формы
+const saved = sessionStorage.getItem('weddingRsvp');
+if (saved) showDone(saved);
+
+// Раскрытие блоков + конфетти при выборе «приду»
+form.querySelectorAll('input[name="attendance"]').forEach(function(radio) {
+radio.addEventListener('change', function() {
+const coming = this.value === 'Буду с радостью';
+guestFields.hidden = !coming;
+if (coming) celebrate();
+});
+});
+
+form.addEventListener('submit', async function(e) {
+e.preventDefault();
+const btn = form.querySelector('.rsvp-submit');
+const checked = form.querySelector('input[name="attendance"]:checked');
+const data = {
+name: form.guestName.value.trim(),
+attendance: checked ? checked.value : '',
+drinks: Array.from(form.querySelectorAll('input[name="drinks"]:checked')).map(function(c) { return c.value; }),
+food: form.food.value.trim(),
+wish: form.wish.value.trim(),
+company: form.company.value,
+id: (Date.now().toString(36) + Math.random().toString(36).slice(2, 8))
+};
+if (!data.name) { status.textContent = 'Пожалуйста, представьтесь 🙂'; form.guestName.focus(); return; }
+if (!data.attendance) { status.textContent = 'Выберите, сможете ли вы прийти'; return; }
+if (data.attendance !== 'Буду с радостью') { data.drinks = []; data.food = ''; }
+
+btn.disabled = true; btn.textContent = 'Отправляем…'; status.textContent = '';
+try {
+await fetch(SCRIPT_URL, {
+method: 'POST',
+mode: 'no-cors',
+headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+body: JSON.stringify(data)
+});
+sessionStorage.setItem('weddingRsvp', data.attendance);
+showDone(data.attendance);
+} catch (err) {
+status.textContent = 'Не удалось отправить. Проверьте интернет и попробуйте ещё раз.';
+btn.disabled = false; btn.textContent = 'Отправить ответ';
+}
+});
+})();
 </script>
 </body>
 </html>
