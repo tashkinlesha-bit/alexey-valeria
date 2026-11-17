@@ -416,41 +416,6 @@ background: #fff; border: 1px solid #e8e4dd; border-radius: 4px; transition: all
 .rsvp-done-heart { font-size: 48px; color: #8B1A2B; animation: heartFramePulse 2.5s ease-in-out infinite; display: inline-block; }
 .rsvp-done h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: #3D1F24; margin: 12px 0 8px; }
 .rsvp-done p { font-size: 15px; color: #555; }
-/* ===== КАРУСЕЛЬ ОБРАЗОВ ===== */
-.dress-carousel {
-position: relative;
-max-width: 500px;
-margin: 0 auto;
-display: flex;
-align-items: center;
-gap: 16px;
-}
-.dress-track-container { flex: 1; overflow: hidden; border-radius: 8px; }
-.dress-track {
-display: flex;
-transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-will-change: transform;
-}
-.dress-slide {
-min-width: 100%;
-aspect-ratio: 2 / 3;
-background: #f5f0eb;
-border-radius: 8px;
-overflow: hidden;
-user-select: none;
-}
-.dress-slide img {
-width: 100%; height: 100%;
-object-fit: cover;
-display: block;
-}
-#dressDots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
-#dressDots .dot {
-width: 8px; height: 8px; border-radius: 50%;
-background: #A63D4F; opacity: 0.4;
-cursor: pointer; transition: all 0.3s ease;
-}
-#dressDots .dot.active { opacity: 1; transform: scale(1.2); background: #8B1A2B; }
 .footer { text-align: center; padding: 20px 0 40px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: #8B1A2B; letter-spacing: 1px; }
 .footer-heart { font-size: 14px; color: #8B1A2B; }
 .music-btn {
@@ -611,9 +576,6 @@ align-items: center; text-align: center; }
 .section-title-caps { font-size: 24px; letter-spacing: 3px; }
 .section-wrapper { padding: 30px 0; }
 .rsvp-drinks { grid-template-columns: 1fr; }
-.dress-carousel { gap: 8px; }
-.dress-carousel .carousel-btn { width: 36px; height: 36px; }
-.dress-slide { border-radius: 6px; }
 }
 @media (min-width: 481px) {
 .event-4 { top: 940px; }
@@ -622,16 +584,6 @@ align-items: center; text-align: center; }
 </style>
 </head>
 <body>
-<!-- Фильтр для хаотичных волн -->
-<svg class="hand-drawn-filter" style="display:none;">
-<defs>
-<filter id="tornEdge">
-<feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise"/>
-<feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"/>
-</filter>
-</defs>
-</svg>
-
 <div class="floating-particles" aria-hidden="true">
 <div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div><div class="particle p4"></div><div class="particle p5"></div>
 </div>
@@ -705,7 +657,7 @@ align-items: center; text-align: center; }
 </div>
 </section>
 <!-- Разделитель 1: кремовый → бордовый -->
-<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none" style="filter:url(#tornEdge)">
+<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none">
 <path d="M0,0 L1200,0 L1200,42 C1170,36 1150,48 1120,39 C1090,31 1070,44 1040,35 C1010,28 990,42 960,37 C930,33 910,46 880,38 C850,32 830,43 800,36 C770,30 750,44 720,37 C690,33 670,42 640,35 C610,29 590,43 560,38 C530,34 510,45 480,37 C450,31 430,44 400,36 C370,32 350,43 320,35 C290,29 270,42 240,37 C210,33 190,44 160,36 C130,30 110,43 80,35 C50,29 30,42 0,38 L0,80 Z" fill="var(--cream)"/>
 <path d="M0,38 C30,42 50,30 80,35 C110,43 130,30 160,36 C190,44 210,33 240,37 C270,42 290,29 320,35 C350,43 370,32 400,36 C430,44 450,31 480,37 C510,45 530,34 560,38 C590,43 610,29 640,35 C670,42 690,33 720,37 C750,44 770,30 800,36 C830,43 850,32 880,38 C910,46 930,33 960,37 C990,42 1010,28 1040,35 C1070,44 1090,31 1120,39 C1150,48 1170,36 1200,42 L1200,80 L0,80 Z" fill="var(--burgundy)"/>
 </svg>
@@ -782,7 +734,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 </div>
 </section>
 <!-- Разделитель 2: бордовый → кремовый -->
-<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none" style="filter:url(#tornEdge)">
+<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none">
 <path d="M0,0 L1200,0 L1200,38 C1180,44 1150,32 1120,40 C1090,48 1060,34 1030,39 C1000,45 970,33 940,37 C910,43 880,31 850,38 C820,44 790,32 760,36 C730,42 700,30 670,37 C640,43 610,31 580,35 C550,41 520,29 490,36 C460,42 430,30 400,37 C370,43 340,31 310,35 C280,41 250,29 220,36 C190,42 160,30 130,37 C100,43 70,31 40,35 C20,39 10,33 0,38 L0,80 Z" fill="var(--burgundy)"/>
 <path d="M0,38 C10,33 20,39 40,35 C70,31 100,43 130,37 C160,30 190,42 220,36 C250,29 280,41 310,35 C340,31 370,43 400,37 C430,30 460,42 490,36 C520,29 550,41 580,35 C610,31 640,43 670,37 C700,30 730,42 760,36 C790,32 820,44 850,38 C880,31 910,43 940,37 C970,33 1000,45 1030,39 C1060,34 1090,48 1120,40 C1150,32 1180,44 1200,38 L1200,80 L0,80 Z" fill="var(--cream)"/>
 </svg>
@@ -810,30 +762,18 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <span class="section-title-caps">Код</span>
 </div>
 <p class="dresscode-text">Будем рады, если вы поддержите нашу цветовую гамму в своих нарядах</p>
-<!-- Карусель образов -->
-<div class="dress-carousel">
-<button class="carousel-btn prev" id="dressPrev" aria-label="Предыдущий образ">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-</button>
-<div class="dress-track-container">
-<div class="dress-track" id="dressTrack">
-<div class="dress-slide"><img src="dress1.jpg" alt="Образ 1" loading="lazy" /></div>
-<div class="dress-slide"><img src="dress2.jpg" alt="Образ 2" loading="lazy" /></div>
-<div class="dress-slide"><img src="dress3.jpg" alt="Образ 3" loading="lazy" /></div>
-<div class="dress-slide"><img src="dress4.jpg" alt="Образ 4" loading="lazy" /></div>
-<div class="dress-slide"><img src="dress5.jpg" alt="Образ 5" loading="lazy" /></div>
+<div class="palette">
+<div class="palette-color" style="background: #FFFFFF; border: 1px solid #e8e4dd;" title="Белый"></div>
+<div class="palette-color" style="background: #8B1A2B;" title="Бургунди"></div>
+<div class="palette-color" style="background: #D4A5A5;" title="Пыльная роза"></div>
+<div class="palette-color" style="background: #F5E6E0;" title="Шампань"></div>
+<div class="palette-color" style="background: #2D5A4A;" title="Изумрудный"></div>
 </div>
-</div>
-<button class="carousel-btn next" id="dressNext" aria-label="Следующий образ">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-</button>
-</div>
-<div class="carousel-dots" id="dressDots"></div>
 </section>
 </div>
 </section>
 <!-- Разделитель 3: кремовый → бордовый -->
-<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none" style="filter:url(#tornEdge)">
+<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none">
 <path d="M0,0 L1200,0 L1200,40 C1160,34 1140,46 1100,37 C1060,29 1040,43 1000,36 C960,30 940,44 900,38 C860,33 840,45 800,37 C760,31 740,43 700,36 C660,30 640,44 600,38 C560,33 540,45 500,37 C460,31 440,43 400,36 C360,30 340,44 300,38 C260,33 240,45 200,37 C160,31 140,43 100,36 C60,30 40,42 0,38 L0,80 Z" fill="var(--cream)"/>
 <path d="M0,38 C40,42 60,30 100,36 C140,43 160,31 200,37 C240,45 260,33 300,38 C340,44 360,30 400,36 C440,43 460,31 500,37 C540,45 560,33 600,38 C640,44 660,30 700,36 C740,43 760,31 800,37 C840,45 860,33 900,38 C940,44 960,30 1000,36 C1040,43 1060,29 1100,37 C1140,46 1160,34 1200,40 L1200,80 L0,80 Z" fill="var(--burgundy)"/>
 </svg>
@@ -897,7 +837,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 </div>
 </section>
 <!-- Разделитель 4: бордовый → кремовый -->
-<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none" style="filter:url(#tornEdge)">
+<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none">
 <path d="M0,0 L1200,0 L1200,42 C1170,38 1150,46 1120,36 C1090,27 1070,43 1040,35 C1010,28 990,44 960,37 C930,31 910,45 880,36 C850,28 830,44 800,37 C770,31 750,45 720,36 C690,28 670,44 640,37 C610,31 590,45 560,36 C530,28 510,44 480,37 C450,31 430,45 400,36 C370,28 350,44 320,37 C290,31 270,45 240,36 C210,28 190,44 160,37 C130,31 110,45 80,36 C50,28 30,42 0,38 L0,80 Z" fill="var(--burgundy)"/>
 <path d="M0,38 C30,42 50,28 80,36 C110,45 130,31 160,37 C190,44 210,28 240,36 C270,45 290,31 320,37 C350,44 370,28 400,36 C430,45 450,31 480,37 C510,44 530,28 560,36 C590,45 610,31 640,37 C670,44 690,28 720,36 C750,45 770,31 800,37 C830,44 850,28 880,36 C910,45 930,31 960,37 C990,44 1010,28 1040,35 C1070,43 1090,27 1120,36 C1150,46 1170,38 1200,42 L1200,80 L0,80 Z" fill="var(--cream)"/>
 </svg>
@@ -912,6 +852,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 
 <form id="rsvpForm" class="rsvp-form" novalidate>
 <input type="text" name="guestName" class="rsvp-input" placeholder="Имя и фамилия" required autocomplete="name">
+
 <div class="rsvp-choice">
 <label class="rsvp-radio">
 <input type="radio" name="attendance" value="Буду с радостью" required>
@@ -922,6 +863,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <span>К сожалению, не смогу</span>
 </label>
 </div>
+
 <div id="rsvpGuestFields" hidden>
 <p class="rsvp-label">Какие напитки вам ближе?</p>
 <div class="rsvp-drinks">
@@ -934,8 +876,11 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <p class="rsvp-label" style="margin-top:16px;">Аллергии или ограничения по питанию</p>
 <input type="text" name="food" class="rsvp-input" placeholder="Например: не ем рыбу. Если нет — оставьте пустым">
 </div>
+
 <textarea name="wish" class="rsvp-input" rows="3" placeholder="Комментарий или пожелание (необязательно)"></textarea>
+
 <input type="text" name="company" class="rsvp-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
 <button type="submit" class="btn rsvp-submit">Отправить ответ</button>
 <p class="rsvp-status" id="rsvpStatus" role="status"></p>
 <p class="rsvp-note">Если нужно будет изменить ответ — напишите нашему организатору</p>
@@ -1073,7 +1018,7 @@ parallaxSlides.forEach(function(slide) { slide.style.backgroundPosition = 'cente
 }
 }
 
-// ===== SCROLL HANDLERS (UNIFIED rAF) =====
+// ===== UNIFIED SCROLL HANDLER (rAF) =====
 var progressBar = document.getElementById('progressBar');
 var initialsBadge = document.getElementById('initialsBadge');
 var scrollTicking = false;
@@ -1155,7 +1100,7 @@ const size = 15 + Math.random() * 10; heart.style.width = size + 'px'; heart.sty
 document.body.appendChild(heart); setTimeout(() => { heart.remove(); }, 1500);
 });
 
-// ===== TIMELINE CALIBRATION =====
+// ===== TIMELINE CALIBRATION (Dynamic Heart + End Dot + Trim) =====
 (function() {
 const svg = document.querySelector('.timeline-svg');
 const path = document.querySelector('.timeline-line');
@@ -1264,58 +1209,7 @@ setTimeout(calibrate, 1500);
 new MutationObserver(placeDot).observe(path, { attributes: true, attributeFilter: ['d'] });
 })();
 
-// ===== DRESS CODE CAROUSEL =====
-(function() {
-const track = document.getElementById('dressTrack');
-const prevBtn = document.getElementById('dressPrev');
-const nextBtn = document.getElementById('dressNext');
-const dotsContainer = document.getElementById('dressDots');
-if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
-const slides = track.querySelectorAll('.dress-slide');
-const total = slides.length;
-if (total === 0) return;
-let current = 0, isAnimating = false, trackPos = 1;
-track.appendChild(slides[0].cloneNode(true));
-track.insertBefore(slides[total - 1].cloneNode(true), slides[0]);
-track.style.transition = 'none';
-track.style.transform = `translateX(-${trackPos * 100}%)`;
-slides.forEach((_, i) => {
-const dot = document.createElement('div'); dot.classList.add('dot');
-if (i === 0) dot.classList.add('active');
-dot.addEventListener('click', () => goTo(i));
-dotsContainer.appendChild(dot);
-});
-const dots = dotsContainer.querySelectorAll('.dot');
-function updateDots() { dots.forEach((d, i) => d.classList.toggle('active', i === current)); }
-function goTo(index) {
-if (isAnimating) return; isAnimating = true; current = index; trackPos = index + 1;
-track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-track.style.transform = `translateX(-${trackPos * 100}%)`; updateDots();
-setTimeout(() => { isAnimating = false; }, 500);
-}
-function next() {
-if (isAnimating) return; isAnimating = true; current = (current + 1) % total; trackPos++;
-track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-track.style.transform = `translateX(-${trackPos * 100}%)`; updateDots();
-if (trackPos === total + 1) {
-setTimeout(() => { track.style.transition = 'none'; trackPos = 1; track.style.transform = `translateX(-${trackPos * 100}%)`; isAnimating = false; }, 500);
-} else { setTimeout(() => { isAnimating = false; }, 500); }
-}
-function prev() {
-if (isAnimating) return; isAnimating = true; current = (current - 1 + total) % total; trackPos--;
-track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-track.style.transform = `translateX(-${trackPos * 100}%)`; updateDots();
-if (trackPos === 0) {
-setTimeout(() => { track.style.transition = 'none'; trackPos = total; track.style.transform = `translateX(-${trackPos * 100}%)`; isAnimating = false; }, 500);
-} else { setTimeout(() => { isAnimating = false; }, 500); }
-}
-prevBtn.addEventListener('click', prev); nextBtn.addEventListener('click', next);
-let sx = 0, ex = 0;
-track.addEventListener('touchstart', e => { sx = e.changedTouches[0].screenX; }, { passive: true });
-track.addEventListener('touchend', e => { ex = e.changedTouches[0].screenX; const d = sx - ex; if (Math.abs(d) > 50) d > 0 ? next() : prev(); }, { passive: true });
-})();
-
-// ===== RSVP FORM =====
+// ===== RSVP FORM WITH TIMEOUT =====
 (function() {
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz12x0Uvm_vBncDrGlPnvDn2Q1_l-CLGG6-cQeo3gJkDxJLzmwsF79Lj_7KWnZIM5R9yA/exec';
 const FALLBACK_PHONE = '79001234567'; // <-- ЗАМЕНИ НА РЕАЛЬНЫЙ НОМЕР АЙГУЛЬ
