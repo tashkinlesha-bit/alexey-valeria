@@ -189,7 +189,13 @@ opacity: 0; filter: blur(8px); animation: blurIn 1.2s ease 1.8s forwards;
 }
 .section-wrapper { position: relative; padding: 40px 0; }
 .section-light { background: var(--cream); color: var(--burgundy); }
-.section-dark { background: var(--burgundy); color: var(--white); }
+.section-dark { 
+background: var(--burgundy); 
+color: var(--white);
+position: relative;
+overflow: hidden;
+}
+.section-dark .container { position: relative; z-index: 2; }
 .section-dark .countdown-title,
 .section-dark .countdown-label,
 .section-dark .detail-note { color: rgba(255, 255, 255, 0.7); }
@@ -410,6 +416,41 @@ background: #fff; border: 1px solid #e8e4dd; border-radius: 4px; transition: all
 .rsvp-done-heart { font-size: 48px; color: #8B1A2B; animation: heartFramePulse 2.5s ease-in-out infinite; display: inline-block; }
 .rsvp-done h3 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: #3D1F24; margin: 12px 0 8px; }
 .rsvp-done p { font-size: 15px; color: #555; }
+/* ===== КАРУСЕЛЬ ОБРАЗОВ ===== */
+.dress-carousel {
+position: relative;
+max-width: 500px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+gap: 16px;
+}
+.dress-track-container { flex: 1; overflow: hidden; border-radius: 8px; }
+.dress-track {
+display: flex;
+transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+will-change: transform;
+}
+.dress-slide {
+min-width: 100%;
+aspect-ratio: 2 / 3;
+background: #f5f0eb;
+border-radius: 8px;
+overflow: hidden;
+user-select: none;
+}
+.dress-slide img {
+width: 100%; height: 100%;
+object-fit: cover;
+display: block;
+}
+#dressDots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
+#dressDots .dot {
+width: 8px; height: 8px; border-radius: 50%;
+background: #A63D4F; opacity: 0.4;
+cursor: pointer; transition: all 0.3s ease;
+}
+#dressDots .dot.active { opacity: 1; transform: scale(1.2); background: #8B1A2B; }
 .footer { text-align: center; padding: 20px 0 40px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: #8B1A2B; letter-spacing: 1px; }
 .footer-heart { font-size: 14px; color: #8B1A2B; }
 .music-btn {
@@ -552,7 +593,7 @@ border-radius: 50%; animation: floatParticle 15s infinite ease-in-out;
 .day-frame-num { font-size: 30px; }
 .heart-frame { width: 56px; height: 56px; }
 .timeline-flow { height: 760px; }
-.timeline-svg { width: 250px; height: 1400px; margin-top: -302px !important; }
+.timeline-svg { width: 250px; height: 1400px; margin-top: -302px; }
 .event-1 { top: 140px; }
 .event-2 { top: 280px; }
 .event-3 { top: 420px; }
@@ -570,6 +611,9 @@ align-items: center; text-align: center; }
 .section-title-caps { font-size: 24px; letter-spacing: 3px; }
 .section-wrapper { padding: 30px 0; }
 .rsvp-drinks { grid-template-columns: 1fr; }
+.dress-carousel { gap: 8px; }
+.dress-carousel .carousel-btn { width: 36px; height: 36px; }
+.dress-slide { border-radius: 6px; }
 }
 @media (min-width: 481px) {
 .event-4 { top: 940px; }
@@ -578,6 +622,16 @@ align-items: center; text-align: center; }
 </style>
 </head>
 <body>
+<!-- Фильтр для хаотичных волн -->
+<svg class="hand-drawn-filter" style="display:none;">
+<defs>
+<filter id="tornEdge">
+<feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise"/>
+<feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+</filter>
+</defs>
+</svg>
+
 <div class="floating-particles" aria-hidden="true">
 <div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div><div class="particle p4"></div><div class="particle p5"></div>
 </div>
@@ -650,35 +704,12 @@ align-items: center; text-align: center; }
 </section>
 </div>
 </section>
-<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none">
-<path d="M0,0 L1200,0 L1200,40 C1180,35 1160,45 1140,38 C1120,32 1100,42 1080,36 C1060,30 1040,44 1020,37 C1000,31 980,43 960,38 C940,33 920,45 900,39 C880,34 860,42 840,37 C820,32 800,44 780,38 C760,33 740,41 720,36 C700,31 680,43 660,37 C640,32 620,44 600,38 C580,33 560,42 540,37 C520,32 500,44 480,38 C460,33 440,41 420,36 C400,31 380,43 360,37 C340,32 320,44 300,38 C280,33 260,42 240,37 C220,32 200,44 180,38 C160,33 140,41 120,36 C100,31 80,43 60,37 C40,32 20,42 0,38 L0,80 Z" fill="var(--cream)"/>
-<path d="M0,38 C20,42 40,32 60,37 C80,43 100,31 120,36 C140,41 160,33 180,38 C200,44 220,32 240,37 C260,42 280,33 300,38 C320,44 340,32 360,37 C380,43 400,31 420,36 C440,41 460,33 480,38 C500,44 520,32 540,37 C560,42 580,33 600,38 C620,44 640,32 660,37 C680,43 700,31 720,36 C740,41 760,33 780,38 C800,44 820,32 840,37 C860,42 880,34 900,39 C920,45 940,33 960,38 C980,43 1000,31 1020,37 C1040,44 1060,30 1080,36 C1100,42 1120,32 1140,38 C1160,45 1180,35 1200,40 L1200,80 L0,80 Z" fill="var(--burgundy)"/>
+<!-- Разделитель 1: кремовый → бордовый -->
+<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none" style="filter:url(#tornEdge)">
+<path d="M0,0 L1200,0 L1200,42 C1170,36 1150,48 1120,39 C1090,31 1070,44 1040,35 C1010,28 990,42 960,37 C930,33 910,46 880,38 C850,32 830,43 800,36 C770,30 750,44 720,37 C690,33 670,42 640,35 C610,29 590,43 560,38 C530,34 510,45 480,37 C450,31 430,44 400,36 C370,32 350,43 320,35 C290,29 270,42 240,37 C210,33 190,44 160,36 C130,30 110,43 80,35 C50,29 30,42 0,38 L0,80 Z" fill="var(--cream)"/>
+<path d="M0,38 C30,42 50,30 80,35 C110,43 130,30 160,36 C190,44 210,33 240,37 C270,42 290,29 320,35 C350,43 370,32 400,36 C430,44 450,31 480,37 C510,45 530,34 560,38 C590,43 610,29 640,35 C670,42 690,33 720,37 C750,44 770,30 800,36 C830,43 850,32 880,38 C910,46 930,33 960,37 C990,42 1010,28 1040,35 C1070,44 1090,31 1120,39 C1150,48 1170,36 1200,42 L1200,80 L0,80 Z" fill="var(--burgundy)"/>
 </svg>
-<section class="section-wrapper section-dark">
-<div class="container">
-<section class="details reveal">
-<div class="section-heading">
-<span class="section-title-script">Дата</span>
-<span class="section-title-caps">Проведения свадьбы</span>
-</div>
-<div class="mini-calendar-wrapper">
-<div class="mini-calendar-frame">
-<div class="calendar-month-header">СЕНТЯБРЬ 2027</div>
-<div class="calendar-days-frame">
-<div class="day-frame">17</div>
-<div class="day-frame wedding-day-frame">
-<svg class="heart-frame" viewBox="0 0 60 60" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<path d="M30 52 C 28 48, 18 42, 14 34 C 10 26, 12 18, 18 14 C 22 11, 27 13, 30 18 C 33 13, 38 11, 42 14 C 48 18, 50 26, 46 34 C 42 42, 32 48, 30 52 Z"/>
-</svg>
-<span class="day-frame-num">18</span>
-</div>
-<div class="day-frame">19</div>
-</div>
-</div>
-</div>
-</section>
-<section class="timeline reveal">
-<div class="timeline-flow">
+<section class="section-wrapper section-dark" id="darkSection">
 <svg class="timeline-svg" viewBox="0 -280 400 1500" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="overflow: visible; z-index: 1;">
 <path class="timeline-line"
 d="M 200 0
@@ -704,6 +735,30 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <path d="M 0,-8 C -6,-14 -14,-14 -14,-8 C -14,0 -7,8 0,14 C 7,8 14,0 14,-8 C 14,-14 6,-14 0,-8 Z" fill="#FFFFFF" transform="scale(1.2)"/>
 </g>
 </svg>
+<div class="container">
+<section class="details reveal">
+<div class="section-heading">
+<span class="section-title-script">Дата</span>
+<span class="section-title-caps">Проведения свадьбы</span>
+</div>
+<div class="mini-calendar-wrapper">
+<div class="mini-calendar-frame">
+<div class="calendar-month-header">СЕНТЯБРЬ 2027</div>
+<div class="calendar-days-frame">
+<div class="day-frame">17</div>
+<div class="day-frame wedding-day-frame">
+<svg class="heart-frame" viewBox="0 0 60 60" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M30 52 C 28 48, 18 42, 14 34 C 10 26, 12 18, 18 14 C 22 11, 27 13, 30 18 C 33 13, 38 11, 42 14 C 48 18, 50 26, 46 34 C 42 42, 32 48, 30 52 Z"/>
+</svg>
+<span class="day-frame-num">18</span>
+</div>
+<div class="day-frame">19</div>
+</div>
+</div>
+</div>
+</section>
+<section class="timeline reveal">
+<div class="timeline-flow">
 <div class="timeline-events">
 <div class="timeline-event event-1">
 <div class="event-time">13:30</div>
@@ -726,9 +781,10 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 </section>
 </div>
 </section>
-<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none">
-<path d="M0,0 L1200,0 L1200,40 C1180,35 1160,45 1140,38 C1120,32 1100,42 1080,36 C1060,30 1040,44 1020,37 C1000,31 980,43 960,38 C940,33 920,45 900,39 C880,34 860,42 840,37 C820,32 800,44 780,38 C760,33 740,41 720,36 C700,31 680,43 660,37 C640,32 620,44 600,38 C580,33 560,42 540,37 C520,32 500,44 480,38 C460,33 440,41 420,36 C400,31 380,43 360,37 C340,32 320,44 300,38 C280,33 260,42 240,37 C220,32 200,44 180,38 C160,33 140,41 120,36 C100,31 80,43 60,37 C40,32 20,42 0,38 L0,80 Z" fill="var(--burgundy)"/>
-<path d="M0,38 C20,42 40,32 60,37 C80,43 100,31 120,36 C140,41 160,33 180,38 C200,44 220,32 240,37 C260,42 280,33 300,38 C320,44 340,32 360,37 C380,43 400,31 420,36 C440,41 460,33 480,38 C500,44 520,32 540,37 C560,42 580,33 600,38 C620,44 640,32 660,37 C680,43 700,31 720,36 C740,41 760,33 780,38 C800,44 820,32 840,37 C860,42 880,34 900,39 C920,45 940,33 960,38 C980,43 1000,31 1020,37 C1040,44 1060,30 1080,36 C1100,42 1120,32 1140,38 C1160,45 1180,35 1200,40 L1200,80 L0,80 Z" fill="var(--cream)"/>
+<!-- Разделитель 2: бордовый → кремовый -->
+<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none" style="filter:url(#tornEdge)">
+<path d="M0,0 L1200,0 L1200,38 C1180,44 1150,32 1120,40 C1090,48 1060,34 1030,39 C1000,45 970,33 940,37 C910,43 880,31 850,38 C820,44 790,32 760,36 C730,42 700,30 670,37 C640,43 610,31 580,35 C550,41 520,29 490,36 C460,42 430,30 400,37 C370,43 340,31 310,35 C280,41 250,29 220,36 C190,42 160,30 130,37 C100,43 70,31 40,35 C20,39 10,33 0,38 L0,80 Z" fill="var(--burgundy)"/>
+<path d="M0,38 C10,33 20,39 40,35 C70,31 100,43 130,37 C160,30 190,42 220,36 C250,29 280,41 310,35 C340,31 370,43 400,37 C430,30 460,42 490,36 C520,29 550,41 580,35 C610,31 640,43 670,37 C700,30 730,42 760,36 C790,32 820,44 850,38 C880,31 910,43 940,37 C970,33 1000,45 1030,39 C1060,34 1090,48 1120,40 C1150,32 1180,44 1200,38 L1200,80 L0,80 Z" fill="var(--cream)"/>
 </svg>
 <section class="section-wrapper section-light">
 <div class="container">
@@ -754,19 +810,32 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <span class="section-title-caps">Код</span>
 </div>
 <p class="dresscode-text">Будем рады, если вы поддержите нашу цветовую гамму в своих нарядах</p>
-<div class="palette">
-<div class="palette-color" style="background: #FFFFFF; border: 1px solid #e8e4dd;" title="Белый"></div>
-<div class="palette-color" style="background: #8B1A2B;" title="Бургунди"></div>
-<div class="palette-color" style="background: #D4A5A5;" title="Пыльная роза"></div>
-<div class="palette-color" style="background: #F5E6E0;" title="Шампань"></div>
-<div class="palette-color" style="background: #2D5A4A;" title="Изумрудный"></div>
+<!-- Карусель образов -->
+<div class="dress-carousel">
+<button class="carousel-btn prev" id="dressPrev" aria-label="Предыдущий образ">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+</button>
+<div class="dress-track-container">
+<div class="dress-track" id="dressTrack">
+<div class="dress-slide"><img src="dress1.jpg" alt="Образ 1" loading="lazy" /></div>
+<div class="dress-slide"><img src="dress2.jpg" alt="Образ 2" loading="lazy" /></div>
+<div class="dress-slide"><img src="dress3.jpg" alt="Образ 3" loading="lazy" /></div>
+<div class="dress-slide"><img src="dress4.jpg" alt="Образ 4" loading="lazy" /></div>
+<div class="dress-slide"><img src="dress5.jpg" alt="Образ 5" loading="lazy" /></div>
 </div>
+</div>
+<button class="carousel-btn next" id="dressNext" aria-label="Следующий образ">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+</button>
+</div>
+<div class="carousel-dots" id="dressDots"></div>
 </section>
 </div>
 </section>
-<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none">
-<path d="M0,0 L1200,0 L1200,40 C1180,35 1160,45 1140,38 C1120,32 1100,42 1080,36 C1060,30 1040,44 1020,37 C1000,31 980,43 960,38 C940,33 920,45 900,39 C880,34 860,42 840,37 C820,32 800,44 780,38 C760,33 740,41 720,36 C700,31 680,43 660,37 C640,32 620,44 600,38 C580,33 560,42 540,37 C520,32 500,44 480,38 C460,33 440,41 420,36 C400,31 380,43 360,37 C340,32 320,44 300,38 C280,33 260,42 240,37 C220,32 200,44 180,38 C160,33 140,41 120,36 C100,31 80,43 60,37 C40,32 20,42 0,38 L0,80 Z" fill="var(--cream)"/>
-<path d="M0,38 C20,42 40,32 60,37 C80,43 100,31 120,36 C140,41 160,33 180,38 C200,44 220,32 240,37 C260,42 280,33 300,38 C320,44 340,32 360,37 C380,43 400,31 420,36 C440,41 460,33 480,38 C500,44 520,32 540,37 C560,42 580,33 600,38 C620,44 640,32 660,37 C680,43 700,31 720,36 C740,41 760,33 780,38 C800,44 820,32 840,37 C860,42 880,34 900,39 C920,45 940,33 960,38 C980,43 1000,31 1020,37 C1040,44 1060,30 1080,36 C1100,42 1120,32 1140,38 C1160,45 1180,35 1200,40 L1200,80 L0,80 Z" fill="var(--burgundy)"/>
+<!-- Разделитель 3: кремовый → бордовый -->
+<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none" style="filter:url(#tornEdge)">
+<path d="M0,0 L1200,0 L1200,40 C1160,34 1140,46 1100,37 C1060,29 1040,43 1000,36 C960,30 940,44 900,38 C860,33 840,45 800,37 C760,31 740,43 700,36 C660,30 640,44 600,38 C560,33 540,45 500,37 C460,31 440,43 400,36 C360,30 340,44 300,38 C260,33 240,45 200,37 C160,31 140,43 100,36 C60,30 40,42 0,38 L0,80 Z" fill="var(--cream)"/>
+<path d="M0,38 C40,42 60,30 100,36 C140,43 160,31 200,37 C240,45 260,33 300,38 C340,44 360,30 400,36 C440,43 460,31 500,37 C540,45 560,33 600,38 C640,44 660,30 700,36 C740,43 760,31 800,37 C840,45 860,33 900,38 C940,44 960,30 1000,36 C1040,43 1060,29 1100,37 C1140,46 1160,34 1200,40 L1200,80 L0,80 Z" fill="var(--burgundy)"/>
 </svg>
 <section class="section-wrapper section-dark">
 <div class="container">
@@ -784,13 +853,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <div class="wish-slide">
 <div class="wish-icon-svg">
 <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<g>
-<path d="M12 22 L12 38 L36 38 L36 22 Z" /><path d="M10 22 L38 22" /><path d="M10 22 L10 20 L38 20 L38 22" />
-<path d="M24 20 L24 38" /><path d="M12 29 L36 29" />
-<path d="M24 20 C24 14, 18 12, 18 16 C18 20, 24 20, 24 20" />
-<path d="M24 20 C24 14, 30 12, 30 16 C30 20, 24 20, 24 20" />
-<path d="M24 20 C22 22, 20 24, 18 26" /><path d="M24 20 C26 22, 28 24, 30 26" />
-</g>
+<g><path d="M12 22 L12 38 L36 38 L36 22 Z" /><path d="M10 22 L38 22" /><path d="M10 22 L10 20 L38 20 L38 22" /><path d="M24 20 L24 38" /><path d="M12 29 L36 29" /><path d="M24 20 C24 14, 18 12, 18 16 C18 20, 24 20, 24 20" /><path d="M24 20 C24 14, 30 12, 30 16 C30 20, 24 20, 24 20" /><path d="M24 20 C22 22, 20 24, 18 26" /><path d="M24 20 C26 22, 28 24, 30 26" /></g>
 </svg>
 </div>
 <h3>О подарках</h3>
@@ -799,17 +862,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <div class="wish-slide">
 <div class="wish-icon-svg">
 <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<g>
-<circle cx="16" cy="14" r="5" /><circle cx="32" cy="14" r="5" />
-<circle cx="16" cy="14" r="2.5" stroke="none" opacity="0.3"/>
-<circle cx="32" cy="14" r="2.5" stroke="none" opacity="0.3"/>
-<circle cx="24" cy="24" r="12" /><ellipse cx="24" cy="28" rx="5" ry="4" />
-<circle cx="20" cy="22" r="1.5" stroke="none"/>
-<circle cx="28" cy="22" r="1.5" stroke="none"/>
-<circle cx="24" cy="26" r="1.5" stroke="none"/>
-<path d="M22 29 C23 30, 25 30, 26 29" />
-<ellipse cx="18" cy="36" rx="3" ry="4" /><ellipse cx="30" cy="36" rx="3" ry="4" />
-</g>
+<g><circle cx="16" cy="14" r="5" /><circle cx="32" cy="14" r="5" /><circle cx="16" cy="14" r="2.5" stroke="none" opacity="0.3"/><circle cx="32" cy="14" r="2.5" stroke="none" opacity="0.3"/><circle cx="24" cy="24" r="12" /><ellipse cx="24" cy="28" rx="5" ry="4" /><circle cx="20" cy="22" r="1.5" stroke="none"/><circle cx="28" cy="22" r="1.5" stroke="none"/><circle cx="24" cy="26" r="1.5" stroke="none"/><path d="M22 29 C23 30, 25 30, 26 29" /><ellipse cx="18" cy="36" rx="3" ry="4" /><ellipse cx="30" cy="36" rx="3" ry="4" /></g>
 </svg>
 </div>
 <h3>О маленьких гостях</h3>
@@ -818,18 +871,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <div class="wish-slide">
 <div class="wish-icon-svg">
 <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<g>
-<path d="M16 8 L16 24 C16 28, 20 30, 24 30 C28 30, 32 28, 32 24 L32 8" />
-<path d="M24 30 L24 38" /><path d="M18 38 L30 38" />
-<path d="M28 12 L28 26 C28 29, 31 30, 33 30 C35 30, 38 29, 38 26 L38 12" transform="rotate(-15 33 26)" />
-<circle cx="20" cy="14" r="1" stroke="none"/>
-<circle cx="24" cy="16" r="1.2" stroke="none"/>
-<circle cx="28" cy="13" r="0.8" stroke="none"/>
-<circle cx="22" cy="18" r="0.9" stroke="none"/>
-<circle cx="32" cy="18" r="1" stroke="none"/>
-<circle cx="35" cy="16" r="0.8" stroke="none"/>
-<path d="M26 10 L24 8" /><path d="M28 9 L29 7" /><path d="M30 11 L32 9" />
-</g>
+<g><path d="M16 8 L16 24 C16 28, 20 30, 24 30 C28 30, 32 28, 32 24 L32 8" /><path d="M24 30 L24 38" /><path d="M18 38 L30 38" /><path d="M28 12 L28 26 C28 29, 31 30, 33 30 C35 30, 38 29, 38 26 L38 12" transform="rotate(-15 33 26)" /><circle cx="20" cy="14" r="1" stroke="none"/><circle cx="24" cy="16" r="1.2" stroke="none"/><circle cx="28" cy="13" r="0.8" stroke="none"/><circle cx="22" cy="18" r="0.9" stroke="none"/><circle cx="32" cy="18" r="1" stroke="none"/><circle cx="35" cy="16" r="0.8" stroke="none"/><path d="M26 10 L24 8" /><path d="M28 9 L29 7" /><path d="M30 11 L32 9" /></g>
 </svg>
 </div>
 <h3>О настроении</h3>
@@ -838,17 +880,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <div class="wish-slide">
 <div class="wish-icon-svg">
 <svg viewBox="0 0 48 48" fill="none" stroke="#8B1A2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<g>
-<path d="M24 6 L24 10" />
-<path d="M14 10 C14 10, 18 10, 24 14 C30 10, 34 10, 34 10" />
-<path d="M18 14 L18 20 L30 20 L30 14" />
-<path d="M18 20 C20 22, 28 22, 30 20" />
-<path d="M18 20 L14 38 L34 38 L30 20" />
-<path d="M20 22 L18 36" /><path d="M24 22 L24 36" /><path d="M28 22 L30 36" />
-<path d="M17 24 L31 24" />
-<path d="M24 24 C22 22, 20 22, 20 24 C20 26, 22 26, 24 24" />
-<path d="M24 24 C26 22, 28 22, 28 24 C28 26, 26 26, 24 24" />
-</g>
+<g><path d="M24 6 L24 10" /><path d="M14 10 C14 10, 18 10, 24 14 C30 10, 34 10, 34 10" /><path d="M18 14 L18 20 L30 20 L30 14" /><path d="M18 20 C20 22, 28 22, 30 20" /><path d="M18 20 L14 38 L34 38 L30 20" /><path d="M20 22 L18 36" /><path d="M24 22 L24 36" /><path d="M28 22 L30 36" /><path d="M17 24 L31 24" /><path d="M24 24 C22 22, 20 22, 20 24 C20 26, 22 26, 24 24" /><path d="M24 24 C26 22, 28 22, 28 24 C28 26, 26 26, 24 24" /></g>
 </svg>
 </div>
 <h3>О дресс-коде</h3>
@@ -864,9 +896,10 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 </section>
 </div>
 </section>
-<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none">
-<path d="M0,0 L1200,0 L1200,40 C1180,35 1160,45 1140,38 C1120,32 1100,42 1080,36 C1060,30 1040,44 1020,37 C1000,31 980,43 960,38 C940,33 920,45 900,39 C880,34 860,42 840,37 C820,32 800,44 780,38 C760,33 740,41 720,36 C700,31 680,43 660,37 C640,32 620,44 600,38 C580,33 560,42 540,37 C520,32 500,44 480,38 C460,33 440,41 420,36 C400,31 380,43 360,37 C340,32 320,44 300,38 C280,33 260,42 240,37 C220,32 200,44 180,38 C160,33 140,41 120,36 C100,31 80,43 60,37 C40,32 20,42 0,38 L0,80 Z" fill="var(--burgundy)"/>
-<path d="M0,38 C20,42 40,32 60,37 C80,43 100,31 120,36 C140,41 160,33 180,38 C200,44 220,32 240,37 C260,42 280,33 300,38 C320,44 340,32 360,37 C380,43 400,31 420,36 C440,41 460,33 480,38 C500,44 520,32 540,37 C560,42 580,33 600,38 C620,44 640,32 660,37 C680,43 700,31 720,36 C740,41 760,33 780,38 C800,44 820,32 840,37 C860,42 880,34 900,39 C920,45 940,33 960,38 C980,43 1000,31 1020,37 C1040,44 1060,30 1080,36 C1100,42 1120,32 1140,38 C1160,45 1180,35 1200,40 L1200,80 L0,80 Z" fill="var(--cream)"/>
+<!-- Разделитель 4: бордовый → кремовый -->
+<svg class="section-divider" viewBox="0 0 1200 80" preserveAspectRatio="none" style="filter:url(#tornEdge)">
+<path d="M0,0 L1200,0 L1200,42 C1170,38 1150,46 1120,36 C1090,27 1070,43 1040,35 C1010,28 990,44 960,37 C930,31 910,45 880,36 C850,28 830,44 800,37 C770,31 750,45 720,36 C690,28 670,44 640,37 C610,31 590,45 560,36 C530,28 510,44 480,37 C450,31 430,45 400,36 C370,28 350,44 320,37 C290,31 270,45 240,36 C210,28 190,44 160,37 C130,31 110,45 80,36 C50,28 30,42 0,38 L0,80 Z" fill="var(--burgundy)"/>
+<path d="M0,38 C30,42 50,28 80,36 C110,45 130,31 160,37 C190,44 210,28 240,36 C270,45 290,31 320,37 C350,44 370,28 400,36 C430,45 450,31 480,37 C510,44 530,28 560,36 C590,45 610,31 640,37 C670,44 690,28 720,36 C750,45 770,31 800,37 C830,44 850,28 880,36 C910,45 930,31 960,37 C990,44 1010,28 1040,35 C1070,43 1090,27 1120,36 C1150,46 1170,38 1200,42 L1200,80 L0,80 Z" fill="var(--cream)"/>
 </svg>
 <section class="section-wrapper section-light">
 <div class="container">
@@ -879,7 +912,6 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 
 <form id="rsvpForm" class="rsvp-form" novalidate>
 <input type="text" name="guestName" class="rsvp-input" placeholder="Имя и фамилия" required autocomplete="name">
-
 <div class="rsvp-choice">
 <label class="rsvp-radio">
 <input type="radio" name="attendance" value="Буду с радостью" required>
@@ -890,7 +922,6 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <span>К сожалению, не смогу</span>
 </label>
 </div>
-
 <div id="rsvpGuestFields" hidden>
 <p class="rsvp-label">Какие напитки вам ближе?</p>
 <div class="rsvp-drinks">
@@ -903,11 +934,8 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 <p class="rsvp-label" style="margin-top:16px;">Аллергии или ограничения по питанию</p>
 <input type="text" name="food" class="rsvp-input" placeholder="Например: не ем рыбу. Если нет — оставьте пустым">
 </div>
-
 <textarea name="wish" class="rsvp-input" rows="3" placeholder="Комментарий или пожелание (необязательно)"></textarea>
-
 <input type="text" name="company" class="rsvp-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-
 <button type="submit" class="btn rsvp-submit">Отправить ответ</button>
 <p class="rsvp-status" id="rsvpStatus" role="status"></p>
 <p class="rsvp-note">Если нужно будет изменить ответ — напишите нашему организатору</p>
@@ -939,6 +967,7 @@ fill="none" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
 </button>
 <audio id="bgMusic" loop preload="none"><source src="music.mp3" type="audio/mpeg"></audio>
 <script>
+// ===== LOCK SCREEN =====
 var lockScreen = document.getElementById('lockScreen');
 var lockSlider = document.getElementById('lockSlider');
 var lockHandle = document.getElementById('lockHandle');
@@ -947,7 +976,6 @@ var isDragging = false, startX = 0, currentX = 0, maxTranslate = 0, isUnlocked =
 if (sessionStorage.getItem('weddingUnlocked') === 'true') {
 lockScreen.classList.add('hidden');
 isUnlocked = true;
-// Экран уже разблокировали ранее — сразу запускаем анимацию имён
 document.querySelectorAll('.hero-names .name, .hero-names .amp').forEach(function(el) {
 el.style.animationPlayState = 'running';
 });
@@ -996,9 +1024,10 @@ if (!isUnlocked) {
 lockHandle.addEventListener('mousedown', startDrag); document.addEventListener('mousemove', moveDrag); document.addEventListener('mouseup', endDrag);
 lockHandle.addEventListener('touchstart', startDrag, { passive: false }); document.addEventListener('touchmove', moveDrag, { passive: false }); document.addEventListener('touchend', endDrag);
 lockSlider.addEventListener('dblclick', unlockScreen);
-// Запасной вход: тап по монограмме (для тех, у кого свайп не получился)
 document.getElementById('lockMonogram').addEventListener('click', unlockScreen);
 }
+
+// ===== COUNTDOWN =====
 var weddingDate = new Date('2027-09-18T14:00:00+03:00').getTime();
 function updateCountdown() {
 var distance = weddingDate - new Date().getTime();
@@ -1012,10 +1041,14 @@ document.getElementById('minutes').textContent = String(Math.floor((distance % (
 document.getElementById('seconds').textContent = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
 }
 updateCountdown(); setInterval(updateCountdown, 1000);
+
+// ===== REVEAL OBSERVER =====
 var revealObserver = new IntersectionObserver(function(entries) {
 entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
 }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+
+// ===== MUSIC =====
 var musicBtn = document.getElementById('musicBtn');
 var bgMusic = document.getElementById('bgMusic');
 var isPlaying = false;
@@ -1024,6 +1057,8 @@ if (isPlaying) { bgMusic.pause(); musicBtn.classList.remove('playing'); musicBtn
 else { bgMusic.volume = 0.4; bgMusic.play().catch(function(err) { console.warn('Не удалось воспроизвести музыку:', err); }); musicBtn.classList.add('playing'); musicBtn.setAttribute('aria-label', 'Выключить музыку'); }
 isPlaying = !isPlaying;
 });
+
+// ===== HERO SLIDER =====
 var slides = document.querySelectorAll('.hero-slider .slide');
 var currentSlide = 0;
 if (slides.length > 1) { setInterval(function() { slides[currentSlide].classList.remove('active'); currentSlide = (currentSlide + 1) % slides.length; slides[currentSlide].classList.add('active'); }, 5000); }
@@ -1037,28 +1072,25 @@ var offset = scrollY * 0.15;
 parallaxSlides.forEach(function(slide) { slide.style.backgroundPosition = 'center calc(50% + ' + offset + 'px)'; });
 }
 }
+
+// ===== SCROLL HANDLERS (UNIFIED rAF) =====
 var progressBar = document.getElementById('progressBar');
-function updateProgressBar() {
-var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-progressBar.style.width = docHeight > 0 ? (scrollTop / docHeight) * 100 + '%' : '0%';
-}
 var initialsBadge = document.getElementById('initialsBadge');
-function updateInitialsBadge() {
-if (window.pageYOffset > 300) initialsBadge.classList.add('visible'); else initialsBadge.classList.remove('visible');
-}
-// Единый обработчик скролла через requestAnimationFrame
 var scrollTicking = false;
 window.addEventListener('scroll', function() {
 if (scrollTicking) return;
 scrollTicking = true;
 requestAnimationFrame(function() {
 updateHeroParallax();
-updateProgressBar();
-updateInitialsBadge();
+var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+progressBar.style.width = docHeight > 0 ? (scrollTop / docHeight) * 100 + '%' : '0%';
+if (scrollTop > 300) initialsBadge.classList.add('visible'); else initialsBadge.classList.remove('visible');
 scrollTicking = false;
 });
 }, { passive: true });
+
+// ===== WISHES CAROUSEL =====
 const wishesTrack = document.getElementById('wishesTrack');
 const wishPrev = document.getElementById('wishPrev');
 const wishNext = document.getElementById('wishNext');
@@ -1108,7 +1140,8 @@ const diff = touchStartX - touchEndX;
 if (Math.abs(diff) > 50) { if (diff > 0) nextSlide(); else prevSlide(); }
 }
 updateDots();
-// Сердечки по клику на фон (формы и кнопки не трогаем)
+
+// ===== CLICK HEARTS =====
 let lastHeartTime = 0;
 document.addEventListener('click', function(e) {
 const now = Date.now();
@@ -1121,27 +1154,8 @@ heart.style.top = (e.clientY - 10) + 'px';
 const size = 15 + Math.random() * 10; heart.style.width = size + 'px'; heart.style.height = size + 'px';
 document.body.appendChild(heart); setTimeout(() => { heart.remove(); }, 1500);
 });
-// Динамическое сердечко на линии таймлайна
-(function() {
-const heart = document.getElementById('timelineHeart');
-const path = document.querySelector('.timeline-line');
-if (!heart || !path) return;
-function updateHeartPosition() {
-const timelineSection = document.querySelector('.timeline');
-if (!timelineSection) return;
-const pathLength = path.getTotalLength();
-const rect = timelineSection.getBoundingClientRect();
-const windowHeight = window.innerHeight;
-let progress = ((windowHeight - rect.top) / (windowHeight + rect.height)) * 1.4;
-progress = Math.max(0, Math.min(1, progress));
-const point = path.getPointAtLength(progress * pathLength);
-heart.setAttribute('transform', `translate(${point.x}, ${point.y}) scale(1.2)`);
-}
-window.addEventListener('scroll', updateHeartPosition, { passive: true });
-window.addEventListener('resize', updateHeartPosition);
-setTimeout(updateHeartPosition, 100);
-})();
-// Калибровка таймлайна: старт из краешка сердечка + хвост не заезжает на «24:00»
+
+// ===== TIMELINE CALIBRATION =====
 (function() {
 const svg = document.querySelector('.timeline-svg');
 const path = document.querySelector('.timeline-line');
@@ -1150,6 +1164,8 @@ const calHeart = document.querySelector('.heart-frame');
 const details = document.querySelector('.details');
 const timeline = document.querySelector('.timeline');
 const event4 = document.querySelector('.event-4');
+const heart = document.getElementById('timelineHeart');
+const dot = document.getElementById('timelineEndDot');
 if (!svg || !path || !calHeart) return;
 const SVG_NS = 'http://www.w3.org/2000/svg';
 const HEART_ANCHOR_Y = 52 / 60;
@@ -1161,8 +1177,7 @@ if (path2) path2.dataset.origD = path.getAttribute('d');
 let done = false;
 function align() {
 if (done) return;
-if (details && timeline &&
-details.classList.contains('visible') !== timeline.classList.contains('visible')) return;
+if (details && timeline && details.classList.contains('visible') !== timeline.classList.contains('visible')) return;
 const ctm = path.getScreenCTM();
 if (!ctm) return;
 const s = path.getPointAtLength(0);
@@ -1209,7 +1224,26 @@ path.setAttribute('d', newD);
 if (path2) path2.setAttribute('d', newD);
 tmp.remove();
 }
-function calibrate() { align(); trim(); }
+function placeDot() {
+if (!dot) return;
+const total = path.getTotalLength();
+if (!total) return;
+const p = path.getPointAtLength(total);
+dot.setAttribute('transform', 'translate(' + p.x + ', ' + p.y + ')');
+}
+function updateHeartPos() {
+if (!heart || !path) return;
+const tlSec = document.querySelector('.timeline');
+if (!tlSec) return;
+const pathLen = path.getTotalLength();
+const rect = tlSec.getBoundingClientRect();
+const wh = window.innerHeight;
+let progress = ((wh - rect.top) / (wh + rect.height)) * 1.4;
+progress = Math.max(0, Math.min(1, progress));
+const point = path.getPointAtLength(progress * pathLen);
+heart.setAttribute('transform', `translate(${point.x}, ${point.y}) scale(1.2)`);
+}
+function calibrate() { align(); trim(); placeDot(); updateHeartPos(); }
 let ticking = false;
 function onScroll() {
 if (ticking || done) return;
@@ -1227,32 +1261,65 @@ if (document.fonts && document.fonts.ready) document.fonts.ready.then(calibrate)
 calibrate();
 setTimeout(calibrate, 500);
 setTimeout(calibrate, 1500);
+new MutationObserver(placeDot).observe(path, { attributes: true, attributeFilter: ['d'] });
 })();
-// Точка на финише линии таймлайна
+
+// ===== DRESS CODE CAROUSEL =====
 (function() {
-const path = document.querySelector('.timeline-line');
-const dot = document.getElementById('timelineEndDot');
-if (!path || !dot) return;
-function place() {
-const total = path.getTotalLength();
-if (!total) return;
-const p = path.getPointAtLength(total);
-dot.setAttribute('transform', 'translate(' + p.x + ', ' + p.y + ')');
+const track = document.getElementById('dressTrack');
+const prevBtn = document.getElementById('dressPrev');
+const nextBtn = document.getElementById('dressNext');
+const dotsContainer = document.getElementById('dressDots');
+if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
+const slides = track.querySelectorAll('.dress-slide');
+const total = slides.length;
+if (total === 0) return;
+let current = 0, isAnimating = false, trackPos = 1;
+track.appendChild(slides[0].cloneNode(true));
+track.insertBefore(slides[total - 1].cloneNode(true), slides[0]);
+track.style.transition = 'none';
+track.style.transform = `translateX(-${trackPos * 100}%)`;
+slides.forEach((_, i) => {
+const dot = document.createElement('div'); dot.classList.add('dot');
+if (i === 0) dot.classList.add('active');
+dot.addEventListener('click', () => goTo(i));
+dotsContainer.appendChild(dot);
+});
+const dots = dotsContainer.querySelectorAll('.dot');
+function updateDots() { dots.forEach((d, i) => d.classList.toggle('active', i === current)); }
+function goTo(index) {
+if (isAnimating) return; isAnimating = true; current = index; trackPos = index + 1;
+track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+track.style.transform = `translateX(-${trackPos * 100}%)`; updateDots();
+setTimeout(() => { isAnimating = false; }, 500);
 }
-new MutationObserver(place).observe(path, { attributes: true, attributeFilter: ['d'] });
-window.addEventListener('load', place);
-window.addEventListener('resize', place);
-if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
-place();
-setTimeout(place, 500);
-setTimeout(place, 1500);
+function next() {
+if (isAnimating) return; isAnimating = true; current = (current + 1) % total; trackPos++;
+track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+track.style.transform = `translateX(-${trackPos * 100}%)`; updateDots();
+if (trackPos === total + 1) {
+setTimeout(() => { track.style.transition = 'none'; trackPos = 1; track.style.transform = `translateX(-${trackPos * 100}%)`; isAnimating = false; }, 500);
+} else { setTimeout(() => { isAnimating = false; }, 500); }
+}
+function prev() {
+if (isAnimating) return; isAnimating = true; current = (current - 1 + total) % total; trackPos--;
+track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+track.style.transform = `translateX(-${trackPos * 100}%)`; updateDots();
+if (trackPos === 0) {
+setTimeout(() => { track.style.transition = 'none'; trackPos = total; track.style.transform = `translateX(-${trackPos * 100}%)`; isAnimating = false; }, 500);
+} else { setTimeout(() => { isAnimating = false; }, 500); }
+}
+prevBtn.addEventListener('click', prev); nextBtn.addEventListener('click', next);
+let sx = 0, ex = 0;
+track.addEventListener('touchstart', e => { sx = e.changedTouches[0].screenX; }, { passive: true });
+track.addEventListener('touchend', e => { ex = e.changedTouches[0].screenX; const d = sx - ex; if (Math.abs(d) > 50) d > 0 ? next() : prev(); }, { passive: true });
 })();
-// ===== RSVP: отправка в Google-таблицу (исправленный no-cors) =====
+
+// ===== RSVP FORM =====
 (function() {
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz12x0Uvm_vBncDrGlPnvDn2Q1_l-CLGG6-cQeo3gJkDxJLzmwsF79Lj_7KWnZIM5R9yA/exec';
-const FALLBACK_PHONE = '79001234567'; // <-- замени на реальный номер Айгуль
+const FALLBACK_PHONE = '79001234567'; // <-- ЗАМЕНИ НА РЕАЛЬНЫЙ НОМЕР АЙГУЛЬ
 const TIMEOUT_MS = 8000;
-
 const form = document.getElementById('rsvpForm');
 const done = document.getElementById('rsvpDone');
 const doneText = document.getElementById('rsvpDoneText');
@@ -1260,7 +1327,6 @@ const status = document.getElementById('rsvpStatus');
 const guestFields = document.getElementById('rsvpGuestFields');
 if (!form) return;
 const btn = form.querySelector('.rsvp-submit');
-
 function celebrate() {
 if (typeof confetti !== 'function') return;
 confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 }, colors: ['#8B1A2B', '#F5E6E0', '#A63D4F', '#FFFFFF', '#D4A5A5'], disableForReducedMotion: true });
@@ -1269,20 +1335,15 @@ confetti({ particleCount: 80, angle: 60, spread: 55, origin: { x: 0, y: 0.6 }, c
 confetti({ particleCount: 80, angle: 120, spread: 55, origin: { x: 1, y: 0.6 }, colors: ['#F5E6E0', '#D4A5A5'] });
 }, 300);
 }
-
 function showDone(attendance) {
-form.hidden = true;
-done.hidden = false;
+form.hidden = true; done.hidden = false;
 doneText.textContent = attendance === 'Буду с радостью'
 ? 'Ваш ответ отправлен. До встречи 18 сентября!'
 : 'Спасибо, что сообщили. Нам будет вас не хватать ♥';
 }
-
 function resetBtn() { btn.disabled = false; btn.textContent = 'Отправить ответ'; }
-
 const saved = sessionStorage.getItem('weddingRsvp');
 if (saved) showDone(saved);
-
 form.querySelectorAll('input[name="attendance"]').forEach(function(radio) {
 radio.addEventListener('change', function() {
 const coming = this.value === 'Буду с радостью';
@@ -1290,10 +1351,8 @@ guestFields.hidden = !coming;
 if (coming) celebrate();
 });
 });
-
 form.addEventListener('submit', async function(e) {
-e.preventDefault();
-status.textContent = '';
+e.preventDefault(); status.textContent = '';
 const checked = form.querySelector('input[name="attendance"]:checked');
 const data = {
 name: form.guestName.value.trim(),
@@ -1307,32 +1366,23 @@ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8)
 if (!data.name) { status.textContent = 'Пожалуйста, представьтесь 🙂'; form.guestName.focus(); return; }
 if (!data.attendance) { status.textContent = 'Выберите, сможете ли вы прийти'; return; }
 if (data.attendance !== 'Буду с радостью') { data.drinks = []; data.food = ''; }
-
-// Проверка, что URL заполнен
 if (SCRIPT_URL.indexOf('https://script.google.com/') !== 0) {
-status.textContent = 'Форма не подключена к таблице (не заполнен SCRIPT_URL).';
-return;
+status.textContent = 'Форма не подключена к таблице (не заполнен SCRIPT_URL).'; return;
 }
-
 btn.disabled = true; btn.textContent = 'Отправляем…';
 const controller = new AbortController();
 const timer = setTimeout(function() { controller.abort(); }, TIMEOUT_MS);
-
 try {
 await fetch(SCRIPT_URL, {
-method: 'POST',
-mode: 'no-cors',
+method: 'POST', mode: 'no-cors',
 headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-body: JSON.stringify(data),
-signal: controller.signal
+body: JSON.stringify(data), signal: controller.signal
 });
 clearTimeout(timer);
-// При no-cors мы не можем проверить статус, но если нет ошибки сети — считаем успехом
 sessionStorage.setItem('weddingRsvp', data.attendance);
 showDone(data.attendance);
 } catch (err) {
-clearTimeout(timer);
-resetBtn();
+clearTimeout(timer); resetBtn();
 const text = 'RSVP на свадьбу 18.09.2027\nИмя: ' + data.name +
 '\nОтвет: ' + data.attendance +
 (data.drinks.length ? '\nНапитки: ' + data.drinks.join(', ') : '') +
