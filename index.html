@@ -1341,40 +1341,6 @@ status.innerHTML = 'Не удалось отправить автоматиче�
 }
 });
 })();
-
-form.addEventListener('submit', async function(e) {
-e.preventDefault();
-const btn = form.querySelector('.rsvp-submit');
-const checked = form.querySelector('input[name="attendance"]:checked');
-const data = {
-name: form.guestName.value.trim(),
-attendance: checked ? checked.value : '',
-drinks: Array.from(form.querySelectorAll('input[name="drinks"]:checked')).map(function(c) { return c.value; }),
-food: form.food.value.trim(),
-wish: form.wish.value.trim(),
-company: form.company.value,
-id: (Date.now().toString(36) + Math.random().toString(36).slice(2, 8))
-};
-if (!data.name) { status.textContent = 'Пожалуйста, представьтесь 🙂'; form.guestName.focus(); return; }
-if (!data.attendance) { status.textContent = 'Выберите, сможете ли вы прийти'; return; }
-if (data.attendance !== 'Буду с радостью') { data.drinks = []; data.food = ''; }
-
-btn.disabled = true; btn.textContent = 'Отправляем…'; status.textContent = '';
-try {
-await fetch(SCRIPT_URL, {
-method: 'POST',
-mode: 'no-cors',
-headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-body: JSON.stringify(data)
-});
-sessionStorage.setItem('weddingRsvp', data.attendance);
-showDone(data.attendance);
-} catch (err) {
-status.textContent = 'Не удалось отправить. Проверьте интернет и попробуйте ещё раз.';
-btn.disabled = false; btn.textContent = 'Отправить ответ';
-}
-});
-})();
 </script>
 </body>
 </html>
