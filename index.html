@@ -1247,10 +1247,10 @@ place();
 setTimeout(place, 500);
 setTimeout(place, 1500);
 })();
-// ===== RSVP: отправка в Google-таблицу (таймаут + запасной канал) =====
+// ===== RSVP: отправка в Google-таблицу (исправленный no-cors) =====
 (function() {
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz12x0Uvm_vBncDrGlPnvDn2Q1_l-CLGG6-cQeo3gJkDxJLzmwsF79Lj_7KWnZIM5R9yA/exec';
-const FALLBACK_PHONE = '79001234567'; // <-- реальный номер Айгуль, без плюса
+const FALLBACK_PHONE = '79001234567'; // <-- замени на реальный номер Айгуль
 const TIMEOUT_MS = 8000;
 
 const form = document.getElementById('rsvpForm');
@@ -1307,8 +1307,11 @@ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8)
 if (!data.name) { status.textContent = 'Пожалуйста, представьтесь 🙂'; form.guestName.focus(); return; }
 if (!data.attendance) { status.textContent = 'Выберите, сможете ли вы прийти'; return; }
 if (data.attendance !== 'Буду с радостью') { data.drinks = []; data.food = ''; }
+
+// Проверка, что URL заполнен
 if (SCRIPT_URL.indexOf('https://script.google.com/') !== 0) {
-status.textContent = 'Форма не подключена к таблице (не заполнен SCRIPT_URL).'; return;
+status.textContent = 'Форма не подключена к таблице (не заполнен SCRIPT_URL).';
+return;
 }
 
 btn.disabled = true; btn.textContent = 'Отправляем…';
@@ -1324,6 +1327,7 @@ body: JSON.stringify(data),
 signal: controller.signal
 });
 clearTimeout(timer);
+// При no-cors мы не можем проверить статус, но если нет ошибки сети — считаем успехом
 sessionStorage.setItem('weddingRsvp', data.attendance);
 showDone(data.attendance);
 } catch (err) {
